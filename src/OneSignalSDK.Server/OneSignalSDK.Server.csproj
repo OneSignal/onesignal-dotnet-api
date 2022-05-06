@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>OneSignalSDK.Server</AssemblyName>
+    <PackageId>OneSignalSDK.Server</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>OneSignal</Authors>
+    <Company>OneSignal</Company>
+    <AssemblyTitle>OneSignal Server SDK</AssemblyTitle>
+    <Description>OneSignal is a free push notification service for mobile apps. Integrate OneSignal with your backend events, data, and more.</Description>
+    <Copyright>Copyrite 2022 OneSignal</Copyright>
+    <RootNamespace>OneSignalSDK.Server</RootNamespace>
+    <Version>1.0.2</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\OneSignalSDK.Server.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/OneSignal/onesignal-dotnet-client.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>C#, OneSignal, push</PackageTags>
+    <Title>OneSignal Server SDK</Title>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>nuget_icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/OneSignal/onesignal-dotnet-client</PackageProjectUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="1.8.0"/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+    <PackageReference Include="RestSharp" Version="106.13.0"/>
+    <PackageReference Include="Polly" Version="7.2.3"/>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../../nuget_icon.png" Pack="true" PackagePath=""/>
+    <None Include="../../LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>
+</Project>
