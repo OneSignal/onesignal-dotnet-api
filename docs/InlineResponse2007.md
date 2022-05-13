@@ -1,11 +1,10 @@
-# OneSignalSDK.Server.Model.InlineResponse2003
+# OneSignalSDK.Server.Model.InlineResponse2007
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Success** | **bool** |  | [optional] 
-**Id** | **string** |  | [optional] 
+**Success** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
