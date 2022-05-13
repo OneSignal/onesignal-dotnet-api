@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 <a name="createplayer"></a>
 # **CreatePlayer**
-> InlineResponse2003 CreatePlayer (Player player)
+> InlineResponse2005 CreatePlayer (Player player)
 
 Add a device
 
@@ -283,7 +283,7 @@ namespace Example
             try
             {
                 // Add a device
-                InlineResponse2003 result = apiInstance.CreatePlayer(player);
+                InlineResponse2005 result = apiInstance.CreatePlayer(player);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteplayer"></a>
 # **DeletePlayer**
-> InlineResponse2004 DeletePlayer (string appId, string playerId)
+> InlineResponse2007 DeletePlayer (string appId, string playerId)
 
 Delete a user record
 
@@ -436,7 +436,7 @@ namespace Example
             try
             {
                 // Delete a user record
-                InlineResponse2004 result = apiInstance.DeletePlayer(appId, playerId);
+                InlineResponse2007 result = apiInstance.DeletePlayer(appId, playerId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 <a name="exportplayers"></a>
 # **ExportPlayers**
-> InlineResponse2005 ExportPlayers (string appId, ExportPlayersRequestBody exportPlayersRequestBody = null)
+> InlineResponse2008 ExportPlayers (string appId, ExportPlayersRequestBody exportPlayersRequestBody = null)
 
 CSV export
 
@@ -592,7 +592,7 @@ namespace Example
             try
             {
                 // CSV export
-                InlineResponse2005 result = apiInstance.ExportPlayers(appId, exportPlayersRequestBody);
+                InlineResponse2008 result = apiInstance.ExportPlayers(appId, exportPlayersRequestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -615,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
