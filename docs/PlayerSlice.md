@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.PlayerSlice
+# OneSignalApi.Model.PlayerSlice
 
 ## Properties
 

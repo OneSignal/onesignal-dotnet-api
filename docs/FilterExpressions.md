@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.FilterExpressions
+# OneSignalApi.Model.FilterExpressions
 
 ## Properties
 

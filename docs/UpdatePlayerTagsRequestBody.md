@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.UpdatePlayerTagsRequestBody
+# OneSignalApi.Model.UpdatePlayerTagsRequestBody
 
 ## Properties
 

@@ -1,9 +1,9 @@
-# OneSignalSDK.Server - the C# library for the OneSignal
+# OneSignalApi - the C# library for the OneSignal
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
 - API version: 1.0.1
-- SDK version: 1.0.1
+- SDK version: 1.0.0
 - Build package: org.openapitools.codegen.languages.CSharpNetCoreClientCodegen
     For more information, please visit [https://onesignal.com](https://onesignal.com)
 
@@ -38,9 +38,9 @@ Generate the DLL using your preferred tool (e.g. `dotnet build`)
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 ```
 <a name="usage"></a>
 ## Usage
@@ -59,9 +59,9 @@ c.Proxy = webProxy;
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {

@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.GetNotificationRequestBody
+# OneSignalApi.Model.GetNotificationRequestBody
 
 ## Properties
 

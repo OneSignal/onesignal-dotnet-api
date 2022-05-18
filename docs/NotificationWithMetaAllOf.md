@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.NotificationWithMetaAllOf
+# OneSignalApi.Model.NotificationWithMetaAllOf
 
 ## Properties
 

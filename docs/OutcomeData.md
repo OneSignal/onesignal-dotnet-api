@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.OutcomeData
+# OneSignalApi.Model.OutcomeData
 
 ## Properties
 

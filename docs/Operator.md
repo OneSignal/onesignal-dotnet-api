@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.Operator
+# OneSignalApi.Model.Operator
 
 ## Properties
 
