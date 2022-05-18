@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.PlayerNotificationTarget
+# OneSignalApi.Model.PlayerNotificationTarget
 
 ## Properties
 

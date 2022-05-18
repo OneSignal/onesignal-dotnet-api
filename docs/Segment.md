@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.Segment
+# OneSignalApi.Model.Segment
 
 ## Properties
 

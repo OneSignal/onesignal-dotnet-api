@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.StringMap
+# OneSignalApi.Model.StringMap
 
 ## Properties
 

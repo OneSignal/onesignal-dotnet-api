@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.Button
+# OneSignalApi.Model.Button
 
 ## Properties
 

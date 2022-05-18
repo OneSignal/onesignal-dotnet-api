@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.NotificationAllOfAndroidBackgroundLayout
+# OneSignalApi.Model.NotificationAllOfAndroidBackgroundLayout
 Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. 
 
 ## Properties

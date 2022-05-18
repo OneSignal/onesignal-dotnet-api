@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Api.DefaultApi
+# OneSignalApi.Api.DefaultApi
 
 All URIs are relative to *https://onesignal.com/api/v1*
 
@@ -37,9 +37,9 @@ Used to stop a scheduled or currently outgoing notification
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -113,9 +113,9 @@ Creates a new OneSignal app
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -187,9 +187,9 @@ Sends notifications to your users
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -262,9 +262,9 @@ Register a new device to one of your OneSignal apps &#x1F6A7; Don't use this Thi
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -336,9 +336,9 @@ Create segments visible and usable in the dashboard and API - Required: OneSigna
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -414,9 +414,9 @@ Delete player - Required: Used to delete a single, specific Player ID record fro
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -492,9 +492,9 @@ Delete segments (not user devices) - Required: OneSignal Paid Plan You can delet
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -570,9 +570,9 @@ Generate a compressed CSV export of all of your current user data This method ca
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -647,9 +647,9 @@ View the details of a single OneSignal app
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -721,9 +721,9 @@ View the details of all of your current OneSignal apps
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -791,9 +791,9 @@ View the details of a single notification and outcomes associated with it
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -867,9 +867,9 @@ Notification History
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -944,9 +944,9 @@ View the details of multiple notifications
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -1024,9 +1024,9 @@ View the details of all the outcomes associated with your app  &#x1F6A7; Require
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -1108,9 +1108,9 @@ View the details of an existing device in one of your OneSignal apps
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -1186,9 +1186,9 @@ View the details of multiple devices in one of your OneSignal apps Unavailable f
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -1264,9 +1264,9 @@ Updates the name or configuration settings of an existing OneSignal app
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -1340,9 +1340,9 @@ Update an existing device in one of your OneSignal apps
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {
@@ -1416,9 +1416,9 @@ Update an existing device's tags in one of your OneSignal apps using the Externa
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using OneSignalSDK.Server.Api;
-using OneSignalSDK.Server.Client;
-using OneSignalSDK.Server.Model;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
 
 namespace Example
 {

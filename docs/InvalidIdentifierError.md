@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.InvalidIdentifierError
+# OneSignalApi.Model.InvalidIdentifierError
 
 ## Properties
 

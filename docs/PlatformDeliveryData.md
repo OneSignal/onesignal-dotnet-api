@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.PlatformDeliveryData
+# OneSignalApi.Model.PlatformDeliveryData
 Hash of delivery statistics broken out by target device platform.
 
 ## Properties

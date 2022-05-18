@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.Notification200Errors
+# OneSignalApi.Model.Notification200Errors
 
 ## Properties
 

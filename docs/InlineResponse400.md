@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.InlineResponse400
+# OneSignalApi.Model.InlineResponse400
 
 ## Properties
 

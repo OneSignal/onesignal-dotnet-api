@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.Purchase
+# OneSignalApi.Model.Purchase
 
 ## Properties
 

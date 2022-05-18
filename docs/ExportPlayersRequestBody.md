@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.ExportPlayersRequestBody
+# OneSignalApi.Model.ExportPlayersRequestBody
 
 ## Properties
 

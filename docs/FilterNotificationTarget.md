@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.FilterNotificationTarget
+# OneSignalApi.Model.FilterNotificationTarget
 
 ## Properties
 

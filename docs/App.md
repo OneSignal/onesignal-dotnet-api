@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.App
+# OneSignalApi.Model.App
 
 ## Properties
 

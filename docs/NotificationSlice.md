@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.NotificationSlice
+# OneSignalApi.Model.NotificationSlice
 
 ## Properties
 

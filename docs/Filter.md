@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.Filter
+# OneSignalApi.Model.Filter
 
 ## Properties
 

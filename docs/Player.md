@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.Player
+# OneSignalApi.Model.Player
 
 ## Properties
 

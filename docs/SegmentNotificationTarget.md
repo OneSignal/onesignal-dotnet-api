@@ -1,4 +1,4 @@
-# OneSignalSDK.Server.Model.SegmentNotificationTarget
+# OneSignalApi.Model.SegmentNotificationTarget
 
 ## Properties
 
