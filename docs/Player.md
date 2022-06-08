@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Sdk** | **string** | Name and version of the sdk/plugin that&#39;s calling this API method (if any) | [optional] 
 **SessionCount** | **int** | Number of times the user has played the game, defaults to 1 | [optional] 
 **Tags** | **Object** | Custom tags for the player. Only support string and integer key value pairs. Does not support arrays or other nested objects. Setting a tag value to null or an empty string will remove the tag. Example: {\&quot;foo\&quot;:\&quot;bar\&quot;,\&quot;this\&quot;:\&quot;that\&quot;} Limitations: - 100 tags per call - Android SDK users: tags cannot be removed or changed via API if set through SDK sendTag methods. Recommended to only tag devices with 1 kilobyte of data Please consider using your own Database to save more than 1 kilobyte of data. See: Internal Database &amp; CRM  | [optional] 
-**AmountSpent** | **string** | Amount the user has spent in USD, up to two decimal places | [optional] 
+**AmountSpent** | **decimal** | Amount the user has spent in USD, up to two decimal places | [optional] 
 **CreatedAt** | **long** | Unixtime when the player joined the game | [optional] 
 **Playtime** | **long** | Seconds player was running your app. | [optional] 
 **BadgeCount** | **int** | Current iOS badge count displayed on the app icon NOTE: Not supported for apps created after June 2018, since badge count for apps created after this date are handled on the client.  | [optional] 

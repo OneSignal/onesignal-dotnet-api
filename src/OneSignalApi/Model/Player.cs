@@ -65,7 +65,7 @@ namespace OneSignalApi.Model
         /// <param name="_long">Longitude of the device, used for geotagging to segment on..</param>
         /// <param name="lat">Latitude of the device, used for geotagging to segment on..</param>
         /// <param name="country">Country code in the ISO 3166-1 Alpha 2 format.</param>
-        public Player(string appId = default(string), int deviceType = default(int), string externalUserId = default(string), string externalUserIdAuthHash = default(string), string emailAuthHash = default(string), string identifier = default(string), string language = default(string), int? timezone = default(int?), string gameVersion = default(string), string deviceModel = default(string), string deviceOs = default(string), string adId = default(string), string sdk = default(string), int sessionCount = default(int), Object tags = default(Object), string amountSpent = default(string), long createdAt = default(long), long playtime = default(long), int badgeCount = default(int), int lastActive = default(int), int notificationTypes = default(int), int? testType = default(int?), decimal _long = default(decimal), decimal lat = default(decimal), string country = default(string))
+        public Player(string appId = default(string), int deviceType = default(int), string externalUserId = default(string), string externalUserIdAuthHash = default(string), string emailAuthHash = default(string), string identifier = default(string), string language = default(string), int? timezone = default(int?), string gameVersion = default(string), string deviceModel = default(string), string deviceOs = default(string), string adId = default(string), string sdk = default(string), int sessionCount = default(int), Object tags = default(Object), decimal amountSpent = default(decimal), long createdAt = default(long), long playtime = default(long), int badgeCount = default(int), int lastActive = default(int), int notificationTypes = default(int), int? testType = default(int?), decimal _long = default(decimal), decimal lat = default(decimal), string country = default(string))
         {
             this.DeviceType = deviceType;
             this.AppId = appId;
@@ -233,7 +233,7 @@ namespace OneSignalApi.Model
         /// </summary>
         /// <value>Amount the user has spent in USD, up to two decimal places</value>
         [DataMember(Name = "amount_spent", EmitDefaultValue = false)]
-        public string AmountSpent { get; set; }
+        public decimal AmountSpent { get; set; }
 
         /// <summary>
         /// Unixtime when the player joined the game
@@ -452,8 +452,7 @@ namespace OneSignalApi.Model
                 ) && 
                 (
                     this.AmountSpent == input.AmountSpent ||
-                    (this.AmountSpent != null &&
-                    this.AmountSpent.Equals(input.AmountSpent))
+                    this.AmountSpent.Equals(input.AmountSpent)
                 ) && 
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -563,10 +562,7 @@ namespace OneSignalApi.Model
                 {
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
                 }
-                if (this.AmountSpent != null)
-                {
-                    hashCode = (hashCode * 59) + this.AmountSpent.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AmountSpent.GetHashCode();
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 hashCode = (hashCode * 59) + this.Playtime.GetHashCode();
                 hashCode = (hashCode * 59) + this.BadgeCount.GetHashCode();
