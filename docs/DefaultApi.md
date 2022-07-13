@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 <a name="cancelnotification"></a>
 # **CancelNotification**
-> InlineResponse2001 CancelNotification (string appId, string notificationId)
+> CancelNotificationSuccessResponse CancelNotification (string appId, string notificationId)
 
 Stop a scheduled or currently outgoing notification
 
@@ -59,7 +59,7 @@ namespace Example
             try
             {
                 // Stop a scheduled or currently outgoing notification
-                InlineResponse2001 result = apiInstance.CancelNotification(appId, notificationId);
+                CancelNotificationSuccessResponse result = apiInstance.CancelNotification(appId, notificationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**CancelNotificationSuccessResponse**](CancelNotificationSuccessResponse.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 <a name="createnotification"></a>
 # **CreateNotification**
-> InlineResponse200 CreateNotification (Notification notification)
+> CreateNotificationSuccessResponse CreateNotification (Notification notification)
 
 Create notification
 
@@ -208,7 +208,7 @@ namespace Example
             try
             {
                 // Create notification
-                InlineResponse200 result = apiInstance.CreateNotification(notification);
+                CreateNotificationSuccessResponse result = apiInstance.CreateNotification(notification);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**CreateNotificationSuccessResponse**](CreateNotificationSuccessResponse.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 <a name="createplayer"></a>
 # **CreatePlayer**
-> InlineResponse2005 CreatePlayer (Player player)
+> CreatePlayerSuccessResponse CreatePlayer (Player player)
 
 Add a device
 
@@ -283,7 +283,7 @@ namespace Example
             try
             {
                 // Add a device
-                InlineResponse2005 result = apiInstance.CreatePlayer(player);
+                CreatePlayerSuccessResponse result = apiInstance.CreatePlayer(player);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**CreatePlayerSuccessResponse**](CreatePlayerSuccessResponse.md)
 
 ### Authorization
 
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 <a name="createsegments"></a>
 # **CreateSegments**
-> InlineResponse201 CreateSegments (string appId, Segment segment = null)
+> CreateSegmentSuccessResponse CreateSegments (string appId, Segment segment = null)
 
 Create Segments
 
@@ -358,7 +358,7 @@ namespace Example
             try
             {
                 // Create Segments
-                InlineResponse201 result = apiInstance.CreateSegments(appId, segment);
+                CreateSegmentSuccessResponse result = apiInstance.CreateSegments(appId, segment);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**CreateSegmentSuccessResponse**](CreateSegmentSuccessResponse.md)
 
 ### Authorization
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteplayer"></a>
 # **DeletePlayer**
-> InlineResponse2007 DeletePlayer (string appId, string playerId)
+> DeletePlayerSuccessResponse DeletePlayer (string appId, string playerId)
 
 Delete a user record
 
@@ -436,7 +436,7 @@ namespace Example
             try
             {
                 // Delete a user record
-                InlineResponse2007 result = apiInstance.DeletePlayer(appId, playerId);
+                DeletePlayerSuccessResponse result = apiInstance.DeletePlayer(appId, playerId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**DeletePlayerSuccessResponse**](DeletePlayerSuccessResponse.md)
 
 ### Authorization
 
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 
 <a name="deletesegments"></a>
 # **DeleteSegments**
-> InlineResponse2001 DeleteSegments (string appId, string segmentId)
+> DeleteSegmentSuccessResponse DeleteSegments (string appId, string segmentId)
 
 Delete Segments
 
@@ -514,7 +514,7 @@ namespace Example
             try
             {
                 // Delete Segments
-                InlineResponse2001 result = apiInstance.DeleteSegments(appId, segmentId);
+                DeleteSegmentSuccessResponse result = apiInstance.DeleteSegments(appId, segmentId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**DeleteSegmentSuccessResponse**](DeleteSegmentSuccessResponse.md)
 
 ### Authorization
 
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 <a name="exportplayers"></a>
 # **ExportPlayers**
-> InlineResponse2008 ExportPlayers (string appId, ExportPlayersRequestBody exportPlayersRequestBody = null)
+> ExportPlayersSuccessResponse ExportPlayers (string appId, ExportPlayersRequestBody exportPlayersRequestBody = null)
 
 CSV export
 
@@ -592,7 +592,7 @@ namespace Example
             try
             {
                 // CSV export
-                InlineResponse2008 result = apiInstance.ExportPlayers(appId, exportPlayersRequestBody);
+                ExportPlayersSuccessResponse result = apiInstance.ExportPlayers(appId, exportPlayersRequestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -615,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**ExportPlayersSuccessResponse**](ExportPlayersSuccessResponse.md)
 
 ### Authorization
 
@@ -857,7 +857,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotificationhistory"></a>
 # **GetNotificationHistory**
-> InlineResponse2002 GetNotificationHistory (string notificationId, GetNotificationRequestBody getNotificationRequestBody)
+> NotificationHistorySuccessResponse GetNotificationHistory (string notificationId, GetNotificationRequestBody getNotificationRequestBody)
 
 Notification History
 
@@ -889,7 +889,7 @@ namespace Example
             try
             {
                 // Notification History
-                InlineResponse2002 result = apiInstance.GetNotificationHistory(notificationId, getNotificationRequestBody);
+                NotificationHistorySuccessResponse result = apiInstance.GetNotificationHistory(notificationId, getNotificationRequestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -912,7 +912,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**NotificationHistorySuccessResponse**](NotificationHistorySuccessResponse.md)
 
 ### Authorization
 
@@ -1330,7 +1330,7 @@ Name | Type | Description  | Notes
 
 <a name="updateplayer"></a>
 # **UpdatePlayer**
-> InlineResponse2001 UpdatePlayer (string playerId, Player player)
+> UpdatePlayerSuccessResponse UpdatePlayer (string playerId, Player player)
 
 Edit device
 
@@ -1362,7 +1362,7 @@ namespace Example
             try
             {
                 // Edit device
-                InlineResponse2001 result = apiInstance.UpdatePlayer(playerId, player);
+                UpdatePlayerSuccessResponse result = apiInstance.UpdatePlayer(playerId, player);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1385,7 +1385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**UpdatePlayerSuccessResponse**](UpdatePlayerSuccessResponse.md)
 
 ### Authorization
 
@@ -1406,7 +1406,7 @@ Name | Type | Description  | Notes
 
 <a name="updateplayertags"></a>
 # **UpdatePlayerTags**
-> InlineResponse2001 UpdatePlayerTags (string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = null)
+> UpdatePlayerTagsSuccessResponse UpdatePlayerTags (string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = null)
 
 Edit tags with external user id
 
@@ -1439,7 +1439,7 @@ namespace Example
             try
             {
                 // Edit tags with external user id
-                InlineResponse2001 result = apiInstance.UpdatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody);
+                UpdatePlayerTagsSuccessResponse result = apiInstance.UpdatePlayerTags(appId, externalUserId, updatePlayerTagsRequestBody);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1463,7 +1463,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**UpdatePlayerTagsSuccessResponse**](UpdatePlayerTagsSuccessResponse.md)
 
 ### Authorization
 

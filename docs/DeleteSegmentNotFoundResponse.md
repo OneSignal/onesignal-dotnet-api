@@ -1,4 +1,4 @@
-# OneSignalApi.Model.InlineResponse2001
+# OneSignalApi.Model.DeleteSegmentNotFoundResponse
 
 ## Properties
 

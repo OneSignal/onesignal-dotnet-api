@@ -1,4 +1,4 @@
-# OneSignalApi.Model.InlineResponse200
+# OneSignalApi.Model.CreateNotificationSuccessResponse
 
 ## Properties
 

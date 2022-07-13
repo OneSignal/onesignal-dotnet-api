@@ -27,20 +27,20 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// InlineResponse4002
+    /// CreatePlayerSuccessResponse
     /// </summary>
-    [DataContract(Name = "inline_response_400_2")]
-    public partial class InlineResponse4002 : IEquatable<InlineResponse4002>, IValidatableObject
+    [DataContract(Name = "CreatePlayerSuccessResponse")]
+    public partial class CreatePlayerSuccessResponse : IEquatable<CreatePlayerSuccessResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse4002" /> class.
+        /// Initializes a new instance of the <see cref="CreatePlayerSuccessResponse" /> class.
         /// </summary>
         /// <param name="success">success.</param>
-        /// <param name="errors">errors.</param>
-        public InlineResponse4002(bool success = default(bool), List<string> errors = default(List<string>))
+        /// <param name="id">id.</param>
+        public CreatePlayerSuccessResponse(bool success = default(bool), string id = default(string))
         {
             this.Success = success;
-            this.Errors = errors;
+            this.Id = id;
         }
 
         /// <summary>
@@ -50,10 +50,10 @@ namespace OneSignalApi.Model
         public bool Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets Errors
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "errors", EmitDefaultValue = false)]
-        public List<string> Errors { get; set; }
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineResponse4002 {\n");
+            sb.Append("class CreatePlayerSuccessResponse {\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
-            sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +85,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse4002);
+            return this.Equals(input as CreatePlayerSuccessResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse4002 instances are equal
+        /// Returns true if CreatePlayerSuccessResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse4002 to be compared</param>
+        /// <param name="input">Instance of CreatePlayerSuccessResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse4002 input)
+        public bool Equals(CreatePlayerSuccessResponse input)
         {
             if (input == null)
             {
@@ -105,10 +105,9 @@ namespace OneSignalApi.Model
                     this.Success.Equals(input.Success)
                 ) && 
                 (
-                    this.Errors == input.Errors ||
-                    this.Errors != null &&
-                    input.Errors != null &&
-                    this.Errors.SequenceEqual(input.Errors)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 );
         }
 
@@ -122,9 +121,9 @@ namespace OneSignalApi.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Success.GetHashCode();
-                if (this.Errors != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
                 return hashCode;
             }

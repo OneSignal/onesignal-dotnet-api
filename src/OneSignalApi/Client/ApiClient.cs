@@ -303,7 +303,7 @@ namespace OneSignalApi.Client
             }
 
             // Always add the One Signal telemetry to the request.
-            request.AddHeader("OS-Usage-Data", "kind=sdk, name=onesignal-dotnet, version=1.0.1");
+            request.AddHeader("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-dotnet, version=1.0.1");
 
             if (configuration.DefaultHeaders != null)
             {    

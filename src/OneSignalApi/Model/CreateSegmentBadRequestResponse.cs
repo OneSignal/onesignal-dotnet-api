@@ -27,17 +27,17 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// InlineResponse4001
+    /// CreateSegmentBadRequestResponse
     /// </summary>
-    [DataContract(Name = "inline_response_400_1")]
-    public partial class InlineResponse4001 : IEquatable<InlineResponse4001>, IValidatableObject
+    [DataContract(Name = "CreateSegmentBadRequestResponse")]
+    public partial class CreateSegmentBadRequestResponse : IEquatable<CreateSegmentBadRequestResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse4001" /> class.
+        /// Initializes a new instance of the <see cref="CreateSegmentBadRequestResponse" /> class.
         /// </summary>
         /// <param name="success">success.</param>
         /// <param name="errors">errors.</param>
-        public InlineResponse4001(string success = default(string), List<string> errors = default(List<string>))
+        public CreateSegmentBadRequestResponse(bool success = default(bool), List<string> errors = default(List<string>))
         {
             this.Success = success;
             this.Errors = errors;
@@ -46,8 +46,8 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Gets or Sets Success
         /// </summary>
-        [DataMember(Name = "success", EmitDefaultValue = false)]
-        public string Success { get; set; }
+        [DataMember(Name = "success", EmitDefaultValue = true)]
+        public bool Success { get; set; }
 
         /// <summary>
         /// Gets or Sets Errors
@@ -62,7 +62,7 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineResponse4001 {\n");
+            sb.Append("class CreateSegmentBadRequestResponse {\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
@@ -85,15 +85,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse4001);
+            return this.Equals(input as CreateSegmentBadRequestResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse4001 instances are equal
+        /// Returns true if CreateSegmentBadRequestResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse4001 to be compared</param>
+        /// <param name="input">Instance of CreateSegmentBadRequestResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse4001 input)
+        public bool Equals(CreateSegmentBadRequestResponse input)
         {
             if (input == null)
             {
@@ -102,8 +102,7 @@ namespace OneSignalApi.Model
             return 
                 (
                     this.Success == input.Success ||
-                    (this.Success != null &&
-                    this.Success.Equals(input.Success))
+                    this.Success.Equals(input.Success)
                 ) && 
                 (
                     this.Errors == input.Errors ||
@@ -122,10 +121,7 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Success != null)
-                {
-                    hashCode = (hashCode * 59) + this.Success.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Success.GetHashCode();
                 if (this.Errors != null)
                 {
                     hashCode = (hashCode * 59) + this.Errors.GetHashCode();

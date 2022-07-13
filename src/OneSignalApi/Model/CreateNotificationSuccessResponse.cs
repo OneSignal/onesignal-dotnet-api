@@ -27,29 +27,29 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// InlineResponse200
+    /// CreateNotificationSuccessResponse
     /// </summary>
-    [DataContract(Name = "inline_response_200")]
-    public partial class InlineResponse200 : IEquatable<InlineResponse200>, IValidatableObject
+    [DataContract(Name = "CreateNotificationSuccessResponse")]
+    public partial class CreateNotificationSuccessResponse : IEquatable<CreateNotificationSuccessResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
+        /// Initializes a new instance of the <see cref="CreateNotificationSuccessResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InlineResponse200() { }
+        protected CreateNotificationSuccessResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
+        /// Initializes a new instance of the <see cref="CreateNotificationSuccessResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="recipients">Estimated number of subscribers targetted by notification. (required).</param>
         /// <param name="externalId">externalId.</param>
         /// <param name="errors">errors.</param>
-        public InlineResponse200(string id = default(string), int recipients = default(int), string externalId = default(string), Notification200Errors errors = default(Notification200Errors))
+        public CreateNotificationSuccessResponse(string id = default(string), int recipients = default(int), string externalId = default(string), Notification200Errors errors = default(Notification200Errors))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for InlineResponse200 and cannot be null");
+                throw new ArgumentNullException("id is a required property for CreateNotificationSuccessResponse and cannot be null");
             }
             this.Id = id;
             this.Recipients = recipients;
@@ -89,7 +89,7 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineResponse200 {\n");
+            sb.Append("class CreateNotificationSuccessResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Recipients: ").Append(Recipients).Append("\n");
             sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
@@ -114,15 +114,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse200);
+            return this.Equals(input as CreateNotificationSuccessResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse200 instances are equal
+        /// Returns true if CreateNotificationSuccessResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse200 to be compared</param>
+        /// <param name="input">Instance of CreateNotificationSuccessResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse200 input)
+        public bool Equals(CreateNotificationSuccessResponse input)
         {
             if (input == null)
             {
