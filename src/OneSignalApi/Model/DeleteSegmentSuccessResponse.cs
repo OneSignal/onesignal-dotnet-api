@@ -27,16 +27,16 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// InlineResponse2001
+    /// DeleteSegmentSuccessResponse
     /// </summary>
-    [DataContract(Name = "inline_response_200_1")]
-    public partial class InlineResponse2001 : IEquatable<InlineResponse2001>, IValidatableObject
+    [DataContract(Name = "DeleteSegmentSuccessResponse")]
+    public partial class DeleteSegmentSuccessResponse : IEquatable<DeleteSegmentSuccessResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
+        /// Initializes a new instance of the <see cref="DeleteSegmentSuccessResponse" /> class.
         /// </summary>
         /// <param name="success">success.</param>
-        public InlineResponse2001(bool success = default(bool))
+        public DeleteSegmentSuccessResponse(bool success = default(bool))
         {
             this.Success = success;
         }
@@ -54,7 +54,7 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineResponse2001 {\n");
+            sb.Append("class DeleteSegmentSuccessResponse {\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -76,15 +76,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2001);
+            return this.Equals(input as DeleteSegmentSuccessResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2001 instances are equal
+        /// Returns true if DeleteSegmentSuccessResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2001 to be compared</param>
+        /// <param name="input">Instance of DeleteSegmentSuccessResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2001 input)
+        public bool Equals(DeleteSegmentSuccessResponse input)
         {
             if (input == null)
             {

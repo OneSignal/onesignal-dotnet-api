@@ -27,25 +27,25 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// InlineResponse2008
+    /// DeletePlayerNotFoundResponse
     /// </summary>
-    [DataContract(Name = "inline_response_200_8")]
-    public partial class InlineResponse2008 : IEquatable<InlineResponse2008>, IValidatableObject
+    [DataContract(Name = "DeletePlayerNotFoundResponse")]
+    public partial class DeletePlayerNotFoundResponse : IEquatable<DeletePlayerNotFoundResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2008" /> class.
+        /// Initializes a new instance of the <see cref="DeletePlayerNotFoundResponse" /> class.
         /// </summary>
-        /// <param name="csvFileUrl">csvFileUrl.</param>
-        public InlineResponse2008(string csvFileUrl = default(string))
+        /// <param name="success">success.</param>
+        public DeletePlayerNotFoundResponse(string success = default(string))
         {
-            this.CsvFileUrl = csvFileUrl;
+            this.Success = success;
         }
 
         /// <summary>
-        /// Gets or Sets CsvFileUrl
+        /// Gets or Sets Success
         /// </summary>
-        [DataMember(Name = "csv_file_url", EmitDefaultValue = false)]
-        public string CsvFileUrl { get; set; }
+        [DataMember(Name = "success", EmitDefaultValue = false)]
+        public string Success { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,8 +54,8 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineResponse2008 {\n");
-            sb.Append("  CsvFileUrl: ").Append(CsvFileUrl).Append("\n");
+            sb.Append("class DeletePlayerNotFoundResponse {\n");
+            sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +76,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2008);
+            return this.Equals(input as DeletePlayerNotFoundResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2008 instances are equal
+        /// Returns true if DeletePlayerNotFoundResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2008 to be compared</param>
+        /// <param name="input">Instance of DeletePlayerNotFoundResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2008 input)
+        public bool Equals(DeletePlayerNotFoundResponse input)
         {
             if (input == null)
             {
@@ -92,9 +92,9 @@ namespace OneSignalApi.Model
             }
             return 
                 (
-                    this.CsvFileUrl == input.CsvFileUrl ||
-                    (this.CsvFileUrl != null &&
-                    this.CsvFileUrl.Equals(input.CsvFileUrl))
+                    this.Success == input.Success ||
+                    (this.Success != null &&
+                    this.Success.Equals(input.Success))
                 );
         }
 
@@ -107,9 +107,9 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CsvFileUrl != null)
+                if (this.Success != null)
                 {
-                    hashCode = (hashCode * 59) + this.CsvFileUrl.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Success.GetHashCode();
                 }
                 return hashCode;
             }

@@ -27,33 +27,33 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// InlineResponse2002
+    /// NotificationHistoryBadRequestResponse
     /// </summary>
-    [DataContract(Name = "inline_response_200_2")]
-    public partial class InlineResponse2002 : IEquatable<InlineResponse2002>, IValidatableObject
+    [DataContract(Name = "NotificationHistoryBadRequestResponse")]
+    public partial class NotificationHistoryBadRequestResponse : IEquatable<NotificationHistoryBadRequestResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
+        /// Initializes a new instance of the <see cref="NotificationHistoryBadRequestResponse" /> class.
         /// </summary>
         /// <param name="success">success.</param>
-        /// <param name="destinationUrl">destinationUrl.</param>
-        public InlineResponse2002(bool success = default(bool), string destinationUrl = default(string))
+        /// <param name="errors">errors.</param>
+        public NotificationHistoryBadRequestResponse(string success = default(string), List<string> errors = default(List<string>))
         {
             this.Success = success;
-            this.DestinationUrl = destinationUrl;
+            this.Errors = errors;
         }
 
         /// <summary>
         /// Gets or Sets Success
         /// </summary>
-        [DataMember(Name = "success", EmitDefaultValue = true)]
-        public bool Success { get; set; }
+        [DataMember(Name = "success", EmitDefaultValue = false)]
+        public string Success { get; set; }
 
         /// <summary>
-        /// Gets or Sets DestinationUrl
+        /// Gets or Sets Errors
         /// </summary>
-        [DataMember(Name = "destination_url", EmitDefaultValue = false)]
-        public string DestinationUrl { get; set; }
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
+        public List<string> Errors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineResponse2002 {\n");
+            sb.Append("class NotificationHistoryBadRequestResponse {\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
-            sb.Append("  DestinationUrl: ").Append(DestinationUrl).Append("\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +85,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2002);
+            return this.Equals(input as NotificationHistoryBadRequestResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2002 instances are equal
+        /// Returns true if NotificationHistoryBadRequestResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2002 to be compared</param>
+        /// <param name="input">Instance of NotificationHistoryBadRequestResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2002 input)
+        public bool Equals(NotificationHistoryBadRequestResponse input)
         {
             if (input == null)
             {
@@ -102,12 +102,14 @@ namespace OneSignalApi.Model
             return 
                 (
                     this.Success == input.Success ||
-                    this.Success.Equals(input.Success)
+                    (this.Success != null &&
+                    this.Success.Equals(input.Success))
                 ) && 
                 (
-                    this.DestinationUrl == input.DestinationUrl ||
-                    (this.DestinationUrl != null &&
-                    this.DestinationUrl.Equals(input.DestinationUrl))
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    input.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
                 );
         }
 
@@ -120,10 +122,13 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Success.GetHashCode();
-                if (this.DestinationUrl != null)
+                if (this.Success != null)
                 {
-                    hashCode = (hashCode * 59) + this.DestinationUrl.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Success.GetHashCode();
+                }
+                if (this.Errors != null)
+                {
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
                 }
                 return hashCode;
             }

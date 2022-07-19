@@ -27,25 +27,33 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// InlineResponse4003
+    /// CreateSegmentConflictResponse
     /// </summary>
-    [DataContract(Name = "inline_response_400_3")]
-    public partial class InlineResponse4003 : IEquatable<InlineResponse4003>, IValidatableObject
+    [DataContract(Name = "CreateSegmentConflictResponse")]
+    public partial class CreateSegmentConflictResponse : IEquatable<CreateSegmentConflictResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse4003" /> class.
+        /// Initializes a new instance of the <see cref="CreateSegmentConflictResponse" /> class.
         /// </summary>
-        /// <param name="erorrs">erorrs.</param>
-        public InlineResponse4003(List<string> erorrs = default(List<string>))
+        /// <param name="success">success.</param>
+        /// <param name="errors">errors.</param>
+        public CreateSegmentConflictResponse(bool success = default(bool), List<string> errors = default(List<string>))
         {
-            this.Erorrs = erorrs;
+            this.Success = success;
+            this.Errors = errors;
         }
 
         /// <summary>
-        /// Gets or Sets Erorrs
+        /// Gets or Sets Success
         /// </summary>
-        [DataMember(Name = "erorrs", EmitDefaultValue = false)]
-        public List<string> Erorrs { get; set; }
+        [DataMember(Name = "success", EmitDefaultValue = true)]
+        public bool Success { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Errors
+        /// </summary>
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
+        public List<string> Errors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,8 +62,9 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineResponse4003 {\n");
-            sb.Append("  Erorrs: ").Append(Erorrs).Append("\n");
+            sb.Append("class CreateSegmentConflictResponse {\n");
+            sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +85,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse4003);
+            return this.Equals(input as CreateSegmentConflictResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse4003 instances are equal
+        /// Returns true if CreateSegmentConflictResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse4003 to be compared</param>
+        /// <param name="input">Instance of CreateSegmentConflictResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse4003 input)
+        public bool Equals(CreateSegmentConflictResponse input)
         {
             if (input == null)
             {
@@ -92,10 +101,14 @@ namespace OneSignalApi.Model
             }
             return 
                 (
-                    this.Erorrs == input.Erorrs ||
-                    this.Erorrs != null &&
-                    input.Erorrs != null &&
-                    this.Erorrs.SequenceEqual(input.Erorrs)
+                    this.Success == input.Success ||
+                    this.Success.Equals(input.Success)
+                ) && 
+                (
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    input.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
                 );
         }
 
@@ -108,9 +121,10 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Erorrs != null)
+                hashCode = (hashCode * 59) + this.Success.GetHashCode();
+                if (this.Errors != null)
                 {
-                    hashCode = (hashCode * 59) + this.Erorrs.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
                 }
                 return hashCode;
             }

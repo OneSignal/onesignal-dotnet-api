@@ -1,4 +1,4 @@
-# OneSignalApi.Model.InlineResponse4001
+# OneSignalApi.Model.NotificationHistoryBadRequestResponse
 
 ## Properties
 

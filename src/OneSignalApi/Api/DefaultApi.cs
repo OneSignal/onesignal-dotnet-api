@@ -37,8 +37,8 @@ namespace OneSignalApi.Api
         /// <param name="appId"></param>
         /// <param name="notificationId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 CancelNotification(string appId, string notificationId, int operationIndex = 0);
+        /// <returns>CancelNotificationSuccessResponse</returns>
+        CancelNotificationSuccessResponse CancelNotification(string appId, string notificationId, int operationIndex = 0);
 
         /// <summary>
         /// Stop a scheduled or currently outgoing notification
@@ -50,8 +50,8 @@ namespace OneSignalApi.Api
         /// <param name="appId"></param>
         /// <param name="notificationId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> CancelNotificationWithHttpInfo(string appId, string notificationId, int operationIndex = 0);
+        /// <returns>ApiResponse of CancelNotificationSuccessResponse</returns>
+        ApiResponse<CancelNotificationSuccessResponse> CancelNotificationWithHttpInfo(string appId, string notificationId, int operationIndex = 0);
         /// <summary>
         /// Create an app
         /// </summary>
@@ -84,8 +84,8 @@ namespace OneSignalApi.Api
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 CreateNotification(Notification notification, int operationIndex = 0);
+        /// <returns>CreateNotificationSuccessResponse</returns>
+        CreateNotificationSuccessResponse CreateNotification(Notification notification, int operationIndex = 0);
 
         /// <summary>
         /// Create notification
@@ -96,8 +96,8 @@ namespace OneSignalApi.Api
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> CreateNotificationWithHttpInfo(Notification notification, int operationIndex = 0);
+        /// <returns>ApiResponse of CreateNotificationSuccessResponse</returns>
+        ApiResponse<CreateNotificationSuccessResponse> CreateNotificationWithHttpInfo(Notification notification, int operationIndex = 0);
         /// <summary>
         /// Add a device
         /// </summary>
@@ -107,8 +107,8 @@ namespace OneSignalApi.Api
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 CreatePlayer(Player player, int operationIndex = 0);
+        /// <returns>CreatePlayerSuccessResponse</returns>
+        CreatePlayerSuccessResponse CreatePlayer(Player player, int operationIndex = 0);
 
         /// <summary>
         /// Add a device
@@ -119,8 +119,8 @@ namespace OneSignalApi.Api
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> CreatePlayerWithHttpInfo(Player player, int operationIndex = 0);
+        /// <returns>ApiResponse of CreatePlayerSuccessResponse</returns>
+        ApiResponse<CreatePlayerSuccessResponse> CreatePlayerWithHttpInfo(Player player, int operationIndex = 0);
         /// <summary>
         /// Create Segments
         /// </summary>
@@ -131,8 +131,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="segment"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse201</returns>
-        InlineResponse201 CreateSegments(string appId, Segment segment = default(Segment), int operationIndex = 0);
+        /// <returns>CreateSegmentSuccessResponse</returns>
+        CreateSegmentSuccessResponse CreateSegments(string appId, Segment segment = default(Segment), int operationIndex = 0);
 
         /// <summary>
         /// Create Segments
@@ -144,8 +144,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="segment"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        ApiResponse<InlineResponse201> CreateSegmentsWithHttpInfo(string appId, Segment segment = default(Segment), int operationIndex = 0);
+        /// <returns>ApiResponse of CreateSegmentSuccessResponse</returns>
+        ApiResponse<CreateSegmentSuccessResponse> CreateSegmentsWithHttpInfo(string appId, Segment segment = default(Segment), int operationIndex = 0);
         /// <summary>
         /// Delete a user record
         /// </summary>
@@ -156,8 +156,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="playerId">The OneSignal player_id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 DeletePlayer(string appId, string playerId, int operationIndex = 0);
+        /// <returns>DeletePlayerSuccessResponse</returns>
+        DeletePlayerSuccessResponse DeletePlayer(string appId, string playerId, int operationIndex = 0);
 
         /// <summary>
         /// Delete a user record
@@ -169,8 +169,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="playerId">The OneSignal player_id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> DeletePlayerWithHttpInfo(string appId, string playerId, int operationIndex = 0);
+        /// <returns>ApiResponse of DeletePlayerSuccessResponse</returns>
+        ApiResponse<DeletePlayerSuccessResponse> DeletePlayerWithHttpInfo(string appId, string playerId, int operationIndex = 0);
         /// <summary>
         /// Delete Segments
         /// </summary>
@@ -181,8 +181,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 DeleteSegments(string appId, string segmentId, int operationIndex = 0);
+        /// <returns>DeleteSegmentSuccessResponse</returns>
+        DeleteSegmentSuccessResponse DeleteSegments(string appId, string segmentId, int operationIndex = 0);
 
         /// <summary>
         /// Delete Segments
@@ -194,8 +194,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> DeleteSegmentsWithHttpInfo(string appId, string segmentId, int operationIndex = 0);
+        /// <returns>ApiResponse of DeleteSegmentSuccessResponse</returns>
+        ApiResponse<DeleteSegmentSuccessResponse> DeleteSegmentsWithHttpInfo(string appId, string segmentId, int operationIndex = 0);
         /// <summary>
         /// CSV export
         /// </summary>
@@ -206,8 +206,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The app ID that you want to export devices from</param>
         /// <param name="exportPlayersRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 ExportPlayers(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0);
+        /// <returns>ExportPlayersSuccessResponse</returns>
+        ExportPlayersSuccessResponse ExportPlayers(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0);
 
         /// <summary>
         /// CSV export
@@ -219,8 +219,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The app ID that you want to export devices from</param>
         /// <param name="exportPlayersRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> ExportPlayersWithHttpInfo(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0);
+        /// <returns>ApiResponse of ExportPlayersSuccessResponse</returns>
+        ApiResponse<ExportPlayersSuccessResponse> ExportPlayersWithHttpInfo(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0);
         /// <summary>
         /// View an app
         /// </summary>
@@ -300,8 +300,8 @@ namespace OneSignalApi.Api
         /// <param name="notificationId">The \&quot;id\&quot; of the message found in the Notification object</param>
         /// <param name="getNotificationRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetNotificationHistory(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0);
+        /// <returns>NotificationHistorySuccessResponse</returns>
+        NotificationHistorySuccessResponse GetNotificationHistory(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Notification History
@@ -313,8 +313,8 @@ namespace OneSignalApi.Api
         /// <param name="notificationId">The \&quot;id\&quot; of the message found in the Notification object</param>
         /// <param name="getNotificationRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetNotificationHistoryWithHttpInfo(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0);
+        /// <returns>ApiResponse of NotificationHistorySuccessResponse</returns>
+        ApiResponse<NotificationHistorySuccessResponse> GetNotificationHistoryWithHttpInfo(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0);
         /// <summary>
         /// View notifications
         /// </summary>
@@ -466,8 +466,8 @@ namespace OneSignalApi.Api
         /// <param name="playerId">Player&#39;s OneSignal ID</param>
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 UpdatePlayer(string playerId, Player player, int operationIndex = 0);
+        /// <returns>UpdatePlayerSuccessResponse</returns>
+        UpdatePlayerSuccessResponse UpdatePlayer(string playerId, Player player, int operationIndex = 0);
 
         /// <summary>
         /// Edit device
@@ -479,8 +479,8 @@ namespace OneSignalApi.Api
         /// <param name="playerId">Player&#39;s OneSignal ID</param>
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> UpdatePlayerWithHttpInfo(string playerId, Player player, int operationIndex = 0);
+        /// <returns>ApiResponse of UpdatePlayerSuccessResponse</returns>
+        ApiResponse<UpdatePlayerSuccessResponse> UpdatePlayerWithHttpInfo(string playerId, Player player, int operationIndex = 0);
         /// <summary>
         /// Edit tags with external user id
         /// </summary>
@@ -492,8 +492,8 @@ namespace OneSignalApi.Api
         /// <param name="externalUserId">The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated.</param>
         /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 UpdatePlayerTags(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0);
+        /// <returns>UpdatePlayerTagsSuccessResponse</returns>
+        UpdatePlayerTagsSuccessResponse UpdatePlayerTags(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0);
 
         /// <summary>
         /// Edit tags with external user id
@@ -506,8 +506,8 @@ namespace OneSignalApi.Api
         /// <param name="externalUserId">The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated.</param>
         /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> UpdatePlayerTagsWithHttpInfo(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0);
+        /// <returns>ApiResponse of UpdatePlayerTagsSuccessResponse</returns>
+        ApiResponse<UpdatePlayerTagsSuccessResponse> UpdatePlayerTagsWithHttpInfo(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -528,8 +528,8 @@ namespace OneSignalApi.Api
         /// <param name="notificationId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> CancelNotificationAsync(string appId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CancelNotificationSuccessResponse</returns>
+        System.Threading.Tasks.Task<CancelNotificationSuccessResponse> CancelNotificationAsync(string appId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Stop a scheduled or currently outgoing notification
@@ -542,8 +542,8 @@ namespace OneSignalApi.Api
         /// <param name="notificationId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> CancelNotificationWithHttpInfoAsync(string appId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (CancelNotificationSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CancelNotificationSuccessResponse>> CancelNotificationWithHttpInfoAsync(string appId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an app
         /// </summary>
@@ -579,8 +579,8 @@ namespace OneSignalApi.Api
         /// <param name="notification"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> CreateNotificationAsync(Notification notification, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CreateNotificationSuccessResponse</returns>
+        System.Threading.Tasks.Task<CreateNotificationSuccessResponse> CreateNotificationAsync(Notification notification, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create notification
@@ -592,8 +592,8 @@ namespace OneSignalApi.Api
         /// <param name="notification"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> CreateNotificationWithHttpInfoAsync(Notification notification, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (CreateNotificationSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateNotificationSuccessResponse>> CreateNotificationWithHttpInfoAsync(Notification notification, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Add a device
         /// </summary>
@@ -604,8 +604,8 @@ namespace OneSignalApi.Api
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> CreatePlayerAsync(Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CreatePlayerSuccessResponse</returns>
+        System.Threading.Tasks.Task<CreatePlayerSuccessResponse> CreatePlayerAsync(Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add a device
@@ -617,8 +617,8 @@ namespace OneSignalApi.Api
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> CreatePlayerWithHttpInfoAsync(Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (CreatePlayerSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreatePlayerSuccessResponse>> CreatePlayerWithHttpInfoAsync(Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Segments
         /// </summary>
@@ -630,8 +630,8 @@ namespace OneSignalApi.Api
         /// <param name="segment"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse201</returns>
-        System.Threading.Tasks.Task<InlineResponse201> CreateSegmentsAsync(string appId, Segment segment = default(Segment), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CreateSegmentSuccessResponse</returns>
+        System.Threading.Tasks.Task<CreateSegmentSuccessResponse> CreateSegmentsAsync(string appId, Segment segment = default(Segment), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Segments
@@ -644,8 +644,8 @@ namespace OneSignalApi.Api
         /// <param name="segment"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateSegmentsWithHttpInfoAsync(string appId, Segment segment = default(Segment), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (CreateSegmentSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateSegmentSuccessResponse>> CreateSegmentsWithHttpInfoAsync(string appId, Segment segment = default(Segment), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a user record
         /// </summary>
@@ -657,8 +657,8 @@ namespace OneSignalApi.Api
         /// <param name="playerId">The OneSignal player_id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> DeletePlayerAsync(string appId, string playerId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of DeletePlayerSuccessResponse</returns>
+        System.Threading.Tasks.Task<DeletePlayerSuccessResponse> DeletePlayerAsync(string appId, string playerId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete a user record
@@ -671,8 +671,8 @@ namespace OneSignalApi.Api
         /// <param name="playerId">The OneSignal player_id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> DeletePlayerWithHttpInfoAsync(string appId, string playerId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (DeletePlayerSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeletePlayerSuccessResponse>> DeletePlayerWithHttpInfoAsync(string appId, string playerId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete Segments
         /// </summary>
@@ -684,8 +684,8 @@ namespace OneSignalApi.Api
         /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> DeleteSegmentsAsync(string appId, string segmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of DeleteSegmentSuccessResponse</returns>
+        System.Threading.Tasks.Task<DeleteSegmentSuccessResponse> DeleteSegmentsAsync(string appId, string segmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Segments
@@ -698,8 +698,8 @@ namespace OneSignalApi.Api
         /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> DeleteSegmentsWithHttpInfoAsync(string appId, string segmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (DeleteSegmentSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeleteSegmentSuccessResponse>> DeleteSegmentsWithHttpInfoAsync(string appId, string segmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// CSV export
         /// </summary>
@@ -711,8 +711,8 @@ namespace OneSignalApi.Api
         /// <param name="exportPlayersRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> ExportPlayersAsync(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ExportPlayersSuccessResponse</returns>
+        System.Threading.Tasks.Task<ExportPlayersSuccessResponse> ExportPlayersAsync(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// CSV export
@@ -725,8 +725,8 @@ namespace OneSignalApi.Api
         /// <param name="exportPlayersRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> ExportPlayersWithHttpInfoAsync(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ExportPlayersSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExportPlayersSuccessResponse>> ExportPlayersWithHttpInfoAsync(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// View an app
         /// </summary>
@@ -813,8 +813,8 @@ namespace OneSignalApi.Api
         /// <param name="getNotificationRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetNotificationHistoryAsync(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of NotificationHistorySuccessResponse</returns>
+        System.Threading.Tasks.Task<NotificationHistorySuccessResponse> GetNotificationHistoryAsync(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Notification History
@@ -827,8 +827,8 @@ namespace OneSignalApi.Api
         /// <param name="getNotificationRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetNotificationHistoryWithHttpInfoAsync(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (NotificationHistorySuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NotificationHistorySuccessResponse>> GetNotificationHistoryWithHttpInfoAsync(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// View notifications
         /// </summary>
@@ -991,8 +991,8 @@ namespace OneSignalApi.Api
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> UpdatePlayerAsync(string playerId, Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of UpdatePlayerSuccessResponse</returns>
+        System.Threading.Tasks.Task<UpdatePlayerSuccessResponse> UpdatePlayerAsync(string playerId, Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Edit device
@@ -1005,8 +1005,8 @@ namespace OneSignalApi.Api
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> UpdatePlayerWithHttpInfoAsync(string playerId, Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (UpdatePlayerSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdatePlayerSuccessResponse>> UpdatePlayerWithHttpInfoAsync(string playerId, Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Edit tags with external user id
         /// </summary>
@@ -1019,8 +1019,8 @@ namespace OneSignalApi.Api
         /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> UpdatePlayerTagsAsync(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of UpdatePlayerTagsSuccessResponse</returns>
+        System.Threading.Tasks.Task<UpdatePlayerTagsSuccessResponse> UpdatePlayerTagsAsync(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Edit tags with external user id
@@ -1034,8 +1034,8 @@ namespace OneSignalApi.Api
         /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> UpdatePlayerTagsWithHttpInfoAsync(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (UpdatePlayerTagsSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdatePlayerTagsSuccessResponse>> UpdatePlayerTagsWithHttpInfoAsync(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1163,10 +1163,10 @@ namespace OneSignalApi.Api
         /// <param name="appId"></param>
         /// <param name="notificationId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 CancelNotification(string appId, string notificationId, int operationIndex = 0)
+        /// <returns>CancelNotificationSuccessResponse</returns>
+        public CancelNotificationSuccessResponse CancelNotification(string appId, string notificationId, int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2001> localVarResponse = CancelNotificationWithHttpInfo(appId, notificationId);
+            OneSignalApi.Client.ApiResponse<CancelNotificationSuccessResponse> localVarResponse = CancelNotificationWithHttpInfo(appId, notificationId);
             return localVarResponse.Data;
         }
 
@@ -1177,8 +1177,8 @@ namespace OneSignalApi.Api
         /// <param name="appId"></param>
         /// <param name="notificationId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse2001> CancelNotificationWithHttpInfo(string appId, string notificationId, int operationIndex = 0)
+        /// <returns>ApiResponse of CancelNotificationSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<CancelNotificationSuccessResponse> CancelNotificationWithHttpInfo(string appId, string notificationId, int operationIndex = 0)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -1228,7 +1228,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<InlineResponse2001>("/notifications/{notification_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<CancelNotificationSuccessResponse>("/notifications/{notification_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelNotification", localVarResponse);
@@ -1249,10 +1249,10 @@ namespace OneSignalApi.Api
         /// <param name="notificationId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> CancelNotificationAsync(string appId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CancelNotificationSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<CancelNotificationSuccessResponse> CancelNotificationAsync(string appId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2001> localVarResponse = await CancelNotificationWithHttpInfoAsync(appId, notificationId, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<CancelNotificationSuccessResponse> localVarResponse = await CancelNotificationWithHttpInfoAsync(appId, notificationId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1264,8 +1264,8 @@ namespace OneSignalApi.Api
         /// <param name="notificationId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse2001>> CancelNotificationWithHttpInfoAsync(string appId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CancelNotificationSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<CancelNotificationSuccessResponse>> CancelNotificationWithHttpInfoAsync(string appId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -1316,7 +1316,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<InlineResponse2001>("/notifications/{notification_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<CancelNotificationSuccessResponse>("/notifications/{notification_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1494,10 +1494,10 @@ namespace OneSignalApi.Api
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 CreateNotification(Notification notification, int operationIndex = 0)
+        /// <returns>CreateNotificationSuccessResponse</returns>
+        public CreateNotificationSuccessResponse CreateNotification(Notification notification, int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse200> localVarResponse = CreateNotificationWithHttpInfo(notification);
+            OneSignalApi.Client.ApiResponse<CreateNotificationSuccessResponse> localVarResponse = CreateNotificationWithHttpInfo(notification);
             return localVarResponse.Data;
         }
 
@@ -1507,8 +1507,8 @@ namespace OneSignalApi.Api
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse200> CreateNotificationWithHttpInfo(Notification notification, int operationIndex = 0)
+        /// <returns>ApiResponse of CreateNotificationSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<CreateNotificationSuccessResponse> CreateNotificationWithHttpInfo(Notification notification, int operationIndex = 0)
         {
             // verify the required parameter 'notification' is set
             if (notification == null)
@@ -1552,7 +1552,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse200>("/notifications", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<CreateNotificationSuccessResponse>("/notifications", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateNotification", localVarResponse);
@@ -1572,10 +1572,10 @@ namespace OneSignalApi.Api
         /// <param name="notification"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> CreateNotificationAsync(Notification notification, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CreateNotificationSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<CreateNotificationSuccessResponse> CreateNotificationAsync(Notification notification, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse200> localVarResponse = await CreateNotificationWithHttpInfoAsync(notification, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<CreateNotificationSuccessResponse> localVarResponse = await CreateNotificationWithHttpInfoAsync(notification, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1586,8 +1586,8 @@ namespace OneSignalApi.Api
         /// <param name="notification"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse200>> CreateNotificationWithHttpInfoAsync(Notification notification, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CreateNotificationSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<CreateNotificationSuccessResponse>> CreateNotificationWithHttpInfoAsync(Notification notification, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'notification' is set
             if (notification == null)
@@ -1632,7 +1632,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse200>("/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CreateNotificationSuccessResponse>("/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1652,10 +1652,10 @@ namespace OneSignalApi.Api
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 CreatePlayer(Player player, int operationIndex = 0)
+        /// <returns>CreatePlayerSuccessResponse</returns>
+        public CreatePlayerSuccessResponse CreatePlayer(Player player, int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2005> localVarResponse = CreatePlayerWithHttpInfo(player);
+            OneSignalApi.Client.ApiResponse<CreatePlayerSuccessResponse> localVarResponse = CreatePlayerWithHttpInfo(player);
             return localVarResponse.Data;
         }
 
@@ -1665,8 +1665,8 @@ namespace OneSignalApi.Api
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse2005> CreatePlayerWithHttpInfo(Player player, int operationIndex = 0)
+        /// <returns>ApiResponse of CreatePlayerSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<CreatePlayerSuccessResponse> CreatePlayerWithHttpInfo(Player player, int operationIndex = 0)
         {
             // verify the required parameter 'player' is set
             if (player == null)
@@ -1710,7 +1710,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2005>("/players", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<CreatePlayerSuccessResponse>("/players", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreatePlayer", localVarResponse);
@@ -1730,10 +1730,10 @@ namespace OneSignalApi.Api
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> CreatePlayerAsync(Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CreatePlayerSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<CreatePlayerSuccessResponse> CreatePlayerAsync(Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2005> localVarResponse = await CreatePlayerWithHttpInfoAsync(player, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<CreatePlayerSuccessResponse> localVarResponse = await CreatePlayerWithHttpInfoAsync(player, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1744,8 +1744,8 @@ namespace OneSignalApi.Api
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse2005>> CreatePlayerWithHttpInfoAsync(Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CreatePlayerSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<CreatePlayerSuccessResponse>> CreatePlayerWithHttpInfoAsync(Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'player' is set
             if (player == null)
@@ -1790,7 +1790,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2005>("/players", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CreatePlayerSuccessResponse>("/players", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1811,10 +1811,10 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="segment"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse201</returns>
-        public InlineResponse201 CreateSegments(string appId, Segment segment = default(Segment), int operationIndex = 0)
+        /// <returns>CreateSegmentSuccessResponse</returns>
+        public CreateSegmentSuccessResponse CreateSegments(string appId, Segment segment = default(Segment), int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse201> localVarResponse = CreateSegmentsWithHttpInfo(appId, segment);
+            OneSignalApi.Client.ApiResponse<CreateSegmentSuccessResponse> localVarResponse = CreateSegmentsWithHttpInfo(appId, segment);
             return localVarResponse.Data;
         }
 
@@ -1825,8 +1825,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="segment"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse201> CreateSegmentsWithHttpInfo(string appId, Segment segment = default(Segment), int operationIndex = 0)
+        /// <returns>ApiResponse of CreateSegmentSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<CreateSegmentSuccessResponse> CreateSegmentsWithHttpInfo(string appId, Segment segment = default(Segment), int operationIndex = 0)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -1871,7 +1871,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse201>("/apps/{app_id}/segments", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<CreateSegmentSuccessResponse>("/apps/{app_id}/segments", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateSegments", localVarResponse);
@@ -1892,10 +1892,10 @@ namespace OneSignalApi.Api
         /// <param name="segment"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse201</returns>
-        public async System.Threading.Tasks.Task<InlineResponse201> CreateSegmentsAsync(string appId, Segment segment = default(Segment), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CreateSegmentSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<CreateSegmentSuccessResponse> CreateSegmentsAsync(string appId, Segment segment = default(Segment), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse201> localVarResponse = await CreateSegmentsWithHttpInfoAsync(appId, segment, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<CreateSegmentSuccessResponse> localVarResponse = await CreateSegmentsWithHttpInfoAsync(appId, segment, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1907,8 +1907,8 @@ namespace OneSignalApi.Api
         /// <param name="segment"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse201>> CreateSegmentsWithHttpInfoAsync(string appId, Segment segment = default(Segment), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CreateSegmentSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<CreateSegmentSuccessResponse>> CreateSegmentsWithHttpInfoAsync(string appId, Segment segment = default(Segment), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -1954,7 +1954,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse201>("/apps/{app_id}/segments", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CreateSegmentSuccessResponse>("/apps/{app_id}/segments", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1975,10 +1975,10 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="playerId">The OneSignal player_id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 DeletePlayer(string appId, string playerId, int operationIndex = 0)
+        /// <returns>DeletePlayerSuccessResponse</returns>
+        public DeletePlayerSuccessResponse DeletePlayer(string appId, string playerId, int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2007> localVarResponse = DeletePlayerWithHttpInfo(appId, playerId);
+            OneSignalApi.Client.ApiResponse<DeletePlayerSuccessResponse> localVarResponse = DeletePlayerWithHttpInfo(appId, playerId);
             return localVarResponse.Data;
         }
 
@@ -1989,8 +1989,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="playerId">The OneSignal player_id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse2007> DeletePlayerWithHttpInfo(string appId, string playerId, int operationIndex = 0)
+        /// <returns>ApiResponse of DeletePlayerSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<DeletePlayerSuccessResponse> DeletePlayerWithHttpInfo(string appId, string playerId, int operationIndex = 0)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -2040,7 +2040,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<InlineResponse2007>("/players/{player_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeletePlayerSuccessResponse>("/players/{player_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeletePlayer", localVarResponse);
@@ -2061,10 +2061,10 @@ namespace OneSignalApi.Api
         /// <param name="playerId">The OneSignal player_id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> DeletePlayerAsync(string appId, string playerId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of DeletePlayerSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<DeletePlayerSuccessResponse> DeletePlayerAsync(string appId, string playerId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2007> localVarResponse = await DeletePlayerWithHttpInfoAsync(appId, playerId, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<DeletePlayerSuccessResponse> localVarResponse = await DeletePlayerWithHttpInfoAsync(appId, playerId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2076,8 +2076,8 @@ namespace OneSignalApi.Api
         /// <param name="playerId">The OneSignal player_id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse2007>> DeletePlayerWithHttpInfoAsync(string appId, string playerId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (DeletePlayerSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<DeletePlayerSuccessResponse>> DeletePlayerWithHttpInfoAsync(string appId, string playerId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -2128,7 +2128,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<InlineResponse2007>("/players/{player_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletePlayerSuccessResponse>("/players/{player_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2149,10 +2149,10 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 DeleteSegments(string appId, string segmentId, int operationIndex = 0)
+        /// <returns>DeleteSegmentSuccessResponse</returns>
+        public DeleteSegmentSuccessResponse DeleteSegments(string appId, string segmentId, int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2001> localVarResponse = DeleteSegmentsWithHttpInfo(appId, segmentId);
+            OneSignalApi.Client.ApiResponse<DeleteSegmentSuccessResponse> localVarResponse = DeleteSegmentsWithHttpInfo(appId, segmentId);
             return localVarResponse.Data;
         }
 
@@ -2163,8 +2163,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
         /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse2001> DeleteSegmentsWithHttpInfo(string appId, string segmentId, int operationIndex = 0)
+        /// <returns>ApiResponse of DeleteSegmentSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<DeleteSegmentSuccessResponse> DeleteSegmentsWithHttpInfo(string appId, string segmentId, int operationIndex = 0)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -2214,7 +2214,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<InlineResponse2001>("/apps/{app_id}/segments/{segment_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeleteSegmentSuccessResponse>("/apps/{app_id}/segments/{segment_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteSegments", localVarResponse);
@@ -2235,10 +2235,10 @@ namespace OneSignalApi.Api
         /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> DeleteSegmentsAsync(string appId, string segmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of DeleteSegmentSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<DeleteSegmentSuccessResponse> DeleteSegmentsAsync(string appId, string segmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2001> localVarResponse = await DeleteSegmentsWithHttpInfoAsync(appId, segmentId, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<DeleteSegmentSuccessResponse> localVarResponse = await DeleteSegmentsWithHttpInfoAsync(appId, segmentId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2250,8 +2250,8 @@ namespace OneSignalApi.Api
         /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse2001>> DeleteSegmentsWithHttpInfoAsync(string appId, string segmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (DeleteSegmentSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<DeleteSegmentSuccessResponse>> DeleteSegmentsWithHttpInfoAsync(string appId, string segmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -2302,7 +2302,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<InlineResponse2001>("/apps/{app_id}/segments/{segment_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteSegmentSuccessResponse>("/apps/{app_id}/segments/{segment_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2323,10 +2323,10 @@ namespace OneSignalApi.Api
         /// <param name="appId">The app ID that you want to export devices from</param>
         /// <param name="exportPlayersRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 ExportPlayers(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0)
+        /// <returns>ExportPlayersSuccessResponse</returns>
+        public ExportPlayersSuccessResponse ExportPlayers(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2008> localVarResponse = ExportPlayersWithHttpInfo(appId, exportPlayersRequestBody);
+            OneSignalApi.Client.ApiResponse<ExportPlayersSuccessResponse> localVarResponse = ExportPlayersWithHttpInfo(appId, exportPlayersRequestBody);
             return localVarResponse.Data;
         }
 
@@ -2337,8 +2337,8 @@ namespace OneSignalApi.Api
         /// <param name="appId">The app ID that you want to export devices from</param>
         /// <param name="exportPlayersRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse2008> ExportPlayersWithHttpInfo(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0)
+        /// <returns>ApiResponse of ExportPlayersSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<ExportPlayersSuccessResponse> ExportPlayersWithHttpInfo(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -2383,7 +2383,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2008>("/players/csv_export?app_id={app_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<ExportPlayersSuccessResponse>("/players/csv_export?app_id={app_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ExportPlayers", localVarResponse);
@@ -2404,10 +2404,10 @@ namespace OneSignalApi.Api
         /// <param name="exportPlayersRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008> ExportPlayersAsync(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ExportPlayersSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ExportPlayersSuccessResponse> ExportPlayersAsync(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2008> localVarResponse = await ExportPlayersWithHttpInfoAsync(appId, exportPlayersRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<ExportPlayersSuccessResponse> localVarResponse = await ExportPlayersWithHttpInfoAsync(appId, exportPlayersRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2419,8 +2419,8 @@ namespace OneSignalApi.Api
         /// <param name="exportPlayersRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse2008>> ExportPlayersWithHttpInfoAsync(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ExportPlayersSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<ExportPlayersSuccessResponse>> ExportPlayersWithHttpInfoAsync(string appId, ExportPlayersRequestBody exportPlayersRequestBody = default(ExportPlayersRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -2466,7 +2466,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2008>("/players/csv_export?app_id={app_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ExportPlayersSuccessResponse>("/players/csv_export?app_id={app_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2955,10 +2955,10 @@ namespace OneSignalApi.Api
         /// <param name="notificationId">The \&quot;id\&quot; of the message found in the Notification object</param>
         /// <param name="getNotificationRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetNotificationHistory(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0)
+        /// <returns>NotificationHistorySuccessResponse</returns>
+        public NotificationHistorySuccessResponse GetNotificationHistory(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2002> localVarResponse = GetNotificationHistoryWithHttpInfo(notificationId, getNotificationRequestBody);
+            OneSignalApi.Client.ApiResponse<NotificationHistorySuccessResponse> localVarResponse = GetNotificationHistoryWithHttpInfo(notificationId, getNotificationRequestBody);
             return localVarResponse.Data;
         }
 
@@ -2969,8 +2969,8 @@ namespace OneSignalApi.Api
         /// <param name="notificationId">The \&quot;id\&quot; of the message found in the Notification object</param>
         /// <param name="getNotificationRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse2002> GetNotificationHistoryWithHttpInfo(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0)
+        /// <returns>ApiResponse of NotificationHistorySuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<NotificationHistorySuccessResponse> GetNotificationHistoryWithHttpInfo(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
@@ -3021,7 +3021,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2002>("/notifications/{notification_id}/history", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<NotificationHistorySuccessResponse>("/notifications/{notification_id}/history", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotificationHistory", localVarResponse);
@@ -3042,10 +3042,10 @@ namespace OneSignalApi.Api
         /// <param name="getNotificationRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetNotificationHistoryAsync(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of NotificationHistorySuccessResponse</returns>
+        public async System.Threading.Tasks.Task<NotificationHistorySuccessResponse> GetNotificationHistoryAsync(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetNotificationHistoryWithHttpInfoAsync(notificationId, getNotificationRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<NotificationHistorySuccessResponse> localVarResponse = await GetNotificationHistoryWithHttpInfoAsync(notificationId, getNotificationRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3057,8 +3057,8 @@ namespace OneSignalApi.Api
         /// <param name="getNotificationRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse2002>> GetNotificationHistoryWithHttpInfoAsync(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (NotificationHistorySuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<NotificationHistorySuccessResponse>> GetNotificationHistoryWithHttpInfoAsync(string notificationId, GetNotificationRequestBody getNotificationRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
@@ -3110,7 +3110,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2002>("/notifications/{notification_id}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationHistorySuccessResponse>("/notifications/{notification_id}/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4087,10 +4087,10 @@ namespace OneSignalApi.Api
         /// <param name="playerId">Player&#39;s OneSignal ID</param>
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 UpdatePlayer(string playerId, Player player, int operationIndex = 0)
+        /// <returns>UpdatePlayerSuccessResponse</returns>
+        public UpdatePlayerSuccessResponse UpdatePlayer(string playerId, Player player, int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2001> localVarResponse = UpdatePlayerWithHttpInfo(playerId, player);
+            OneSignalApi.Client.ApiResponse<UpdatePlayerSuccessResponse> localVarResponse = UpdatePlayerWithHttpInfo(playerId, player);
             return localVarResponse.Data;
         }
 
@@ -4101,8 +4101,8 @@ namespace OneSignalApi.Api
         /// <param name="playerId">Player&#39;s OneSignal ID</param>
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse2001> UpdatePlayerWithHttpInfo(string playerId, Player player, int operationIndex = 0)
+        /// <returns>ApiResponse of UpdatePlayerSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<UpdatePlayerSuccessResponse> UpdatePlayerWithHttpInfo(string playerId, Player player, int operationIndex = 0)
         {
             // verify the required parameter 'playerId' is set
             if (playerId == null)
@@ -4153,7 +4153,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<InlineResponse2001>("/players/{player_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<UpdatePlayerSuccessResponse>("/players/{player_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdatePlayer", localVarResponse);
@@ -4174,10 +4174,10 @@ namespace OneSignalApi.Api
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> UpdatePlayerAsync(string playerId, Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of UpdatePlayerSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<UpdatePlayerSuccessResponse> UpdatePlayerAsync(string playerId, Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2001> localVarResponse = await UpdatePlayerWithHttpInfoAsync(playerId, player, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<UpdatePlayerSuccessResponse> localVarResponse = await UpdatePlayerWithHttpInfoAsync(playerId, player, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4189,8 +4189,8 @@ namespace OneSignalApi.Api
         /// <param name="player"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse2001>> UpdatePlayerWithHttpInfoAsync(string playerId, Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (UpdatePlayerSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<UpdatePlayerSuccessResponse>> UpdatePlayerWithHttpInfoAsync(string playerId, Player player, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'playerId' is set
             if (playerId == null)
@@ -4242,7 +4242,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InlineResponse2001>("/players/{player_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<UpdatePlayerSuccessResponse>("/players/{player_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4264,10 +4264,10 @@ namespace OneSignalApi.Api
         /// <param name="externalUserId">The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated.</param>
         /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 UpdatePlayerTags(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0)
+        /// <returns>UpdatePlayerTagsSuccessResponse</returns>
+        public UpdatePlayerTagsSuccessResponse UpdatePlayerTags(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2001> localVarResponse = UpdatePlayerTagsWithHttpInfo(appId, externalUserId, updatePlayerTagsRequestBody);
+            OneSignalApi.Client.ApiResponse<UpdatePlayerTagsSuccessResponse> localVarResponse = UpdatePlayerTagsWithHttpInfo(appId, externalUserId, updatePlayerTagsRequestBody);
             return localVarResponse.Data;
         }
 
@@ -4279,8 +4279,8 @@ namespace OneSignalApi.Api
         /// <param name="externalUserId">The External User ID mapped to teh device record in OneSignal.  Must be actively set on the device to be updated.</param>
         /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public OneSignalApi.Client.ApiResponse<InlineResponse2001> UpdatePlayerTagsWithHttpInfo(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0)
+        /// <returns>ApiResponse of UpdatePlayerTagsSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<UpdatePlayerTagsSuccessResponse> UpdatePlayerTagsWithHttpInfo(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -4332,7 +4332,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<InlineResponse2001>("/apps/{app_id}/users/{external_user_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<UpdatePlayerTagsSuccessResponse>("/apps/{app_id}/users/{external_user_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdatePlayerTags", localVarResponse);
@@ -4354,10 +4354,10 @@ namespace OneSignalApi.Api
         /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> UpdatePlayerTagsAsync(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of UpdatePlayerTagsSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<UpdatePlayerTagsSuccessResponse> UpdatePlayerTagsAsync(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<InlineResponse2001> localVarResponse = await UpdatePlayerTagsWithHttpInfoAsync(appId, externalUserId, updatePlayerTagsRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<UpdatePlayerTagsSuccessResponse> localVarResponse = await UpdatePlayerTagsWithHttpInfoAsync(appId, externalUserId, updatePlayerTagsRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4370,8 +4370,8 @@ namespace OneSignalApi.Api
         /// <param name="updatePlayerTagsRequestBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<InlineResponse2001>> UpdatePlayerTagsWithHttpInfoAsync(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (UpdatePlayerTagsSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<UpdatePlayerTagsSuccessResponse>> UpdatePlayerTagsWithHttpInfoAsync(string appId, string externalUserId, UpdatePlayerTagsRequestBody updatePlayerTagsRequestBody = default(UpdatePlayerTagsRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -4424,7 +4424,7 @@ namespace OneSignalApi.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InlineResponse2001>("/apps/{app_id}/users/{external_user_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<UpdatePlayerTagsSuccessResponse>("/apps/{app_id}/users/{external_user_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -27,16 +27,16 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// InlineResponse2007
+    /// DeleteSegmentNotFoundResponse
     /// </summary>
-    [DataContract(Name = "inline_response_200_7")]
-    public partial class InlineResponse2007 : IEquatable<InlineResponse2007>, IValidatableObject
+    [DataContract(Name = "DeleteSegmentNotFoundResponse")]
+    public partial class DeleteSegmentNotFoundResponse : IEquatable<DeleteSegmentNotFoundResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2007" /> class.
+        /// Initializes a new instance of the <see cref="DeleteSegmentNotFoundResponse" /> class.
         /// </summary>
         /// <param name="success">success.</param>
-        public InlineResponse2007(string success = default(string))
+        public DeleteSegmentNotFoundResponse(bool success = default(bool))
         {
             this.Success = success;
         }
@@ -44,8 +44,8 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Gets or Sets Success
         /// </summary>
-        [DataMember(Name = "success", EmitDefaultValue = false)]
-        public string Success { get; set; }
+        [DataMember(Name = "success", EmitDefaultValue = true)]
+        public bool Success { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,7 +54,7 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InlineResponse2007 {\n");
+            sb.Append("class DeleteSegmentNotFoundResponse {\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -76,15 +76,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2007);
+            return this.Equals(input as DeleteSegmentNotFoundResponse);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2007 instances are equal
+        /// Returns true if DeleteSegmentNotFoundResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2007 to be compared</param>
+        /// <param name="input">Instance of DeleteSegmentNotFoundResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2007 input)
+        public bool Equals(DeleteSegmentNotFoundResponse input)
         {
             if (input == null)
             {
@@ -93,8 +93,7 @@ namespace OneSignalApi.Model
             return 
                 (
                     this.Success == input.Success ||
-                    (this.Success != null &&
-                    this.Success.Equals(input.Success))
+                    this.Success.Equals(input.Success)
                 );
         }
 
@@ -107,10 +106,7 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Success != null)
-                {
-                    hashCode = (hashCode * 59) + this.Success.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Success.GetHashCode();
                 return hashCode;
             }
         }
