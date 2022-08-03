@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Value** | **int** |  | [optional] [readonly] 
 **Name** | **string** | Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user. | [optional] 
 **Aggregation** | **string** |  | [optional] [readonly] 
-**IsIos** | **bool?** | Indicates whether to send to all devices registered under your app&#39;s Apple iOS platform. | [optional] [default to true]
+**IsIos** | **bool?** | Indicates whether to send to all devices registered under your app&#39;s Apple iOS platform. | [optional] 
 **IsAndroid** | **bool?** | Indicates whether to send to all devices registered under your app&#39;s Google Android platform. | [optional] 
 **IsHuawei** | **bool?** | Indicates whether to send to all devices registered under your app&#39;s Huawei Android platform. | [optional] 
 **IsAnyWeb** | **bool?** | Indicates whether to send to all subscribed web browser users, including Chrome, Firefox, and Safari. You may use this instead as a combined flag instead of separately enabling isChromeWeb, isFirefox, and isSafari, though the three options are equivalent to this one.  | [optional] 
