@@ -36,7 +36,7 @@ namespace OneSignalApi.Model
         /// Initializes a new instance of the <see cref="DeletePlayerNotFoundResponse" /> class.
         /// </summary>
         /// <param name="success">success.</param>
-        public DeletePlayerNotFoundResponse(string success = default(string))
+        public DeletePlayerNotFoundResponse(bool success = default(bool))
         {
             this.Success = success;
         }
@@ -44,8 +44,8 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Gets or Sets Success
         /// </summary>
-        [DataMember(Name = "success", EmitDefaultValue = false)]
-        public string Success { get; set; }
+        [DataMember(Name = "success", EmitDefaultValue = true)]
+        public bool Success { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,8 +93,7 @@ namespace OneSignalApi.Model
             return 
                 (
                     this.Success == input.Success ||
-                    (this.Success != null &&
-                    this.Success.Equals(input.Success))
+                    this.Success.Equals(input.Success)
                 );
         }
 
@@ -107,10 +106,7 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Success != null)
-                {
-                    hashCode = (hashCode * 59) + this.Success.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Success.GetHashCode();
                 return hashCode;
             }
         }

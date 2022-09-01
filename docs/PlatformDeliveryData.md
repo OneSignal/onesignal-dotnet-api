@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **SafariWebPush** | [**DeliveryData**](DeliveryData.md) |  | [optional] 
 **Android** | [**DeliveryData**](DeliveryData.md) |  | [optional] 
 **Ios** | [**DeliveryData**](DeliveryData.md) |  | [optional] 
+**Sms** | [**DeliveryData**](DeliveryData.md) |  | [optional] 
+**Email** | [**DeliveryData**](DeliveryData.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

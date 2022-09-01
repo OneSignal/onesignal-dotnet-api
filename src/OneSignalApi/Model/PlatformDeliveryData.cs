@@ -41,7 +41,9 @@ namespace OneSignalApi.Model
         /// <param name="safariWebPush">safariWebPush.</param>
         /// <param name="android">android.</param>
         /// <param name="ios">ios.</param>
-        public PlatformDeliveryData(DeliveryData edgeWebPush = default(DeliveryData), DeliveryData chromeWebPush = default(DeliveryData), DeliveryData firefoxWebPush = default(DeliveryData), DeliveryData safariWebPush = default(DeliveryData), DeliveryData android = default(DeliveryData), DeliveryData ios = default(DeliveryData))
+        /// <param name="sms">sms.</param>
+        /// <param name="email">email.</param>
+        public PlatformDeliveryData(DeliveryData edgeWebPush = default(DeliveryData), DeliveryData chromeWebPush = default(DeliveryData), DeliveryData firefoxWebPush = default(DeliveryData), DeliveryData safariWebPush = default(DeliveryData), DeliveryData android = default(DeliveryData), DeliveryData ios = default(DeliveryData), DeliveryData sms = default(DeliveryData), DeliveryData email = default(DeliveryData))
         {
             this.EdgeWebPush = edgeWebPush;
             this.ChromeWebPush = chromeWebPush;
@@ -49,6 +51,8 @@ namespace OneSignalApi.Model
             this.SafariWebPush = safariWebPush;
             this.Android = android;
             this.Ios = ios;
+            this.Sms = sms;
+            this.Email = email;
         }
 
         /// <summary>
@@ -88,6 +92,18 @@ namespace OneSignalApi.Model
         public DeliveryData Ios { get; set; }
 
         /// <summary>
+        /// Gets or Sets Sms
+        /// </summary>
+        [DataMember(Name = "sms", EmitDefaultValue = true)]
+        public DeliveryData Sms { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Email
+        /// </summary>
+        [DataMember(Name = "email", EmitDefaultValue = true)]
+        public DeliveryData Email { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +117,8 @@ namespace OneSignalApi.Model
             sb.Append("  SafariWebPush: ").Append(SafariWebPush).Append("\n");
             sb.Append("  Android: ").Append(Android).Append("\n");
             sb.Append("  Ios: ").Append(Ios).Append("\n");
+            sb.Append("  Sms: ").Append(Sms).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,6 +183,16 @@ namespace OneSignalApi.Model
                     this.Ios == input.Ios ||
                     (this.Ios != null &&
                     this.Ios.Equals(input.Ios))
+                ) && 
+                (
+                    this.Sms == input.Sms ||
+                    (this.Sms != null &&
+                    this.Sms.Equals(input.Sms))
+                ) && 
+                (
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 );
         }
 
@@ -200,6 +228,14 @@ namespace OneSignalApi.Model
                 if (this.Ios != null)
                 {
                     hashCode = (hashCode * 59) + this.Ios.GetHashCode();
+                }
+                if (this.Sms != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sms.GetHashCode();
+                }
+                if (this.Email != null)
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
                 }
                 return hashCode;
             }

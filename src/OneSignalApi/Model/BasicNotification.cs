@@ -27,10 +27,10 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// Notification
+    /// BasicNotification
     /// </summary>
-    [DataContract(Name = "Notification")]
-    public partial class Notification : IEquatable<Notification>, IValidatableObject
+    [DataContract(Name = "BasicNotification")]
+    public partial class BasicNotification : IEquatable<BasicNotification>, IValidatableObject
     {
         /// <summary>
         /// Defines Aggregation
@@ -68,12 +68,12 @@ namespace OneSignalApi.Model
             return false;
         }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Notification" /> class.
+        /// Initializes a new instance of the <see cref="BasicNotification" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Notification() { }
+        protected BasicNotification() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Notification" /> class.
+        /// Initializes a new instance of the <see cref="BasicNotification" /> class.
         /// </summary>
         /// <param name="includedSegments">The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] .</param>
         /// <param name="excludedSegments">Segment that will be excluded when sending. Users in these segments will not receive a notification, even if they were included in included_segments. This targeting parameter is only compatible with included_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] .</param>
@@ -185,13 +185,12 @@ namespace OneSignalApi.Model
         /// <param name="emailFromAddress">Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings. .</param>
         /// <param name="smsFrom">Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format. .</param>
         /// <param name="smsMediaUrls">Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs. .</param>
-        /// <param name="sendAfter">Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. .</param>
-        public Notification(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), string lastSession = default(string), string firstSession = default(string), string sessionCount = default(string), string sessionTime = default(string), string amountSpent = default(string), string boughtSku = default(string), string tag = default(string), string language = default(string), string appVersion = default(string), string location = default(string), string email = default(string), string country = default(string), List<string> includePlayerIds = default(List<string>), List<string> includeExternalUserIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string channelForExternalUserIds = default(string), string appId = default(string), string externalId = default(string), StringMap contents = default(StringMap), StringMap headings = default(StringMap), StringMap subtitle = default(StringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<Button> webButtons = default(List<Button>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), string throttleRatePerMinute = default(string), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), DateTime? sendAfter = default(DateTime?))
+        public BasicNotification(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), string lastSession = default(string), string firstSession = default(string), string sessionCount = default(string), string sessionTime = default(string), string amountSpent = default(string), string boughtSku = default(string), string tag = default(string), string language = default(string), string appVersion = default(string), string location = default(string), string email = default(string), string country = default(string), List<string> includePlayerIds = default(List<string>), List<string> includeExternalUserIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string channelForExternalUserIds = default(string), string appId = default(string), string externalId = default(string), StringMap contents = default(StringMap), StringMap headings = default(StringMap), StringMap subtitle = default(StringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<Button> webButtons = default(List<Button>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), string throttleRatePerMinute = default(string), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>))
         {
             // to ensure "appId" is required (not null)
             if (appId == null)
             {
-                throw new ArgumentNullException("appId is a required property for Notification and cannot be null");
+                throw new ArgumentNullException("appId is a required property for BasicNotification and cannot be null");
             }
             this.AppId = appId;
             this.IncludedSegments = includedSegments;
@@ -303,7 +302,6 @@ namespace OneSignalApi.Model
             this.EmailFromAddress = emailFromAddress;
             this.SmsFrom = smsFrom;
             this.SmsMediaUrls = smsMediaUrls;
-            this.SendAfter = sendAfter;
         }
 
         /// <summary>
@@ -1086,20 +1084,13 @@ namespace OneSignalApi.Model
         public List<string> SmsMediaUrls { get; set; }
 
         /// <summary>
-        /// Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. 
-        /// </summary>
-        /// <value>Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. </value>
-        [DataMember(Name = "send_after", EmitDefaultValue = true)]
-        public DateTime? SendAfter { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class Notification {\n");
+            sb.Append("class BasicNotification {\n");
             sb.Append("  IncludedSegments: ").Append(IncludedSegments).Append("\n");
             sb.Append("  ExcludedSegments: ").Append(ExcludedSegments).Append("\n");
             sb.Append("  LastSession: ").Append(LastSession).Append("\n");
@@ -1212,7 +1203,6 @@ namespace OneSignalApi.Model
             sb.Append("  EmailFromAddress: ").Append(EmailFromAddress).Append("\n");
             sb.Append("  SmsFrom: ").Append(SmsFrom).Append("\n");
             sb.Append("  SmsMediaUrls: ").Append(SmsMediaUrls).Append("\n");
-            sb.Append("  SendAfter: ").Append(SendAfter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -1233,15 +1223,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Notification);
+            return this.Equals(input as BasicNotification);
         }
 
         /// <summary>
-        /// Returns true if Notification instances are equal
+        /// Returns true if BasicNotification instances are equal
         /// </summary>
-        /// <param name="input">Instance of Notification to be compared</param>
+        /// <param name="input">Instance of BasicNotification to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Notification input)
+        public bool Equals(BasicNotification input)
         {
             if (input == null)
             {
@@ -1818,11 +1808,6 @@ namespace OneSignalApi.Model
                     this.SmsMediaUrls != null &&
                     input.SmsMediaUrls != null &&
                     this.SmsMediaUrls.SequenceEqual(input.SmsMediaUrls)
-                ) && 
-                (
-                    this.SendAfter == input.SendAfter ||
-                    (this.SendAfter != null &&
-                    this.SendAfter.Equals(input.SendAfter))
                 );
         }
 
@@ -2270,10 +2255,6 @@ namespace OneSignalApi.Model
                 if (this.SmsMediaUrls != null)
                 {
                     hashCode = (hashCode * 59) + this.SmsMediaUrls.GetHashCode();
-                }
-                if (this.SendAfter != null)
-                {
-                    hashCode = (hashCode * 59) + this.SendAfter.GetHashCode();
                 }
                 return hashCode;
             }

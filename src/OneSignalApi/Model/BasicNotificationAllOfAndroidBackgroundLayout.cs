@@ -29,16 +29,16 @@ namespace OneSignalApi.Model
     /// <summary>
     /// Channel: Push Notifications Platform: Android Allowing setting a background image for the notification. This is a JSON object containing the following keys. See our Background Image documentation for image sizes. 
     /// </summary>
-    [DataContract(Name = "Notification_allOf_android_background_layout")]
-    public partial class NotificationAllOfAndroidBackgroundLayout : IEquatable<NotificationAllOfAndroidBackgroundLayout>, IValidatableObject
+    [DataContract(Name = "BasicNotification_allOf_android_background_layout")]
+    public partial class BasicNotificationAllOfAndroidBackgroundLayout : IEquatable<BasicNotificationAllOfAndroidBackgroundLayout>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationAllOfAndroidBackgroundLayout" /> class.
+        /// Initializes a new instance of the <see cref="BasicNotificationAllOfAndroidBackgroundLayout" /> class.
         /// </summary>
         /// <param name="image">Asset file, android resource name, or URL to remote image..</param>
         /// <param name="headingsColor">Title text color ARGB Hex format. Example(Blue) \&quot;FF0000FF\&quot;..</param>
         /// <param name="contentsColor">Body text color ARGB Hex format. Example(Red) \&quot;FFFF0000\&quot;..</param>
-        public NotificationAllOfAndroidBackgroundLayout(string image = default(string), string headingsColor = default(string), string contentsColor = default(string))
+        public BasicNotificationAllOfAndroidBackgroundLayout(string image = default(string), string headingsColor = default(string), string contentsColor = default(string))
         {
             this.Image = image;
             this.HeadingsColor = headingsColor;
@@ -73,7 +73,7 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class NotificationAllOfAndroidBackgroundLayout {\n");
+            sb.Append("class BasicNotificationAllOfAndroidBackgroundLayout {\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  HeadingsColor: ").Append(HeadingsColor).Append("\n");
             sb.Append("  ContentsColor: ").Append(ContentsColor).Append("\n");
@@ -97,15 +97,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NotificationAllOfAndroidBackgroundLayout);
+            return this.Equals(input as BasicNotificationAllOfAndroidBackgroundLayout);
         }
 
         /// <summary>
-        /// Returns true if NotificationAllOfAndroidBackgroundLayout instances are equal
+        /// Returns true if BasicNotificationAllOfAndroidBackgroundLayout instances are equal
         /// </summary>
-        /// <param name="input">Instance of NotificationAllOfAndroidBackgroundLayout to be compared</param>
+        /// <param name="input">Instance of BasicNotificationAllOfAndroidBackgroundLayout to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NotificationAllOfAndroidBackgroundLayout input)
+        public bool Equals(BasicNotificationAllOfAndroidBackgroundLayout input)
         {
             if (input == null)
             {

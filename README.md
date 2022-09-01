@@ -151,6 +151,9 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.App](docs/App.md)
+ - [Model.BasicNotification](docs/BasicNotification.md)
+ - [Model.BasicNotificationAllOf](docs/BasicNotificationAllOf.md)
+ - [Model.BasicNotificationAllOfAndroidBackgroundLayout](docs/BasicNotificationAllOfAndroidBackgroundLayout.md)
  - [Model.Button](docs/Button.md)
  - [Model.CancelNotificationSuccessResponse](docs/CancelNotificationSuccessResponse.md)
  - [Model.CreateNotificationBadRequestResponse](docs/CreateNotificationBadRequestResponse.md)
@@ -176,7 +179,6 @@ Class | Method | HTTP request | Description
  - [Model.Notification](docs/Notification.md)
  - [Model.Notification200Errors](docs/Notification200Errors.md)
  - [Model.NotificationAllOf](docs/NotificationAllOf.md)
- - [Model.NotificationAllOfAndroidBackgroundLayout](docs/NotificationAllOfAndroidBackgroundLayout.md)
  - [Model.NotificationHistoryBadRequestResponse](docs/NotificationHistoryBadRequestResponse.md)
  - [Model.NotificationHistorySuccessResponse](docs/NotificationHistorySuccessResponse.md)
  - [Model.NotificationSlice](docs/NotificationSlice.md)
@@ -187,6 +189,8 @@ Class | Method | HTTP request | Description
  - [Model.OutcomeData](docs/OutcomeData.md)
  - [Model.OutcomesData](docs/OutcomesData.md)
  - [Model.PlatformDeliveryData](docs/PlatformDeliveryData.md)
+ - [Model.PlatformDeliveryDataEmailAllOf](docs/PlatformDeliveryDataEmailAllOf.md)
+ - [Model.PlatformDeliveryDataSmsAllOf](docs/PlatformDeliveryDataSmsAllOf.md)
  - [Model.Player](docs/Player.md)
  - [Model.PlayerNotificationTarget](docs/PlayerNotificationTarget.md)
  - [Model.PlayerSlice](docs/PlayerSlice.md)

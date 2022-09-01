@@ -173,6 +173,7 @@ namespace OneSignalApi.Client
         {
             // OpenAPI generated types generally hide default constructors.
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+            DefaultValueHandling = DefaultValueHandling.Ignore,
             ContractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new CamelCaseNamingStrategy

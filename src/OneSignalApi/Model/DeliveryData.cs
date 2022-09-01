@@ -35,11 +35,11 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeliveryData" /> class.
         /// </summary>
-        /// <param name="successful">successful.</param>
-        /// <param name="failed">failed.</param>
-        /// <param name="errored">errored.</param>
-        /// <param name="converted">converted.</param>
-        /// <param name="received">received.</param>
+        /// <param name="successful">Number of messages delivered to push servers, mobile carriers, or email service providers..</param>
+        /// <param name="failed">Number of messages sent to unsubscribed devices..</param>
+        /// <param name="errored">Number of errors reported..</param>
+        /// <param name="converted">Number of messages that were clicked..</param>
+        /// <param name="received">Number of devices that received the message..</param>
         public DeliveryData(int? successful = default(int?), int? failed = default(int?), int? errored = default(int?), int? converted = default(int?), int? received = default(int?))
         {
             this.Successful = successful;
@@ -50,32 +50,37 @@ namespace OneSignalApi.Model
         }
 
         /// <summary>
-        /// Gets or Sets Successful
+        /// Number of messages delivered to push servers, mobile carriers, or email service providers.
         /// </summary>
+        /// <value>Number of messages delivered to push servers, mobile carriers, or email service providers.</value>
         [DataMember(Name = "successful", EmitDefaultValue = true)]
         public int? Successful { get; set; }
 
         /// <summary>
-        /// Gets or Sets Failed
+        /// Number of messages sent to unsubscribed devices.
         /// </summary>
+        /// <value>Number of messages sent to unsubscribed devices.</value>
         [DataMember(Name = "failed", EmitDefaultValue = true)]
         public int? Failed { get; set; }
 
         /// <summary>
-        /// Gets or Sets Errored
+        /// Number of errors reported.
         /// </summary>
+        /// <value>Number of errors reported.</value>
         [DataMember(Name = "errored", EmitDefaultValue = true)]
         public int? Errored { get; set; }
 
         /// <summary>
-        /// Gets or Sets Converted
+        /// Number of messages that were clicked.
         /// </summary>
+        /// <value>Number of messages that were clicked.</value>
         [DataMember(Name = "converted", EmitDefaultValue = true)]
         public int? Converted { get; set; }
 
         /// <summary>
-        /// Gets or Sets Received
+        /// Number of devices that received the message.
         /// </summary>
+        /// <value>Number of devices that received the message.</value>
         [DataMember(Name = "received", EmitDefaultValue = true)]
         public int? Received { get; set; }
 

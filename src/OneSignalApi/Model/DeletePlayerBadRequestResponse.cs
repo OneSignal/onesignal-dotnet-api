@@ -36,7 +36,7 @@ namespace OneSignalApi.Model
         /// Initializes a new instance of the <see cref="DeletePlayerBadRequestResponse" /> class.
         /// </summary>
         /// <param name="erorrs">erorrs.</param>
-        public DeletePlayerBadRequestResponse(List<string> erorrs = default(List<string>))
+        public DeletePlayerBadRequestResponse(List<bool> erorrs = default(List<bool>))
         {
             this.Erorrs = erorrs;
         }
@@ -45,7 +45,7 @@ namespace OneSignalApi.Model
         /// Gets or Sets Erorrs
         /// </summary>
         [DataMember(Name = "erorrs", EmitDefaultValue = false)]
-        public List<string> Erorrs { get; set; }
+        public List<bool> Erorrs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
