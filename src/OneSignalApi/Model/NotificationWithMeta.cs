@@ -166,7 +166,6 @@ namespace OneSignalApi.Model
         /// <param name="collapseId">Channel: Push Notifications Platform: iOS 10+, Android Only one notification with the same id will be shown on the device. Use the same id to update an existing notification instead of showing a new one. Limit of 64 characters. .</param>
         /// <param name="webPushTopic">Channel: Push Notifications Platform: All Browsers Display multiple notifications at once with different topics. .</param>
         /// <param name="apnsAlert">Channel: Push Notifications Platform: iOS 10+ iOS can localize push notification messages on the client using special parameters such as loc-key. When using the Create Notification endpoint, you must include these parameters inside of a field called apns_alert. Please see Apple&#39;s guide on localizing push notifications to learn more. .</param>
-        /// <param name="sendAfter">Unix timestamp indicating when notification delivery should begin..</param>
         /// <param name="delayedOption">Channel: All Possible values are: timezone (Deliver at a specific time-of-day in each users own timezone) last-active Same as Intelligent Delivery . (Deliver at the same time of day as each user last used your app). If send_after is used, this takes effect after the send_after time has elapsed. .</param>
         /// <param name="deliveryTimeOfDay">Channel: All Use with delayed_option&#x3D;timezone. Examples: \&quot;9:00AM\&quot; \&quot;21:45\&quot; \&quot;9:45:30\&quot; .</param>
         /// <param name="ttl">Channel: Push Notifications Platform: iOS, Android, Chrome, Firefox, Safari, ChromeWeb Time To Live - In seconds. The notification will be expired if the device does not come back online within this time. The default is 259,200 seconds (3 days). Max value to set is 2419200 seconds (28 days). .</param>
@@ -194,9 +193,10 @@ namespace OneSignalApi.Model
         /// <param name="outcomes">outcomes.</param>
         /// <param name="remaining">Number of notifications that have not been sent out yet. This can mean either our system is still processing the notification or you have delayed options set..</param>
         /// <param name="queuedAt">Unix timestamp indicating when the notification was created..</param>
+        /// <param name="sendAfter">Unix timestamp indicating when notification delivery should begin..</param>
         /// <param name="completedAt">Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after..</param>
         /// <param name="platformDeliveryStats">platformDeliveryStats.</param>
-        public NotificationWithMeta(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), string lastSession = default(string), string firstSession = default(string), string sessionCount = default(string), string sessionTime = default(string), string amountSpent = default(string), string boughtSku = default(string), string tag = default(string), string language = default(string), string appVersion = default(string), string location = default(string), string email = default(string), string country = default(string), List<string> includePlayerIds = default(List<string>), List<string> includeExternalUserIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string channelForExternalUserIds = default(string), string appId = default(string), string externalId = default(string), StringMap contents = default(StringMap), StringMap headings = default(StringMap), StringMap subtitle = default(StringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<Button> webButtons = default(List<Button>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), NotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(NotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), long sendAfter = default(long), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), int? throttleRatePerMinute = default(int?), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), int? received = default(int?), List<OutcomeData> outcomes = default(List<OutcomeData>), int remaining = default(int), long queuedAt = default(long), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData))
+        public NotificationWithMeta(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), string lastSession = default(string), string firstSession = default(string), string sessionCount = default(string), string sessionTime = default(string), string amountSpent = default(string), string boughtSku = default(string), string tag = default(string), string language = default(string), string appVersion = default(string), string location = default(string), string email = default(string), string country = default(string), List<string> includePlayerIds = default(List<string>), List<string> includeExternalUserIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string channelForExternalUserIds = default(string), string appId = default(string), string externalId = default(string), StringMap contents = default(StringMap), StringMap headings = default(StringMap), StringMap subtitle = default(StringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<Button> webButtons = default(List<Button>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), int? throttleRatePerMinute = default(int?), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), int? received = default(int?), List<OutcomeData> outcomes = default(List<OutcomeData>), int remaining = default(int), long queuedAt = default(long), long? sendAfter = default(long?), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData))
         {
             // to ensure "appId" is required (not null)
             if (appId == null)
@@ -294,7 +294,6 @@ namespace OneSignalApi.Model
             this.CollapseId = collapseId;
             this.WebPushTopic = webPushTopic;
             this.ApnsAlert = apnsAlert;
-            this.SendAfter = sendAfter;
             this.DelayedOption = delayedOption;
             this.DeliveryTimeOfDay = deliveryTimeOfDay;
             this.Ttl = ttl;
@@ -322,6 +321,7 @@ namespace OneSignalApi.Model
             this.Outcomes = outcomes;
             this.Remaining = remaining;
             this.QueuedAt = queuedAt;
+            this.SendAfter = sendAfter;
             this.CompletedAt = completedAt;
             this.PlatformDeliveryStats = platformDeliveryStats;
         }
@@ -428,14 +428,14 @@ namespace OneSignalApi.Model
         /// Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call 
         /// </summary>
         /// <value>Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_player_ids", EmitDefaultValue = false)]
+        [DataMember(Name = "include_player_ids", EmitDefaultValue = true)]
         public List<string> IncludePlayerIds { get; set; }
 
         /// <summary>
         /// Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\&quot;custom-id-assigned-by-api\&quot;] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. 
         /// </summary>
         /// <value>Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\&quot;custom-id-assigned-by-api\&quot;] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. </value>
-        [DataMember(Name = "include_external_user_ids", EmitDefaultValue = false)]
+        [DataMember(Name = "include_external_user_ids", EmitDefaultValue = true)]
         public List<string> IncludeExternalUserIds { get; set; }
 
         /// <summary>
@@ -518,7 +518,7 @@ namespace OneSignalApi.Model
         /// Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user.
         /// </summary>
         /// <value>Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -634,49 +634,49 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: Huawei A custom map of data that is passed back to your app. Same as using Additional Data within the dashboard. Can use up to 2048 bytes of data. Example: {\&quot;abc\&quot;: 123, \&quot;foo\&quot;: \&quot;bar\&quot;, \&quot;event_performed\&quot;: true, \&quot;amount\&quot;: 12.1} 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei A custom map of data that is passed back to your app. Same as using Additional Data within the dashboard. Can use up to 2048 bytes of data. Example: {\&quot;abc\&quot;: 123, \&quot;foo\&quot;: \&quot;bar\&quot;, \&quot;event_performed\&quot;: true, \&quot;amount\&quot;: 12.1} </value>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", EmitDefaultValue = true)]
         public Object Data { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Huawei Use \&quot;data\&quot; or \&quot;message\&quot; depending on the type of notification you are sending. More details in Data &amp; Background Notifications. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei Use \&quot;data\&quot; or \&quot;message\&quot; depending on the type of notification you are sending. More details in Data &amp; Background Notifications. </value>
-        [DataMember(Name = "huawei_msg_type", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_msg_type", EmitDefaultValue = true)]
         public string HuaweiMsgType { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: All The URL to open in the browser when a user clicks on the notification. Note: iOS needs https or updated NSAppTransportSecurity in plist This field supports inline substitutions. Omit if including web_url or app_url Example: https://onesignal.com 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: All The URL to open in the browser when a user clicks on the notification. Note: iOS needs https or updated NSAppTransportSecurity in plist This field supports inline substitutions. Omit if including web_url or app_url Example: https://onesignal.com </value>
-        [DataMember(Name = "url", EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: All Browsers Same as url but only sent to web push platforms. Including Chrome, Firefox, Safari, Opera, etc. Example: https://onesignal.com 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: All Browsers Same as url but only sent to web push platforms. Including Chrome, Firefox, Safari, Opera, etc. Example: https://onesignal.com </value>
-        [DataMember(Name = "web_url", EmitDefaultValue = false)]
+        [DataMember(Name = "web_url", EmitDefaultValue = true)]
         public string WebUrl { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: All Browsers Same as url but only sent to web push platforms. Including iOS, Android, macOS, Windows, ChromeApps, etc. Example: https://onesignal.com 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: All Browsers Same as url but only sent to web push platforms. Including iOS, Android, macOS, Windows, ChromeApps, etc. Example: https://onesignal.com </value>
-        [DataMember(Name = "app_url", EmitDefaultValue = false)]
+        [DataMember(Name = "app_url", EmitDefaultValue = true)]
         public string AppUrl { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: iOS 10+ Adds media attachments to notifications. Set as JSON object, key as a media id of your choice and the value as a valid local filename or URL. User must press and hold on the notification to view. Do not set mutable_content to download attachments. The OneSignal SDK does this automatically Example: {\&quot;id1\&quot;: \&quot;https://domain.com/image.jpg\&quot;} 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: iOS 10+ Adds media attachments to notifications. Set as JSON object, key as a media id of your choice and the value as a valid local filename or URL. User must press and hold on the notification to view. Do not set mutable_content to download attachments. The OneSignal SDK does this automatically Example: {\&quot;id1\&quot;: \&quot;https://domain.com/image.jpg\&quot;} </value>
-        [DataMember(Name = "ios_attachments", EmitDefaultValue = false)]
+        [DataMember(Name = "ios_attachments", EmitDefaultValue = true)]
         public Object IosAttachments { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: All Use a template you setup on our dashboard. The template_id is the UUID found in the URL when viewing a template on our dashboard. Example: be4a8044-bbd6-11e4-a581-000c2940e62c 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: All Use a template you setup on our dashboard. The template_id is the UUID found in the URL when viewing a template on our dashboard. Example: be4a8044-bbd6-11e4-a581-000c2940e62c </value>
-        [DataMember(Name = "template_id", EmitDefaultValue = false)]
+        [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>
@@ -697,63 +697,63 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: iOS 13+ Use to target a specific experience in your App Clip, or to target your notification to a specific window in a multi-scene App. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: iOS 13+ Use to target a specific experience in your App Clip, or to target your notification to a specific window in a multi-scene App. </value>
-        [DataMember(Name = "target_content_identifier", EmitDefaultValue = false)]
+        [DataMember(Name = "target_content_identifier", EmitDefaultValue = true)]
         public string TargetContentIdentifier { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Android Picture to display in the expanded view. Can be a drawable resource name or a URL. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android Picture to display in the expanded view. Can be a drawable resource name or a URL. </value>
-        [DataMember(Name = "big_picture", EmitDefaultValue = false)]
+        [DataMember(Name = "big_picture", EmitDefaultValue = true)]
         public string BigPicture { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Huawei Picture to display in the expanded view. Can be a drawable resource name or a URL. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei Picture to display in the expanded view. Can be a drawable resource name or a URL. </value>
-        [DataMember(Name = "huawei_big_picture", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_big_picture", EmitDefaultValue = true)]
         public string HuaweiBigPicture { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Amazon Picture to display in the expanded view. Can be a drawable resource name or a URL. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Amazon Picture to display in the expanded view. Can be a drawable resource name or a URL. </value>
-        [DataMember(Name = "adm_big_picture", EmitDefaultValue = false)]
+        [DataMember(Name = "adm_big_picture", EmitDefaultValue = true)]
         public string AdmBigPicture { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: ChromeApp Large picture to display below the notification text. Must be a local URL. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: ChromeApp Large picture to display below the notification text. Must be a local URL. </value>
-        [DataMember(Name = "chrome_big_picture", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_big_picture", EmitDefaultValue = true)]
         public string ChromeBigPicture { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Chrome 56+ Sets the web push notification&#39;s large image to be shown below the notification&#39;s title and text. Please see Web Push Notification Icons. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Chrome 56+ Sets the web push notification&#39;s large image to be shown below the notification&#39;s title and text. Please see Web Push Notification Icons. </value>
-        [DataMember(Name = "chrome_web_image", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_web_image", EmitDefaultValue = true)]
         public string ChromeWebImage { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: iOS 8.0+, Android 4.1+, and derivatives like Amazon Buttons to add to the notification. Icon only works for Android. Buttons show in reverse order of array position i.e. Last item in array shows as first button on device. Example: [{\&quot;id\&quot;: \&quot;id2\&quot;, \&quot;text\&quot;: \&quot;second button\&quot;, \&quot;icon\&quot;: \&quot;ic_menu_share\&quot;}, {\&quot;id\&quot;: \&quot;id1\&quot;, \&quot;text\&quot;: \&quot;first button\&quot;, \&quot;icon\&quot;: \&quot;ic_menu_send\&quot;}] 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: iOS 8.0+, Android 4.1+, and derivatives like Amazon Buttons to add to the notification. Icon only works for Android. Buttons show in reverse order of array position i.e. Last item in array shows as first button on device. Example: [{\&quot;id\&quot;: \&quot;id2\&quot;, \&quot;text\&quot;: \&quot;second button\&quot;, \&quot;icon\&quot;: \&quot;ic_menu_share\&quot;}, {\&quot;id\&quot;: \&quot;id1\&quot;, \&quot;text\&quot;: \&quot;first button\&quot;, \&quot;icon\&quot;: \&quot;ic_menu_send\&quot;}] </value>
-        [DataMember(Name = "buttons", EmitDefaultValue = false)]
+        [DataMember(Name = "buttons", EmitDefaultValue = true)]
         public List<Button> Buttons { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Chrome 48+ Add action buttons to the notification. The id field is required. Example: [{\&quot;id\&quot;: \&quot;like-button\&quot;, \&quot;text\&quot;: \&quot;Like\&quot;, \&quot;icon\&quot;: \&quot;http://i.imgur.com/N8SN8ZS.png\&quot;, \&quot;url\&quot;: \&quot;https://yoursite.com\&quot;}, {\&quot;id\&quot;: \&quot;read-more-button\&quot;, \&quot;text\&quot;: \&quot;Read more\&quot;, \&quot;icon\&quot;: \&quot;http://i.imgur.com/MIxJp1L.png\&quot;, \&quot;url\&quot;: \&quot;https://yoursite.com\&quot;}] 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Chrome 48+ Add action buttons to the notification. The id field is required. Example: [{\&quot;id\&quot;: \&quot;like-button\&quot;, \&quot;text\&quot;: \&quot;Like\&quot;, \&quot;icon\&quot;: \&quot;http://i.imgur.com/N8SN8ZS.png\&quot;, \&quot;url\&quot;: \&quot;https://yoursite.com\&quot;}, {\&quot;id\&quot;: \&quot;read-more-button\&quot;, \&quot;text\&quot;: \&quot;Read more\&quot;, \&quot;icon\&quot;: \&quot;http://i.imgur.com/MIxJp1L.png\&quot;, \&quot;url\&quot;: \&quot;https://yoursite.com\&quot;}] </value>
-        [DataMember(Name = "web_buttons", EmitDefaultValue = false)]
+        [DataMember(Name = "web_buttons", EmitDefaultValue = true)]
         public List<Button> WebButtons { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: iOS Category APS payload, use with registerUserNotificationSettings:categories in your Objective-C / Swift code. Example: calendar category which contains actions like accept and decline iOS 10+ This will trigger your UNNotificationContentExtension whose ID matches this category. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: iOS Category APS payload, use with registerUserNotificationSettings:categories in your Objective-C / Swift code. Example: calendar category which contains actions like accept and decline iOS 10+ This will trigger your UNNotificationContentExtension whose ID matches this category. </value>
-        [DataMember(Name = "ios_category", EmitDefaultValue = false)]
+        [DataMember(Name = "ios_category", EmitDefaultValue = true)]
         public string IosCategory { get; set; }
 
         /// <summary>
@@ -767,7 +767,7 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: Huawei The Android Oreo Notification Category to send the notification under. See the Category documentation on creating one and getting it&#39;s id. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei The Android Oreo Notification Category to send the notification under. See the Category documentation on creating one and getting it&#39;s id. </value>
-        [DataMember(Name = "huawei_channel_id", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_channel_id", EmitDefaultValue = true)]
         public string HuaweiChannelId { get; set; }
 
         /// <summary>
@@ -781,146 +781,146 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: Huawei Use this if you have client side Android Oreo Channels you have already defined in your app with code. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei Use this if you have client side Android Oreo Channels you have already defined in your app with code. </value>
-        [DataMember(Name = "huawei_existing_channel_id", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_existing_channel_id", EmitDefaultValue = true)]
         public string HuaweiExistingChannelId { get; set; }
 
         /// <summary>
         /// Gets or Sets AndroidBackgroundLayout
         /// </summary>
         [DataMember(Name = "android_background_layout", EmitDefaultValue = false)]
-        public NotificationAllOfAndroidBackgroundLayout AndroidBackgroundLayout { get; set; }
+        public BasicNotificationAllOfAndroidBackgroundLayout AndroidBackgroundLayout { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Android Icon shown in the status bar and on the top left of the notification. If not set a bell icon will be used or ic_stat_onesignal_default if you have set this resource name. See: How to create small icons 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android Icon shown in the status bar and on the top left of the notification. If not set a bell icon will be used or ic_stat_onesignal_default if you have set this resource name. See: How to create small icons </value>
-        [DataMember(Name = "small_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "small_icon", EmitDefaultValue = true)]
         public string SmallIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Huawei Icon shown in the status bar and on the top left of the notification. Use an Android resource path (E.g. /drawable/small_icon). Defaults to your app icon if not set. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei Icon shown in the status bar and on the top left of the notification. Use an Android resource path (E.g. /drawable/small_icon). Defaults to your app icon if not set. </value>
-        [DataMember(Name = "huawei_small_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_small_icon", EmitDefaultValue = true)]
         public string HuaweiSmallIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Android Can be a drawable resource name or a URL. See: How to create large icons 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android Can be a drawable resource name or a URL. See: How to create large icons </value>
-        [DataMember(Name = "large_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "large_icon", EmitDefaultValue = true)]
         public string LargeIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Huawei Can be a drawable resource name or a URL. See: How to create large icons 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei Can be a drawable resource name or a URL. See: How to create large icons </value>
-        [DataMember(Name = "huawei_large_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_large_icon", EmitDefaultValue = true)]
         public string HuaweiLargeIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Amazon If not set a bell icon will be used or ic_stat_onesignal_default if you have set this resource name. See: How to create small icons 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Amazon If not set a bell icon will be used or ic_stat_onesignal_default if you have set this resource name. See: How to create small icons </value>
-        [DataMember(Name = "adm_small_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "adm_small_icon", EmitDefaultValue = true)]
         public string AdmSmallIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Amazon If blank the small_icon is used. Can be a drawable resource name or a URL. See: How to create large icons 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Amazon If blank the small_icon is used. Can be a drawable resource name or a URL. See: How to create large icons </value>
-        [DataMember(Name = "adm_large_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "adm_large_icon", EmitDefaultValue = true)]
         public string AdmLargeIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Chrome Sets the web push notification&#39;s icon. An image URL linking to a valid image. Common image types are supported; GIF will not animate. We recommend 256x256 (at least 80x80) to display well on high DPI devices. Firefox will also use this icon, unless you specify firefox_icon. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Chrome Sets the web push notification&#39;s icon. An image URL linking to a valid image. Common image types are supported; GIF will not animate. We recommend 256x256 (at least 80x80) to display well on high DPI devices. Firefox will also use this icon, unless you specify firefox_icon. </value>
-        [DataMember(Name = "chrome_web_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_web_icon", EmitDefaultValue = true)]
         public string ChromeWebIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Chrome Sets the web push notification icon for Android devices in the notification shade. Please see Web Push Notification Badge. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Chrome Sets the web push notification icon for Android devices in the notification shade. Please see Web Push Notification Badge. </value>
-        [DataMember(Name = "chrome_web_badge", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_web_badge", EmitDefaultValue = true)]
         public string ChromeWebBadge { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Firefox Not recommended Few people need to set Firefox-specific icons. We recommend setting chrome_web_icon instead, which Firefox will also use. Sets the web push notification&#39;s icon for Firefox. An image URL linking to a valid image. Common image types are supported; GIF will not animate. We recommend 256x256 (at least 80x80) to display well on high DPI devices. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Firefox Not recommended Few people need to set Firefox-specific icons. We recommend setting chrome_web_icon instead, which Firefox will also use. Sets the web push notification&#39;s icon for Firefox. An image URL linking to a valid image. Common image types are supported; GIF will not animate. We recommend 256x256 (at least 80x80) to display well on high DPI devices. </value>
-        [DataMember(Name = "firefox_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "firefox_icon", EmitDefaultValue = true)]
         public string FirefoxIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: ChromeApp This flag is not used for web push For web push, please see chrome_web_icon instead. The local URL to an icon to use. If blank, the app icon will be used. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: ChromeApp This flag is not used for web push For web push, please see chrome_web_icon instead. The local URL to an icon to use. If blank, the app icon will be used. </value>
-        [DataMember(Name = "chrome_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_icon", EmitDefaultValue = true)]
         public string ChromeIcon { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: iOS Sound file that is included in your app to play instead of the default device notification sound. Pass nil to disable vibration and sound for the notification. Example: \&quot;notification.wav\&quot; 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: iOS Sound file that is included in your app to play instead of the default device notification sound. Pass nil to disable vibration and sound for the notification. Example: \&quot;notification.wav\&quot; </value>
-        [DataMember(Name = "ios_sound", EmitDefaultValue = false)]
+        [DataMember(Name = "ios_sound", EmitDefaultValue = true)]
         public string IosSound { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Android &amp;#9888;&amp;#65039;Deprecated, this field doesn&#39;t work on Android 8 (Oreo) and newer devices! Please use Notification Categories / Channels noted above instead to support ALL versions of Android. Sound file that is included in your app to play instead of the default device notification sound. Pass nil to disable sound for the notification. NOTE: Leave off file extension for Android. Example: \&quot;notification\&quot; 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android &amp;#9888;&amp;#65039;Deprecated, this field doesn&#39;t work on Android 8 (Oreo) and newer devices! Please use Notification Categories / Channels noted above instead to support ALL versions of Android. Sound file that is included in your app to play instead of the default device notification sound. Pass nil to disable sound for the notification. NOTE: Leave off file extension for Android. Example: \&quot;notification\&quot; </value>
-        [DataMember(Name = "android_sound", EmitDefaultValue = false)]
+        [DataMember(Name = "android_sound", EmitDefaultValue = true)]
         public string AndroidSound { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Huawei &amp;#9888;&amp;#65039;Deprecated, this field ONLY works on EMUI 5 (Android 7 based) and older devices. Please also set Notification Categories / Channels noted above to support EMUI 8 (Android 8 based) devices. Sound file that is included in your app to play instead of the default device notification sound. NOTE: Leave off file extension for and include the full path.  Example: \&quot;/res/raw/notification\&quot; 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei &amp;#9888;&amp;#65039;Deprecated, this field ONLY works on EMUI 5 (Android 7 based) and older devices. Please also set Notification Categories / Channels noted above to support EMUI 8 (Android 8 based) devices. Sound file that is included in your app to play instead of the default device notification sound. NOTE: Leave off file extension for and include the full path.  Example: \&quot;/res/raw/notification\&quot; </value>
-        [DataMember(Name = "huawei_sound", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_sound", EmitDefaultValue = true)]
         public string HuaweiSound { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Amazon &amp;#9888;&amp;#65039;Deprecated, this field doesn&#39;t work on Android 8 (Oreo) and newer devices! Please use Notification Categories / Channels noted above instead to support ALL versions of Android. Sound file that is included in your app to play instead of the default device notification sound. Pass nil to disable sound for the notification. NOTE: Leave off file extension for Android. Example: \&quot;notification\&quot; 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Amazon &amp;#9888;&amp;#65039;Deprecated, this field doesn&#39;t work on Android 8 (Oreo) and newer devices! Please use Notification Categories / Channels noted above instead to support ALL versions of Android. Sound file that is included in your app to play instead of the default device notification sound. Pass nil to disable sound for the notification. NOTE: Leave off file extension for Android. Example: \&quot;notification\&quot; </value>
-        [DataMember(Name = "adm_sound", EmitDefaultValue = false)]
+        [DataMember(Name = "adm_sound", EmitDefaultValue = true)]
         public string AdmSound { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Windows Sound file that is included in your app to play instead of the default device notification sound. Example: \&quot;notification.wav\&quot; 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Windows Sound file that is included in your app to play instead of the default device notification sound. Example: \&quot;notification.wav\&quot; </value>
-        [DataMember(Name = "wp_wns_sound", EmitDefaultValue = false)]
+        [DataMember(Name = "wp_wns_sound", EmitDefaultValue = true)]
         public string WpWnsSound { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Android &amp;#9888;&amp;#65039;Deprecated, this field doesn&#39;t work on Android 8 (Oreo) and newer devices! Please use Notification Categories / Channels noted above instead to support ALL versions of Android. Sets the devices LED notification light if the device has one. ARGB Hex format. Example(Blue): \&quot;FF0000FF\&quot; 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android &amp;#9888;&amp;#65039;Deprecated, this field doesn&#39;t work on Android 8 (Oreo) and newer devices! Please use Notification Categories / Channels noted above instead to support ALL versions of Android. Sets the devices LED notification light if the device has one. ARGB Hex format. Example(Blue): \&quot;FF0000FF\&quot; </value>
-        [DataMember(Name = "android_led_color", EmitDefaultValue = false)]
+        [DataMember(Name = "android_led_color", EmitDefaultValue = true)]
         public string AndroidLedColor { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Huawei &amp;#9888;&amp;#65039;Deprecated, this field ONLY works on EMUI 5 (Android 7 based) and older devices. Please also set Notification Categories / Channels noted above to support EMUI 8 (Android 8 based) devices. Sets the devices LED notification light if the device has one. RGB Hex format. Example(Blue): \&quot;0000FF\&quot; 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei &amp;#9888;&amp;#65039;Deprecated, this field ONLY works on EMUI 5 (Android 7 based) and older devices. Please also set Notification Categories / Channels noted above to support EMUI 8 (Android 8 based) devices. Sets the devices LED notification light if the device has one. RGB Hex format. Example(Blue): \&quot;0000FF\&quot; </value>
-        [DataMember(Name = "huawei_led_color", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_led_color", EmitDefaultValue = true)]
         public string HuaweiLedColor { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Android Sets the background color of the notification circle to the left of the notification text. Only applies to apps targeting Android API level 21+ on Android 5.0+ devices. Example(Red): \&quot;FFFF0000\&quot; 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android Sets the background color of the notification circle to the left of the notification text. Only applies to apps targeting Android API level 21+ on Android 5.0+ devices. Example(Red): \&quot;FFFF0000\&quot; </value>
-        [DataMember(Name = "android_accent_color", EmitDefaultValue = false)]
+        [DataMember(Name = "android_accent_color", EmitDefaultValue = true)]
         public string AndroidAccentColor { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Huawei Accent Color used on Action Buttons and Group overflow count. Uses RGB Hex value (E.g. #9900FF). Defaults to device&#39;s theme color if not set. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei Accent Color used on Action Buttons and Group overflow count. Uses RGB Hex value (E.g. #9900FF). Defaults to device&#39;s theme color if not set. </value>
-        [DataMember(Name = "huawei_accent_color", EmitDefaultValue = false)]
+        [DataMember(Name = "huawei_accent_color", EmitDefaultValue = true)]
         public string HuaweiAccentColor { get; set; }
 
         /// <summary>
@@ -941,7 +941,7 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: iOS Describes whether to set or increase/decrease your app&#39;s iOS badge count by the ios_badgeCount specified count. Can specify None, SetTo, or Increase. &#x60;None&#x60; leaves the count unaffected. &#x60;SetTo&#x60; directly sets the badge count to the number specified in ios_badgeCount. &#x60;Increase&#x60; adds the number specified in ios_badgeCount to the total. Use a negative number to decrease the badge count. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: iOS Describes whether to set or increase/decrease your app&#39;s iOS badge count by the ios_badgeCount specified count. Can specify None, SetTo, or Increase. &#x60;None&#x60; leaves the count unaffected. &#x60;SetTo&#x60; directly sets the badge count to the number specified in ios_badgeCount. &#x60;Increase&#x60; adds the number specified in ios_badgeCount to the total. Use a negative number to decrease the badge count. </value>
-        [DataMember(Name = "ios_badgeType", EmitDefaultValue = false)]
+        [DataMember(Name = "ios_badgeType", EmitDefaultValue = true)]
         public string IosBadgeType { get; set; }
 
         /// <summary>
@@ -962,35 +962,28 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: All Browsers Display multiple notifications at once with different topics. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: All Browsers Display multiple notifications at once with different topics. </value>
-        [DataMember(Name = "web_push_topic", EmitDefaultValue = false)]
+        [DataMember(Name = "web_push_topic", EmitDefaultValue = true)]
         public string WebPushTopic { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: iOS 10+ iOS can localize push notification messages on the client using special parameters such as loc-key. When using the Create Notification endpoint, you must include these parameters inside of a field called apns_alert. Please see Apple&#39;s guide on localizing push notifications to learn more. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: iOS 10+ iOS can localize push notification messages on the client using special parameters such as loc-key. When using the Create Notification endpoint, you must include these parameters inside of a field called apns_alert. Please see Apple&#39;s guide on localizing push notifications to learn more. </value>
-        [DataMember(Name = "apns_alert", EmitDefaultValue = false)]
+        [DataMember(Name = "apns_alert", EmitDefaultValue = true)]
         public Object ApnsAlert { get; set; }
-
-        /// <summary>
-        /// Unix timestamp indicating when notification delivery should begin.
-        /// </summary>
-        /// <value>Unix timestamp indicating when notification delivery should begin.</value>
-        [DataMember(Name = "send_after", EmitDefaultValue = false)]
-        public long SendAfter { get; set; }
 
         /// <summary>
         /// Channel: All Possible values are: timezone (Deliver at a specific time-of-day in each users own timezone) last-active Same as Intelligent Delivery . (Deliver at the same time of day as each user last used your app). If send_after is used, this takes effect after the send_after time has elapsed. 
         /// </summary>
         /// <value>Channel: All Possible values are: timezone (Deliver at a specific time-of-day in each users own timezone) last-active Same as Intelligent Delivery . (Deliver at the same time of day as each user last used your app). If send_after is used, this takes effect after the send_after time has elapsed. </value>
-        [DataMember(Name = "delayed_option", EmitDefaultValue = false)]
+        [DataMember(Name = "delayed_option", EmitDefaultValue = true)]
         public string DelayedOption { get; set; }
 
         /// <summary>
         /// Channel: All Use with delayed_option&#x3D;timezone. Examples: \&quot;9:00AM\&quot; \&quot;21:45\&quot; \&quot;9:45:30\&quot; 
         /// </summary>
         /// <value>Channel: All Use with delayed_option&#x3D;timezone. Examples: \&quot;9:00AM\&quot; \&quot;21:45\&quot; \&quot;9:45:30\&quot; </value>
-        [DataMember(Name = "delivery_time_of_day", EmitDefaultValue = false)]
+        [DataMember(Name = "delivery_time_of_day", EmitDefaultValue = true)]
         public string DeliveryTimeOfDay { get; set; }
 
         /// <summary>
@@ -1025,35 +1018,35 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: Android Notifications with the same group will be stacked together using Android&#39;s Notification Grouping feature. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android Notifications with the same group will be stacked together using Android&#39;s Notification Grouping feature. </value>
-        [DataMember(Name = "android_group", EmitDefaultValue = false)]
+        [DataMember(Name = "android_group", EmitDefaultValue = true)]
         public string AndroidGroup { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Android Note: This only works for Android 6 and older. Android 7+ allows full expansion of all message. Summary message to display when 2+ notifications are stacked together. Default is \&quot;# new messages\&quot;. Include $[notif_count] in your message and it will be replaced with the current number. Languages - The value of each key is the message that will be sent to users for that language. \&quot;en\&quot; (English) is required. The key of each hash is either a a 2 character language code or one of zh-Hans/zh-Hant for Simplified or Traditional Chinese. Read more: supported languages. Example: {\&quot;en\&quot;: \&quot;You have $[notif_count] new messages\&quot;} 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android Note: This only works for Android 6 and older. Android 7+ allows full expansion of all message. Summary message to display when 2+ notifications are stacked together. Default is \&quot;# new messages\&quot;. Include $[notif_count] in your message and it will be replaced with the current number. Languages - The value of each key is the message that will be sent to users for that language. \&quot;en\&quot; (English) is required. The key of each hash is either a a 2 character language code or one of zh-Hans/zh-Hant for Simplified or Traditional Chinese. Read more: supported languages. Example: {\&quot;en\&quot;: \&quot;You have $[notif_count] new messages\&quot;} </value>
-        [DataMember(Name = "android_group_message", EmitDefaultValue = false)]
+        [DataMember(Name = "android_group_message", EmitDefaultValue = true)]
         public string AndroidGroupMessage { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Amazon Notifications with the same group will be stacked together using Android&#39;s Notification Grouping feature. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Amazon Notifications with the same group will be stacked together using Android&#39;s Notification Grouping feature. </value>
-        [DataMember(Name = "adm_group", EmitDefaultValue = false)]
+        [DataMember(Name = "adm_group", EmitDefaultValue = true)]
         public string AdmGroup { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: Amazon Summary message to display when 2+ notifications are stacked together. Default is \&quot;# new messages\&quot;. Include $[notif_count] in your message and it will be replaced with the current number. \&quot;en\&quot; (English) is required. The key of each hash is either a a 2 character language code or one of zh-Hans/zh-Hant for Simplified or Traditional Chinese. The value of each key is the message that will be sent to users for that language. Example: {\&quot;en\&quot;: \&quot;You have $[notif_count] new messages\&quot;} 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Amazon Summary message to display when 2+ notifications are stacked together. Default is \&quot;# new messages\&quot;. Include $[notif_count] in your message and it will be replaced with the current number. \&quot;en\&quot; (English) is required. The key of each hash is either a a 2 character language code or one of zh-Hans/zh-Hant for Simplified or Traditional Chinese. The value of each key is the message that will be sent to users for that language. Example: {\&quot;en\&quot;: \&quot;You have $[notif_count] new messages\&quot;} </value>
-        [DataMember(Name = "adm_group_message", EmitDefaultValue = false)]
+        [DataMember(Name = "adm_group_message", EmitDefaultValue = true)]
         public Object AdmGroupMessage { get; set; }
 
         /// <summary>
         /// Channel: Push Notifications Platform: iOS 12+ This parameter is supported in iOS 12 and above. It allows you to group related notifications together. If two notifications have the same thread-id, they will both be added to the same group. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: iOS 12+ This parameter is supported in iOS 12 and above. It allows you to group related notifications together. If two notifications have the same thread-id, they will both be added to the same group. </value>
-        [DataMember(Name = "thread_id", EmitDefaultValue = false)]
+        [DataMember(Name = "thread_id", EmitDefaultValue = true)]
         public string ThreadId { get; set; }
 
         /// <summary>
@@ -1074,7 +1067,7 @@ namespace OneSignalApi.Model
         /// Channel: Email Required.  The subject of the email. 
         /// </summary>
         /// <value>Channel: Email Required.  The subject of the email. </value>
-        [DataMember(Name = "email_subject", EmitDefaultValue = false)]
+        [DataMember(Name = "email_subject", EmitDefaultValue = true)]
         public string EmailSubject { get; set; }
 
         /// <summary>
@@ -1088,28 +1081,28 @@ namespace OneSignalApi.Model
         /// Channel: Email The name the email is from. If not specified, will default to \&quot;from name\&quot; set in the OneSignal Dashboard Email Settings. 
         /// </summary>
         /// <value>Channel: Email The name the email is from. If not specified, will default to \&quot;from name\&quot; set in the OneSignal Dashboard Email Settings. </value>
-        [DataMember(Name = "email_from_name", EmitDefaultValue = false)]
+        [DataMember(Name = "email_from_name", EmitDefaultValue = true)]
         public string EmailFromName { get; set; }
 
         /// <summary>
         /// Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings. 
         /// </summary>
         /// <value>Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings. </value>
-        [DataMember(Name = "email_from_address", EmitDefaultValue = false)]
+        [DataMember(Name = "email_from_address", EmitDefaultValue = true)]
         public string EmailFromAddress { get; set; }
 
         /// <summary>
         /// Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format. 
         /// </summary>
         /// <value>Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format. </value>
-        [DataMember(Name = "sms_from", EmitDefaultValue = false)]
+        [DataMember(Name = "sms_from", EmitDefaultValue = true)]
         public string SmsFrom { get; set; }
 
         /// <summary>
         /// Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs. 
         /// </summary>
         /// <value>Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs. </value>
-        [DataMember(Name = "sms_media_urls", EmitDefaultValue = false)]
+        [DataMember(Name = "sms_media_urls", EmitDefaultValue = true)]
         public List<string> SmsMediaUrls { get; set; }
 
         /// <summary>
@@ -1166,6 +1159,13 @@ namespace OneSignalApi.Model
         /// <value>Unix timestamp indicating when the notification was created.</value>
         [DataMember(Name = "queued_at", EmitDefaultValue = false)]
         public long QueuedAt { get; set; }
+
+        /// <summary>
+        /// Unix timestamp indicating when notification delivery should begin.
+        /// </summary>
+        /// <value>Unix timestamp indicating when notification delivery should begin.</value>
+        [DataMember(Name = "send_after", EmitDefaultValue = true)]
+        public long? SendAfter { get; set; }
 
         /// <summary>
         /// Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after.
@@ -1281,7 +1281,6 @@ namespace OneSignalApi.Model
             sb.Append("  CollapseId: ").Append(CollapseId).Append("\n");
             sb.Append("  WebPushTopic: ").Append(WebPushTopic).Append("\n");
             sb.Append("  ApnsAlert: ").Append(ApnsAlert).Append("\n");
-            sb.Append("  SendAfter: ").Append(SendAfter).Append("\n");
             sb.Append("  DelayedOption: ").Append(DelayedOption).Append("\n");
             sb.Append("  DeliveryTimeOfDay: ").Append(DeliveryTimeOfDay).Append("\n");
             sb.Append("  Ttl: ").Append(Ttl).Append("\n");
@@ -1309,6 +1308,7 @@ namespace OneSignalApi.Model
             sb.Append("  Outcomes: ").Append(Outcomes).Append("\n");
             sb.Append("  Remaining: ").Append(Remaining).Append("\n");
             sb.Append("  QueuedAt: ").Append(QueuedAt).Append("\n");
+            sb.Append("  SendAfter: ").Append(SendAfter).Append("\n");
             sb.Append("  CompletedAt: ").Append(CompletedAt).Append("\n");
             sb.Append("  PlatformDeliveryStats: ").Append(PlatformDeliveryStats).Append("\n");
             sb.Append("}\n");
@@ -1823,10 +1823,6 @@ namespace OneSignalApi.Model
                     this.ApnsAlert.Equals(input.ApnsAlert))
                 ) && 
                 (
-                    this.SendAfter == input.SendAfter ||
-                    this.SendAfter.Equals(input.SendAfter)
-                ) && 
-                (
                     this.DelayedOption == input.DelayedOption ||
                     (this.DelayedOption != null &&
                     this.DelayedOption.Equals(input.DelayedOption))
@@ -1955,6 +1951,11 @@ namespace OneSignalApi.Model
                 (
                     this.QueuedAt == input.QueuedAt ||
                     this.QueuedAt.Equals(input.QueuedAt)
+                ) && 
+                (
+                    this.SendAfter == input.SendAfter ||
+                    (this.SendAfter != null &&
+                    this.SendAfter.Equals(input.SendAfter))
                 ) && 
                 (
                     this.CompletedAt == input.CompletedAt ||
@@ -2340,7 +2341,6 @@ namespace OneSignalApi.Model
                 {
                     hashCode = (hashCode * 59) + this.ApnsAlert.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SendAfter.GetHashCode();
                 if (this.DelayedOption != null)
                 {
                     hashCode = (hashCode * 59) + this.DelayedOption.GetHashCode();
@@ -2428,6 +2428,10 @@ namespace OneSignalApi.Model
                 }
                 hashCode = (hashCode * 59) + this.Remaining.GetHashCode();
                 hashCode = (hashCode * 59) + this.QueuedAt.GetHashCode();
+                if (this.SendAfter != null)
+                {
+                    hashCode = (hashCode * 59) + this.SendAfter.GetHashCode();
+                }
                 if (this.CompletedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.CompletedAt.GetHashCode();

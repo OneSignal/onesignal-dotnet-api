@@ -63,14 +63,14 @@ namespace OneSignalApi.Model
         /// Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call 
         /// </summary>
         /// <value>Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_player_ids", EmitDefaultValue = false)]
+        [DataMember(Name = "include_player_ids", EmitDefaultValue = true)]
         public List<string> IncludePlayerIds { get; set; }
 
         /// <summary>
         /// Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\&quot;custom-id-assigned-by-api\&quot;] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. 
         /// </summary>
         /// <value>Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\&quot;custom-id-assigned-by-api\&quot;] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. </value>
-        [DataMember(Name = "include_external_user_ids", EmitDefaultValue = false)]
+        [DataMember(Name = "include_external_user_ids", EmitDefaultValue = true)]
         public List<string> IncludeExternalUserIds { get; set; }
 
         /// <summary>

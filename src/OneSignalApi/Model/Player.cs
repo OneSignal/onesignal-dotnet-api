@@ -141,7 +141,7 @@ namespace OneSignalApi.Model
         /// a custom user ID
         /// </summary>
         /// <value>a custom user ID</value>
-        [DataMember(Name = "external_user_id", EmitDefaultValue = false)]
+        [DataMember(Name = "external_user_id", EmitDefaultValue = true)]
         public string ExternalUserId { get; set; }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace OneSignalApi.Model
         /// Recommended: For Push Notifications, this is the Push Token Identifier from Google or Apple. For Apple Push identifiers, you must strip all non alphanumeric characters. Examples: iOS: 7abcd558f29d0b1f048083e2834ad8ea4b3d87d8ad9c088b33c132706ff445f0 Android: APA91bHbYHk7aq-Uam_2pyJ2qbZvqllyyh2wjfPRaw5gLEX2SUlQBRvOc6sck1sa7H7nGeLNlDco8lXj83HWWwzV... For Email Addresses, set the full email address email@email.com and make sure to set device_type to 11. 
         /// </summary>
         /// <value>Recommended: For Push Notifications, this is the Push Token Identifier from Google or Apple. For Apple Push identifiers, you must strip all non alphanumeric characters. Examples: iOS: 7abcd558f29d0b1f048083e2834ad8ea4b3d87d8ad9c088b33c132706ff445f0 Android: APA91bHbYHk7aq-Uam_2pyJ2qbZvqllyyh2wjfPRaw5gLEX2SUlQBRvOc6sck1sa7H7nGeLNlDco8lXj83HWWwzV... For Email Addresses, set the full email address email@email.com and make sure to set device_type to 11. </value>
-        [DataMember(Name = "identifier", EmitDefaultValue = false)]
+        [DataMember(Name = "identifier", EmitDefaultValue = true)]
         public string Identifier { get; set; }
 
         /// <summary>
@@ -183,35 +183,35 @@ namespace OneSignalApi.Model
         /// Version of your app. Example: 1.1 
         /// </summary>
         /// <value>Version of your app. Example: 1.1 </value>
-        [DataMember(Name = "game_version", EmitDefaultValue = false)]
+        [DataMember(Name = "game_version", EmitDefaultValue = true)]
         public string GameVersion { get; set; }
 
         /// <summary>
         /// Device make and model. Example: iPhone5,1 
         /// </summary>
         /// <value>Device make and model. Example: iPhone5,1 </value>
-        [DataMember(Name = "device_model", EmitDefaultValue = false)]
+        [DataMember(Name = "device_model", EmitDefaultValue = true)]
         public string DeviceModel { get; set; }
 
         /// <summary>
         /// Device operating system version. Example: 7.0.4 
         /// </summary>
         /// <value>Device operating system version. Example: 7.0.4 </value>
-        [DataMember(Name = "device_os", EmitDefaultValue = false)]
+        [DataMember(Name = "device_os", EmitDefaultValue = true)]
         public string DeviceOs { get; set; }
 
         /// <summary>
         /// The ad id for the device&#39;s platform: Android &#x3D; Advertising Id iOS &#x3D; identifierForVendor WP8.0 &#x3D; DeviceUniqueId WP8.1 &#x3D; AdvertisingId 
         /// </summary>
         /// <value>The ad id for the device&#39;s platform: Android &#x3D; Advertising Id iOS &#x3D; identifierForVendor WP8.0 &#x3D; DeviceUniqueId WP8.1 &#x3D; AdvertisingId </value>
-        [DataMember(Name = "ad_id", EmitDefaultValue = false)]
+        [DataMember(Name = "ad_id", EmitDefaultValue = true)]
         public string AdId { get; set; }
 
         /// <summary>
         /// Name and version of the sdk/plugin that&#39;s calling this API method (if any)
         /// </summary>
         /// <value>Name and version of the sdk/plugin that&#39;s calling this API method (if any)</value>
-        [DataMember(Name = "sdk", EmitDefaultValue = false)]
+        [DataMember(Name = "sdk", EmitDefaultValue = true)]
         public string Sdk { get; set; }
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace OneSignalApi.Model
         /// Custom tags for the player. Only support string and integer key value pairs. Does not support arrays or other nested objects. Setting a tag value to null or an empty string will remove the tag. Example: {\&quot;foo\&quot;:\&quot;bar\&quot;,\&quot;this\&quot;:\&quot;that\&quot;} Limitations: - 100 tags per call - Android SDK users: tags cannot be removed or changed via API if set through SDK sendTag methods. Recommended to only tag devices with 1 kilobyte of data Please consider using your own Database to save more than 1 kilobyte of data. See: Internal Database &amp; CRM 
         /// </summary>
         /// <value>Custom tags for the player. Only support string and integer key value pairs. Does not support arrays or other nested objects. Setting a tag value to null or an empty string will remove the tag. Example: {\&quot;foo\&quot;:\&quot;bar\&quot;,\&quot;this\&quot;:\&quot;that\&quot;} Limitations: - 100 tags per call - Android SDK users: tags cannot be removed or changed via API if set through SDK sendTag methods. Recommended to only tag devices with 1 kilobyte of data Please consider using your own Database to save more than 1 kilobyte of data. See: Internal Database &amp; CRM </value>
-        [DataMember(Name = "tags", EmitDefaultValue = false)]
+        [DataMember(Name = "tags", EmitDefaultValue = true)]
         public Object Tags { get; set; }
 
         /// <summary>

@@ -38,7 +38,7 @@ namespace OneSignalApi.Model
         /// <param name="extraFields">Additional fields that you wish to include. Currently supports location, country, rooted, notification_types, ip, external_user_id, web_auth, and web_p256..</param>
         /// <param name="lastActiveSince">Export all devices with a last_active timestamp greater than this time.  Unixtime in seconds..</param>
         /// <param name="segmentName">Export al ldevices belonging to the segment..</param>
-        public ExportPlayersRequestBody(List<string> extraFields = default(List<string>), int lastActiveSince = default(int), string segmentName = default(string))
+        public ExportPlayersRequestBody(List<string> extraFields = default(List<string>), string lastActiveSince = default(string), string segmentName = default(string))
         {
             this.ExtraFields = extraFields;
             this.LastActiveSince = lastActiveSince;
@@ -57,7 +57,7 @@ namespace OneSignalApi.Model
         /// </summary>
         /// <value>Export all devices with a last_active timestamp greater than this time.  Unixtime in seconds.</value>
         [DataMember(Name = "last_active_since", EmitDefaultValue = false)]
-        public int LastActiveSince { get; set; }
+        public string LastActiveSince { get; set; }
 
         /// <summary>
         /// Export al ldevices belonging to the segment.
@@ -120,7 +120,8 @@ namespace OneSignalApi.Model
                 ) && 
                 (
                     this.LastActiveSince == input.LastActiveSince ||
-                    this.LastActiveSince.Equals(input.LastActiveSince)
+                    (this.LastActiveSince != null &&
+                    this.LastActiveSince.Equals(input.LastActiveSince))
                 ) && 
                 (
                     this.SegmentName == input.SegmentName ||
@@ -142,7 +143,10 @@ namespace OneSignalApi.Model
                 {
                     hashCode = (hashCode * 59) + this.ExtraFields.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.LastActiveSince.GetHashCode();
+                if (this.LastActiveSince != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastActiveSince.GetHashCode();
+                }
                 if (this.SegmentName != null)
                 {
                     hashCode = (hashCode * 59) + this.SegmentName.GetHashCode();

@@ -58,7 +58,7 @@ namespace OneSignalApi.Model
         /// iOS: Either sandbox or production
         /// </summary>
         /// <value>iOS: Either sandbox or production</value>
-        [DataMember(Name = "apns_env", EmitDefaultValue = false)]
+        [DataMember(Name = "apns_env", EmitDefaultValue = true)]
         public ApnsEnvEnum? ApnsEnv { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="App" /> class.
@@ -194,35 +194,35 @@ namespace OneSignalApi.Model
         /// Android: Your Google Push Messaging Auth Key
         /// </summary>
         /// <value>Android: Your Google Push Messaging Auth Key</value>
-        [DataMember(Name = "gcm_key", EmitDefaultValue = false)]
+        [DataMember(Name = "gcm_key", EmitDefaultValue = true)]
         public string GcmKey { get; set; }
 
         /// <summary>
         /// Chrome (All Browsers except Safari) (Recommended): The URL to your website.  This field is required if you wish to enable web push and specify other web push parameters.
         /// </summary>
         /// <value>Chrome (All Browsers except Safari) (Recommended): The URL to your website.  This field is required if you wish to enable web push and specify other web push parameters.</value>
-        [DataMember(Name = "chrome_web_origin", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_web_origin", EmitDefaultValue = true)]
         public string ChromeWebOrigin { get; set; }
 
         /// <summary>
         /// Not for web push.  Your Google Push Messaging Auth Key if you use Chrome Apps / Extensions.
         /// </summary>
         /// <value>Not for web push.  Your Google Push Messaging Auth Key if you use Chrome Apps / Extensions.</value>
-        [DataMember(Name = "chrome_key", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_key", EmitDefaultValue = true)]
         public string ChromeKey { get; set; }
 
         /// <summary>
         /// Chrome (All Browsers except Safari): Your default notification icon. Should be 256x256 pixels, min 80x80.
         /// </summary>
         /// <value>Chrome (All Browsers except Safari): Your default notification icon. Should be 256x256 pixels, min 80x80.</value>
-        [DataMember(Name = "chrome_web_default_notification_icon", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_web_default_notification_icon", EmitDefaultValue = true)]
         public string ChromeWebDefaultNotificationIcon { get; set; }
 
         /// <summary>
         /// Chrome (All Browsers except Safari): A subdomain of your choice in order to support Web Push on non-HTTPS websites. This field must be set in order for the chrome_web_gcm_sender_id property to be processed.
         /// </summary>
         /// <value>Chrome (All Browsers except Safari): A subdomain of your choice in order to support Web Push on non-HTTPS websites. This field must be set in order for the chrome_web_gcm_sender_id property to be processed.</value>
-        [DataMember(Name = "chrome_web_sub_domain", EmitDefaultValue = false)]
+        [DataMember(Name = "chrome_web_sub_domain", EmitDefaultValue = true)]
         public string ChromeWebSubDomain { get; set; }
 
         /// <summary>
@@ -242,7 +242,7 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Gets or Sets ApnsCertificates
         /// </summary>
-        [DataMember(Name = "apns_certificates", EmitDefaultValue = false)]
+        [DataMember(Name = "apns_certificates", EmitDefaultValue = true)]
         public string ApnsCertificates { get; private set; }
 
         /// <summary>
@@ -285,13 +285,13 @@ namespace OneSignalApi.Model
         /// Safari (Recommended): The hostname to your website including http(s)://
         /// </summary>
         /// <value>Safari (Recommended): The hostname to your website including http(s)://</value>
-        [DataMember(Name = "safari_site_origin", EmitDefaultValue = false)]
+        [DataMember(Name = "safari_site_origin", EmitDefaultValue = true)]
         public string SafariSiteOrigin { get; set; }
 
         /// <summary>
         /// Gets or Sets SafariPushId
         /// </summary>
-        [DataMember(Name = "safari_push_id", EmitDefaultValue = false)]
+        [DataMember(Name = "safari_push_id", EmitDefaultValue = true)]
         public string SafariPushId { get; private set; }
 
         /// <summary>
@@ -369,7 +369,7 @@ namespace OneSignalApi.Model
         /// All Browsers (Recommended): The Site Name. Requires both chrome_web_origin and safari_site_origin to be set to add or update it.
         /// </summary>
         /// <value>All Browsers (Recommended): The Site Name. Requires both chrome_web_origin and safari_site_origin to be set to add or update it.</value>
-        [DataMember(Name = "site_name", EmitDefaultValue = false)]
+        [DataMember(Name = "site_name", EmitDefaultValue = true)]
         public string SiteName { get; set; }
 
         /// <summary>

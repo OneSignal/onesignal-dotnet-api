@@ -46,7 +46,7 @@ namespace OneSignalApi.Model
         /// <param name="platformDeliveryStats">platformDeliveryStats.</param>
         /// <param name="received">Confirmed Deliveries number of devices that received the push notification. Paid Feature Only. Free accounts will see 0..</param>
         /// <param name="throttleRatePerMinute">number of push notifications sent per minute. Paid Feature Only. If throttling is not enabled for the app or the notification, and for free accounts, null is returned. Refer to Throttling for more details..</param>
-        public NotificationWithMetaAllOf(int remaining = default(int), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), long queuedAt = default(long), long sendAfter = default(long), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData), int? received = default(int?), int? throttleRatePerMinute = default(int?))
+        public NotificationWithMetaAllOf(int remaining = default(int), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), long queuedAt = default(long), long? sendAfter = default(long?), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData), int? received = default(int?), int? throttleRatePerMinute = default(int?))
         {
             this.Remaining = remaining;
             this.Successful = successful;
@@ -107,8 +107,8 @@ namespace OneSignalApi.Model
         /// Unix timestamp indicating when notification delivery should begin.
         /// </summary>
         /// <value>Unix timestamp indicating when notification delivery should begin.</value>
-        [DataMember(Name = "send_after", EmitDefaultValue = false)]
-        public long SendAfter { get; set; }
+        [DataMember(Name = "send_after", EmitDefaultValue = true)]
+        public long? SendAfter { get; set; }
 
         /// <summary>
         /// Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after.
@@ -217,7 +217,8 @@ namespace OneSignalApi.Model
                 ) && 
                 (
                     this.SendAfter == input.SendAfter ||
-                    this.SendAfter.Equals(input.SendAfter)
+                    (this.SendAfter != null &&
+                    this.SendAfter.Equals(input.SendAfter))
                 ) && 
                 (
                     this.CompletedAt == input.CompletedAt ||
@@ -256,7 +257,10 @@ namespace OneSignalApi.Model
                 hashCode = (hashCode * 59) + this.Errored.GetHashCode();
                 hashCode = (hashCode * 59) + this.Converted.GetHashCode();
                 hashCode = (hashCode * 59) + this.QueuedAt.GetHashCode();
-                hashCode = (hashCode * 59) + this.SendAfter.GetHashCode();
+                if (this.SendAfter != null)
+                {
+                    hashCode = (hashCode * 59) + this.SendAfter.GetHashCode();
+                }
                 if (this.CompletedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.CompletedAt.GetHashCode();

@@ -27,10 +27,10 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// Notification
+    /// BasicNotificationAllOf
     /// </summary>
-    [DataContract(Name = "Notification")]
-    public partial class Notification : IEquatable<Notification>, IValidatableObject
+    [DataContract(Name = "BasicNotification_allOf")]
+    public partial class BasicNotificationAllOf : IEquatable<BasicNotificationAllOf>, IValidatableObject
     {
         /// <summary>
         /// Defines Aggregation
@@ -68,37 +68,8 @@ namespace OneSignalApi.Model
             return false;
         }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Notification" /> class.
+        /// Initializes a new instance of the <see cref="BasicNotificationAllOf" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Notification() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Notification" /> class.
-        /// </summary>
-        /// <param name="includedSegments">The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] .</param>
-        /// <param name="excludedSegments">Segment that will be excluded when sending. Users in these segments will not receive a notification, even if they were included in included_segments. This targeting parameter is only compatible with included_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] .</param>
-        /// <param name="lastSession">relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users last session. Example: \&quot;1.1\&quot; .</param>
-        /// <param name="firstSession">relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users first session. Example: \&quot;1.1\&quot; .</param>
-        /// <param name="sessionCount">relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; number sessions. Example: \&quot;1\&quot; .</param>
-        /// <param name="sessionTime">relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; Time in seconds the user has been in your app. Example: \&quot;3600\&quot; .</param>
-        /// <param name="amountSpent">relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, or \&quot;&#x3D;\&quot; value &#x3D; Amount in USD a user has spent on IAP (In App Purchases). Example: \&quot;0.99\&quot; .</param>
-        /// <param name="boughtSku">relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot; or \&quot;&#x3D;\&quot; key &#x3D; SKU purchased in your app as an IAP (In App Purchases). Example: \&quot;com.domain.100coinpack\&quot; value &#x3D; value of SKU to compare to. Example: \&quot;0.99\&quot; .</param>
-        /// <param name="tag">relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot;, \&quot;!&#x3D;\&quot;, \&quot;exists\&quot;, \&quot;not_exists\&quot;, \&quot;time_elapsed_gt\&quot; (paid plan only) or \&quot;time_elapsed_lt\&quot; (paid plan only) See Time Operators key &#x3D; Tag key to compare. value &#x3D; Tag value to compare. Not required for \&quot;exists\&quot; or \&quot;not_exists\&quot;. Example: See Formatting Filters .</param>
-        /// <param name="language">relation &#x3D; \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; 2 character language code. Example: \&quot;en\&quot;. For a list of all language codes see Language &amp; Localization. .</param>
-        /// <param name="appVersion">relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; app version. Example: \&quot;1.0.0\&quot; .</param>
-        /// <param name="location">radius &#x3D; in meters lat &#x3D; latitude long &#x3D; longitude .</param>
-        /// <param name="email">value &#x3D; email address Only for sending Push Notifications Use this for targeting push subscribers associated with an email set with all SDK setEmail methods To send emails to specific email addresses use include_email_tokens parameter .</param>
-        /// <param name="country">relation &#x3D; \&quot;&#x3D;\&quot; value &#x3D; 2-digit Country code Example: \&quot;field\&quot;: \&quot;country\&quot;, \&quot;relation\&quot;: \&quot;&#x3D;\&quot;, \&quot;value\&quot;, \&quot;US\&quot; .</param>
-        /// <param name="includePlayerIds">Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includeExternalUserIds">Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\&quot;custom-id-assigned-by-api\&quot;] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. .</param>
-        /// <param name="includeEmailTokens">Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includePhoneNumbers">Recommended for Sending SMS - Target specific phone numbers. The phone number should be in the E.164 format. Phone number should be an existing subscriber on OneSignal. Refer our docs to learn how to add phone numbers to OneSignal. Example phone number: +1999999999 Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includeIosTokens">Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using iOS device tokens. Warning: Only works with Production tokens. All non-alphanumeric characters must be removed from each token. If a token does not correspond to an existing user, a new user will be created. Example: ce777617da7f548fe7a9ab6febb56cf39fba6d38203... Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includeWpWnsUris">Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Windows URIs. If a token does not correspond to an existing user, a new user will be created. Example: http://s.notify.live.net/u/1/bn1/HmQAAACPaLDr-... Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includeAmazonRegIds">Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Amazon ADM registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: amzn1.adm-registration.v1.XpvSSUk0Rc3hTVVV... Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includeChromeRegIds">Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome App registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includeChromeWebRegIds">Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome Web Push registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includeAndroidRegIds">Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Android device registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call .</param>
         /// <param name="id">id.</param>
         /// <param name="name">Required for SMS Messages. An identifier for tracking message within the OneSignal dashboard or export analytics. Not shown to end user..</param>
         /// <param name="isIos">Indicates whether to send to all devices registered under your app&#39;s Apple iOS platform..</param>
@@ -112,7 +83,7 @@ namespace OneSignalApi.Model
         /// <param name="isAdm">Indicates whether to send to all devices registered under your app&#39;s Amazon Fire platform..</param>
         /// <param name="isChrome">This flag is not used for web push Please see isChromeWeb for sending to web push users. This flag only applies to Google Chrome Apps &amp; Extensions. Indicates whether to send to all devices registered under your app&#39;s Google Chrome Apps &amp; Extension platform. .</param>
         /// <param name="channelForExternalUserIds">Indicates if the message type when targeting with include_external_user_ids for cases where an email, sms, and/or push subscribers have the same external user id. Example: Use the string \&quot;push\&quot; to indicate you are sending a push notification or the string \&quot;email\&quot;for sending emails or \&quot;sms\&quot;for sending SMS. .</param>
-        /// <param name="appId">Required: Your OneSignal Application ID, which can be found in Keys &amp; IDs. It is a UUID and looks similar to 8250eaf6-1a58-489e-b136-7c74a864b434.  (required).</param>
+        /// <param name="appId">Required: Your OneSignal Application ID, which can be found in Keys &amp; IDs. It is a UUID and looks similar to 8250eaf6-1a58-489e-b136-7c74a864b434. .</param>
         /// <param name="externalId">Correlation and idempotency key. A request received with this parameter will first look for another notification with the same external_id. If one exists, a notification will not be sent, and result of the previous operation will instead be returned. Therefore, if you plan on using this feature, it&#39;s important to use a good source of randomness to generate the UUID passed here. This key is only idempotent for 30 days. After 30 days, the notification could be removed from our system and a notification with the same external_id will be sent again.   See Idempotent Notification Requests for more details writeOnly: true .</param>
         /// <param name="contents">contents.</param>
         /// <param name="headings">headings.</param>
@@ -185,39 +156,8 @@ namespace OneSignalApi.Model
         /// <param name="emailFromAddress">Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings. .</param>
         /// <param name="smsFrom">Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format. .</param>
         /// <param name="smsMediaUrls">Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs. .</param>
-        /// <param name="sendAfter">Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. .</param>
-        public Notification(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), string lastSession = default(string), string firstSession = default(string), string sessionCount = default(string), string sessionTime = default(string), string amountSpent = default(string), string boughtSku = default(string), string tag = default(string), string language = default(string), string appVersion = default(string), string location = default(string), string email = default(string), string country = default(string), List<string> includePlayerIds = default(List<string>), List<string> includeExternalUserIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string channelForExternalUserIds = default(string), string appId = default(string), string externalId = default(string), StringMap contents = default(StringMap), StringMap headings = default(StringMap), StringMap subtitle = default(StringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<Button> webButtons = default(List<Button>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), string throttleRatePerMinute = default(string), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), DateTime? sendAfter = default(DateTime?))
+        public BasicNotificationAllOf(string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string channelForExternalUserIds = default(string), string appId = default(string), string externalId = default(string), StringMap contents = default(StringMap), StringMap headings = default(StringMap), StringMap subtitle = default(StringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<Button> webButtons = default(List<Button>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), string throttleRatePerMinute = default(string), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>))
         {
-            // to ensure "appId" is required (not null)
-            if (appId == null)
-            {
-                throw new ArgumentNullException("appId is a required property for Notification and cannot be null");
-            }
-            this.AppId = appId;
-            this.IncludedSegments = includedSegments;
-            this.ExcludedSegments = excludedSegments;
-            this.LastSession = lastSession;
-            this.FirstSession = firstSession;
-            this.SessionCount = sessionCount;
-            this.SessionTime = sessionTime;
-            this.AmountSpent = amountSpent;
-            this.BoughtSku = boughtSku;
-            this.Tag = tag;
-            this.Language = language;
-            this.AppVersion = appVersion;
-            this.Location = location;
-            this.Email = email;
-            this.Country = country;
-            this.IncludePlayerIds = includePlayerIds;
-            this.IncludeExternalUserIds = includeExternalUserIds;
-            this.IncludeEmailTokens = includeEmailTokens;
-            this.IncludePhoneNumbers = includePhoneNumbers;
-            this.IncludeIosTokens = includeIosTokens;
-            this.IncludeWpWnsUris = includeWpWnsUris;
-            this.IncludeAmazonRegIds = includeAmazonRegIds;
-            this.IncludeChromeRegIds = includeChromeRegIds;
-            this.IncludeChromeWebRegIds = includeChromeWebRegIds;
-            this.IncludeAndroidRegIds = includeAndroidRegIds;
             this.Id = id;
             this.Name = name;
             this.IsIos = isIos;
@@ -231,6 +171,7 @@ namespace OneSignalApi.Model
             this.IsAdm = isAdm;
             this.IsChrome = isChrome;
             this.ChannelForExternalUserIds = channelForExternalUserIds;
+            this.AppId = appId;
             this.ExternalId = externalId;
             this.Contents = contents;
             this.Headings = headings;
@@ -303,176 +244,7 @@ namespace OneSignalApi.Model
             this.EmailFromAddress = emailFromAddress;
             this.SmsFrom = smsFrom;
             this.SmsMediaUrls = smsMediaUrls;
-            this.SendAfter = sendAfter;
         }
-
-        /// <summary>
-        /// The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] 
-        /// </summary>
-        /// <value>The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] </value>
-        [DataMember(Name = "included_segments", EmitDefaultValue = false)]
-        public List<string> IncludedSegments { get; set; }
-
-        /// <summary>
-        /// Segment that will be excluded when sending. Users in these segments will not receive a notification, even if they were included in included_segments. This targeting parameter is only compatible with included_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] 
-        /// </summary>
-        /// <value>Segment that will be excluded when sending. Users in these segments will not receive a notification, even if they were included in included_segments. This targeting parameter is only compatible with included_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] </value>
-        [DataMember(Name = "excluded_segments", EmitDefaultValue = false)]
-        public List<string> ExcludedSegments { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users last session. Example: \&quot;1.1\&quot; 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users last session. Example: \&quot;1.1\&quot; </value>
-        [DataMember(Name = "last_session", EmitDefaultValue = false)]
-        public string LastSession { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users first session. Example: \&quot;1.1\&quot; 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&gt;\&quot; or \&quot;&lt;\&quot; hours_ago &#x3D; number of hours before or after the users first session. Example: \&quot;1.1\&quot; </value>
-        [DataMember(Name = "first_session", EmitDefaultValue = false)]
-        public string FirstSession { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; number sessions. Example: \&quot;1\&quot; 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; number sessions. Example: \&quot;1\&quot; </value>
-        [DataMember(Name = "session_count", EmitDefaultValue = false)]
-        public string SessionCount { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; Time in seconds the user has been in your app. Example: \&quot;3600\&quot; 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; Time in seconds the user has been in your app. Example: \&quot;3600\&quot; </value>
-        [DataMember(Name = "session_time", EmitDefaultValue = false)]
-        public string SessionTime { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, or \&quot;&#x3D;\&quot; value &#x3D; Amount in USD a user has spent on IAP (In App Purchases). Example: \&quot;0.99\&quot; 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, or \&quot;&#x3D;\&quot; value &#x3D; Amount in USD a user has spent on IAP (In App Purchases). Example: \&quot;0.99\&quot; </value>
-        [DataMember(Name = "amount_spent", EmitDefaultValue = false)]
-        public string AmountSpent { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot; or \&quot;&#x3D;\&quot; key &#x3D; SKU purchased in your app as an IAP (In App Purchases). Example: \&quot;com.domain.100coinpack\&quot; value &#x3D; value of SKU to compare to. Example: \&quot;0.99\&quot; 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot; or \&quot;&#x3D;\&quot; key &#x3D; SKU purchased in your app as an IAP (In App Purchases). Example: \&quot;com.domain.100coinpack\&quot; value &#x3D; value of SKU to compare to. Example: \&quot;0.99\&quot; </value>
-        [DataMember(Name = "bought_sku", EmitDefaultValue = false)]
-        public string BoughtSku { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot;, \&quot;!&#x3D;\&quot;, \&quot;exists\&quot;, \&quot;not_exists\&quot;, \&quot;time_elapsed_gt\&quot; (paid plan only) or \&quot;time_elapsed_lt\&quot; (paid plan only) See Time Operators key &#x3D; Tag key to compare. value &#x3D; Tag value to compare. Not required for \&quot;exists\&quot; or \&quot;not_exists\&quot;. Example: See Formatting Filters 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot;, \&quot;!&#x3D;\&quot;, \&quot;exists\&quot;, \&quot;not_exists\&quot;, \&quot;time_elapsed_gt\&quot; (paid plan only) or \&quot;time_elapsed_lt\&quot; (paid plan only) See Time Operators key &#x3D; Tag key to compare. value &#x3D; Tag value to compare. Not required for \&quot;exists\&quot; or \&quot;not_exists\&quot;. Example: See Formatting Filters </value>
-        [DataMember(Name = "tag", EmitDefaultValue = false)]
-        public string Tag { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; 2 character language code. Example: \&quot;en\&quot;. For a list of all language codes see Language &amp; Localization. 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; 2 character language code. Example: \&quot;en\&quot;. For a list of all language codes see Language &amp; Localization. </value>
-        [DataMember(Name = "language", EmitDefaultValue = false)]
-        public string Language { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; app version. Example: \&quot;1.0.0\&quot; 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&gt;\&quot;, \&quot;&lt;\&quot;, \&quot;&#x3D;\&quot; or \&quot;!&#x3D;\&quot; value &#x3D; app version. Example: \&quot;1.0.0\&quot; </value>
-        [DataMember(Name = "app_version", EmitDefaultValue = false)]
-        public string AppVersion { get; set; }
-
-        /// <summary>
-        /// radius &#x3D; in meters lat &#x3D; latitude long &#x3D; longitude 
-        /// </summary>
-        /// <value>radius &#x3D; in meters lat &#x3D; latitude long &#x3D; longitude </value>
-        [DataMember(Name = "location", EmitDefaultValue = false)]
-        public string Location { get; set; }
-
-        /// <summary>
-        /// value &#x3D; email address Only for sending Push Notifications Use this for targeting push subscribers associated with an email set with all SDK setEmail methods To send emails to specific email addresses use include_email_tokens parameter 
-        /// </summary>
-        /// <value>value &#x3D; email address Only for sending Push Notifications Use this for targeting push subscribers associated with an email set with all SDK setEmail methods To send emails to specific email addresses use include_email_tokens parameter </value>
-        [DataMember(Name = "email", EmitDefaultValue = false)]
-        public string Email { get; set; }
-
-        /// <summary>
-        /// relation &#x3D; \&quot;&#x3D;\&quot; value &#x3D; 2-digit Country code Example: \&quot;field\&quot;: \&quot;country\&quot;, \&quot;relation\&quot;: \&quot;&#x3D;\&quot;, \&quot;value\&quot;, \&quot;US\&quot; 
-        /// </summary>
-        /// <value>relation &#x3D; \&quot;&#x3D;\&quot; value &#x3D; 2-digit Country code Example: \&quot;field\&quot;: \&quot;country\&quot;, \&quot;relation\&quot;: \&quot;&#x3D;\&quot;, \&quot;value\&quot;, \&quot;US\&quot; </value>
-        [DataMember(Name = "country", EmitDefaultValue = false)]
-        public string Country { get; set; }
-
-        /// <summary>
-        /// Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Specific playerids to send your notification to. _Does not require API Auth Key. Do not combine with other targeting parameters. Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_player_ids", EmitDefaultValue = true)]
-        public List<string> IncludePlayerIds { get; set; }
-
-        /// <summary>
-        /// Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\&quot;custom-id-assigned-by-api\&quot;] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. 
-        /// </summary>
-        /// <value>Target specific devices by custom user IDs assigned via API. Not compatible with any other targeting parameters Example: [\&quot;custom-id-assigned-by-api\&quot;] REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call. Note: If targeting push, email, or sms subscribers with same ids, use with channel_for_external_user_ids to indicate you are sending a push or email or sms. </value>
-        [DataMember(Name = "include_external_user_ids", EmitDefaultValue = true)]
-        public List<string> IncludeExternalUserIds { get; set; }
-
-        /// <summary>
-        /// Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_email_tokens", EmitDefaultValue = false)]
-        public List<string> IncludeEmailTokens { get; set; }
-
-        /// <summary>
-        /// Recommended for Sending SMS - Target specific phone numbers. The phone number should be in the E.164 format. Phone number should be an existing subscriber on OneSignal. Refer our docs to learn how to add phone numbers to OneSignal. Example phone number: +1999999999 Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Recommended for Sending SMS - Target specific phone numbers. The phone number should be in the E.164 format. Phone number should be an existing subscriber on OneSignal. Refer our docs to learn how to add phone numbers to OneSignal. Example phone number: +1999999999 Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_phone_numbers", EmitDefaultValue = false)]
-        public List<string> IncludePhoneNumbers { get; set; }
-
-        /// <summary>
-        /// Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using iOS device tokens. Warning: Only works with Production tokens. All non-alphanumeric characters must be removed from each token. If a token does not correspond to an existing user, a new user will be created. Example: ce777617da7f548fe7a9ab6febb56cf39fba6d38203... Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using iOS device tokens. Warning: Only works with Production tokens. All non-alphanumeric characters must be removed from each token. If a token does not correspond to an existing user, a new user will be created. Example: ce777617da7f548fe7a9ab6febb56cf39fba6d38203... Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_ios_tokens", EmitDefaultValue = false)]
-        public List<string> IncludeIosTokens { get; set; }
-
-        /// <summary>
-        /// Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Windows URIs. If a token does not correspond to an existing user, a new user will be created. Example: http://s.notify.live.net/u/1/bn1/HmQAAACPaLDr-... Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Windows URIs. If a token does not correspond to an existing user, a new user will be created. Example: http://s.notify.live.net/u/1/bn1/HmQAAACPaLDr-... Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_wp_wns_uris", EmitDefaultValue = false)]
-        public List<string> IncludeWpWnsUris { get; set; }
-
-        /// <summary>
-        /// Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Amazon ADM registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: amzn1.adm-registration.v1.XpvSSUk0Rc3hTVVV... Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Amazon ADM registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: amzn1.adm-registration.v1.XpvSSUk0Rc3hTVVV... Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_amazon_reg_ids", EmitDefaultValue = false)]
-        public List<string> IncludeAmazonRegIds { get; set; }
-
-        /// <summary>
-        /// Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome App registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome App registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_chrome_reg_ids", EmitDefaultValue = false)]
-        public List<string> IncludeChromeRegIds { get; set; }
-
-        /// <summary>
-        /// Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome Web Push registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Chrome Web Push registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_chrome_web_reg_ids", EmitDefaultValue = false)]
-        public List<string> IncludeChromeWebRegIds { get; set; }
-
-        /// <summary>
-        /// Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Android device registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call 
-        /// </summary>
-        /// <value>Not Recommended: Please consider using include_player_ids or include_external_user_ids instead. Target using Android device registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call </value>
-        [DataMember(Name = "include_android_reg_ids", EmitDefaultValue = false)]
-        public List<string> IncludeAndroidRegIds { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -582,7 +354,7 @@ namespace OneSignalApi.Model
         /// Required: Your OneSignal Application ID, which can be found in Keys &amp; IDs. It is a UUID and looks similar to 8250eaf6-1a58-489e-b136-7c74a864b434. 
         /// </summary>
         /// <value>Required: Your OneSignal Application ID, which can be found in Keys &amp; IDs. It is a UUID and looks similar to 8250eaf6-1a58-489e-b136-7c74a864b434. </value>
-        [DataMember(Name = "app_id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "app_id", EmitDefaultValue = false)]
         public string AppId { get; set; }
 
         /// <summary>
@@ -1086,44 +858,13 @@ namespace OneSignalApi.Model
         public List<string> SmsMediaUrls { get; set; }
 
         /// <summary>
-        /// Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. 
-        /// </summary>
-        /// <value>Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. </value>
-        [DataMember(Name = "send_after", EmitDefaultValue = true)]
-        public DateTime? SendAfter { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class Notification {\n");
-            sb.Append("  IncludedSegments: ").Append(IncludedSegments).Append("\n");
-            sb.Append("  ExcludedSegments: ").Append(ExcludedSegments).Append("\n");
-            sb.Append("  LastSession: ").Append(LastSession).Append("\n");
-            sb.Append("  FirstSession: ").Append(FirstSession).Append("\n");
-            sb.Append("  SessionCount: ").Append(SessionCount).Append("\n");
-            sb.Append("  SessionTime: ").Append(SessionTime).Append("\n");
-            sb.Append("  AmountSpent: ").Append(AmountSpent).Append("\n");
-            sb.Append("  BoughtSku: ").Append(BoughtSku).Append("\n");
-            sb.Append("  Tag: ").Append(Tag).Append("\n");
-            sb.Append("  Language: ").Append(Language).Append("\n");
-            sb.Append("  AppVersion: ").Append(AppVersion).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  IncludePlayerIds: ").Append(IncludePlayerIds).Append("\n");
-            sb.Append("  IncludeExternalUserIds: ").Append(IncludeExternalUserIds).Append("\n");
-            sb.Append("  IncludeEmailTokens: ").Append(IncludeEmailTokens).Append("\n");
-            sb.Append("  IncludePhoneNumbers: ").Append(IncludePhoneNumbers).Append("\n");
-            sb.Append("  IncludeIosTokens: ").Append(IncludeIosTokens).Append("\n");
-            sb.Append("  IncludeWpWnsUris: ").Append(IncludeWpWnsUris).Append("\n");
-            sb.Append("  IncludeAmazonRegIds: ").Append(IncludeAmazonRegIds).Append("\n");
-            sb.Append("  IncludeChromeRegIds: ").Append(IncludeChromeRegIds).Append("\n");
-            sb.Append("  IncludeChromeWebRegIds: ").Append(IncludeChromeWebRegIds).Append("\n");
-            sb.Append("  IncludeAndroidRegIds: ").Append(IncludeAndroidRegIds).Append("\n");
+            sb.Append("class BasicNotificationAllOf {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -1212,7 +953,6 @@ namespace OneSignalApi.Model
             sb.Append("  EmailFromAddress: ").Append(EmailFromAddress).Append("\n");
             sb.Append("  SmsFrom: ").Append(SmsFrom).Append("\n");
             sb.Append("  SmsMediaUrls: ").Append(SmsMediaUrls).Append("\n");
-            sb.Append("  SendAfter: ").Append(SendAfter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -1233,153 +973,21 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Notification);
+            return this.Equals(input as BasicNotificationAllOf);
         }
 
         /// <summary>
-        /// Returns true if Notification instances are equal
+        /// Returns true if BasicNotificationAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of Notification to be compared</param>
+        /// <param name="input">Instance of BasicNotificationAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Notification input)
+        public bool Equals(BasicNotificationAllOf input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.IncludedSegments == input.IncludedSegments ||
-                    this.IncludedSegments != null &&
-                    input.IncludedSegments != null &&
-                    this.IncludedSegments.SequenceEqual(input.IncludedSegments)
-                ) && 
-                (
-                    this.ExcludedSegments == input.ExcludedSegments ||
-                    this.ExcludedSegments != null &&
-                    input.ExcludedSegments != null &&
-                    this.ExcludedSegments.SequenceEqual(input.ExcludedSegments)
-                ) && 
-                (
-                    this.LastSession == input.LastSession ||
-                    (this.LastSession != null &&
-                    this.LastSession.Equals(input.LastSession))
-                ) && 
-                (
-                    this.FirstSession == input.FirstSession ||
-                    (this.FirstSession != null &&
-                    this.FirstSession.Equals(input.FirstSession))
-                ) && 
-                (
-                    this.SessionCount == input.SessionCount ||
-                    (this.SessionCount != null &&
-                    this.SessionCount.Equals(input.SessionCount))
-                ) && 
-                (
-                    this.SessionTime == input.SessionTime ||
-                    (this.SessionTime != null &&
-                    this.SessionTime.Equals(input.SessionTime))
-                ) && 
-                (
-                    this.AmountSpent == input.AmountSpent ||
-                    (this.AmountSpent != null &&
-                    this.AmountSpent.Equals(input.AmountSpent))
-                ) && 
-                (
-                    this.BoughtSku == input.BoughtSku ||
-                    (this.BoughtSku != null &&
-                    this.BoughtSku.Equals(input.BoughtSku))
-                ) && 
-                (
-                    this.Tag == input.Tag ||
-                    (this.Tag != null &&
-                    this.Tag.Equals(input.Tag))
-                ) && 
-                (
-                    this.Language == input.Language ||
-                    (this.Language != null &&
-                    this.Language.Equals(input.Language))
-                ) && 
-                (
-                    this.AppVersion == input.AppVersion ||
-                    (this.AppVersion != null &&
-                    this.AppVersion.Equals(input.AppVersion))
-                ) && 
-                (
-                    this.Location == input.Location ||
-                    (this.Location != null &&
-                    this.Location.Equals(input.Location))
-                ) && 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.Country == input.Country ||
-                    (this.Country != null &&
-                    this.Country.Equals(input.Country))
-                ) && 
-                (
-                    this.IncludePlayerIds == input.IncludePlayerIds ||
-                    this.IncludePlayerIds != null &&
-                    input.IncludePlayerIds != null &&
-                    this.IncludePlayerIds.SequenceEqual(input.IncludePlayerIds)
-                ) && 
-                (
-                    this.IncludeExternalUserIds == input.IncludeExternalUserIds ||
-                    this.IncludeExternalUserIds != null &&
-                    input.IncludeExternalUserIds != null &&
-                    this.IncludeExternalUserIds.SequenceEqual(input.IncludeExternalUserIds)
-                ) && 
-                (
-                    this.IncludeEmailTokens == input.IncludeEmailTokens ||
-                    this.IncludeEmailTokens != null &&
-                    input.IncludeEmailTokens != null &&
-                    this.IncludeEmailTokens.SequenceEqual(input.IncludeEmailTokens)
-                ) && 
-                (
-                    this.IncludePhoneNumbers == input.IncludePhoneNumbers ||
-                    this.IncludePhoneNumbers != null &&
-                    input.IncludePhoneNumbers != null &&
-                    this.IncludePhoneNumbers.SequenceEqual(input.IncludePhoneNumbers)
-                ) && 
-                (
-                    this.IncludeIosTokens == input.IncludeIosTokens ||
-                    this.IncludeIosTokens != null &&
-                    input.IncludeIosTokens != null &&
-                    this.IncludeIosTokens.SequenceEqual(input.IncludeIosTokens)
-                ) && 
-                (
-                    this.IncludeWpWnsUris == input.IncludeWpWnsUris ||
-                    this.IncludeWpWnsUris != null &&
-                    input.IncludeWpWnsUris != null &&
-                    this.IncludeWpWnsUris.SequenceEqual(input.IncludeWpWnsUris)
-                ) && 
-                (
-                    this.IncludeAmazonRegIds == input.IncludeAmazonRegIds ||
-                    this.IncludeAmazonRegIds != null &&
-                    input.IncludeAmazonRegIds != null &&
-                    this.IncludeAmazonRegIds.SequenceEqual(input.IncludeAmazonRegIds)
-                ) && 
-                (
-                    this.IncludeChromeRegIds == input.IncludeChromeRegIds ||
-                    this.IncludeChromeRegIds != null &&
-                    input.IncludeChromeRegIds != null &&
-                    this.IncludeChromeRegIds.SequenceEqual(input.IncludeChromeRegIds)
-                ) && 
-                (
-                    this.IncludeChromeWebRegIds == input.IncludeChromeWebRegIds ||
-                    this.IncludeChromeWebRegIds != null &&
-                    input.IncludeChromeWebRegIds != null &&
-                    this.IncludeChromeWebRegIds.SequenceEqual(input.IncludeChromeWebRegIds)
-                ) && 
-                (
-                    this.IncludeAndroidRegIds == input.IncludeAndroidRegIds ||
-                    this.IncludeAndroidRegIds != null &&
-                    input.IncludeAndroidRegIds != null &&
-                    this.IncludeAndroidRegIds.SequenceEqual(input.IncludeAndroidRegIds)
-                ) && 
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
@@ -1818,11 +1426,6 @@ namespace OneSignalApi.Model
                     this.SmsMediaUrls != null &&
                     input.SmsMediaUrls != null &&
                     this.SmsMediaUrls.SequenceEqual(input.SmsMediaUrls)
-                ) && 
-                (
-                    this.SendAfter == input.SendAfter ||
-                    (this.SendAfter != null &&
-                    this.SendAfter.Equals(input.SendAfter))
                 );
         }
 
@@ -1835,102 +1438,6 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IncludedSegments != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludedSegments.GetHashCode();
-                }
-                if (this.ExcludedSegments != null)
-                {
-                    hashCode = (hashCode * 59) + this.ExcludedSegments.GetHashCode();
-                }
-                if (this.LastSession != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastSession.GetHashCode();
-                }
-                if (this.FirstSession != null)
-                {
-                    hashCode = (hashCode * 59) + this.FirstSession.GetHashCode();
-                }
-                if (this.SessionCount != null)
-                {
-                    hashCode = (hashCode * 59) + this.SessionCount.GetHashCode();
-                }
-                if (this.SessionTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.SessionTime.GetHashCode();
-                }
-                if (this.AmountSpent != null)
-                {
-                    hashCode = (hashCode * 59) + this.AmountSpent.GetHashCode();
-                }
-                if (this.BoughtSku != null)
-                {
-                    hashCode = (hashCode * 59) + this.BoughtSku.GetHashCode();
-                }
-                if (this.Tag != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tag.GetHashCode();
-                }
-                if (this.Language != null)
-                {
-                    hashCode = (hashCode * 59) + this.Language.GetHashCode();
-                }
-                if (this.AppVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.AppVersion.GetHashCode();
-                }
-                if (this.Location != null)
-                {
-                    hashCode = (hashCode * 59) + this.Location.GetHashCode();
-                }
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.Country != null)
-                {
-                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
-                }
-                if (this.IncludePlayerIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludePlayerIds.GetHashCode();
-                }
-                if (this.IncludeExternalUserIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludeExternalUserIds.GetHashCode();
-                }
-                if (this.IncludeEmailTokens != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludeEmailTokens.GetHashCode();
-                }
-                if (this.IncludePhoneNumbers != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludePhoneNumbers.GetHashCode();
-                }
-                if (this.IncludeIosTokens != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludeIosTokens.GetHashCode();
-                }
-                if (this.IncludeWpWnsUris != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludeWpWnsUris.GetHashCode();
-                }
-                if (this.IncludeAmazonRegIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludeAmazonRegIds.GetHashCode();
-                }
-                if (this.IncludeChromeRegIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludeChromeRegIds.GetHashCode();
-                }
-                if (this.IncludeChromeWebRegIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludeChromeWebRegIds.GetHashCode();
-                }
-                if (this.IncludeAndroidRegIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncludeAndroidRegIds.GetHashCode();
-                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -2270,10 +1777,6 @@ namespace OneSignalApi.Model
                 if (this.SmsMediaUrls != null)
                 {
                     hashCode = (hashCode * 59) + this.SmsMediaUrls.GetHashCode();
-                }
-                if (this.SendAfter != null)
-                {
-                    hashCode = (hashCode * 59) + this.SendAfter.GetHashCode();
                 }
                 return hashCode;
             }
