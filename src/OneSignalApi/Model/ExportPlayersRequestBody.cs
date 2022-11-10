@@ -37,7 +37,7 @@ namespace OneSignalApi.Model
         /// </summary>
         /// <param name="extraFields">Additional fields that you wish to include. Currently supports location, country, rooted, notification_types, ip, external_user_id, web_auth, and web_p256..</param>
         /// <param name="lastActiveSince">Export all devices with a last_active timestamp greater than this time.  Unixtime in seconds..</param>
-        /// <param name="segmentName">Export al ldevices belonging to the segment..</param>
+        /// <param name="segmentName">Export all devices belonging to the segment..</param>
         public ExportPlayersRequestBody(List<string> extraFields = default(List<string>), string lastActiveSince = default(string), string segmentName = default(string))
         {
             this.ExtraFields = extraFields;
@@ -60,9 +60,9 @@ namespace OneSignalApi.Model
         public string LastActiveSince { get; set; }
 
         /// <summary>
-        /// Export al ldevices belonging to the segment.
+        /// Export all devices belonging to the segment.
         /// </summary>
-        /// <value>Export al ldevices belonging to the segment.</value>
+        /// <value>Export all devices belonging to the segment.</value>
         [DataMember(Name = "segment_name", EmitDefaultValue = false)]
         public string SegmentName { get; set; }
 

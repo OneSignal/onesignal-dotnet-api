@@ -63,11 +63,6 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="App" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected App() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="App" /> class.
-        /// </summary>
         /// <param name="name">The name of your app, as displayed on your apps list on the dashboard.  This can be renamed..</param>
         /// <param name="androidGcmSenderId">Android: Your Google Project number.  Also known as Sender ID..</param>
         /// <param name="gcmKey">Android: Your Google Push Messaging Auth Key.</param>
@@ -109,7 +104,7 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; private set; }
 
         /// <summary>

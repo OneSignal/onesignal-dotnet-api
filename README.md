@@ -173,7 +173,6 @@ Class | Method | HTTP request | Description
  - [Model.ExportPlayersSuccessResponse](docs/ExportPlayersSuccessResponse.md)
  - [Model.Filter](docs/Filter.md)
  - [Model.FilterExpressions](docs/FilterExpressions.md)
- - [Model.FilterNotificationTarget](docs/FilterNotificationTarget.md)
  - [Model.GetNotificationRequestBody](docs/GetNotificationRequestBody.md)
  - [Model.InvalidIdentifierError](docs/InvalidIdentifierError.md)
  - [Model.Notification](docs/Notification.md)

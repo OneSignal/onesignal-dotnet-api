@@ -98,7 +98,7 @@ namespace OneSignalApi.Model
         /// The device&#39;s OneSignal ID
         /// </summary>
         /// <value>The device&#39;s OneSignal ID</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; private set; }
 
         /// <summary>

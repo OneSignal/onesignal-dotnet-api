@@ -156,7 +156,8 @@ namespace OneSignalApi.Model
         /// <param name="emailFromAddress">Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings. .</param>
         /// <param name="smsFrom">Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format. .</param>
         /// <param name="smsMediaUrls">Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs. .</param>
-        public BasicNotificationAllOf(string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string channelForExternalUserIds = default(string), string appId = default(string), string externalId = default(string), StringMap contents = default(StringMap), StringMap headings = default(StringMap), StringMap subtitle = default(StringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<Button> webButtons = default(List<Button>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), string throttleRatePerMinute = default(string), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>))
+        /// <param name="filters">filters.</param>
+        public BasicNotificationAllOf(string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string channelForExternalUserIds = default(string), string appId = default(string), string externalId = default(string), StringMap contents = default(StringMap), StringMap headings = default(StringMap), StringMap subtitle = default(StringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<Button> webButtons = default(List<Button>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), string throttleRatePerMinute = default(string), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), List<Filter> filters = default(List<Filter>))
         {
             this.Id = id;
             this.Name = name;
@@ -244,6 +245,7 @@ namespace OneSignalApi.Model
             this.EmailFromAddress = emailFromAddress;
             this.SmsFrom = smsFrom;
             this.SmsMediaUrls = smsMediaUrls;
+            this.Filters = filters;
         }
 
         /// <summary>
@@ -858,6 +860,12 @@ namespace OneSignalApi.Model
         public List<string> SmsMediaUrls { get; set; }
 
         /// <summary>
+        /// Gets or Sets Filters
+        /// </summary>
+        [DataMember(Name = "filters", EmitDefaultValue = true)]
+        public List<Filter> Filters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -953,6 +961,7 @@ namespace OneSignalApi.Model
             sb.Append("  EmailFromAddress: ").Append(EmailFromAddress).Append("\n");
             sb.Append("  SmsFrom: ").Append(SmsFrom).Append("\n");
             sb.Append("  SmsMediaUrls: ").Append(SmsMediaUrls).Append("\n");
+            sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -1426,6 +1435,12 @@ namespace OneSignalApi.Model
                     this.SmsMediaUrls != null &&
                     input.SmsMediaUrls != null &&
                     this.SmsMediaUrls.SequenceEqual(input.SmsMediaUrls)
+                ) && 
+                (
+                    this.Filters == input.Filters ||
+                    this.Filters != null &&
+                    input.Filters != null &&
+                    this.Filters.SequenceEqual(input.Filters)
                 );
         }
 
@@ -1777,6 +1792,10 @@ namespace OneSignalApi.Model
                 if (this.SmsMediaUrls != null)
                 {
                     hashCode = (hashCode * 59) + this.SmsMediaUrls.GetHashCode();
+                }
+                if (this.Filters != null)
+                {
+                    hashCode = (hashCode * 59) + this.Filters.GetHashCode();
                 }
                 return hashCode;
             }

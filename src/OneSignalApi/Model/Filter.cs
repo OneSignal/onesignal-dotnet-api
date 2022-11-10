@@ -106,7 +106,7 @@ namespace OneSignalApi.Model
         /// </summary>
         /// <param name="field">Name of the field to use as the first operand in the filter expression. (required).</param>
         /// <param name="key">If &#x60;field&#x60; is &#x60;tag&#x60;, this field is *required* to specify &#x60;key&#x60; inside the tags..</param>
-        /// <param name="value">Constant value to use as the second operand in the filter expression.  This value is *required* when the relation operator is a binary operator..</param>
+        /// <param name="value">Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator..</param>
         /// <param name="relation">Operator of a filter expression. (required).</param>
         public Filter(string field = default(string), string key = default(string), string value = default(string), RelationEnum relation = default(RelationEnum))
         {
@@ -136,9 +136,9 @@ namespace OneSignalApi.Model
         public string Key { get; set; }
 
         /// <summary>
-        /// Constant value to use as the second operand in the filter expression.  This value is *required* when the relation operator is a binary operator.
+        /// Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator.
         /// </summary>
-        /// <value>Constant value to use as the second operand in the filter expression.  This value is *required* when the relation operator is a binary operator.</value>
+        /// <value>Constant value to use as the second operand in the filter expression. This value is *required* when the relation operator is a binary operator.</value>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public string Value { get; set; }
 
