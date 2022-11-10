@@ -35,18 +35,6 @@ namespace OneSignalApi.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationTarget" /> class
-        /// with the <see cref="FilterNotificationTarget" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of FilterNotificationTarget.</param>
-        public NotificationTarget(FilterNotificationTarget actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationTarget" /> class
         /// with the <see cref="PlayerNotificationTarget" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PlayerNotificationTarget.</param>
@@ -83,11 +71,7 @@ namespace OneSignalApi.Model
             }
             set
             {
-                if (value.GetType() == typeof(FilterNotificationTarget))
-                {
-                    this._actualInstance = value;
-                }
-                else if (value.GetType() == typeof(PlayerNotificationTarget))
+                if (value.GetType() == typeof(PlayerNotificationTarget))
                 {
                     this._actualInstance = value;
                 }
@@ -97,19 +81,9 @@ namespace OneSignalApi.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: FilterNotificationTarget, PlayerNotificationTarget, SegmentNotificationTarget");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: PlayerNotificationTarget, SegmentNotificationTarget");
                 }
             }
-        }
-
-        /// <summary>
-        /// Get the actual instance of `FilterNotificationTarget`. If the actual instance is not `FilterNotificationTarget`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of FilterNotificationTarget</returns>
-        public FilterNotificationTarget GetFilterNotificationTarget()
-        {
-            return (FilterNotificationTarget)this.ActualInstance;
         }
 
         /// <summary>
@@ -166,18 +140,6 @@ namespace OneSignalApi.Model
             if (string.IsNullOrEmpty(jsonString))
             {
                 return newNotificationTarget;
-            }
-
-            try
-            {
-                newNotificationTarget = new NotificationTarget(JsonConvert.DeserializeObject<FilterNotificationTarget>(jsonString, NotificationTarget.SerializerSettings));
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newNotificationTarget;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into FilterNotificationTarget: {1}", jsonString, exception.ToString()));
             }
 
             try
