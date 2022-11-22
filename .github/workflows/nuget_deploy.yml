@@ -1,8 +1,12 @@
 name: NuGet Publish
-
 on:
-  release:
-    types: [created]
+  push:
+    branches: [nuget_cd_test]
+  workflow_dispatch:
+
+#on:
+#  release:
+#    types: [created]
 
 jobs:
   build:
