@@ -23,5 +23,5 @@ jobs:
         id: publish_nuget
         uses: brandedoutcast/publish-nuget@v2
         with:
-          PROJECT_FILE_PATH: src/OneSignalApi.csproj
+          PROJECT_FILE_PATH: src/OneSignalApi/OneSignalApi.csproj
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
