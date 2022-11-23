@@ -1,0 +1,23 @@
+name: NuGet Publish
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    name: build, pack & publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.x
+      # Publish
+      - name: publish on version change
+        id: publish_nuget
+        uses: brandedoutcast/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: src/OneSignalApi/OneSignalApi.csproj
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}

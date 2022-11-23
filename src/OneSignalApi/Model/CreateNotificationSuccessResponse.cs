@@ -73,7 +73,7 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Gets or Sets ExternalId
         /// </summary>
-        [DataMember(Name = "external_id", EmitDefaultValue = false)]
+        [DataMember(Name = "external_id", EmitDefaultValue = true)]
         public string ExternalId { get; set; }
 
         /// <summary>
