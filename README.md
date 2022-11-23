@@ -3,7 +3,7 @@
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
 - API version: 1.0.1
-- SDK version: 1.0.0
+- SDK version: 1.0.3
 - Build package: org.openapitools.codegen.languages.CSharpNetCoreClientCodegen
     For more information, please visit [https://onesignal.com](https://onesignal.com)
 
