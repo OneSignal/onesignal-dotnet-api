@@ -27,25 +27,33 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// DeletePlayerNotFoundResponse
+    /// UpdateLiveActivitySuccessResponse
     /// </summary>
-    [DataContract(Name = "DeletePlayerNotFoundResponse")]
-    public partial class DeletePlayerNotFoundResponse : IEquatable<DeletePlayerNotFoundResponse>, IValidatableObject
+    [DataContract(Name = "UpdateLiveActivitySuccessResponse")]
+    public partial class UpdateLiveActivitySuccessResponse : IEquatable<UpdateLiveActivitySuccessResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DeletePlayerNotFoundResponse" /> class.
+        /// Initializes a new instance of the <see cref="UpdateLiveActivitySuccessResponse" /> class.
         /// </summary>
-        /// <param name="success">success.</param>
-        public DeletePlayerNotFoundResponse(bool success = default(bool))
+        /// <param name="notificationId">notificationId.</param>
+        /// <param name="errors">errors.</param>
+        public UpdateLiveActivitySuccessResponse(string notificationId = default(string), Notification200Errors errors = default(Notification200Errors))
         {
-            this.Success = success;
+            this.NotificationId = notificationId;
+            this.Errors = errors;
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// Gets or Sets NotificationId
         /// </summary>
-        [DataMember(Name = "success", EmitDefaultValue = true)]
-        public bool Success { get; set; }
+        [DataMember(Name = "notification_id", EmitDefaultValue = false)]
+        public string NotificationId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Errors
+        /// </summary>
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
+        public Notification200Errors Errors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,8 +62,9 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class DeletePlayerNotFoundResponse {\n");
-            sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("class UpdateLiveActivitySuccessResponse {\n");
+            sb.Append("  NotificationId: ").Append(NotificationId).Append("\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +85,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DeletePlayerNotFoundResponse);
+            return this.Equals(input as UpdateLiveActivitySuccessResponse);
         }
 
         /// <summary>
-        /// Returns true if DeletePlayerNotFoundResponse instances are equal
+        /// Returns true if UpdateLiveActivitySuccessResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of DeletePlayerNotFoundResponse to be compared</param>
+        /// <param name="input">Instance of UpdateLiveActivitySuccessResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DeletePlayerNotFoundResponse input)
+        public bool Equals(UpdateLiveActivitySuccessResponse input)
         {
             if (input == null)
             {
@@ -92,8 +101,14 @@ namespace OneSignalApi.Model
             }
             return 
                 (
-                    this.Success == input.Success ||
-                    this.Success.Equals(input.Success)
+                    this.NotificationId == input.NotificationId ||
+                    (this.NotificationId != null &&
+                    this.NotificationId.Equals(input.NotificationId))
+                ) && 
+                (
+                    this.Errors == input.Errors ||
+                    (this.Errors != null &&
+                    this.Errors.Equals(input.Errors))
                 );
         }
 
@@ -106,7 +121,14 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Success.GetHashCode();
+                if (this.NotificationId != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotificationId.GetHashCode();
+                }
+                if (this.Errors != null)
+                {
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                }
                 return hashCode;
             }
         }

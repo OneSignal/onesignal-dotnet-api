@@ -12,7 +12,7 @@
     <Description>OneSignal is a free push notification service for mobile apps. Integrate OneSignal with your backend events, data, and more.</Description>
     <Copyright>Copyrite 2022 OneSignal</Copyright>
     <RootNamespace>OneSignalApi</RootNamespace>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\OneSignalApi.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/OneSignal/onesignal-dotnet-api.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

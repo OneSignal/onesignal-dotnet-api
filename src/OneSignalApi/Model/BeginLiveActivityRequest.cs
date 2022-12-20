@@ -27,33 +27,48 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// NotificationHistorySuccessResponse
+    /// BeginLiveActivityRequest
     /// </summary>
-    [DataContract(Name = "NotificationHistorySuccessResponse")]
-    public partial class NotificationHistorySuccessResponse : IEquatable<NotificationHistorySuccessResponse>, IValidatableObject
+    [DataContract(Name = "BeginLiveActivityRequest")]
+    public partial class BeginLiveActivityRequest : IEquatable<BeginLiveActivityRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationHistorySuccessResponse" /> class.
+        /// Initializes a new instance of the <see cref="BeginLiveActivityRequest" /> class.
         /// </summary>
-        /// <param name="success">success.</param>
-        /// <param name="destinationUrl">destinationUrl.</param>
-        public NotificationHistorySuccessResponse(bool success = default(bool), string destinationUrl = default(string))
+        [JsonConstructorAttribute]
+        protected BeginLiveActivityRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BeginLiveActivityRequest" /> class.
+        /// </summary>
+        /// <param name="pushToken">pushToken (required).</param>
+        /// <param name="subscriptionId">subscriptionId (required).</param>
+        public BeginLiveActivityRequest(string pushToken = default(string), string subscriptionId = default(string))
         {
-            this.Success = success;
-            this.DestinationUrl = destinationUrl;
+            // to ensure "pushToken" is required (not null)
+            if (pushToken == null)
+            {
+                throw new ArgumentNullException("pushToken is a required property for BeginLiveActivityRequest and cannot be null");
+            }
+            this.PushToken = pushToken;
+            // to ensure "subscriptionId" is required (not null)
+            if (subscriptionId == null)
+            {
+                throw new ArgumentNullException("subscriptionId is a required property for BeginLiveActivityRequest and cannot be null");
+            }
+            this.SubscriptionId = subscriptionId;
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// Gets or Sets PushToken
         /// </summary>
-        [DataMember(Name = "success", EmitDefaultValue = true)]
-        public bool Success { get; set; }
+        [DataMember(Name = "push_token", IsRequired = true, EmitDefaultValue = false)]
+        public string PushToken { get; set; }
 
         /// <summary>
-        /// Gets or Sets DestinationUrl
+        /// Gets or Sets SubscriptionId
         /// </summary>
-        [DataMember(Name = "destination_url", EmitDefaultValue = false)]
-        public string DestinationUrl { get; set; }
+        [DataMember(Name = "subscription_id", IsRequired = true, EmitDefaultValue = false)]
+        public string SubscriptionId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +77,9 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class NotificationHistorySuccessResponse {\n");
-            sb.Append("  Success: ").Append(Success).Append("\n");
-            sb.Append("  DestinationUrl: ").Append(DestinationUrl).Append("\n");
+            sb.Append("class BeginLiveActivityRequest {\n");
+            sb.Append("  PushToken: ").Append(PushToken).Append("\n");
+            sb.Append("  SubscriptionId: ").Append(SubscriptionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +100,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NotificationHistorySuccessResponse);
+            return this.Equals(input as BeginLiveActivityRequest);
         }
 
         /// <summary>
-        /// Returns true if NotificationHistorySuccessResponse instances are equal
+        /// Returns true if BeginLiveActivityRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of NotificationHistorySuccessResponse to be compared</param>
+        /// <param name="input">Instance of BeginLiveActivityRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NotificationHistorySuccessResponse input)
+        public bool Equals(BeginLiveActivityRequest input)
         {
             if (input == null)
             {
@@ -101,13 +116,14 @@ namespace OneSignalApi.Model
             }
             return 
                 (
-                    this.Success == input.Success ||
-                    this.Success.Equals(input.Success)
+                    this.PushToken == input.PushToken ||
+                    (this.PushToken != null &&
+                    this.PushToken.Equals(input.PushToken))
                 ) && 
                 (
-                    this.DestinationUrl == input.DestinationUrl ||
-                    (this.DestinationUrl != null &&
-                    this.DestinationUrl.Equals(input.DestinationUrl))
+                    this.SubscriptionId == input.SubscriptionId ||
+                    (this.SubscriptionId != null &&
+                    this.SubscriptionId.Equals(input.SubscriptionId))
                 );
         }
 
@@ -120,10 +136,13 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Success.GetHashCode();
-                if (this.DestinationUrl != null)
+                if (this.PushToken != null)
                 {
-                    hashCode = (hashCode * 59) + this.DestinationUrl.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PushToken.GetHashCode();
+                }
+                if (this.SubscriptionId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubscriptionId.GetHashCode();
                 }
                 return hashCode;
             }

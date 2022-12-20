@@ -2,8 +2,8 @@
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
-- API version: 1.0.1
-- SDK version: 1.0.3
+- API version: 1.0.2
+- SDK version: 1.0.4
 - Build package: org.openapitools.codegen.languages.CSharpNetCoreClientCodegen
     For more information, please visit [https://onesignal.com](https://onesignal.com)
 
@@ -126,6 +126,7 @@ All URIs are relative to *https://onesignal.com/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**BeginLiveActivity**](docs/DefaultApi.md#beginliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/token | Start Live Activity
 *DefaultApi* | [**CancelNotification**](docs/DefaultApi.md#cancelnotification) | **DELETE** /notifications/{notification_id} | Stop a scheduled or currently outgoing notification
 *DefaultApi* | [**CreateApp**](docs/DefaultApi.md#createapp) | **POST** /apps | Create an app
 *DefaultApi* | [**CreateNotification**](docs/DefaultApi.md#createnotification) | **POST** /notifications | Create notification
@@ -133,6 +134,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**CreateSegments**](docs/DefaultApi.md#createsegments) | **POST** /apps/{app_id}/segments | Create Segments
 *DefaultApi* | [**DeletePlayer**](docs/DefaultApi.md#deleteplayer) | **DELETE** /players/{player_id} | Delete a user record
 *DefaultApi* | [**DeleteSegments**](docs/DefaultApi.md#deletesegments) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segments
+*DefaultApi* | [**EndLiveActivity**](docs/DefaultApi.md#endliveactivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity
 *DefaultApi* | [**ExportPlayers**](docs/DefaultApi.md#exportplayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export
 *DefaultApi* | [**GetApp**](docs/DefaultApi.md#getapp) | **GET** /apps/{app_id} | View an app
 *DefaultApi* | [**GetApps**](docs/DefaultApi.md#getapps) | **GET** /apps | View apps
@@ -143,6 +145,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetPlayer**](docs/DefaultApi.md#getplayer) | **GET** /players/{player_id} | View device
 *DefaultApi* | [**GetPlayers**](docs/DefaultApi.md#getplayers) | **GET** /players | View devices
 *DefaultApi* | [**UpdateApp**](docs/DefaultApi.md#updateapp) | **PUT** /apps/{app_id} | Update an app
+*DefaultApi* | [**UpdateLiveActivity**](docs/DefaultApi.md#updateliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
 *DefaultApi* | [**UpdatePlayer**](docs/DefaultApi.md#updateplayer) | **PUT** /players/{player_id} | Edit device
 *DefaultApi* | [**UpdatePlayerTags**](docs/DefaultApi.md#updateplayertags) | **PUT** /apps/{app_id}/users/{external_user_id} | Edit tags with external user id
 
@@ -151,21 +154,19 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.App](docs/App.md)
+ - [Model.BadRequestError](docs/BadRequestError.md)
  - [Model.BasicNotification](docs/BasicNotification.md)
  - [Model.BasicNotificationAllOf](docs/BasicNotificationAllOf.md)
  - [Model.BasicNotificationAllOfAndroidBackgroundLayout](docs/BasicNotificationAllOfAndroidBackgroundLayout.md)
+ - [Model.BeginLiveActivityRequest](docs/BeginLiveActivityRequest.md)
  - [Model.Button](docs/Button.md)
  - [Model.CancelNotificationSuccessResponse](docs/CancelNotificationSuccessResponse.md)
- - [Model.CreateNotificationBadRequestResponse](docs/CreateNotificationBadRequestResponse.md)
  - [Model.CreateNotificationSuccessResponse](docs/CreateNotificationSuccessResponse.md)
  - [Model.CreatePlayerSuccessResponse](docs/CreatePlayerSuccessResponse.md)
- - [Model.CreateSegmentBadRequestResponse](docs/CreateSegmentBadRequestResponse.md)
  - [Model.CreateSegmentConflictResponse](docs/CreateSegmentConflictResponse.md)
  - [Model.CreateSegmentSuccessResponse](docs/CreateSegmentSuccessResponse.md)
- - [Model.DeletePlayerBadRequestResponse](docs/DeletePlayerBadRequestResponse.md)
  - [Model.DeletePlayerNotFoundResponse](docs/DeletePlayerNotFoundResponse.md)
  - [Model.DeletePlayerSuccessResponse](docs/DeletePlayerSuccessResponse.md)
- - [Model.DeleteSegmentBadRequestResponse](docs/DeleteSegmentBadRequestResponse.md)
  - [Model.DeleteSegmentNotFoundResponse](docs/DeleteSegmentNotFoundResponse.md)
  - [Model.DeleteSegmentSuccessResponse](docs/DeleteSegmentSuccessResponse.md)
  - [Model.DeliveryData](docs/DeliveryData.md)
@@ -178,7 +179,6 @@ Class | Method | HTTP request | Description
  - [Model.Notification](docs/Notification.md)
  - [Model.Notification200Errors](docs/Notification200Errors.md)
  - [Model.NotificationAllOf](docs/NotificationAllOf.md)
- - [Model.NotificationHistoryBadRequestResponse](docs/NotificationHistoryBadRequestResponse.md)
  - [Model.NotificationHistorySuccessResponse](docs/NotificationHistorySuccessResponse.md)
  - [Model.NotificationSlice](docs/NotificationSlice.md)
  - [Model.NotificationTarget](docs/NotificationTarget.md)
@@ -197,6 +197,8 @@ Class | Method | HTTP request | Description
  - [Model.Segment](docs/Segment.md)
  - [Model.SegmentNotificationTarget](docs/SegmentNotificationTarget.md)
  - [Model.StringMap](docs/StringMap.md)
+ - [Model.UpdateLiveActivityRequest](docs/UpdateLiveActivityRequest.md)
+ - [Model.UpdateLiveActivitySuccessResponse](docs/UpdateLiveActivitySuccessResponse.md)
  - [Model.UpdatePlayerSuccessResponse](docs/UpdatePlayerSuccessResponse.md)
  - [Model.UpdatePlayerTagsRequestBody](docs/UpdatePlayerTagsRequestBody.md)
  - [Model.UpdatePlayerTagsSuccessResponse](docs/UpdatePlayerTagsSuccessResponse.md)
