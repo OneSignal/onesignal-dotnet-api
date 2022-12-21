@@ -4,6 +4,7 @@ All URIs are relative to *https://onesignal.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BeginLiveActivity**](DefaultApi.md#beginliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/token | Start Live Activity
 [**CancelNotification**](DefaultApi.md#cancelnotification) | **DELETE** /notifications/{notification_id} | Stop a scheduled or currently outgoing notification
 [**CreateApp**](DefaultApi.md#createapp) | **POST** /apps | Create an app
 [**CreateNotification**](DefaultApi.md#createnotification) | **POST** /notifications | Create notification
@@ -11,6 +12,7 @@ Method | HTTP request | Description
 [**CreateSegments**](DefaultApi.md#createsegments) | **POST** /apps/{app_id}/segments | Create Segments
 [**DeletePlayer**](DefaultApi.md#deleteplayer) | **DELETE** /players/{player_id} | Delete a user record
 [**DeleteSegments**](DefaultApi.md#deletesegments) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segments
+[**EndLiveActivity**](DefaultApi.md#endliveactivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity
 [**ExportPlayers**](DefaultApi.md#exportplayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export
 [**GetApp**](DefaultApi.md#getapp) | **GET** /apps/{app_id} | View an app
 [**GetApps**](DefaultApi.md#getapps) | **GET** /apps | View apps
@@ -21,9 +23,88 @@ Method | HTTP request | Description
 [**GetPlayer**](DefaultApi.md#getplayer) | **GET** /players/{player_id} | View device
 [**GetPlayers**](DefaultApi.md#getplayers) | **GET** /players | View devices
 [**UpdateApp**](DefaultApi.md#updateapp) | **PUT** /apps/{app_id} | Update an app
+[**UpdateLiveActivity**](DefaultApi.md#updateliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
 [**UpdatePlayer**](DefaultApi.md#updateplayer) | **PUT** /players/{player_id} | Edit device
 [**UpdatePlayerTags**](DefaultApi.md#updateplayertags) | **PUT** /apps/{app_id}/users/{external_user_id} | Edit tags with external user id
 
+
+<a name="beginliveactivity"></a>
+# **BeginLiveActivity**
+> void BeginLiveActivity (string appId, string activityId, BeginLiveActivityRequest beginLiveActivityRequest)
+
+Start Live Activity
+
+Starts a Live Activity
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class BeginLiveActivityExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var activityId = "activityId_example";  // string | Live Activity record ID
+            var beginLiveActivityRequest = new BeginLiveActivityRequest(); // BeginLiveActivityRequest | 
+
+            try
+            {
+                // Start Live Activity
+                apiInstance.BeginLiveActivity(appId, activityId, beginLiveActivityRequest);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.BeginLiveActivity: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
+ **activityId** | **string**| Live Activity record ID | 
+ **beginLiveActivityRequest** | [**BeginLiveActivityRequest**](BeginLiveActivityRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="cancelnotification"></a>
 # **CancelNotification**
@@ -98,6 +179,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -172,6 +254,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -321,6 +404,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -558,6 +642,84 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="endliveactivity"></a>
+# **EndLiveActivity**
+> void EndLiveActivity (string appId, string activityId, string subscriptionId)
+
+Stop Live Activity
+
+Stops a Live Activity
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class EndLiveActivityExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var activityId = "activityId_example";  // string | Live Activity record ID
+            var subscriptionId = "subscriptionId_example";  // string | Subscription ID
+
+            try
+            {
+                // Stop Live Activity
+                apiInstance.EndLiveActivity(appId, activityId, subscriptionId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.EndLiveActivity: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
+ **activityId** | **string**| Live Activity record ID | 
+ **subscriptionId** | **string**| Subscription ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="exportplayers"></a>
 # **ExportPlayers**
 > ExportPlayersSuccessResponse ExportPlayers (string appId, ExportPlayersRequestBody exportPlayersRequestBody = null)
@@ -706,6 +868,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -776,6 +939,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -852,6 +1016,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1009,6 +1174,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1093,6 +1259,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1171,6 +1338,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1249,6 +1417,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1325,6 +1494,86 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateliveactivity"></a>
+# **UpdateLiveActivity**
+> UpdateLiveActivitySuccessResponse UpdateLiveActivity (string appId, string activityId, UpdateLiveActivityRequest updateLiveActivityRequest)
+
+Update a Live Activity via Push
+
+Updates a specified live activity.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateLiveActivityExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var activityId = "activityId_example";  // string | Live Activity record ID
+            var updateLiveActivityRequest = new UpdateLiveActivityRequest(); // UpdateLiveActivityRequest | 
+
+            try
+            {
+                // Update a Live Activity via Push
+                UpdateLiveActivitySuccessResponse result = apiInstance.UpdateLiveActivity(appId, activityId, updateLiveActivityRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateLiveActivity: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
+ **activityId** | **string**| Live Activity record ID | 
+ **updateLiveActivityRequest** | [**UpdateLiveActivityRequest**](UpdateLiveActivityRequest.md)|  | 
+
+### Return type
+
+[**UpdateLiveActivitySuccessResponse**](UpdateLiveActivitySuccessResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1401,6 +1650,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1479,6 +1729,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

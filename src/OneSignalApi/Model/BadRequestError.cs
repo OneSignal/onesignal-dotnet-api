@@ -27,25 +27,25 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// DeletePlayerNotFoundResponse
+    /// BadRequestError
     /// </summary>
-    [DataContract(Name = "DeletePlayerNotFoundResponse")]
-    public partial class DeletePlayerNotFoundResponse : IEquatable<DeletePlayerNotFoundResponse>, IValidatableObject
+    [DataContract(Name = "BadRequestError")]
+    public partial class BadRequestError : IEquatable<BadRequestError>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DeletePlayerNotFoundResponse" /> class.
+        /// Initializes a new instance of the <see cref="BadRequestError" /> class.
         /// </summary>
-        /// <param name="success">success.</param>
-        public DeletePlayerNotFoundResponse(bool success = default(bool))
+        /// <param name="errors">errors.</param>
+        public BadRequestError(List<string> errors = default(List<string>))
         {
-            this.Success = success;
+            this.Errors = errors;
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// Gets or Sets Errors
         /// </summary>
-        [DataMember(Name = "success", EmitDefaultValue = true)]
-        public bool Success { get; set; }
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
+        public List<string> Errors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,8 +54,8 @@ namespace OneSignalApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class DeletePlayerNotFoundResponse {\n");
-            sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("class BadRequestError {\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -76,15 +76,15 @@ namespace OneSignalApi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DeletePlayerNotFoundResponse);
+            return this.Equals(input as BadRequestError);
         }
 
         /// <summary>
-        /// Returns true if DeletePlayerNotFoundResponse instances are equal
+        /// Returns true if BadRequestError instances are equal
         /// </summary>
-        /// <param name="input">Instance of DeletePlayerNotFoundResponse to be compared</param>
+        /// <param name="input">Instance of BadRequestError to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DeletePlayerNotFoundResponse input)
+        public bool Equals(BadRequestError input)
         {
             if (input == null)
             {
@@ -92,8 +92,10 @@ namespace OneSignalApi.Model
             }
             return 
                 (
-                    this.Success == input.Success ||
-                    this.Success.Equals(input.Success)
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    input.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
                 );
         }
 
@@ -106,7 +108,10 @@ namespace OneSignalApi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Success.GetHashCode();
+                if (this.Errors != null)
+                {
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                }
                 return hashCode;
             }
         }
