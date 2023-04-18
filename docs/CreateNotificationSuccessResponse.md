@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Recipients** | **int** | Estimated number of subscribers targetted by notification. | 
+**Id** | **string** |  | [optional] 
+**Recipients** | **int** | Estimated number of subscribers targetted by notification. | [optional] 
 **ExternalId** | **string** |  | [optional] 
 **Errors** | [**Notification200Errors**](Notification200Errors.md) |  | [optional] 
 

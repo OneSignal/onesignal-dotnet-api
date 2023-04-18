@@ -10,22 +10,36 @@ Method | HTTP request | Description
 [**CreateNotification**](DefaultApi.md#createnotification) | **POST** /notifications | Create notification
 [**CreatePlayer**](DefaultApi.md#createplayer) | **POST** /players | Add a device
 [**CreateSegments**](DefaultApi.md#createsegments) | **POST** /apps/{app_id}/segments | Create Segments
+[**CreateSubscription**](DefaultApi.md#createsubscription) | **POST** /apps/{app_id}/users/by/{alias_label}/{alias_id}/subscriptions | 
+[**CreateUser**](DefaultApi.md#createuser) | **POST** /apps/{app_id}/users | 
+[**DeleteAlias**](DefaultApi.md#deletealias) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity/{alias_label_to_delete} | 
 [**DeletePlayer**](DefaultApi.md#deleteplayer) | **DELETE** /players/{player_id} | Delete a user record
 [**DeleteSegments**](DefaultApi.md#deletesegments) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segments
+[**DeleteSubscription**](DefaultApi.md#deletesubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} | 
+[**DeleteUser**](DefaultApi.md#deleteuser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 [**EndLiveActivity**](DefaultApi.md#endliveactivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity
 [**ExportPlayers**](DefaultApi.md#exportplayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export
+[**FetchAliases**](DefaultApi.md#fetchaliases) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
+[**FetchUser**](DefaultApi.md#fetchuser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
+[**FetchUserIdentity**](DefaultApi.md#fetchuseridentity) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
 [**GetApp**](DefaultApi.md#getapp) | **GET** /apps/{app_id} | View an app
 [**GetApps**](DefaultApi.md#getapps) | **GET** /apps | View apps
+[**GetEligibleIams**](DefaultApi.md#geteligibleiams) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/iams | 
 [**GetNotification**](DefaultApi.md#getnotification) | **GET** /notifications/{notification_id} | View notification
 [**GetNotificationHistory**](DefaultApi.md#getnotificationhistory) | **POST** /notifications/{notification_id}/history | Notification History
 [**GetNotifications**](DefaultApi.md#getnotifications) | **GET** /notifications | View notifications
 [**GetOutcomes**](DefaultApi.md#getoutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes
 [**GetPlayer**](DefaultApi.md#getplayer) | **GET** /players/{player_id} | View device
 [**GetPlayers**](DefaultApi.md#getplayers) | **GET** /players | View devices
+[**IdentifyUserByAlias**](DefaultApi.md#identifyuserbyalias) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
+[**IdentifyUserBySubscriptionId**](DefaultApi.md#identifyuserbysubscriptionid) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
+[**TransferSubscription**](DefaultApi.md#transfersubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/owner | 
 [**UpdateApp**](DefaultApi.md#updateapp) | **PUT** /apps/{app_id} | Update an app
 [**UpdateLiveActivity**](DefaultApi.md#updateliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
 [**UpdatePlayer**](DefaultApi.md#updateplayer) | **PUT** /players/{player_id} | Edit device
 [**UpdatePlayerTags**](DefaultApi.md#updateplayertags) | **PUT** /apps/{app_id}/users/{external_user_id} | Edit tags with external user id
+[**UpdateSubscription**](DefaultApi.md#updatesubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} | 
+[**UpdateUser**](DefaultApi.md#updateuser) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 
 
 <a name="beginliveactivity"></a>
@@ -486,6 +500,242 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="createsubscription"></a>
+# **CreateSubscription**
+> InlineResponse201 CreateSubscription (string appId, string aliasLabel, string aliasId, CreateSubscriptionRequestBody createSubscriptionRequestBody)
+
+
+
+Creates a new Subscription under the User provided. Useful to add email addresses and SMS numbers to the User.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class CreateSubscriptionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var aliasLabel = "aliasLabel_example";  // string | 
+            var aliasId = "aliasId_example";  // string | 
+            var createSubscriptionRequestBody = new CreateSubscriptionRequestBody(); // CreateSubscriptionRequestBody | 
+
+            try
+            {
+                InlineResponse201 result = apiInstance.CreateSubscription(appId, aliasLabel, aliasId, createSubscriptionRequestBody);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.CreateSubscription: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **aliasLabel** | **string**|  | 
+ **aliasId** | **string**|  | 
+ **createSubscriptionRequestBody** | [**CreateSubscriptionRequestBody**](CreateSubscriptionRequestBody.md)|  | 
+
+### Return type
+
+[**InlineResponse201**](InlineResponse201.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | CREATED |  -  |
+| **202** | ACCEPTED |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createuser"></a>
+# **CreateUser**
+> User CreateUser (string appId, User user)
+
+
+
+Creates a User, optionally Subscriptions owned by the User as well as Aliases. Aliases provided in the payload will be used to look up an existing User.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class CreateUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var user = new User(); // User | 
+
+            try
+            {
+                User result = apiInstance.CreateUser(appId, user);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.CreateUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **user** | [**User**](User.md)|  | 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | CREATED |  -  |
+| **202** | ACCEPTED |  -  |
+| **409** | Multiple User Identity Conflict |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletealias"></a>
+# **DeleteAlias**
+> InlineResponse200 DeleteAlias (string appId, string aliasLabel, string aliasId, string aliasLabelToDelete)
+
+
+
+Deletes an alias by alias label
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class DeleteAliasExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var aliasLabel = "aliasLabel_example";  // string | 
+            var aliasId = "aliasId_example";  // string | 
+            var aliasLabelToDelete = "aliasLabelToDelete_example";  // string | 
+
+            try
+            {
+                InlineResponse200 result = apiInstance.DeleteAlias(appId, aliasLabel, aliasId, aliasLabelToDelete);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DeleteAlias: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **aliasLabel** | **string**|  | 
+ **aliasId** | **string**|  | 
+ **aliasLabelToDelete** | **string**|  | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deleteplayer"></a>
 # **DeletePlayer**
 > DeletePlayerSuccessResponse DeletePlayer (string appId, string playerId)
@@ -639,6 +889,153 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletesubscription"></a>
+# **DeleteSubscription**
+> void DeleteSubscription (string appId, string subscriptionId)
+
+
+
+Deletes the Subscription.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class DeleteSubscriptionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var subscriptionId = "subscriptionId_example";  // string | 
+
+            try
+            {
+                apiInstance.DeleteSubscription(appId, subscriptionId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DeleteSubscription: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **subscriptionId** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | ACCEPTED |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteuser"></a>
+# **DeleteUser**
+> void DeleteUser (string appId, string aliasLabel, string aliasId)
+
+
+
+Removes the User identified by (:alias_label, :alias_id), and all Subscriptions and Aliases
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class DeleteUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var aliasLabel = "aliasLabel_example";  // string | 
+            var aliasId = "aliasId_example";  // string | 
+
+            try
+            {
+                apiInstance.DeleteUser(appId, aliasLabel, aliasId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DeleteUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **aliasLabel** | **string**|  | 
+ **aliasId** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -797,6 +1194,235 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="fetchaliases"></a>
+# **FetchAliases**
+> UserIdentityResponse FetchAliases (string appId, string subscriptionId)
+
+
+
+Lists all Aliases for the User identified by :subscription_id.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class FetchAliasesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var subscriptionId = "subscriptionId_example";  // string | 
+
+            try
+            {
+                UserIdentityResponse result = apiInstance.FetchAliases(appId, subscriptionId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.FetchAliases: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **subscriptionId** | **string**|  | 
+
+### Return type
+
+[**UserIdentityResponse**](UserIdentityResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="fetchuser"></a>
+# **FetchUser**
+> User FetchUser (string appId, string aliasLabel, string aliasId)
+
+
+
+Returns the User’s properties, Aliases, and Subscriptions.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class FetchUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var aliasLabel = "aliasLabel_example";  // string | 
+            var aliasId = "aliasId_example";  // string | 
+
+            try
+            {
+                User result = apiInstance.FetchUser(appId, aliasLabel, aliasId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.FetchUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **aliasLabel** | **string**|  | 
+ **aliasId** | **string**|  | 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="fetchuseridentity"></a>
+# **FetchUserIdentity**
+> InlineResponse200 FetchUserIdentity (string appId, string aliasLabel, string aliasId)
+
+
+
+Lists all Aliases for the User identified by (:alias_label, :alias_id).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class FetchUserIdentityExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var aliasLabel = "aliasLabel_example";  // string | 
+            var aliasId = "aliasId_example";  // string | 
+
+            try
+            {
+                InlineResponse200 result = apiInstance.FetchUserIdentity(appId, aliasLabel, aliasId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.FetchUserIdentity: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **aliasLabel** | **string**|  | 
+ **aliasId** | **string**|  | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getapp"></a>
 # **GetApp**
 > App GetApp (string appId)
@@ -940,6 +1566,81 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="geteligibleiams"></a>
+# **GetEligibleIams**
+> InlineResponse2003 GetEligibleIams (string appId, string subscriptionId)
+
+
+
+Manifest of In-App Messages the Subscription is eligible to display by the SDK.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class GetEligibleIamsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var subscriptionId = "subscriptionId_example";  // string | 
+
+            try
+            {
+                InlineResponse2003 result = apiInstance.GetEligibleIams(appId, subscriptionId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetEligibleIams: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **subscriptionId** | **string**|  | 
+
+### Return type
+
+[**InlineResponse2003**](InlineResponse2003.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1421,6 +2122,241 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="identifyuserbyalias"></a>
+# **IdentifyUserByAlias**
+> InlineResponse200 IdentifyUserByAlias (string appId, string aliasLabel, string aliasId, UserIdentityRequestBody userIdentityRequestBody)
+
+
+
+Upserts one or more Aliases to an existing User identified by (:alias_label, :alias_id).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class IdentifyUserByAliasExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var aliasLabel = "aliasLabel_example";  // string | 
+            var aliasId = "aliasId_example";  // string | 
+            var userIdentityRequestBody = new UserIdentityRequestBody(); // UserIdentityRequestBody | 
+
+            try
+            {
+                InlineResponse200 result = apiInstance.IdentifyUserByAlias(appId, aliasLabel, aliasId, userIdentityRequestBody);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.IdentifyUserByAlias: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **aliasLabel** | **string**|  | 
+ **aliasId** | **string**|  | 
+ **userIdentityRequestBody** | [**UserIdentityRequestBody**](UserIdentityRequestBody.md)|  | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **409** | Conflict |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="identifyuserbysubscriptionid"></a>
+# **IdentifyUserBySubscriptionId**
+> UserIdentityResponse IdentifyUserBySubscriptionId (string appId, string subscriptionId, UserIdentityRequestBody userIdentityRequestBody)
+
+
+
+Upserts one or more Aliases for the User identified by :subscription_id.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class IdentifyUserBySubscriptionIdExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var subscriptionId = "subscriptionId_example";  // string | 
+            var userIdentityRequestBody = new UserIdentityRequestBody(); // UserIdentityRequestBody | 
+
+            try
+            {
+                UserIdentityResponse result = apiInstance.IdentifyUserBySubscriptionId(appId, subscriptionId, userIdentityRequestBody);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.IdentifyUserBySubscriptionId: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **subscriptionId** | **string**|  | 
+ **userIdentityRequestBody** | [**UserIdentityRequestBody**](UserIdentityRequestBody.md)|  | 
+
+### Return type
+
+[**UserIdentityResponse**](UserIdentityResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **409** | Conflict |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="transfersubscription"></a>
+# **TransferSubscription**
+> UserIdentityResponse TransferSubscription (string appId, string subscriptionId, TransferSubscriptionRequestBody transferSubscriptionRequestBody)
+
+
+
+Transfers this Subscription to the User identified by the identity in the payload.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class TransferSubscriptionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var subscriptionId = "subscriptionId_example";  // string | 
+            var transferSubscriptionRequestBody = new TransferSubscriptionRequestBody(); // TransferSubscriptionRequestBody | 
+
+            try
+            {
+                UserIdentityResponse result = apiInstance.TransferSubscription(appId, subscriptionId, transferSubscriptionRequestBody);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.TransferSubscription: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **subscriptionId** | **string**|  | 
+ **transferSubscriptionRequestBody** | [**TransferSubscriptionRequestBody**](TransferSubscriptionRequestBody.md)|  | 
+
+### Return type
+
+[**UserIdentityResponse**](UserIdentityResponse.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updateapp"></a>
 # **UpdateApp**
 > App UpdateApp (string appId, App app)
@@ -1729,7 +2665,161 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatesubscription"></a>
+# **UpdateSubscription**
+> void UpdateSubscription (string appId, string subscriptionId, UpdateSubscriptionRequestBody updateSubscriptionRequestBody)
+
+
+
+Updates an existing Subscription’s properties.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateSubscriptionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var subscriptionId = "subscriptionId_example";  // string | 
+            var updateSubscriptionRequestBody = new UpdateSubscriptionRequestBody(); // UpdateSubscriptionRequestBody | 
+
+            try
+            {
+                apiInstance.UpdateSubscription(appId, subscriptionId, updateSubscriptionRequestBody);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateSubscription: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **subscriptionId** | **string**|  | 
+ **updateSubscriptionRequestBody** | [**UpdateSubscriptionRequestBody**](UpdateSubscriptionRequestBody.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | ACCEPTED |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateuser"></a>
+# **UpdateUser**
+> InlineResponse202 UpdateUser (string appId, string aliasLabel, string aliasId, UpdateUserRequest updateUserRequest)
+
+
+
+Updates an existing User’s properties.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateUserExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://onesignal.com/api/v1";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var aliasLabel = "aliasLabel_example";  // string | 
+            var aliasId = "aliasId_example";  // string | 
+            var updateUserRequest = new UpdateUserRequest(); // UpdateUserRequest | 
+
+            try
+            {
+                InlineResponse202 result = apiInstance.UpdateUser(appId, aliasLabel, aliasId, updateUserRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **aliasLabel** | **string**|  | 
+ **aliasId** | **string**|  | 
+ **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | 
+
+### Return type
+
+[**InlineResponse202**](InlineResponse202.md)
+
+### Authorization
+
+[app_key](../README.md#app_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | ACCEPTED |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
