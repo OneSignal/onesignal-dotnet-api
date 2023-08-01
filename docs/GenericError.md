@@ -1,10 +1,10 @@
-# OneSignalApi.Model.DeleteSegmentBadRequestResponse
+# OneSignalApi.Model.GenericError
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Erorrs** | **List&lt;string&gt;** |  | [optional] 
+**Errors** | [**List&lt;GenericErrorErrorsInner&gt;**](GenericErrorErrorsInner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

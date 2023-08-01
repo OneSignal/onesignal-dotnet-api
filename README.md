@@ -2,8 +2,8 @@
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
-- API version: 1.2.1
-- SDK version: 2.0.0
+- API version: 1.2.2
+- SDK version: 2.0.2
 - Build package: org.openapitools.codegen.languages.CSharpNetCoreClientCodegen
     For more information, please visit [https://onesignal.com](https://onesignal.com)
 
@@ -140,7 +140,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**DeleteSubscription**](docs/DefaultApi.md#deletesubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} | 
 *DefaultApi* | [**DeleteUser**](docs/DefaultApi.md#deleteuser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 *DefaultApi* | [**EndLiveActivity**](docs/DefaultApi.md#endliveactivity) | **DELETE** /apps/{app_id}/live_activities/{activity_id}/token/{subscription_id} | Stop Live Activity
-*DefaultApi* | [**ExportPlayers**](docs/DefaultApi.md#exportplayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | CSV export
+*DefaultApi* | [**ExportEvents**](docs/DefaultApi.md#exportevents) | **POST** /notifications/{notification_id}/export_events?app_id&#x3D;{app_id} | Export CSV of Events
+*DefaultApi* | [**ExportPlayers**](docs/DefaultApi.md#exportplayers) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Players
 *DefaultApi* | [**FetchAliases**](docs/DefaultApi.md#fetchaliases) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
 *DefaultApi* | [**FetchUser**](docs/DefaultApi.md#fetchuser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 *DefaultApi* | [**FetchUserIdentity**](docs/DefaultApi.md#fetchuseridentity) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
@@ -168,7 +169,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.App](docs/App.md)
- - [Model.BadRequestError](docs/BadRequestError.md)
  - [Model.BasicNotification](docs/BasicNotification.md)
  - [Model.BasicNotificationAllOf](docs/BasicNotificationAllOf.md)
  - [Model.BasicNotificationAllOfAndroidBackgroundLayout](docs/BasicNotificationAllOfAndroidBackgroundLayout.md)
@@ -188,13 +188,14 @@ Class | Method | HTTP request | Description
  - [Model.DeleteSegmentNotFoundResponse](docs/DeleteSegmentNotFoundResponse.md)
  - [Model.DeleteSegmentSuccessResponse](docs/DeleteSegmentSuccessResponse.md)
  - [Model.DeliveryData](docs/DeliveryData.md)
+ - [Model.ExportEventsSuccessResponse](docs/ExportEventsSuccessResponse.md)
  - [Model.ExportPlayersRequestBody](docs/ExportPlayersRequestBody.md)
  - [Model.ExportPlayersSuccessResponse](docs/ExportPlayersSuccessResponse.md)
  - [Model.Filter](docs/Filter.md)
  - [Model.FilterExpressions](docs/FilterExpressions.md)
+ - [Model.GenericError](docs/GenericError.md)
+ - [Model.GenericErrorErrorsInner](docs/GenericErrorErrorsInner.md)
  - [Model.GetNotificationRequestBody](docs/GetNotificationRequestBody.md)
- - [Model.IdentifyUserConflictResponse](docs/IdentifyUserConflictResponse.md)
- - [Model.IdentifyUserConflictResponseErrorsInner](docs/IdentifyUserConflictResponseErrorsInner.md)
  - [Model.InlineResponse200](docs/InlineResponse200.md)
  - [Model.InlineResponse2003](docs/InlineResponse2003.md)
  - [Model.InlineResponse201](docs/InlineResponse201.md)
@@ -221,6 +222,7 @@ Class | Method | HTTP request | Description
  - [Model.PropertiesDeltas](docs/PropertiesDeltas.md)
  - [Model.PropertiesObject](docs/PropertiesObject.md)
  - [Model.Purchase](docs/Purchase.md)
+ - [Model.RateLimiterError](docs/RateLimiterError.md)
  - [Model.Segment](docs/Segment.md)
  - [Model.SegmentNotificationTarget](docs/SegmentNotificationTarget.md)
  - [Model.StringMap](docs/StringMap.md)
