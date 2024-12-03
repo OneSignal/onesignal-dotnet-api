@@ -1,6 +1,6 @@
 # OneSignalApi.Api.DefaultApi
 
-All URIs are relative to *https://onesignal.com/api/v1*
+All URIs are relative to *https://api.onesignal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -66,7 +66,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -145,7 +145,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -223,7 +223,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: user_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -299,7 +299,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -375,7 +375,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -452,7 +452,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -531,7 +531,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -614,7 +614,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -694,7 +694,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -776,7 +776,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -855,7 +855,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -934,7 +934,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1011,7 +1011,10 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: app_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             var apiInstance = new DefaultApi(config);
             var appId = "appId_example";  // string | 
             var aliasLabel = "aliasLabel_example";  // string | 
@@ -1046,7 +1049,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[app_key](../README.md#app_key)
 
 ### HTTP request headers
 
@@ -1087,7 +1090,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1166,7 +1169,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1245,7 +1248,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1323,7 +1326,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1399,7 +1402,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1478,7 +1481,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1557,7 +1560,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: user_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1633,7 +1636,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: user_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1705,7 +1708,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1782,7 +1785,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1860,7 +1863,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -1938,7 +1941,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2020,7 +2023,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2106,7 +2109,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2186,7 +2189,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2266,7 +2269,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2348,7 +2351,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2428,7 +2431,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2508,7 +2511,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: user_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2586,7 +2589,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2666,7 +2669,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2745,7 +2748,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2826,7 +2829,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
@@ -2905,7 +2908,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://onesignal.com/api/v1";
+            config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: app_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
