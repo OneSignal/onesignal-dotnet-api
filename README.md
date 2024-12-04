@@ -2,8 +2,8 @@
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
-- API version: 1.2.2
-- SDK version: 2.0.2
+- API version: 1.3.0
+- SDK version: 2.1.0
 - Build package: org.openapitools.codegen.languages.CSharpNetCoreClientCodegen
     For more information, please visit [https://onesignal.com](https://onesignal.com)
 
@@ -72,7 +72,7 @@ namespace Example
             // Configure configuration with user_key Bearer token for authorization to access endpoints
             // that require the OneSignal User Auth Key.
             var userConfig = new Configuration();
-            userConfig.BasePath = "https://onesignal.com/api/v1";
+            userConfig.BasePath = "https://api.onesignal.com";
             userConfig.AccessToken = "USER_AUTH_KEY";
             
             var userInstance = new DefaultApi(userConfig);
@@ -95,7 +95,7 @@ namespace Example
             // Configure configuration with app_key Bearer token for authorization to access endpoints
             // that require the OneSignal App REST API Key.
             var appConfig = new Configuration();
-            appConfig.BasePath = "https://onesignal.com/api/v1";
+            appConfig.BasePath = "https://api.onesignal.com";
             appConfig.AccessToken = "REST_API_KEY";
             
             var appInstance = new DefaultApi(appConfig);
@@ -122,7 +122,7 @@ namespace Example
 <a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://onesignal.com/api/v1*
+All URIs are relative to *https://api.onesignal.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
