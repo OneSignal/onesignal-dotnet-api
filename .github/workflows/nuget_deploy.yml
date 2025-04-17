@@ -3,7 +3,6 @@ name: NuGet Publish
 on:
   release:
     types: [created]
-  workflow_dispatch:
 
 jobs:
   publish:
@@ -14,11 +13,11 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 8.x
-      - name: Build and Pack
-        run: |
-          dotnet restore
-          dotnet build --configuration Release --no-restore
-          dotnet pack src/OneSignalApi/OneSignalApi.csproj --configuration Release --no-build --output nupkgs
-      - name: Publish to NuGet
-        run: dotnet nuget push nupkgs/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+          dotnet-version: 3.1.x
+      # Publish
+      - name: publish on version change
+        id: publish_nuget
+        uses: brandedoutcast/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: src/OneSignalApi/OneSignalApi.csproj
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
