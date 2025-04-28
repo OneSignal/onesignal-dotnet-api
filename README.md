@@ -73,7 +73,7 @@ namespace Example
             // that require the OneSignal User Auth Key.
             var userConfig = new Configuration();
             userConfig.BasePath = "https://api.onesignal.com";
-            userConfig.AccessToken = "USER_AUTH_KEY";
+            userConfig.AccessToken = "ORGANIZATION_KEY"; // Organization key is only required for creating new apps and other top-level endpoints
             
             var userInstance = new DefaultApi(userConfig);
 
@@ -96,7 +96,7 @@ namespace Example
             // that require the OneSignal App REST API Key.
             var appConfig = new Configuration();
             appConfig.BasePath = "https://api.onesignal.com";
-            appConfig.AccessToken = "REST_API_KEY";
+            appConfig.AccessToken = "REST_API_KEY"; // App REST API key required for most endpoints
             
             var appInstance = new DefaultApi(appConfig);
 
