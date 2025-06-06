@@ -303,7 +303,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
-            // Configure Bearer token for authorization: user_auth_key
+            // Configure Bearer token for authorization: organization_api_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user_auth_key](../README.md#user_auth_key)
+[organization_api_key](../README.md#organization_api_key)
 
 ### HTTP request headers
 
@@ -1331,7 +1331,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
-            // Configure Bearer token for authorization: user_auth_key
+            // Configure Bearer token for authorization: organization_api_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
@@ -1366,7 +1366,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user_auth_key](../README.md#user_auth_key)
+[organization_api_key](../README.md#organization_api_key)
 
 ### HTTP request headers
 
@@ -1407,7 +1407,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
-            // Configure Bearer token for authorization: user_auth_key
+            // Configure Bearer token for authorization: organization_api_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
@@ -1438,7 +1438,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[user_auth_key](../README.md#user_auth_key)
+[organization_api_key](../README.md#organization_api_key)
 
 ### HTTP request headers
 
@@ -2126,7 +2126,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
-            // Configure Bearer token for authorization: user_auth_key
+            // Configure Bearer token for authorization: organization_api_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
@@ -2163,7 +2163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user_auth_key](../README.md#user_auth_key)
+[organization_api_key](../README.md#organization_api_key)
 
 ### HTTP request headers
 

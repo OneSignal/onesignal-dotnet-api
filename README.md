@@ -2,8 +2,8 @@
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
-- API version: 5.0.1
-- SDK version: 5.0.0-beta1
+- API version: 5.1.0
+- SDK version: 5.1.0-beta1
 - Build package: org.openapitools.codegen.languages.CSharpNetCoreClientCodegen
     For more information, please visit [https://onesignal.com](https://onesignal.com)
 
@@ -69,13 +69,13 @@ namespace Example
     {
         public static void Main()
         {
-            // Configure configuration with user_key Bearer token for authorization to access endpoints
-            // that require the OneSignal User Auth Key.
-            var userConfig = new Configuration();
-            userConfig.BasePath = "https://api.onesignal.com";
-            userConfig.AccessToken = "USER_AUTH_KEY";
+            // Configure configuration with organization_api_key Bearer token for authorization to access endpoints
+            // that require the OneSignal Organization API Key.
+            var orgConfig = new Configuration();
+            orgConfig.BasePath = "https://api.onesignal.com";
+            orgConfig.AccessToken = "YOUR_ORGANIZATION_API_KEY"; // Organization key is only required for creating new apps and other top-level endpoints
             
-            var userInstance = new DefaultApi(userConfig);
+            var userInstance = new DefaultApi(orgConfig);
 
             try
             {
@@ -92,11 +92,11 @@ namespace Example
             }
 
 
-            // Configure configuration with app_key Bearer token for authorization to access endpoints
+            // Configure configuration with rest_api_key Bearer token for authorization to access endpoints
             // that require the OneSignal App REST API Key.
             var appConfig = new Configuration();
             appConfig.BasePath = "https://api.onesignal.com";
-            appConfig.AccessToken = "REST_API_KEY";
+            appConfig.AccessToken = "YOUR_REST_API_KEY"; // App REST API key required for most endpoints
             
             var appInstance = new DefaultApi(appConfig);
 
@@ -219,13 +219,13 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-<a name="rest_api_key"></a>
-### rest_api_key
+<a name="organization_api_key"></a>
+### organization_api_key
 
 - **Type**: Bearer Authentication
 
-<a name="user_auth_key"></a>
-### user_auth_key
+<a name="rest_api_key"></a>
+### rest_api_key
 
 - **Type**: Bearer Authentication
 
