@@ -109,7 +109,7 @@ namespace OneSignalApi.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator/5.2.0-beta1/csharp";
+            UserAgent = "OpenAPI-Generator-5.2.0-beta1-csharp";
             BasePath = "https://api.onesignal.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
