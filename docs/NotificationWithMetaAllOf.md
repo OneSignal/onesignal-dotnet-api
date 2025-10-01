@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **PlatformDeliveryStats** | [**PlatformDeliveryData**](PlatformDeliveryData.md) |  | [optional] 
 **Received** | **int?** | Confirmed Deliveries number of devices that received the push notification. Paid Feature Only. Free accounts will see 0. | [optional] 
 **ThrottleRatePerMinute** | **int?** | number of push notifications sent per minute. Paid Feature Only. If throttling is not enabled for the app or the notification, and for free accounts, null is returned. Refer to Throttling for more details. | [optional] 
+**Canceled** | **bool** | Indicates whether the notification was canceled before it could be sent. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

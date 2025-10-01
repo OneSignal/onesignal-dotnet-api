@@ -123,6 +123,7 @@ Name | Type | Description | Notes
 **SendAfter** | **long?** | Unix timestamp indicating when notification delivery should begin. | [optional] 
 **CompletedAt** | **long?** | Unix timestamp indicating when notification delivery completed. The delivery duration from start to finish can be calculated with completed_at - send_after. | [optional] 
 **PlatformDeliveryStats** | [**PlatformDeliveryData**](PlatformDeliveryData.md) |  | [optional] 
+**Canceled** | **bool** | Indicates whether the notification was canceled before it could be sent. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
