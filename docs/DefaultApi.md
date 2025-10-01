@@ -5,16 +5,22 @@ All URIs are relative to *https://api.onesignal.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CancelNotification**](DefaultApi.md#cancelnotification) | **DELETE** /notifications/{notification_id} | Stop a scheduled or currently outgoing notification
+[**CopyTemplateToApp**](DefaultApi.md#copytemplatetoapp) | **POST** /templates/{template_id}/copy_to_app | Copy template to another app
 [**CreateAlias**](DefaultApi.md#createalias) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
 [**CreateAliasBySubscription**](DefaultApi.md#createaliasbysubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
+[**CreateApiKey**](DefaultApi.md#createapikey) | **POST** /apps/{app_id}/auth/tokens | Create API key
 [**CreateApp**](DefaultApi.md#createapp) | **POST** /apps | Create an app
+[**CreateCustomEvents**](DefaultApi.md#createcustomevents) | **POST** /apps/{app_id}/integrations/custom_events | Create custom events
 [**CreateNotification**](DefaultApi.md#createnotification) | **POST** /notifications | Create notification
 [**CreateSegment**](DefaultApi.md#createsegment) | **POST** /apps/{app_id}/segments | Create Segment
 [**CreateSubscription**](DefaultApi.md#createsubscription) | **POST** /apps/{app_id}/users/by/{alias_label}/{alias_id}/subscriptions | 
+[**CreateTemplate**](DefaultApi.md#createtemplate) | **POST** /templates | Create template
 [**CreateUser**](DefaultApi.md#createuser) | **POST** /apps/{app_id}/users | 
 [**DeleteAlias**](DefaultApi.md#deletealias) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity/{alias_label_to_delete} | 
+[**DeleteApiKey**](DefaultApi.md#deleteapikey) | **DELETE** /apps/{app_id}/auth/tokens/{token_id} | Delete API key
 [**DeleteSegment**](DefaultApi.md#deletesegment) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segment
 [**DeleteSubscription**](DefaultApi.md#deletesubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} | 
+[**DeleteTemplate**](DefaultApi.md#deletetemplate) | **DELETE** /templates/{template_id} | Delete template
 [**DeleteUser**](DefaultApi.md#deleteuser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 [**ExportEvents**](DefaultApi.md#exportevents) | **POST** /notifications/{notification_id}/export_events?app_id&#x3D;{app_id} | Export CSV of Events
 [**ExportSubscriptions**](DefaultApi.md#exportsubscriptions) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Subscriptions
@@ -28,12 +34,20 @@ Method | HTTP request | Description
 [**GetOutcomes**](DefaultApi.md#getoutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes
 [**GetSegments**](DefaultApi.md#getsegments) | **GET** /apps/{app_id}/segments | Get Segments
 [**GetUser**](DefaultApi.md#getuser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
+[**RotateApiKey**](DefaultApi.md#rotateapikey) | **POST** /apps/{app_id}/auth/tokens/{token_id}/rotate | Rotate API key
+[**StartLiveActivity**](DefaultApi.md#startliveactivity) | **POST** /apps/{app_id}/activities/activity/{activity_type} | Start Live Activity
 [**TransferSubscription**](DefaultApi.md#transfersubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/owner | 
 [**UnsubscribeEmailWithToken**](DefaultApi.md#unsubscribeemailwithtoken) | **POST** /apps/{app_id}/notifications/{notification_id}/unsubscribe | Unsubscribe with token
+[**UpdateApiKey**](DefaultApi.md#updateapikey) | **PATCH** /apps/{app_id}/auth/tokens/{token_id} | Update API key
 [**UpdateApp**](DefaultApi.md#updateapp) | **PUT** /apps/{app_id} | Update an app
 [**UpdateLiveActivity**](DefaultApi.md#updateliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
 [**UpdateSubscription**](DefaultApi.md#updatesubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} | 
+[**UpdateSubscriptionByToken**](DefaultApi.md#updatesubscriptionbytoken) | **PATCH** /apps/{app_id}/subscriptions_by_token/{token_type}/{token} | Update subscription by token
+[**UpdateTemplate**](DefaultApi.md#updatetemplate) | **PATCH** /templates/{template_id} | Update template
 [**UpdateUser**](DefaultApi.md#updateuser) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
+[**ViewApiKeys**](DefaultApi.md#viewapikeys) | **GET** /apps/{app_id}/auth/tokens | View API keys
+[**ViewTemplate**](DefaultApi.md#viewtemplate) | **GET** /templates/{template_id} | View template
+[**ViewTemplates**](DefaultApi.md#viewtemplates) | **GET** /templates | View templates
 
 
 <a name="cancelnotification"></a>
@@ -112,6 +126,85 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="copytemplatetoapp"></a>
+# **CopyTemplateToApp**
+> TemplateResource CopyTemplateToApp (string templateId, string appId, CopyTemplateRequest copyTemplateRequest)
+
+Copy template to another app
+
+Copy a template to a destination app.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class CopyTemplateToAppExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: organization_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var templateId = "templateId_example";  // string | 
+            var appId = "appId_example";  // string | 
+            var copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
+
+            try
+            {
+                // Copy template to another app
+                TemplateResource result = apiInstance.CopyTemplateToApp(templateId, appId, copyTemplateRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.CopyTemplateToApp: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateId** | **string**|  | 
+ **appId** | **string**|  | 
+ **copyTemplateRequest** | [**CopyTemplateRequest**](CopyTemplateRequest.md)|  | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -279,6 +372,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="createapikey"></a>
+# **CreateApiKey**
+> CreateApiKeyResponse CreateApiKey (string appId, CreateApiKeyRequest createApiKeyRequest)
+
+Create API key
+
+Use this API to create a new App API Key (also called a Rich Authentication Token) for a specific OneSignal app. These keys are used to authenticate API requests at the app level and offer enhanced security features, including optional IP allowlisting.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class CreateApiKeyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: organization_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest | 
+
+            try
+            {
+                // Create API key
+                CreateApiKeyResponse result = apiInstance.CreateApiKey(appId, createApiKeyRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.CreateApiKey: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **createApiKeyRequest** | [**CreateApiKeyRequest**](CreateApiKeyRequest.md)|  | 
+
+### Return type
+
+[**CreateApiKeyResponse**](CreateApiKeyResponse.md)
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="createapp"></a>
 # **CreateApp**
 > App CreateApp (App app)
@@ -351,6 +521,85 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createcustomevents"></a>
+# **CreateCustomEvents**
+> Object CreateCustomEvents (string appId, CustomEventsRequest customEventsRequest)
+
+Create custom events
+
+The Custom Events API allows you to record user events. Custom events can represent any action users take in your application, such as completing a purchase, viewing content, or achieving milestones.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class CreateCustomEventsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | Your OneSignal App ID in UUID v4 format.
+            var customEventsRequest = new CustomEventsRequest(); // CustomEventsRequest | 
+
+            try
+            {
+                // Create custom events
+                Object result = apiInstance.CreateCustomEvents(appId, customEventsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.CreateCustomEvents: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **customEventsRequest** | [**CustomEventsRequest**](CustomEventsRequest.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -594,6 +843,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="createtemplate"></a>
+# **CreateTemplate**
+> TemplateResource CreateTemplate (CreateTemplateRequest createTemplateRequest)
+
+Create template
+
+Create reusable message templates for push, email, and SMS channels.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class CreateTemplateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var createTemplateRequest = new CreateTemplateRequest(); // CreateTemplateRequest | 
+
+            try
+            {
+                // Create template
+                TemplateResource result = apiInstance.CreateTemplate(createTemplateRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.CreateTemplate: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createTemplateRequest** | [**CreateTemplateRequest**](CreateTemplateRequest.md)|  | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="createuser"></a>
 # **CreateUser**
 > User CreateUser (string appId, User user)
@@ -757,6 +1082,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deleteapikey"></a>
+# **DeleteApiKey**
+> Object DeleteApiKey (string appId, string tokenId)
+
+Delete API key
+
+Delete a specific Rich Authentication Token (App API Key) for a OneSignal app. Requires your Organization API Key and the token’s unique ID, not the token value itself.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class DeleteApiKeyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: organization_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var tokenId = "tokenId_example";  // string | 
+
+            try
+            {
+                // Delete API key
+                Object result = apiInstance.DeleteApiKey(appId, tokenId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DeleteApiKey: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **tokenId** | **string**|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deletesegment"></a>
 # **DeleteSegment**
 > GenericSuccessBoolResponse DeleteSegment (string appId, string segmentId)
@@ -911,6 +1313,84 @@ void (empty response body)
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletetemplate"></a>
+# **DeleteTemplate**
+> GenericSuccessBoolResponse DeleteTemplate (string templateId, string appId)
+
+Delete template
+
+Delete a template by id.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class DeleteTemplateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var templateId = "templateId_example";  // string | 
+            var appId = "appId_example";  // string | 
+
+            try
+            {
+                // Delete template
+                GenericSuccessBoolResponse result = apiInstance.DeleteTemplate(templateId, appId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DeleteTemplate: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateId** | **string**|  | 
+ **appId** | **string**|  | 
+
+### Return type
+
+[**GenericSuccessBoolResponse**](GenericSuccessBoolResponse.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1941,6 +2421,163 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="rotateapikey"></a>
+# **RotateApiKey**
+> CreateApiKeyResponse RotateApiKey (string appId, string tokenId)
+
+Rotate API key
+
+Rotate a Rich Authentication Token (App API Key) for a OneSignal app. Rotating a key revokes the current token and generates a new one under the same configuration—ideal when a token is lost or compromised but you don’t want to recreate and reconfigure it from scratch.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class RotateApiKeyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: organization_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var tokenId = "tokenId_example";  // string | 
+
+            try
+            {
+                // Rotate API key
+                CreateApiKeyResponse result = apiInstance.RotateApiKey(appId, tokenId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.RotateApiKey: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **tokenId** | **string**|  | 
+
+### Return type
+
+[**CreateApiKeyResponse**](CreateApiKeyResponse.md)
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="startliveactivity"></a>
+# **StartLiveActivity**
+> StartLiveActivitySuccessResponse StartLiveActivity (string appId, string activityType, StartLiveActivityRequest startLiveActivityRequest)
+
+Start Live Activity
+
+Remotely start a Live Activity on iOS devices via OneSignal’s REST API.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class StartLiveActivityExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | Your OneSignal App ID in UUID v4 format.
+            var activityType = "activityType_example";  // string | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
+            var startLiveActivityRequest = new StartLiveActivityRequest(); // StartLiveActivityRequest | 
+
+            try
+            {
+                // Start Live Activity
+                StartLiveActivitySuccessResponse result = apiInstance.StartLiveActivity(appId, activityType, startLiveActivityRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.StartLiveActivity: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **activityType** | **string**| The name of the Live Activity defined in your app. This should match the attributes struct used in your app&#39;s Live Activity implementation. | 
+ **startLiveActivityRequest** | [**StartLiveActivityRequest**](StartLiveActivityRequest.md)|  | 
+
+### Return type
+
+[**StartLiveActivitySuccessResponse**](StartLiveActivitySuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="transfersubscription"></a>
 # **TransferSubscription**
 > UserIdentityBody TransferSubscription (string appId, string subscriptionId, TransferSubscriptionRequestBody transferSubscriptionRequestBody)
@@ -2099,6 +2736,85 @@ Name | Type | Description  | Notes
 | **202** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateapikey"></a>
+# **UpdateApiKey**
+> Object UpdateApiKey (string appId, string tokenId, UpdateApiKeyRequest updateApiKeyRequest)
+
+Update API key
+
+Update a Rich Authentication Token (App API Key) for a OneSignal app.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateApiKeyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: organization_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+            var tokenId = "tokenId_example";  // string | 
+            var updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | 
+
+            try
+            {
+                // Update API key
+                Object result = apiInstance.UpdateApiKey(appId, tokenId, updateApiKeyRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateApiKey: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+ **tokenId** | **string**|  | 
+ **updateApiKeyRequest** | [**UpdateApiKeyRequest**](UpdateApiKeyRequest.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2340,6 +3056,167 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="updatesubscriptionbytoken"></a>
+# **UpdateSubscriptionByToken**
+> Object UpdateSubscriptionByToken (string appId, string tokenType, string token, SubscriptionBody subscriptionBody)
+
+Update subscription by token
+
+Update properties on an existing OneSignal subscription using its token.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateSubscriptionByTokenExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | Your OneSignal App ID in UUID v4 format.
+            var tokenType = "tokenType_example";  // string | The type of token to use when looking up the subscription. See Subscription Types.
+            var token = "token_example";  // string | The value of the token to lookup by (e.g., email address, phone number).
+            var subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
+
+            try
+            {
+                // Update subscription by token
+                Object result = apiInstance.UpdateSubscriptionByToken(appId, tokenType, token, subscriptionBody);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateSubscriptionByToken: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **tokenType** | **string**| The type of token to use when looking up the subscription. See Subscription Types. | 
+ **token** | **string**| The value of the token to lookup by (e.g., email address, phone number). | 
+ **subscriptionBody** | [**SubscriptionBody**](SubscriptionBody.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | ACCEPTED |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatetemplate"></a>
+# **UpdateTemplate**
+> TemplateResource UpdateTemplate (string templateId, string appId, UpdateTemplateRequest updateTemplateRequest)
+
+Update template
+
+Update an existing template.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateTemplateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var templateId = "templateId_example";  // string | 
+            var appId = "appId_example";  // string | 
+            var updateTemplateRequest = new UpdateTemplateRequest(); // UpdateTemplateRequest | 
+
+            try
+            {
+                // Update template
+                TemplateResource result = apiInstance.UpdateTemplate(templateId, appId, updateTemplateRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateTemplate: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateId** | **string**|  | 
+ **appId** | **string**|  | 
+ **updateTemplateRequest** | [**UpdateTemplateRequest**](UpdateTemplateRequest.md)|  | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updateuser"></a>
 # **UpdateUser**
 > PropertiesBody UpdateUser (string appId, string aliasLabel, string aliasId, UpdateUserRequest updateUserRequest)
@@ -2418,6 +3295,241 @@ Name | Type | Description  | Notes
 | **202** | ACCEPTED |  -  |
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="viewapikeys"></a>
+# **ViewApiKeys**
+> ApiKeyTokensListResponse ViewApiKeys (string appId)
+
+View API keys
+
+View the details of all of your current app API keys (Rich Authentication Token) for a single OneSignal app.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class ViewApiKeysExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: organization_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | 
+
+            try
+            {
+                // View API keys
+                ApiKeyTokensListResponse result = apiInstance.ViewApiKeys(appId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ViewApiKeys: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**|  | 
+
+### Return type
+
+[**ApiKeyTokensListResponse**](ApiKeyTokensListResponse.md)
+
+### Authorization
+
+[organization_api_key](../README.md#organization_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="viewtemplate"></a>
+# **ViewTemplate**
+> TemplateResource ViewTemplate (string templateId, string appId)
+
+View template
+
+Fetch a single template by id.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class ViewTemplateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var templateId = "templateId_example";  // string | 
+            var appId = "appId_example";  // string | 
+
+            try
+            {
+                // View template
+                TemplateResource result = apiInstance.ViewTemplate(templateId, appId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ViewTemplate: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateId** | **string**|  | 
+ **appId** | **string**|  | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="viewtemplates"></a>
+# **ViewTemplates**
+> TemplatesListResponse ViewTemplates (string appId, int? limit = null, int? offset = null, string channel = null)
+
+View templates
+
+List templates for an app.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class ViewTemplatesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "appId_example";  // string | Your OneSignal App ID in UUID v4 format.
+            var limit = 50;  // int? | Maximum number of templates. Default and max is 50. (optional)  (default to 50)
+            var offset = 0;  // int? | Pagination offset. (optional)  (default to 0)
+            var channel = "push";  // string | Filter by delivery channel. (optional) 
+
+            try
+            {
+                // View templates
+                TemplatesListResponse result = apiInstance.ViewTemplates(appId, limit, offset, channel);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ViewTemplates: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **limit** | **int?**| Maximum number of templates. Default and max is 50. | [optional] [default to 50]
+ **offset** | **int?**| Pagination offset. | [optional] [default to 0]
+ **channel** | **string**| Filter by delivery channel. | [optional] 
+
+### Return type
+
+[**TemplatesListResponse**](TemplatesListResponse.md)
+
+### Authorization
+
+[rest_api_key](../README.md#rest_api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
