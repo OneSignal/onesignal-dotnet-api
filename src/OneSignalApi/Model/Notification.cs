@@ -100,6 +100,94 @@ namespace OneSignalApi.Model
             return false;
         }
         /// <summary>
+        /// Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.
+        /// </summary>
+        /// <value>Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum HuaweiCategoryEnum
+        {
+            /// <summary>
+            /// Enum IM for value: IM
+            /// </summary>
+            [EnumMember(Value = "IM")]
+            IM = 1,
+
+            /// <summary>
+            /// Enum VOIP for value: VOIP
+            /// </summary>
+            [EnumMember(Value = "VOIP")]
+            VOIP = 2,
+
+            /// <summary>
+            /// Enum SUBSCRIPTION for value: SUBSCRIPTION
+            /// </summary>
+            [EnumMember(Value = "SUBSCRIPTION")]
+            SUBSCRIPTION = 3,
+
+            /// <summary>
+            /// Enum TRAVEL for value: TRAVEL
+            /// </summary>
+            [EnumMember(Value = "TRAVEL")]
+            TRAVEL = 4,
+
+            /// <summary>
+            /// Enum HEALTH for value: HEALTH
+            /// </summary>
+            [EnumMember(Value = "HEALTH")]
+            HEALTH = 5,
+
+            /// <summary>
+            /// Enum WORK for value: WORK
+            /// </summary>
+            [EnumMember(Value = "WORK")]
+            WORK = 6,
+
+            /// <summary>
+            /// Enum ACCOUNT for value: ACCOUNT
+            /// </summary>
+            [EnumMember(Value = "ACCOUNT")]
+            ACCOUNT = 7,
+
+            /// <summary>
+            /// Enum EXPRESS for value: EXPRESS
+            /// </summary>
+            [EnumMember(Value = "EXPRESS")]
+            EXPRESS = 8,
+
+            /// <summary>
+            /// Enum FINANCE for value: FINANCE
+            /// </summary>
+            [EnumMember(Value = "FINANCE")]
+            FINANCE = 9,
+
+            /// <summary>
+            /// Enum DEVICEREMINDER for value: DEVICE_REMINDER
+            /// </summary>
+            [EnumMember(Value = "DEVICE_REMINDER")]
+            DEVICEREMINDER = 10,
+
+            /// <summary>
+            /// Enum MAIL for value: MAIL
+            /// </summary>
+            [EnumMember(Value = "MAIL")]
+            MAIL = 11,
+
+            /// <summary>
+            /// Enum MARKETING for value: MARKETING
+            /// </summary>
+            [EnumMember(Value = "MARKETING")]
+            MARKETING = 12
+
+        }
+
+
+        /// <summary>
+        /// Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.
+        /// </summary>
+        /// <value>Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.</value>
+        [DataMember(Name = "huawei_category", EmitDefaultValue = true)]
+        public HuaweiCategoryEnum? HuaweiCategory { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Notification" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -206,6 +294,7 @@ namespace OneSignalApi.Model
         /// <param name="emailBody">Channel: Email Required unless template_id is set. HTML suported The body of the email you wish to send. Typically, customers include their own HTML templates here. Must include [unsubscribe_url] in an &lt;a&gt; tag somewhere in the email. Note: any malformed HTML content will be sent to users. Please double-check your HTML is valid. .</param>
         /// <param name="emailFromName">Channel: Email The name the email is from. If not specified, will default to \&quot;from name\&quot; set in the OneSignal Dashboard Email Settings. .</param>
         /// <param name="emailFromAddress">Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings. .</param>
+        /// <param name="emailReplyToAddress">Channel: Email The email address where replies should be sent. If not specified, replies will go to the from address. .</param>
         /// <param name="emailPreheader">Channel: Email The preheader text of the email. Preheader is the preview text displayed immediately after an email subject that provides additional context about the email content. If not specified, will default to null. .</param>
         /// <param name="disableEmailClickTracking">Channel: Email Default is &#x60;false&#x60;. If set to &#x60;true&#x60;, the URLs sent within the email will not include link tracking and will be the same as originally set; otherwise, all the URLs in the email will be tracked..</param>
         /// <param name="includeUnsubscribed">Channel: Email Default is &#x60;false&#x60;. This field is used to send transactional notifications. If set to &#x60;true&#x60;, this notification will also be sent to unsubscribed emails. If a &#x60;template_id&#x60; is provided, the &#x60;include_unsubscribed&#x60; value from the template will be inherited. If you are using a third-party ESP, this field requires the ESP&#39;s list of unsubscribed emails to be cleared..</param>
@@ -213,8 +302,13 @@ namespace OneSignalApi.Model
         /// <param name="smsMediaUrls">Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs. .</param>
         /// <param name="filters">filters.</param>
         /// <param name="customData">Channel: All JSON object that can be used as a source of message personalization data for fields that support tag variable substitution. Push, SMS: Can accept up to 2048 bytes of valid JSON. Email: Can accept up to 10000 bytes of valid JSON. Example: {\&quot;order_id\&quot;: 123, \&quot;currency\&quot;: \&quot;USD\&quot;, \&quot;amount\&quot;: 25} .</param>
+        /// <param name="huaweiBadgeClass">Channel: Push Notifications Platform: Huawei Full path of the app entry activity class.</param>
+        /// <param name="huaweiBadgeAddNum">Channel: Push Notifications Platform: Huawei Accumulative badge number, which is an integer ranging from 1 to 99.</param>
+        /// <param name="huaweiBadgeSetNum">Channel: Push Notifications Platform: Huawei Badge number, which is an integer ranging from 0 to 99.</param>
+        /// <param name="huaweiCategory">Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification..</param>
+        /// <param name="huaweiBiTag">Channel: Push Notifications Platform: Huawei A tag used for Huawei business intelligence and analytics..</param>
         /// <param name="sendAfter">Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. .</param>
-        public Notification(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), List<string> includeSubscriptionIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), Dictionary<string, List<string>> includeAliases = default(Dictionary<string, List<string>>), TargetChannelEnum? targetChannel = default(TargetChannelEnum?), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string appId = default(string), string externalId = default(string), string idempotencyKey = default(string), LanguageStringMap contents = default(LanguageStringMap), LanguageStringMap headings = default(LanguageStringMap), LanguageStringMap subtitle = default(LanguageStringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<WebButton> webButtons = default(List<WebButton>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), string throttleRatePerMinute = default(string), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), decimal? iosRelevanceScore = default(decimal?), string iosInterruptionLevel = default(string), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string emailPreheader = default(string), bool? disableEmailClickTracking = default(bool?), bool includeUnsubscribed = default(bool), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), List<FilterExpression> filters = default(List<FilterExpression>), Object customData = default(Object), DateTime? sendAfter = default(DateTime?))
+        public Notification(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), List<string> includeSubscriptionIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), Dictionary<string, List<string>> includeAliases = default(Dictionary<string, List<string>>), TargetChannelEnum? targetChannel = default(TargetChannelEnum?), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string appId = default(string), string externalId = default(string), string idempotencyKey = default(string), LanguageStringMap contents = default(LanguageStringMap), LanguageStringMap headings = default(LanguageStringMap), LanguageStringMap subtitle = default(LanguageStringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<WebButton> webButtons = default(List<WebButton>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), string throttleRatePerMinute = default(string), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), decimal? iosRelevanceScore = default(decimal?), string iosInterruptionLevel = default(string), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string emailReplyToAddress = default(string), string emailPreheader = default(string), bool? disableEmailClickTracking = default(bool?), bool includeUnsubscribed = default(bool), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), List<FilterExpression> filters = default(List<FilterExpression>), Object customData = default(Object), string huaweiBadgeClass = default(string), int? huaweiBadgeAddNum = default(int?), int? huaweiBadgeSetNum = default(int?), HuaweiCategoryEnum? huaweiCategory = default(HuaweiCategoryEnum?), string huaweiBiTag = default(string), DateTime? sendAfter = default(DateTime?))
         {
             // to ensure "appId" is required (not null)
             if (appId == null)
@@ -320,6 +414,7 @@ namespace OneSignalApi.Model
             this.EmailBody = emailBody;
             this.EmailFromName = emailFromName;
             this.EmailFromAddress = emailFromAddress;
+            this.EmailReplyToAddress = emailReplyToAddress;
             this.EmailPreheader = emailPreheader;
             this.DisableEmailClickTracking = disableEmailClickTracking;
             this.IncludeUnsubscribed = includeUnsubscribed;
@@ -327,6 +422,11 @@ namespace OneSignalApi.Model
             this.SmsMediaUrls = smsMediaUrls;
             this.Filters = filters;
             this.CustomData = customData;
+            this.HuaweiBadgeClass = huaweiBadgeClass;
+            this.HuaweiBadgeAddNum = huaweiBadgeAddNum;
+            this.HuaweiBadgeSetNum = huaweiBadgeSetNum;
+            this.HuaweiCategory = huaweiCategory;
+            this.HuaweiBiTag = huaweiBiTag;
             this.SendAfter = sendAfter;
         }
 
@@ -1027,6 +1127,13 @@ namespace OneSignalApi.Model
         public string EmailFromAddress { get; set; }
 
         /// <summary>
+        /// Channel: Email The email address where replies should be sent. If not specified, replies will go to the from address. 
+        /// </summary>
+        /// <value>Channel: Email The email address where replies should be sent. If not specified, replies will go to the from address. </value>
+        [DataMember(Name = "email_reply_to_address", EmitDefaultValue = true)]
+        public string EmailReplyToAddress { get; set; }
+
+        /// <summary>
         /// Channel: Email The preheader text of the email. Preheader is the preview text displayed immediately after an email subject that provides additional context about the email content. If not specified, will default to null. 
         /// </summary>
         /// <value>Channel: Email The preheader text of the email. Preheader is the preview text displayed immediately after an email subject that provides additional context about the email content. If not specified, will default to null. </value>
@@ -1073,6 +1180,34 @@ namespace OneSignalApi.Model
         /// <value>Channel: All JSON object that can be used as a source of message personalization data for fields that support tag variable substitution. Push, SMS: Can accept up to 2048 bytes of valid JSON. Email: Can accept up to 10000 bytes of valid JSON. Example: {\&quot;order_id\&quot;: 123, \&quot;currency\&quot;: \&quot;USD\&quot;, \&quot;amount\&quot;: 25} </value>
         [DataMember(Name = "custom_data", EmitDefaultValue = true)]
         public Object CustomData { get; set; }
+
+        /// <summary>
+        /// Channel: Push Notifications Platform: Huawei Full path of the app entry activity class
+        /// </summary>
+        /// <value>Channel: Push Notifications Platform: Huawei Full path of the app entry activity class</value>
+        [DataMember(Name = "huawei_badge_class", EmitDefaultValue = true)]
+        public string HuaweiBadgeClass { get; set; }
+
+        /// <summary>
+        /// Channel: Push Notifications Platform: Huawei Accumulative badge number, which is an integer ranging from 1 to 99
+        /// </summary>
+        /// <value>Channel: Push Notifications Platform: Huawei Accumulative badge number, which is an integer ranging from 1 to 99</value>
+        [DataMember(Name = "huawei_badge_add_num", EmitDefaultValue = true)]
+        public int? HuaweiBadgeAddNum { get; set; }
+
+        /// <summary>
+        /// Channel: Push Notifications Platform: Huawei Badge number, which is an integer ranging from 0 to 99
+        /// </summary>
+        /// <value>Channel: Push Notifications Platform: Huawei Badge number, which is an integer ranging from 0 to 99</value>
+        [DataMember(Name = "huawei_badge_set_num", EmitDefaultValue = true)]
+        public int? HuaweiBadgeSetNum { get; set; }
+
+        /// <summary>
+        /// Channel: Push Notifications Platform: Huawei A tag used for Huawei business intelligence and analytics.
+        /// </summary>
+        /// <value>Channel: Push Notifications Platform: Huawei A tag used for Huawei business intelligence and analytics.</value>
+        [DataMember(Name = "huawei_bi_tag", EmitDefaultValue = true)]
+        public string HuaweiBiTag { get; set; }
 
         /// <summary>
         /// Channel: All Schedule notification for future delivery. API defaults to UTC -1100 Examples: All examples are the exact same date &amp; time. \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (PDT)\&quot; \&quot;September 24th 2015, 2:00:00 pm UTC-07:00\&quot; \&quot;2015-09-24 14:00:00 GMT-0700\&quot; \&quot;Sept 24 2015 14:00:00 GMT-0700\&quot; \&quot;Thu Sep 24 2015 14:00:00 GMT-0700 (Pacific Daylight Time)\&quot; Note: SMS currently only supports send_after parameter. 
@@ -1190,6 +1325,7 @@ namespace OneSignalApi.Model
             sb.Append("  EmailBody: ").Append(EmailBody).Append("\n");
             sb.Append("  EmailFromName: ").Append(EmailFromName).Append("\n");
             sb.Append("  EmailFromAddress: ").Append(EmailFromAddress).Append("\n");
+            sb.Append("  EmailReplyToAddress: ").Append(EmailReplyToAddress).Append("\n");
             sb.Append("  EmailPreheader: ").Append(EmailPreheader).Append("\n");
             sb.Append("  DisableEmailClickTracking: ").Append(DisableEmailClickTracking).Append("\n");
             sb.Append("  IncludeUnsubscribed: ").Append(IncludeUnsubscribed).Append("\n");
@@ -1197,6 +1333,11 @@ namespace OneSignalApi.Model
             sb.Append("  SmsMediaUrls: ").Append(SmsMediaUrls).Append("\n");
             sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("  CustomData: ").Append(CustomData).Append("\n");
+            sb.Append("  HuaweiBadgeClass: ").Append(HuaweiBadgeClass).Append("\n");
+            sb.Append("  HuaweiBadgeAddNum: ").Append(HuaweiBadgeAddNum).Append("\n");
+            sb.Append("  HuaweiBadgeSetNum: ").Append(HuaweiBadgeSetNum).Append("\n");
+            sb.Append("  HuaweiCategory: ").Append(HuaweiCategory).Append("\n");
+            sb.Append("  HuaweiBiTag: ").Append(HuaweiBiTag).Append("\n");
             sb.Append("  SendAfter: ").Append(SendAfter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -1748,6 +1889,11 @@ namespace OneSignalApi.Model
                     this.EmailFromAddress.Equals(input.EmailFromAddress))
                 ) && 
                 (
+                    this.EmailReplyToAddress == input.EmailReplyToAddress ||
+                    (this.EmailReplyToAddress != null &&
+                    this.EmailReplyToAddress.Equals(input.EmailReplyToAddress))
+                ) && 
+                (
                     this.EmailPreheader == input.EmailPreheader ||
                     (this.EmailPreheader != null &&
                     this.EmailPreheader.Equals(input.EmailPreheader))
@@ -1782,6 +1928,30 @@ namespace OneSignalApi.Model
                     this.CustomData == input.CustomData ||
                     (this.CustomData != null &&
                     this.CustomData.Equals(input.CustomData))
+                ) && 
+                (
+                    this.HuaweiBadgeClass == input.HuaweiBadgeClass ||
+                    (this.HuaweiBadgeClass != null &&
+                    this.HuaweiBadgeClass.Equals(input.HuaweiBadgeClass))
+                ) && 
+                (
+                    this.HuaweiBadgeAddNum == input.HuaweiBadgeAddNum ||
+                    (this.HuaweiBadgeAddNum != null &&
+                    this.HuaweiBadgeAddNum.Equals(input.HuaweiBadgeAddNum))
+                ) && 
+                (
+                    this.HuaweiBadgeSetNum == input.HuaweiBadgeSetNum ||
+                    (this.HuaweiBadgeSetNum != null &&
+                    this.HuaweiBadgeSetNum.Equals(input.HuaweiBadgeSetNum))
+                ) && 
+                (
+                    this.HuaweiCategory == input.HuaweiCategory ||
+                    this.HuaweiCategory.Equals(input.HuaweiCategory)
+                ) && 
+                (
+                    this.HuaweiBiTag == input.HuaweiBiTag ||
+                    (this.HuaweiBiTag != null &&
+                    this.HuaweiBiTag.Equals(input.HuaweiBiTag))
                 ) && 
                 (
                     this.SendAfter == input.SendAfter ||
@@ -2188,6 +2358,10 @@ namespace OneSignalApi.Model
                 {
                     hashCode = (hashCode * 59) + this.EmailFromAddress.GetHashCode();
                 }
+                if (this.EmailReplyToAddress != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmailReplyToAddress.GetHashCode();
+                }
                 if (this.EmailPreheader != null)
                 {
                     hashCode = (hashCode * 59) + this.EmailPreheader.GetHashCode();
@@ -2212,6 +2386,23 @@ namespace OneSignalApi.Model
                 if (this.CustomData != null)
                 {
                     hashCode = (hashCode * 59) + this.CustomData.GetHashCode();
+                }
+                if (this.HuaweiBadgeClass != null)
+                {
+                    hashCode = (hashCode * 59) + this.HuaweiBadgeClass.GetHashCode();
+                }
+                if (this.HuaweiBadgeAddNum != null)
+                {
+                    hashCode = (hashCode * 59) + this.HuaweiBadgeAddNum.GetHashCode();
+                }
+                if (this.HuaweiBadgeSetNum != null)
+                {
+                    hashCode = (hashCode * 59) + this.HuaweiBadgeSetNum.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.HuaweiCategory.GetHashCode();
+                if (this.HuaweiBiTag != null)
+                {
+                    hashCode = (hashCode * 59) + this.HuaweiBiTag.GetHashCode();
                 }
                 if (this.SendAfter != null)
                 {
