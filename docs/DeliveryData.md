@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **Converted** | **int?** | Number of messages that were clicked. | [optional] 
 **Received** | **int?** | Number of devices that received the message. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
