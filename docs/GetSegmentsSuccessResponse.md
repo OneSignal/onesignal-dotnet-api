@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **Limit** | **int** | Maximum number of Segments returned. Default 300. | [optional] 
 **Segments** | [**List&lt;SegmentData&gt;**](SegmentData.md) | An array containing the Segment information. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 

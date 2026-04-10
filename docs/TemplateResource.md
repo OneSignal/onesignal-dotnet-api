@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **Channel** | **string** |  | [optional] 
 **Content** | **Dictionary&lt;string, Object&gt;** | Rendered content and channel/platform flags for the template. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 

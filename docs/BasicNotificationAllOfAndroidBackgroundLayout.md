@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **HeadingsColor** | **string** | Title text color ARGB Hex format. Example(Blue) \&quot;FF0000FF\&quot;. | [optional] 
 **ContentsColor** | **string** | Body text color ARGB Hex format. Example(Red) \&quot;FFFF0000\&quot;. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 

@@ -6,5 +6,5 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identity** | **Dictionary&lt;string, string&gt;** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 

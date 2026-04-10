@@ -21,5 +21,5 @@ Name | Type | Description | Notes
 **ExcludedSegments** | **List&lt;string&gt;** | Segment names to exclude. Only compatible with included_segments. | [optional] 
 **Filters** | [**List&lt;FilterExpression&gt;**](FilterExpression.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 

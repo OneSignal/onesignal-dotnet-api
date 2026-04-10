@@ -1,259 +1,82 @@
-# OneSignalApi - the C# library for the OneSignal
+# OneSignalApi - the C# library for OneSignal
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
 - API version: 5.3.0
 - SDK version: 5.4.0
-- Build package: org.openapitools.codegen.languages.CSharpNetCoreClientCodegen
-    For more information, please visit [https://onesignal.com](https://onesignal.com)
 
-<a name="frameworks-supported"></a>
-## Frameworks supported
-- .NET Core >=1.0
-- .NET Framework >=4.6
-- Mono/Xamarin >=vNext
-
-<a name="dependencies"></a>
-## Dependencies
-
-- [RestSharp](https://www.nuget.org/packages/RestSharp) - 106.13.0 or later
-- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 12.0.3 or later
-- [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.8.0 or later
-- [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations) - 5.0.0 or later
-
-The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
-```
-Install-Package RestSharp
-Install-Package Newtonsoft.Json
-Install-Package JsonSubTypes
-Install-Package System.ComponentModel.Annotations
-```
-
-NOTE: RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742).
-NOTE: RestSharp for .Net Core creates a new socket for each api call, which can lead to a socket exhaustion problem. See [RestSharp#1406](https://github.com/restsharp/RestSharp/issues/1406).
-
-<a name="installation"></a>
 ## Installation
-Generate the DLL using your preferred tool (e.g. `dotnet build`)
 
-Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
+```bash
+dotnet add package OneSignalApi
+```
+
+## Configuration
+
+Every SDK requires authentication via API keys. Two key types are available:
+
+- **REST API Key** — required for most endpoints (sending notifications, managing users, etc.). Found in your app's **Settings > Keys & IDs**.
+- **Organization API Key** — only required for organization-level endpoints like creating or listing apps. Found in **Organization Settings**.
+
+> **Warning:** Store your API keys in environment variables or a secrets manager. Never commit them to source control.
+
 ```csharp
 using OneSignalApi.Api;
 using OneSignalApi.Client;
-using OneSignalApi.Model;
-```
-<a name="usage"></a>
-## Usage
 
-To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
-```csharp
-Configuration c = new Configuration();
-System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
-webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-c.Proxy = webProxy;
+var config = new Configuration();
+config.BasePath = "https://api.onesignal.com";
+config.AccessToken = "YOUR_REST_API_KEY";
+
+var client = new DefaultApi(config);
 ```
 
-<a name="getting-started"></a>
-## Getting Started
+## Send a push notification
 
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using OneSignalApi.Api;
-using OneSignalApi.Client;
 using OneSignalApi.Model;
 
-namespace Example
+var notification = new Notification(appId: "YOUR_APP_ID")
 {
-    public class Example
-    {
-        public static void Main()
-        {
-            // Configure configuration with organization_api_key Bearer token for authorization to access endpoints
-            // that require the OneSignal Organization API Key.
-            var orgConfig = new Configuration();
-            orgConfig.BasePath = "https://api.onesignal.com";
-            orgConfig.AccessToken = "YOUR_ORGANIZATION_API_KEY"; // Organization key is only required for creating new apps and other top-level endpoints
-            
-            var userInstance = new DefaultApi(orgConfig);
+    Contents = new StringMap(en: "Hello from OneSignal!"),
+    Headings = new StringMap(en: "Push Notification"),
+    IncludedSegments = new List<string> { "Subscribed Users" }
+};
 
-            try
-            {
-                // Create a new app
-                var app = new App(name: "Sample App");
-                var result = userInstance.CreateApp(app);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling DefaultApi.CreateApp: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-
-
-            // Configure configuration with rest_api_key Bearer token for authorization to access endpoints
-            // that require the OneSignal App REST API Key.
-            var appConfig = new Configuration();
-            appConfig.BasePath = "https://api.onesignal.com";
-            appConfig.AccessToken = "YOUR_REST_API_KEY"; // App REST API key required for most endpoints
-            
-            var appInstance = new DefaultApi(appConfig);
-
-            var appId = "appId_example";  // string | 
-            var notificationId = "notificationId_example";  // string | 
-            try
-            {
-                // Stop a scheduled or currently outgoing notification
-                var result = appInstance.CancelNotification(appId, notificationId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling DefaultApi.CancelNotification: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
+var response = client.CreateNotification(notification);
+Console.WriteLine("Notification ID: " + response.Id);
 ```
 
-<a name="documentation-for-api-endpoints"></a>
-## Documentation for API Endpoints
+## Send an email
 
-All URIs are relative to *https://api.onesignal.com*
+```csharp
+var notification = new Notification(appId: "YOUR_APP_ID")
+{
+    EmailSubject = "Important Update",
+    EmailBody = "<h1>Hello!</h1><p>This is an HTML email.</p>",
+    IncludedSegments = new List<string> { "Subscribed Users" },
+    ChannelForExternalUserIds = "email"
+};
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*DefaultApi* | [**CancelNotification**](docs/DefaultApi.md#cancelnotification) | **DELETE** /notifications/{notification_id} | Stop a scheduled or currently outgoing notification
-*DefaultApi* | [**CopyTemplateToApp**](docs/DefaultApi.md#copytemplatetoapp) | **POST** /templates/{template_id}/copy_to_app | Copy template to another app
-*DefaultApi* | [**CreateAlias**](docs/DefaultApi.md#createalias) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
-*DefaultApi* | [**CreateAliasBySubscription**](docs/DefaultApi.md#createaliasbysubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
-*DefaultApi* | [**CreateApiKey**](docs/DefaultApi.md#createapikey) | **POST** /apps/{app_id}/auth/tokens | Create API key
-*DefaultApi* | [**CreateApp**](docs/DefaultApi.md#createapp) | **POST** /apps | Create an app
-*DefaultApi* | [**CreateCustomEvents**](docs/DefaultApi.md#createcustomevents) | **POST** /apps/{app_id}/integrations/custom_events | Create custom events
-*DefaultApi* | [**CreateNotification**](docs/DefaultApi.md#createnotification) | **POST** /notifications | Create notification
-*DefaultApi* | [**CreateSegment**](docs/DefaultApi.md#createsegment) | **POST** /apps/{app_id}/segments | Create Segment
-*DefaultApi* | [**CreateSubscription**](docs/DefaultApi.md#createsubscription) | **POST** /apps/{app_id}/users/by/{alias_label}/{alias_id}/subscriptions | 
-*DefaultApi* | [**CreateTemplate**](docs/DefaultApi.md#createtemplate) | **POST** /templates | Create template
-*DefaultApi* | [**CreateUser**](docs/DefaultApi.md#createuser) | **POST** /apps/{app_id}/users | 
-*DefaultApi* | [**DeleteAlias**](docs/DefaultApi.md#deletealias) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity/{alias_label_to_delete} | 
-*DefaultApi* | [**DeleteApiKey**](docs/DefaultApi.md#deleteapikey) | **DELETE** /apps/{app_id}/auth/tokens/{token_id} | Delete API key
-*DefaultApi* | [**DeleteSegment**](docs/DefaultApi.md#deletesegment) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segment
-*DefaultApi* | [**DeleteSubscription**](docs/DefaultApi.md#deletesubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} | 
-*DefaultApi* | [**DeleteTemplate**](docs/DefaultApi.md#deletetemplate) | **DELETE** /templates/{template_id} | Delete template
-*DefaultApi* | [**DeleteUser**](docs/DefaultApi.md#deleteuser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
-*DefaultApi* | [**ExportEvents**](docs/DefaultApi.md#exportevents) | **POST** /notifications/{notification_id}/export_events?app_id&#x3D;{app_id} | Export CSV of Events
-*DefaultApi* | [**ExportSubscriptions**](docs/DefaultApi.md#exportsubscriptions) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Subscriptions
-*DefaultApi* | [**GetAliases**](docs/DefaultApi.md#getaliases) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity | 
-*DefaultApi* | [**GetAliasesBySubscription**](docs/DefaultApi.md#getaliasesbysubscription) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
-*DefaultApi* | [**GetApp**](docs/DefaultApi.md#getapp) | **GET** /apps/{app_id} | View an app
-*DefaultApi* | [**GetApps**](docs/DefaultApi.md#getapps) | **GET** /apps | View apps
-*DefaultApi* | [**GetNotification**](docs/DefaultApi.md#getnotification) | **GET** /notifications/{notification_id} | View notification
-*DefaultApi* | [**GetNotificationHistory**](docs/DefaultApi.md#getnotificationhistory) | **POST** /notifications/{notification_id}/history | Notification History
-*DefaultApi* | [**GetNotifications**](docs/DefaultApi.md#getnotifications) | **GET** /notifications | View notifications
-*DefaultApi* | [**GetOutcomes**](docs/DefaultApi.md#getoutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes
-*DefaultApi* | [**GetSegments**](docs/DefaultApi.md#getsegments) | **GET** /apps/{app_id}/segments | Get Segments
-*DefaultApi* | [**GetUser**](docs/DefaultApi.md#getuser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
-*DefaultApi* | [**RotateApiKey**](docs/DefaultApi.md#rotateapikey) | **POST** /apps/{app_id}/auth/tokens/{token_id}/rotate | Rotate API key
-*DefaultApi* | [**StartLiveActivity**](docs/DefaultApi.md#startliveactivity) | **POST** /apps/{app_id}/activities/activity/{activity_type} | Start Live Activity
-*DefaultApi* | [**TransferSubscription**](docs/DefaultApi.md#transfersubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/owner | 
-*DefaultApi* | [**UnsubscribeEmailWithToken**](docs/DefaultApi.md#unsubscribeemailwithtoken) | **POST** /apps/{app_id}/notifications/{notification_id}/unsubscribe | Unsubscribe with token
-*DefaultApi* | [**UpdateApiKey**](docs/DefaultApi.md#updateapikey) | **PATCH** /apps/{app_id}/auth/tokens/{token_id} | Update API key
-*DefaultApi* | [**UpdateApp**](docs/DefaultApi.md#updateapp) | **PUT** /apps/{app_id} | Update an app
-*DefaultApi* | [**UpdateLiveActivity**](docs/DefaultApi.md#updateliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
-*DefaultApi* | [**UpdateSubscription**](docs/DefaultApi.md#updatesubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} | 
-*DefaultApi* | [**UpdateSubscriptionByToken**](docs/DefaultApi.md#updatesubscriptionbytoken) | **PATCH** /apps/{app_id}/subscriptions_by_token/{token_type}/{token} | Update subscription by token
-*DefaultApi* | [**UpdateTemplate**](docs/DefaultApi.md#updatetemplate) | **PATCH** /templates/{template_id} | Update template
-*DefaultApi* | [**UpdateUser**](docs/DefaultApi.md#updateuser) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
-*DefaultApi* | [**ViewApiKeys**](docs/DefaultApi.md#viewapikeys) | **GET** /apps/{app_id}/auth/tokens | View API keys
-*DefaultApi* | [**ViewTemplate**](docs/DefaultApi.md#viewtemplate) | **GET** /templates/{template_id} | View template
-*DefaultApi* | [**ViewTemplates**](docs/DefaultApi.md#viewtemplates) | **GET** /templates | View templates
+var response = client.CreateNotification(notification);
+```
 
+## Send an SMS
 
-<a name="documentation-for-models"></a>
-## Documentation for Models
+```csharp
+var notification = new Notification(appId: "YOUR_APP_ID")
+{
+    Contents = new StringMap(en: "Your SMS message content here"),
+    IncludedSegments = new List<string> { "Subscribed Users" },
+    ChannelForExternalUserIds = "sms",
+    SmsFrom = "+15551234567"
+};
 
- - [Model.ApiKeyToken](docs/ApiKeyToken.md)
- - [Model.ApiKeyTokensListResponse](docs/ApiKeyTokensListResponse.md)
- - [Model.App](docs/App.md)
- - [Model.BasicNotification](docs/BasicNotification.md)
- - [Model.BasicNotificationAllOf](docs/BasicNotificationAllOf.md)
- - [Model.BasicNotificationAllOfAndroidBackgroundLayout](docs/BasicNotificationAllOfAndroidBackgroundLayout.md)
- - [Model.Button](docs/Button.md)
- - [Model.CopyTemplateRequest](docs/CopyTemplateRequest.md)
- - [Model.CreateApiKeyRequest](docs/CreateApiKeyRequest.md)
- - [Model.CreateApiKeyResponse](docs/CreateApiKeyResponse.md)
- - [Model.CreateNotificationSuccessResponse](docs/CreateNotificationSuccessResponse.md)
- - [Model.CreateSegmentConflictResponse](docs/CreateSegmentConflictResponse.md)
- - [Model.CreateSegmentSuccessResponse](docs/CreateSegmentSuccessResponse.md)
- - [Model.CreateTemplateRequest](docs/CreateTemplateRequest.md)
- - [Model.CreateUserConflictResponse](docs/CreateUserConflictResponse.md)
- - [Model.CreateUserConflictResponseErrorsInner](docs/CreateUserConflictResponseErrorsInner.md)
- - [Model.CreateUserConflictResponseErrorsItemsMeta](docs/CreateUserConflictResponseErrorsItemsMeta.md)
- - [Model.CustomEvent](docs/CustomEvent.md)
- - [Model.CustomEventsRequest](docs/CustomEventsRequest.md)
- - [Model.DeliveryData](docs/DeliveryData.md)
- - [Model.ExportEventsSuccessResponse](docs/ExportEventsSuccessResponse.md)
- - [Model.ExportSubscriptionsRequestBody](docs/ExportSubscriptionsRequestBody.md)
- - [Model.ExportSubscriptionsSuccessResponse](docs/ExportSubscriptionsSuccessResponse.md)
- - [Model.Filter](docs/Filter.md)
- - [Model.FilterExpression](docs/FilterExpression.md)
- - [Model.GenericError](docs/GenericError.md)
- - [Model.GenericSuccessBoolResponse](docs/GenericSuccessBoolResponse.md)
- - [Model.GetNotificationHistoryRequestBody](docs/GetNotificationHistoryRequestBody.md)
- - [Model.GetSegmentsSuccessResponse](docs/GetSegmentsSuccessResponse.md)
- - [Model.LanguageStringMap](docs/LanguageStringMap.md)
- - [Model.Notification](docs/Notification.md)
- - [Model.NotificationAllOf](docs/NotificationAllOf.md)
- - [Model.NotificationHistorySuccessResponse](docs/NotificationHistorySuccessResponse.md)
- - [Model.NotificationSlice](docs/NotificationSlice.md)
- - [Model.NotificationTarget](docs/NotificationTarget.md)
- - [Model.NotificationWithMeta](docs/NotificationWithMeta.md)
- - [Model.NotificationWithMetaAllOf](docs/NotificationWithMetaAllOf.md)
- - [Model.Operator](docs/Operator.md)
- - [Model.OutcomeData](docs/OutcomeData.md)
- - [Model.OutcomesData](docs/OutcomesData.md)
- - [Model.PlatformDeliveryData](docs/PlatformDeliveryData.md)
- - [Model.PlatformDeliveryDataEmailAllOf](docs/PlatformDeliveryDataEmailAllOf.md)
- - [Model.PlatformDeliveryDataSmsAllOf](docs/PlatformDeliveryDataSmsAllOf.md)
- - [Model.PropertiesBody](docs/PropertiesBody.md)
- - [Model.PropertiesDeltas](docs/PropertiesDeltas.md)
- - [Model.PropertiesObject](docs/PropertiesObject.md)
- - [Model.Purchase](docs/Purchase.md)
- - [Model.RateLimitError](docs/RateLimitError.md)
- - [Model.Segment](docs/Segment.md)
- - [Model.SegmentData](docs/SegmentData.md)
- - [Model.SegmentNotificationTarget](docs/SegmentNotificationTarget.md)
- - [Model.StartLiveActivityRequest](docs/StartLiveActivityRequest.md)
- - [Model.StartLiveActivitySuccessResponse](docs/StartLiveActivitySuccessResponse.md)
- - [Model.Subscription](docs/Subscription.md)
- - [Model.SubscriptionBody](docs/SubscriptionBody.md)
- - [Model.SubscriptionNotificationTarget](docs/SubscriptionNotificationTarget.md)
- - [Model.TemplateResource](docs/TemplateResource.md)
- - [Model.TemplatesListResponse](docs/TemplatesListResponse.md)
- - [Model.TransferSubscriptionRequestBody](docs/TransferSubscriptionRequestBody.md)
- - [Model.UpdateApiKeyRequest](docs/UpdateApiKeyRequest.md)
- - [Model.UpdateLiveActivityRequest](docs/UpdateLiveActivityRequest.md)
- - [Model.UpdateLiveActivitySuccessResponse](docs/UpdateLiveActivitySuccessResponse.md)
- - [Model.UpdateTemplateRequest](docs/UpdateTemplateRequest.md)
- - [Model.UpdateUserRequest](docs/UpdateUserRequest.md)
- - [Model.User](docs/User.md)
- - [Model.UserIdentityBody](docs/UserIdentityBody.md)
- - [Model.WebButton](docs/WebButton.md)
+var response = client.CreateNotification(notification);
+```
 
+## Full API reference
 
-<a name="documentation-for-authorization"></a>
-## Documentation for Authorization
+The complete list of API endpoints and their parameters is available in the [DefaultApi documentation](https://github.com/OneSignal/onesignal-dotnet-api/blob/main/docs/DefaultApi.md).
 
-<a name="organization_api_key"></a>
-### organization_api_key
-
-- **Type**: Bearer Authentication
-
-<a name="rest_api_key"></a>
-### rest_api_key
-
-- **Type**: Bearer Authentication
-
+For the underlying REST API, see the [OneSignal API reference](https://documentation.onesignal.com/reference).

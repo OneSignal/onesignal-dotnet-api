@@ -131,5 +131,5 @@ Name | Type | Description | Notes
 **PlatformDeliveryStats** | [**PlatformDeliveryData**](PlatformDeliveryData.md) |  | [optional] 
 **Canceled** | **bool** | Indicates whether the notification was canceled before it could be sent. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 

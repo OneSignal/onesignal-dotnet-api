@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="copytemplatetoapp"></a>
 # **CopyTemplateToApp**
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createalias"></a>
 # **CreateAlias**
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createaliasbysubscription"></a>
 # **CreateAliasBySubscription**
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createapikey"></a>
 # **CreateApiKey**
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createapp"></a>
 # **CreateApp**
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createcustomevents"></a>
 # **CreateCustomEvents**
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createnotification"></a>
 # **CreateNotification**
@@ -663,7 +663,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -678,7 +678,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createsegment"></a>
 # **CreateSegment**
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createsubscription"></a>
 # **CreateSubscription**
@@ -823,7 +823,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -841,7 +841,7 @@ Name | Type | Description  | Notes
 | **409** | Operation is not permitted due to user having the maximum number of subscriptions assigned |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createtemplate"></a>
 # **CreateTemplate**
@@ -902,7 +902,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -917,7 +917,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="createuser"></a>
 # **CreateUser**
@@ -979,7 +979,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -997,7 +997,7 @@ Name | Type | Description  | Notes
 | **409** | Multiple User Identity Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="deletealias"></a>
 # **DeleteAlias**
@@ -1063,7 +1063,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1080,7 +1080,7 @@ Name | Type | Description  | Notes
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="deleteapikey"></a>
 # **DeleteApiKey**
@@ -1143,7 +1143,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1157,7 +1157,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="deletesegment"></a>
 # **DeleteSegment**
@@ -1220,7 +1220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1236,7 +1236,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="deletesubscription"></a>
 # **DeleteSubscription**
@@ -1297,7 +1297,7 @@ void (empty response body)
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1314,7 +1314,7 @@ void (empty response body)
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="deletetemplate"></a>
 # **DeleteTemplate**
@@ -1377,7 +1377,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1392,7 +1392,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="deleteuser"></a>
 # **DeleteUser**
@@ -1455,7 +1455,7 @@ void (empty response body)
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1471,7 +1471,7 @@ void (empty response body)
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="exportevents"></a>
 # **ExportEvents**
@@ -1534,7 +1534,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1550,7 +1550,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="exportsubscriptions"></a>
 # **ExportSubscriptions**
@@ -1613,7 +1613,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1628,7 +1628,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getaliases"></a>
 # **GetAliases**
@@ -1692,7 +1692,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1708,7 +1708,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getaliasesbysubscription"></a>
 # **GetAliasesBySubscription**
@@ -1770,7 +1770,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1785,7 +1785,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getapp"></a>
 # **GetApp**
@@ -1846,7 +1846,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1861,7 +1861,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getapps"></a>
 # **GetApps**
@@ -1918,7 +1918,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -1933,7 +1933,7 @@ This endpoint does not need any parameter.
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getnotification"></a>
 # **GetNotification**
@@ -1996,7 +1996,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2012,7 +2012,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getnotificationhistory"></a>
 # **GetNotificationHistory**
@@ -2075,7 +2075,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2091,7 +2091,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getnotifications"></a>
 # **GetNotifications**
@@ -2158,7 +2158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2173,7 +2173,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getoutcomes"></a>
 # **GetOutcomes**
@@ -2244,7 +2244,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2259,7 +2259,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getsegments"></a>
 # **GetSegments**
@@ -2324,7 +2324,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2339,7 +2339,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getuser"></a>
 # **GetUser**
@@ -2403,7 +2403,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2419,7 +2419,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="rotateapikey"></a>
 # **RotateApiKey**
@@ -2482,7 +2482,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2496,7 +2496,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="startliveactivity"></a>
 # **StartLiveActivity**
@@ -2561,7 +2561,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2576,7 +2576,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="transfersubscription"></a>
 # **TransferSubscription**
@@ -2640,7 +2640,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2657,7 +2657,7 @@ Name | Type | Description  | Notes
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="unsubscribeemailwithtoken"></a>
 # **UnsubscribeEmailWithToken**
@@ -2722,7 +2722,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2737,7 +2737,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="updateapikey"></a>
 # **UpdateApiKey**
@@ -2802,7 +2802,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2816,7 +2816,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="updateapp"></a>
 # **UpdateApp**
@@ -2879,7 +2879,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2894,7 +2894,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="updateliveactivity"></a>
 # **UpdateLiveActivity**
@@ -2959,7 +2959,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -2974,7 +2974,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="updatesubscription"></a>
 # **UpdateSubscription**
@@ -3037,7 +3037,7 @@ void (empty response body)
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -3054,7 +3054,7 @@ void (empty response body)
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="updatesubscriptionbytoken"></a>
 # **UpdateSubscriptionByToken**
@@ -3121,7 +3121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -3136,7 +3136,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="updatetemplate"></a>
 # **UpdateTemplate**
@@ -3201,7 +3201,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -3215,7 +3215,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="updateuser"></a>
 # **UpdateUser**
@@ -3281,7 +3281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -3297,7 +3297,7 @@ Name | Type | Description  | Notes
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="viewapikeys"></a>
 # **ViewApiKeys**
@@ -3358,7 +3358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[organization_api_key](../README.md#organization_api_key)
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -3372,7 +3372,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="viewtemplate"></a>
 # **ViewTemplate**
@@ -3435,7 +3435,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -3450,7 +3450,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="viewtemplates"></a>
 # **ViewTemplates**
@@ -3517,7 +3517,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[rest_api_key](../README.md#rest_api_key)
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
 
 ### HTTP request headers
 
@@ -3532,5 +3532,5 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
