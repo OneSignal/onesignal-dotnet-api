@@ -43,12 +43,14 @@ namespace OneSignalApi.Model
         /// <param name="appId">Your OneSignal App ID in UUID v4 format. (required).</param>
         /// <param name="name">Name of the template. (required).</param>
         /// <param name="contents">contents (required).</param>
+        /// <param name="headings">headings.</param>
+        /// <param name="subtitle">subtitle.</param>
         /// <param name="isEmail">Set true for an Email template..</param>
         /// <param name="emailSubject">Subject of the email..</param>
         /// <param name="emailBody">Body of the email (HTML supported)..</param>
         /// <param name="isSMS">Set true for an SMS template..</param>
         /// <param name="dynamicContent">JSON string for dynamic content personalization..</param>
-        public CreateTemplateRequest(string appId = default(string), string name = default(string), LanguageStringMap contents = default(LanguageStringMap), bool isEmail = default(bool), string emailSubject = default(string), string emailBody = default(string), bool isSMS = default(bool), string dynamicContent = default(string))
+        public CreateTemplateRequest(string appId = default(string), string name = default(string), LanguageStringMap contents = default(LanguageStringMap), LanguageStringMap headings = default(LanguageStringMap), LanguageStringMap subtitle = default(LanguageStringMap), bool isEmail = default(bool), string emailSubject = default(string), string emailBody = default(string), bool isSMS = default(bool), string dynamicContent = default(string))
         {
             // to ensure "appId" is required (not null)
             if (appId == null)
@@ -68,6 +70,8 @@ namespace OneSignalApi.Model
                 throw new ArgumentNullException("contents is a required property for CreateTemplateRequest and cannot be null");
             }
             this.Contents = contents;
+            this.Headings = headings;
+            this.Subtitle = subtitle;
             this.IsEmail = isEmail;
             this.EmailSubject = emailSubject;
             this.EmailBody = emailBody;
@@ -94,6 +98,18 @@ namespace OneSignalApi.Model
         /// </summary>
         [DataMember(Name = "contents", IsRequired = true, EmitDefaultValue = false)]
         public LanguageStringMap Contents { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Headings
+        /// </summary>
+        [DataMember(Name = "headings", EmitDefaultValue = false)]
+        public LanguageStringMap Headings { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Subtitle
+        /// </summary>
+        [DataMember(Name = "subtitle", EmitDefaultValue = false)]
+        public LanguageStringMap Subtitle { get; set; }
 
         /// <summary>
         /// Set true for an Email template.
@@ -141,6 +157,8 @@ namespace OneSignalApi.Model
             sb.Append("  AppId: ").Append(AppId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Contents: ").Append(Contents).Append("\n");
+            sb.Append("  Headings: ").Append(Headings).Append("\n");
+            sb.Append("  Subtitle: ").Append(Subtitle).Append("\n");
             sb.Append("  IsEmail: ").Append(IsEmail).Append("\n");
             sb.Append("  EmailSubject: ").Append(EmailSubject).Append("\n");
             sb.Append("  EmailBody: ").Append(EmailBody).Append("\n");
@@ -197,6 +215,16 @@ namespace OneSignalApi.Model
                     this.Contents.Equals(input.Contents))
                 ) && 
                 (
+                    this.Headings == input.Headings ||
+                    (this.Headings != null &&
+                    this.Headings.Equals(input.Headings))
+                ) && 
+                (
+                    this.Subtitle == input.Subtitle ||
+                    (this.Subtitle != null &&
+                    this.Subtitle.Equals(input.Subtitle))
+                ) && 
+                (
                     this.IsEmail == input.IsEmail ||
                     this.IsEmail.Equals(input.IsEmail)
                 ) && 
@@ -241,6 +269,14 @@ namespace OneSignalApi.Model
                 if (this.Contents != null)
                 {
                     hashCode = (hashCode * 59) + this.Contents.GetHashCode();
+                }
+                if (this.Headings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Headings.GetHashCode();
+                }
+                if (this.Subtitle != null)
+                {
+                    hashCode = (hashCode * 59) + this.Subtitle.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsEmail.GetHashCode();
                 if (this.EmailSubject != null)
