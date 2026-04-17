@@ -781,7 +781,7 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: Android The Android Oreo Notification Category to send the notification under. See the Category documentation on creating one and getting it&#39;s id. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android The Android Oreo Notification Category to send the notification under. See the Category documentation on creating one and getting it&#39;s id. </value>
-        [DataMember(Name = "android_channel_id", EmitDefaultValue = false)]
+        [DataMember(Name = "android_channel_id", EmitDefaultValue = true)]
         public string AndroidChannelId { get; set; }
 
         /// <summary>
@@ -795,7 +795,7 @@ namespace OneSignalApi.Model
         /// Channel: Push Notifications Platform: Android Use this if you have client side Android Oreo Channels you have already defined in your app with code. 
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Android Use this if you have client side Android Oreo Channels you have already defined in your app with code. </value>
-        [DataMember(Name = "existing_android_channel_id", EmitDefaultValue = false)]
+        [DataMember(Name = "existing_android_channel_id", EmitDefaultValue = true)]
         public string ExistingAndroidChannelId { get; set; }
 
         /// <summary>
