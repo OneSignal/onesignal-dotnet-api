@@ -628,22 +628,30 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
-            // Configure Bearer token for authorization: rest_api_key
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var notification = new Notification(); // Notification | 
+
+            var notification = new Notification
+            {
+                AppId = "YOUR_APP_ID",
+                Contents = new LanguageStringMap(en: "Hello from OneSignal!"),
+                IncludeAliases = new Dictionary<string, List<string>>
+                {
+                    { "external_id", new List<string> { "YOUR_USER_EXTERNAL_ID" } }
+                },
+                TargetChannel = Notification.TargetChannelEnum.Push
+            };
 
             try
             {
-                // Create notification
                 CreateNotificationSuccessResponse result = apiInstance.CreateNotification(notification);
                 Debug.WriteLine(result);
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling DefaultApi.CreateNotification: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling DefaultApi.CreateNotification: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
