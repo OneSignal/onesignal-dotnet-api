@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.5.1](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.5.0...v5.5.1) (2026-04-30)
+
+### Bug Fixes
+
+* add v5.5.0 package updates ([#91](https://github.com/OneSignal/onesignal-dotnet-api/issues/91)) ([6fe263a](https://github.com/OneSignal/onesignal-dotnet-api/commit/6fe263a7340030a3d55649059870fc1ec46f454d))
+
 ## [5.5.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.4.0...v5.5.0) (2026-04-17)
 
 ### Features
