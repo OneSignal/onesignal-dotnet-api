@@ -212,7 +212,7 @@ namespace OneSignalApi.Api
         /// Create notification
         /// </summary>
         /// <remarks>
-        /// Sends notifications to your users 
+        /// Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
@@ -224,7 +224,7 @@ namespace OneSignalApi.Api
         /// Create notification
         /// </summary>
         /// <remarks>
-        /// Sends notifications to your users 
+        /// Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
@@ -1383,7 +1383,7 @@ namespace OneSignalApi.Api
         /// Create notification
         /// </summary>
         /// <remarks>
-        /// Sends notifications to your users 
+        /// Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
@@ -1396,7 +1396,7 @@ namespace OneSignalApi.Api
         /// Create notification
         /// </summary>
         /// <remarks>
-        /// Sends notifications to your users 
+        /// Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
@@ -3825,7 +3825,7 @@ namespace OneSignalApi.Api
         }
 
         /// <summary>
-        /// Create notification Sends notifications to your users 
+        /// Create notification Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
@@ -3838,7 +3838,7 @@ namespace OneSignalApi.Api
         }
 
         /// <summary>
-        /// Create notification Sends notifications to your users 
+        /// Create notification Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
@@ -3902,7 +3902,7 @@ namespace OneSignalApi.Api
         }
 
         /// <summary>
-        /// Create notification Sends notifications to your users 
+        /// Create notification Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
@@ -3916,7 +3916,7 @@ namespace OneSignalApi.Api
         }
 
         /// <summary>
-        /// Create notification Sends notifications to your users 
+        /// Create notification Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notification"></param>
