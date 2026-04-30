@@ -35,9 +35,9 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateNotificationSuccessResponse" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="externalId">externalId.</param>
-        /// <param name="errors">Errors include the identifiers that are invalid, or that there are no subscribers..</param>
+        /// <param name="id">Notification identifier when the request created a notification. An empty string means no notification was created; read &#x60;errors&#x60; for details (HTTP may still be 200)..</param>
+        /// <param name="externalId">Optional correlation / idempotency-related value from the API response. This is not the end-user External ID used for targeting recipients (that lives under &#x60;include_aliases.external_id&#x60;)..</param>
+        /// <param name="errors">Polymorphic field: may be an array of human-readable strings and/or an object (for example with &#x60;invalid_aliases&#x60;, &#x60;invalid_external_user_ids&#x60;, or &#x60;invalid_player_ids&#x60;) depending on the API response; HTTP may still be 200 with partial success. Typed SDKs model this loosely so both shapes deserialize..</param>
         public CreateNotificationSuccessResponse(string id = default(string), string externalId = default(string), Object errors = default(Object))
         {
             this.Id = id;
@@ -46,21 +46,23 @@ namespace OneSignalApi.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Notification identifier when the request created a notification. An empty string means no notification was created; read &#x60;errors&#x60; for details (HTTP may still be 200).
         /// </summary>
+        /// <value>Notification identifier when the request created a notification. An empty string means no notification was created; read &#x60;errors&#x60; for details (HTTP may still be 200).</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExternalId
+        /// Optional correlation / idempotency-related value from the API response. This is not the end-user External ID used for targeting recipients (that lives under &#x60;include_aliases.external_id&#x60;).
         /// </summary>
+        /// <value>Optional correlation / idempotency-related value from the API response. This is not the end-user External ID used for targeting recipients (that lives under &#x60;include_aliases.external_id&#x60;).</value>
         [DataMember(Name = "external_id", EmitDefaultValue = true)]
         public string ExternalId { get; set; }
 
         /// <summary>
-        /// Errors include the identifiers that are invalid, or that there are no subscribers.
+        /// Polymorphic field: may be an array of human-readable strings and/or an object (for example with &#x60;invalid_aliases&#x60;, &#x60;invalid_external_user_ids&#x60;, or &#x60;invalid_player_ids&#x60;) depending on the API response; HTTP may still be 200 with partial success. Typed SDKs model this loosely so both shapes deserialize.
         /// </summary>
-        /// <value>Errors include the identifiers that are invalid, or that there are no subscribers.</value>
+        /// <value>Polymorphic field: may be an array of human-readable strings and/or an object (for example with &#x60;invalid_aliases&#x60;, &#x60;invalid_external_user_ids&#x60;, or &#x60;invalid_player_ids&#x60;) depending on the API response; HTTP may still be 200 with partial success. Typed SDKs model this loosely so both shapes deserialize.</value>
         [DataMember(Name = "errors", EmitDefaultValue = true)]
         public Object Errors { get; set; }
 
