@@ -274,14 +274,13 @@ namespace OneSignalApi.Client
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
             var clientOptions = new RestClientOptions(baseUrl)
             {
-                Timeout = configuration.Timeout,
+                Timeout = configuration.Timeout > 0 ? TimeSpan.FromMilliseconds(configuration.Timeout) : (TimeSpan?)null,
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent,
                 ClientCertificates = configuration.ClientCertificates
             };
 
-            var client = new RestClient(clientOptions);
-            client.UseNewtonsoftJson();
+            var client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
 
             InterceptRequest(req);
 
@@ -290,7 +289,7 @@ namespace OneSignalApi.Client
             {
                 var policy = RetryConfiguration.RetryPolicy;
                 var policyResult = policy.ExecuteAndCapture(() => client.Execute<T>(req));
-                response = (policyResult.Outcome == OutcomeType.Successful) ? (RestResponse<T>)policyResult.Result : new RestResponse<T>();
+                response = (policyResult.Outcome == OutcomeType.Successful) ? (RestResponse<T>)policyResult.Result : new RestResponse<T>(req);
                 if (policyResult.Outcome != OutcomeType.Successful)
                 {
                     response.ErrorException = policyResult.FinalException;
@@ -331,14 +330,13 @@ namespace OneSignalApi.Client
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
             var clientOptions = new RestClientOptions(baseUrl)
             {
-                Timeout = configuration.Timeout,
+                Timeout = configuration.Timeout > 0 ? TimeSpan.FromMilliseconds(configuration.Timeout) : (TimeSpan?)null,
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent,
                 ClientCertificates = configuration.ClientCertificates
             };
 
-            var client = new RestClient(clientOptions);
-            client.UseNewtonsoftJson();
+            var client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
 
             InterceptRequest(req);
 
@@ -347,7 +345,7 @@ namespace OneSignalApi.Client
             {
                 var policy = RetryConfiguration.AsyncRetryPolicy;
                 var policyResult = await policy.ExecuteAndCaptureAsync(async (ct) => await client.ExecuteAsync<T>(req, ct), cancellationToken).ConfigureAwait(false);
-                response = (policyResult.Outcome == OutcomeType.Successful) ? (RestResponse<T>)policyResult.Result : new RestResponse<T>();
+                response = (policyResult.Outcome == OutcomeType.Successful) ? (RestResponse<T>)policyResult.Result : new RestResponse<T>(req);
                 if (policyResult.Outcome != OutcomeType.Successful)
                 {
                     response.ErrorException = policyResult.FinalException;
