@@ -32,7 +32,7 @@ namespace OneSignalApi.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "5.5.0";
+        public const string Version = "5.5.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -109,7 +109,7 @@ namespace OneSignalApi.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator-5.5.0-csharp";
+            UserAgent = "OpenAPI-Generator-5.5.1-csharp";
             BasePath = "https://api.onesignal.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -517,7 +517,7 @@ namespace OneSignalApi.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 5.4.0\n";
-            report += "    SDK Package Version: 5.5.0\n";
+            report += "    SDK Package Version: 5.5.1\n";
 
             return report;
         }
