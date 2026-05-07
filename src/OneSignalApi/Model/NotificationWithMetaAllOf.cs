@@ -47,7 +47,9 @@ namespace OneSignalApi.Model
         /// <param name="received">Confirmed Deliveries number of devices that received the push notification. Paid Feature Only. Free accounts will see 0..</param>
         /// <param name="throttleRatePerMinute">number of push notifications sent per minute. Paid Feature Only. If throttling is not enabled for the app or the notification, and for free accounts, null is returned. Refer to Throttling for more details..</param>
         /// <param name="canceled">Indicates whether the notification was canceled before it could be sent..</param>
-        public NotificationWithMetaAllOf(int remaining = default(int), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), long queuedAt = default(long), long? sendAfter = default(long?), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData), int? received = default(int?), int? throttleRatePerMinute = default(int?), bool canceled = default(bool))
+        /// <param name="emailBcc">BCC recipients that were set on this email notification..</param>
+        /// <param name="bccSent">Number of BCC copies successfully sent for this notification..</param>
+        public NotificationWithMetaAllOf(int remaining = default(int), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), long queuedAt = default(long), long? sendAfter = default(long?), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData), int? received = default(int?), int? throttleRatePerMinute = default(int?), bool canceled = default(bool), List<string> emailBcc = default(List<string>), int? bccSent = default(int?))
         {
             this.Remaining = remaining;
             this.Successful = successful;
@@ -61,6 +63,8 @@ namespace OneSignalApi.Model
             this.Received = received;
             this.ThrottleRatePerMinute = throttleRatePerMinute;
             this.Canceled = canceled;
+            this.EmailBcc = emailBcc;
+            this.BccSent = bccSent;
         }
 
         /// <summary>
@@ -147,6 +151,20 @@ namespace OneSignalApi.Model
         public bool Canceled { get; set; }
 
         /// <summary>
+        /// BCC recipients that were set on this email notification.
+        /// </summary>
+        /// <value>BCC recipients that were set on this email notification.</value>
+        [DataMember(Name = "email_bcc", EmitDefaultValue = true)]
+        public List<string> EmailBcc { get; set; }
+
+        /// <summary>
+        /// Number of BCC copies successfully sent for this notification.
+        /// </summary>
+        /// <value>Number of BCC copies successfully sent for this notification.</value>
+        [DataMember(Name = "bcc_sent", EmitDefaultValue = true)]
+        public int? BccSent { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -166,6 +184,8 @@ namespace OneSignalApi.Model
             sb.Append("  Received: ").Append(Received).Append("\n");
             sb.Append("  ThrottleRatePerMinute: ").Append(ThrottleRatePerMinute).Append("\n");
             sb.Append("  Canceled: ").Append(Canceled).Append("\n");
+            sb.Append("  EmailBcc: ").Append(EmailBcc).Append("\n");
+            sb.Append("  BccSent: ").Append(BccSent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -253,6 +273,17 @@ namespace OneSignalApi.Model
                 (
                     this.Canceled == input.Canceled ||
                     this.Canceled.Equals(input.Canceled)
+                ) && 
+                (
+                    this.EmailBcc == input.EmailBcc ||
+                    this.EmailBcc != null &&
+                    input.EmailBcc != null &&
+                    this.EmailBcc.SequenceEqual(input.EmailBcc)
+                ) && 
+                (
+                    this.BccSent == input.BccSent ||
+                    (this.BccSent != null &&
+                    this.BccSent.Equals(input.BccSent))
                 );
         }
 
@@ -292,6 +323,14 @@ namespace OneSignalApi.Model
                     hashCode = (hashCode * 59) + this.ThrottleRatePerMinute.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Canceled.GetHashCode();
+                if (this.EmailBcc != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmailBcc.GetHashCode();
+                }
+                if (this.BccSent != null)
+                {
+                    hashCode = (hashCode * 59) + this.BccSent.GetHashCode();
+                }
                 return hashCode;
             }
         }
