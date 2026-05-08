@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.6.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.5.1...v5.6.0) (2026-05-08)
+
+### Features
+
+* add `email_bcc` and `bcc_sent` to Notification and Template models ([#95](https://github.com/OneSignal/onesignal-dotnet-api/issues/95)) ([9bca8d1](https://github.com/OneSignal/onesignal-dotnet-api/commit/9bca8d188cc53f3c412c8f80408208a4d67a66b8))
+
 ## [5.5.2](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.5.1...v5.5.2) (2026-05-01)
 
 ### Bug Fixes
