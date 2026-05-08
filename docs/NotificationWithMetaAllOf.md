@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **Received** | **int?** | Confirmed Deliveries number of devices that received the push notification. Paid Feature Only. Free accounts will see 0. | [optional] 
 **ThrottleRatePerMinute** | **int?** | number of push notifications sent per minute. Paid Feature Only. If throttling is not enabled for the app or the notification, and for free accounts, null is returned. Refer to Throttling for more details. | [optional] 
 **Canceled** | **bool** | Indicates whether the notification was canceled before it could be sent. | [optional] 
+**EmailBcc** | **List&lt;string&gt;** | BCC recipients that were set on this email notification. | [optional] 
+**BccSent** | **int?** | Number of BCC copies successfully sent for this notification. | [optional] 
 
 [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
