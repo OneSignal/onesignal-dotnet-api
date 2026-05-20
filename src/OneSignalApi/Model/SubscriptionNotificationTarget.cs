@@ -68,7 +68,8 @@ namespace OneSignalApi.Model
         /// Initializes a new instance of the <see cref="SubscriptionNotificationTarget" /> class.
         /// </summary>
         /// <param name="includeSubscriptionIds">Specific subscription ids to send your notification to. _Does not require API Auth Key._ Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call .</param>
-        /// <param name="includeEmailTokens">Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call .</param>
+        /// <param name="includeEmailTokens">Deprecated alias for &#x60;email_to&#x60;. Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Prefer &#x60;email_to&#x60; in new integrations. .</param>
+        /// <param name="emailTo">Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Supersedes the deprecated &#x60;include_email_tokens&#x60; field. .</param>
         /// <param name="includePhoneNumbers">Recommended for Sending SMS - Target specific phone numbers. The phone number should be in the E.164 format. Phone number should be an existing subscriber on OneSignal. Refer our docs to learn how to add phone numbers to OneSignal. Example phone number: +1999999999 Limit of 2,000 entries per REST API call .</param>
         /// <param name="includeIosTokens">Not Recommended: Please consider using include_subscription_ids or include_aliases instead. Target using iOS device tokens. Warning: Only works with Production tokens. All non-alphanumeric characters must be removed from each token. If a token does not correspond to an existing user, a new user will be created. Example: ce777617da7f548fe7a9ab6febb56cf39fba6d38203... Limit of 2,000 entries per REST API call .</param>
         /// <param name="includeWpWnsUris">Not Recommended: Please consider using include_subscription_ids or include_aliases instead. Target using Windows URIs. If a token does not correspond to an existing user, a new user will be created. Example: http://s.notify.live.net/u/1/bn1/HmQAAACPaLDr-... Limit of 2,000 entries per REST API call .</param>
@@ -78,10 +79,11 @@ namespace OneSignalApi.Model
         /// <param name="includeAndroidRegIds">Not Recommended: Please consider using include_subscription_ids or include_aliases instead. Target using Android device registration IDs. If a token does not correspond to an existing user, a new user will be created. Example: APA91bEeiUeSukAAUdnw3O2RB45FWlSpgJ7Ji_... Limit of 2,000 entries per REST API call .</param>
         /// <param name="includeAliases">Target specific users by aliases assigned via API. An alias can be an external_id, onesignal_id, or a custom alias. Accepts an object where keys are alias labels and values are arrays of alias IDs to include Example usage: { \&quot;external_id\&quot;: [\&quot;exId1\&quot;, \&quot;extId2\&quot;], \&quot;internal_label\&quot;: [\&quot;id1\&quot;, \&quot;id2\&quot;] } Keys must match API spellings exactly (for example the label for External ID is the string &#x60;external_id&#x60;; arbitrary keys such as camelCase variants are not aliases and may yield no recipients). Not compatible with any other targeting parameters. REQUIRED: REST API Key Authentication Limit of 2,000 entries per REST API call Note: If targeting push, email, or sms subscribers with same ids, use with target_channel to indicate you are sending a push or email or sms..</param>
         /// <param name="targetChannel">targetChannel.</param>
-        public SubscriptionNotificationTarget(List<string> includeSubscriptionIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), Dictionary<string, List<string>> includeAliases = default(Dictionary<string, List<string>>), TargetChannelEnum? targetChannel = default(TargetChannelEnum?))
+        public SubscriptionNotificationTarget(List<string> includeSubscriptionIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> emailTo = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), Dictionary<string, List<string>> includeAliases = default(Dictionary<string, List<string>>), TargetChannelEnum? targetChannel = default(TargetChannelEnum?))
         {
             this.IncludeSubscriptionIds = includeSubscriptionIds;
             this.IncludeEmailTokens = includeEmailTokens;
+            this.EmailTo = emailTo;
             this.IncludePhoneNumbers = includePhoneNumbers;
             this.IncludeIosTokens = includeIosTokens;
             this.IncludeWpWnsUris = includeWpWnsUris;
@@ -101,11 +103,19 @@ namespace OneSignalApi.Model
         public List<string> IncludeSubscriptionIds { get; set; }
 
         /// <summary>
-        /// Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call 
+        /// Deprecated alias for &#x60;email_to&#x60;. Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Prefer &#x60;email_to&#x60; in new integrations. 
         /// </summary>
-        /// <value>Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts Limit of 2,000 entries per REST API call </value>
+        /// <value>Deprecated alias for &#x60;email_to&#x60;. Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Prefer &#x60;email_to&#x60; in new integrations. </value>
         [DataMember(Name = "include_email_tokens", EmitDefaultValue = false)]
+        [Obsolete]
         public List<string> IncludeEmailTokens { get; set; }
+
+        /// <summary>
+        /// Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Supersedes the deprecated &#x60;include_email_tokens&#x60; field. 
+        /// </summary>
+        /// <value>Recommended for Sending Emails - Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Supersedes the deprecated &#x60;include_email_tokens&#x60; field. </value>
+        [DataMember(Name = "email_to", EmitDefaultValue = false)]
+        public List<string> EmailTo { get; set; }
 
         /// <summary>
         /// Recommended for Sending SMS - Target specific phone numbers. The phone number should be in the E.164 format. Phone number should be an existing subscriber on OneSignal. Refer our docs to learn how to add phone numbers to OneSignal. Example phone number: +1999999999 Limit of 2,000 entries per REST API call 
@@ -173,6 +183,7 @@ namespace OneSignalApi.Model
             sb.Append("class SubscriptionNotificationTarget {\n");
             sb.Append("  IncludeSubscriptionIds: ").Append(IncludeSubscriptionIds).Append("\n");
             sb.Append("  IncludeEmailTokens: ").Append(IncludeEmailTokens).Append("\n");
+            sb.Append("  EmailTo: ").Append(EmailTo).Append("\n");
             sb.Append("  IncludePhoneNumbers: ").Append(IncludePhoneNumbers).Append("\n");
             sb.Append("  IncludeIosTokens: ").Append(IncludeIosTokens).Append("\n");
             sb.Append("  IncludeWpWnsUris: ").Append(IncludeWpWnsUris).Append("\n");
@@ -228,6 +239,12 @@ namespace OneSignalApi.Model
                     this.IncludeEmailTokens != null &&
                     input.IncludeEmailTokens != null &&
                     this.IncludeEmailTokens.SequenceEqual(input.IncludeEmailTokens)
+                ) && 
+                (
+                    this.EmailTo == input.EmailTo ||
+                    this.EmailTo != null &&
+                    input.EmailTo != null &&
+                    this.EmailTo.SequenceEqual(input.EmailTo)
                 ) && 
                 (
                     this.IncludePhoneNumbers == input.IncludePhoneNumbers ||
@@ -299,6 +316,10 @@ namespace OneSignalApi.Model
                 if (this.IncludeEmailTokens != null)
                 {
                     hashCode = (hashCode * 59) + this.IncludeEmailTokens.GetHashCode();
+                }
+                if (this.EmailTo != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmailTo.GetHashCode();
                 }
                 if (this.IncludePhoneNumbers != null)
                 {
