@@ -78,8 +78,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var notificationId = "notificationId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | 
 
             try
             {
@@ -91,6 +91,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CancelNotification: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -157,8 +158,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var templateId = "templateId_example";  // string | 
-            var appId = "appId_example";  // string | 
+            var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
             var copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
 
             try
@@ -171,6 +172,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CopyTemplateToApp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -236,9 +238,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var aliasLabel = "aliasLabel_example";  // string | 
-            var aliasId = "aliasId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var aliasLabel = "external_id";  // string | 
+            var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
             var userIdentityBody = new UserIdentityBody(); // UserIdentityBody | 
 
             try
@@ -250,6 +252,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateAlias: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -319,8 +322,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var subscriptionId = "subscriptionId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
             var userIdentityBody = new UserIdentityBody(); // UserIdentityBody | 
 
             try
@@ -332,6 +335,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateAliasBySubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -400,7 +404,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
             var createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest | 
 
             try
@@ -413,6 +417,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateApiKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -489,6 +494,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateApp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -553,7 +559,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | Your OneSignal App ID in UUID v4 format.
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
             var customEventsRequest = new CustomEventsRequest(); // CustomEventsRequest | 
 
             try
@@ -566,6 +572,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateCustomEvents: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -614,6 +621,7 @@ Sends notifications to your users.  **Target by External ID (push example):** se
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -640,18 +648,42 @@ namespace Example
                 {
                     { "external_id", new List<string> { "YOUR_USER_EXTERNAL_ID" } }
                 },
-                TargetChannel = Notification.TargetChannelEnum.Push
+                TargetChannel = Notification.TargetChannelEnum.Push,
+                // Idempotency key: a client-generated UUID that lets you safely retry on
+                // network failure. If two requests arrive with the same key inside the
+                // 30-day window, only the first is sent and the second returns the original
+                // response. Use Guid.NewGuid() — DO NOT reuse keys across logically distinct
+                // sends.
+                IdempotencyKey = Guid.NewGuid().ToString()
             };
 
             try
             {
                 CreateNotificationSuccessResponse result = apiInstance.CreateNotification(notification);
-                Debug.WriteLine(result);
+                // `result.Id` discriminates the two HTTP 200 shapes. An empty string means
+                // no notification was created (e.g. all targets were unreachable / not
+                // subscribed). `result.Errors` is polymorphic: a `List<string>` in the
+                // no-subscribers case, or an object keyed by recipient-identifier type
+                // (`invalid_player_ids`, `invalid_external_user_ids`, `invalid_aliases`, ...)
+                // when the notification WAS created but some recipients were skipped.
+                if (string.IsNullOrEmpty(result.Id))
+                {
+                    Debug.WriteLine("Notification was not sent: " + result.Errors);
+                }
+                else if (result.Errors != null)
+                {
+                    Debug.WriteLine("Notification created: " + result.Id + " (partial failures: " + result.Errors + ")");
+                }
+                else
+                {
+                    Debug.WriteLine("Notification created: " + result.Id);
+                }
             }
             catch (ApiException e)
             {
                 Debug.Print("Exception when calling DefaultApi.CreateNotification: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -716,7 +748,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var segment = new Segment(); // Segment |  (optional) 
 
             try
@@ -729,6 +761,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateSegment: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -795,9 +828,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var aliasLabel = "aliasLabel_example";  // string | 
-            var aliasId = "aliasId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var aliasLabel = "external_id";  // string | 
+            var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
             var subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
 
             try
@@ -809,6 +842,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateSubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -891,6 +925,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -955,7 +990,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
             var user = new User(); // User | 
 
             try
@@ -967,6 +1002,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1035,10 +1071,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var aliasLabel = "aliasLabel_example";  // string | 
-            var aliasId = "aliasId_example";  // string | 
-            var aliasLabelToDelete = "aliasLabelToDelete_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var aliasLabel = "external_id";  // string | 
+            var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
+            var aliasLabelToDelete = "external_id";  // string | 
 
             try
             {
@@ -1049,6 +1085,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteAlias: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1118,8 +1155,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var tokenId = "tokenId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff";  // string | 
 
             try
             {
@@ -1131,6 +1168,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteApiKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1195,8 +1233,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var segmentId = "segmentId_example";  // string | The segment_id can be found in the URL of the segment when viewing it in the dashboard.
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment_id can be found in the URL of the segment when viewing it in the dashboard.
 
             try
             {
@@ -1208,6 +1246,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteSegment: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1274,8 +1313,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var subscriptionId = "subscriptionId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
 
             try
             {
@@ -1285,6 +1324,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteSubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1352,8 +1392,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var templateId = "templateId_example";  // string | 
-            var appId = "appId_example";  // string | 
+            var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
 
             try
             {
@@ -1365,6 +1405,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1430,9 +1471,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var aliasLabel = "aliasLabel_example";  // string | 
-            var aliasId = "aliasId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var aliasLabel = "external_id";  // string | 
+            var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
 
             try
             {
@@ -1442,6 +1483,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1509,8 +1551,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var notificationId = "notificationId_example";  // string | The ID of the notification to export events from.
-            var appId = "appId_example";  // string | The ID of the app that the notification belongs to.
+            var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | The ID of the notification to export events from.
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The ID of the app that the notification belongs to.
 
             try
             {
@@ -1522,6 +1564,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ExportEvents: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1588,7 +1631,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | The app ID that you want to export devices from
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The app ID that you want to export devices from
             var exportSubscriptionsRequestBody = new ExportSubscriptionsRequestBody(); // ExportSubscriptionsRequestBody |  (optional) 
 
             try
@@ -1601,6 +1644,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ExportSubscriptions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1666,9 +1710,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var aliasLabel = "aliasLabel_example";  // string | 
-            var aliasId = "aliasId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var aliasLabel = "external_id";  // string | 
+            var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
 
             try
             {
@@ -1679,6 +1723,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetAliases: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1746,8 +1791,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var subscriptionId = "subscriptionId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
 
             try
             {
@@ -1758,6 +1803,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetAliasesBySubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1823,7 +1869,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | An app id
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | An app id
 
             try
             {
@@ -1835,6 +1881,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetApp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1910,6 +1957,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetApps: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1971,8 +2019,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var notificationId = "notificationId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | 
 
             try
             {
@@ -1984,6 +2032,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetNotification: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2050,7 +2099,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var notificationId = "notificationId_example";  // string | The \"id\" of the message found in the Notification object
+            var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | The \"id\" of the message found in the Notification object
             var getNotificationHistoryRequestBody = new GetNotificationHistoryRequestBody(); // GetNotificationHistoryRequestBody | 
 
             try
@@ -2063,6 +2112,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetNotificationHistory: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2129,9 +2179,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | The app ID that you want to view notifications from
-            var limit = 56;  // int? | How many notifications to return.  Max is 50.  Default is 50. (optional) 
-            var offset = 56;  // int? | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional) 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The app ID that you want to view notifications from
+            var limit = 10;  // int? | How many notifications to return.  Max is 50.  Default is 50. (optional) 
+            var offset = 0;  // int? | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional) 
             var kind = 0;  // int? | Kind of notifications returned:   * unset - All notification types (default)   * `0` - Dashboard only   * `1` - API only   * `3` - Automated only  (optional) 
 
             try
@@ -2144,6 +2194,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetNotifications: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2211,12 +2262,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var outcomeNames = "outcomeNames_example";  // string | Required Comma-separated list of names and the value (sum/count) for the returned outcome data. Note: Clicks only support count aggregation. For out-of-the-box OneSignal outcomes such as click and session duration, please use the \"os\" prefix with two underscores. For other outcomes, please use the name specified by the user. Example:os__session_duration.count,os__click.count,CustomOutcomeName.sum 
-            var outcomeNames2 = "outcomeNames_example";  // string | Optional If outcome names contain any commas, then please specify only one value at a time. Example: outcome_names[]=os__click.count&outcome_names[]=Sales, Purchase.count where \"Sales, Purchase\" is the custom outcomes with a comma in the name.  (optional) 
-            var outcomeTimeRange = "outcomeTimeRange_example";  // string | Optional Time range for the returned data. The values can be 1h (for the last 1 hour data), 1d (for the last 1 day data), or 1mo (for the last 1 month data). Default is 1h if the parameter is omitted.  (optional) 
-            var outcomePlatforms = "outcomePlatforms_example";  // string | Optional Platform id. Refer device's platform ids for values. Example: outcome_platform=0 for iOS outcome_platform=7,8 for Safari and Firefox Default is data from all platforms if the parameter is omitted.  (optional) 
-            var outcomeAttribution = "outcomeAttribution_example";  // string | Optional Attribution type for the outcomes. The values can be direct or influenced or unattributed. Example: outcome_attribution=direct Default is total (returns direct+influenced+unattributed) if the parameter is omitted.  (optional) 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var outcomeNames = "os__session_duration.count,os__click.count";  // string | Required Comma-separated list of names and the value (sum/count) for the returned outcome data. Note: Clicks only support count aggregation. For out-of-the-box OneSignal outcomes such as click and session duration, please use the \"os\" prefix with two underscores. For other outcomes, please use the name specified by the user. Example:os__session_duration.count,os__click.count,CustomOutcomeName.sum 
+            var outcomeNames2 = "os__session_duration.count";  // string | Optional If outcome names contain any commas, then please specify only one value at a time. Example: outcome_names[]=os__click.count&outcome_names[]=Sales, Purchase.count where \"Sales, Purchase\" is the custom outcomes with a comma in the name.  (optional) 
+            var outcomeTimeRange = "1d";  // string | Optional Time range for the returned data. The values can be 1h (for the last 1 hour data), 1d (for the last 1 day data), or 1mo (for the last 1 month data). Default is 1h if the parameter is omitted.  (optional) 
+            var outcomePlatforms = "0,1";  // string | Optional Platform id. Refer device's platform ids for values. Example: outcome_platform=0 for iOS outcome_platform=7,8 for Safari and Firefox Default is data from all platforms if the parameter is omitted.  (optional) 
+            var outcomeAttribution = "direct";  // string | Optional Attribution type for the outcomes. The values can be direct or influenced or unattributed. Example: outcome_attribution=direct Default is total (returns direct+influenced+unattributed) if the parameter is omitted.  (optional) 
 
             try
             {
@@ -2228,6 +2279,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetOutcomes: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2297,9 +2349,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var offset = 56;  // int? | Segments are listed in ascending order of created_at date. offset will omit that number of segments from the beginning of the list. Eg offset 5, will remove the 5 earliest created Segments. (optional) 
-            var limit = 56;  // int? | The amount of Segments in the response. Maximum 300. (optional) 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var offset = 0;  // int? | Segments are listed in ascending order of created_at date. offset will omit that number of segments from the beginning of the list. Eg offset 5, will remove the 5 earliest created Segments. (optional) 
+            var limit = 10;  // int? | The amount of Segments in the response. Maximum 300. (optional) 
 
             try
             {
@@ -2311,6 +2363,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetSegments: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2377,9 +2430,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var aliasLabel = "aliasLabel_example";  // string | 
-            var aliasId = "aliasId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var aliasLabel = "external_id";  // string | 
+            var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
 
             try
             {
@@ -2390,6 +2443,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2457,8 +2511,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var tokenId = "tokenId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff";  // string | 
 
             try
             {
@@ -2470,6 +2524,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.RotateApiKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2534,8 +2589,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | Your OneSignal App ID in UUID v4 format.
-            var activityType = "activityType_example";  // string | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
+            var activityType = "order_status";  // string | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
             var startLiveActivityRequest = new StartLiveActivityRequest(); // StartLiveActivityRequest | 
 
             try
@@ -2548,6 +2603,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.StartLiveActivity: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2614,8 +2670,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var subscriptionId = "subscriptionId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
             var transferSubscriptionRequestBody = new TransferSubscriptionRequestBody(); // TransferSubscriptionRequestBody | 
 
             try
@@ -2627,6 +2683,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.TransferSubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2695,9 +2752,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var notificationId = "notificationId_example";  // string | The id of the message found in the creation notification POST response, View Notifications GET response, or URL within the Message Report.
-            var token = "token_example";  // string | The unsubscribe token that is generated via liquid syntax in {{subscription.unsubscribe_token}} when personalizing an email.
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | The id of the message found in the creation notification POST response, View Notifications GET response, or URL within the Message Report.
+            var token = "YOUR_TOKEN_ID";  // string | The unsubscribe token that is generated via liquid syntax in {{subscription.unsubscribe_token}} when personalizing an email.
 
             try
             {
@@ -2709,6 +2766,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UnsubscribeEmailWithToken: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2775,8 +2833,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var tokenId = "tokenId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff";  // string | 
             var updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | 
 
             try
@@ -2789,6 +2847,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateApiKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2854,7 +2913,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | An app id
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | An app id
             var app = new App(); // App | 
 
             try
@@ -2867,6 +2926,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateApp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2932,8 +2992,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var activityId = "activityId_example";  // string | Live Activity record ID
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var activityId = "12345";  // string | Live Activity record ID
             var updateLiveActivityRequest = new UpdateLiveActivityRequest(); // UpdateLiveActivityRequest | 
 
             try
@@ -2946,6 +3006,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateLiveActivity: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -3012,8 +3073,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var subscriptionId = "subscriptionId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
             var subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
 
             try
@@ -3024,6 +3085,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateSubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -3092,9 +3154,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | Your OneSignal App ID in UUID v4 format.
-            var tokenType = "tokenType_example";  // string | The type of token to use when looking up the subscription. See Subscription Types.
-            var token = "token_example";  // string | The value of the token to lookup by (e.g., email address, phone number).
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
+            var tokenType = "Email";  // string | The type of token to use when looking up the subscription. See Subscription Types.
+            var token = "user@example.com";  // string | The value of the token to lookup by (e.g., email address, phone number).
             var subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
 
             try
@@ -3107,6 +3169,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateSubscriptionByToken: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -3174,8 +3237,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var templateId = "templateId_example";  // string | 
-            var appId = "appId_example";  // string | 
+            var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
             var updateTemplateRequest = new UpdateTemplateRequest(); // UpdateTemplateRequest | 
 
             try
@@ -3188,6 +3251,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -3253,9 +3317,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
-            var aliasLabel = "aliasLabel_example";  // string | 
-            var aliasId = "aliasId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var aliasLabel = "external_id";  // string | 
+            var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
             var updateUserRequest = new UpdateUserRequest(); // UpdateUserRequest | 
 
             try
@@ -3267,6 +3331,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -3335,7 +3400,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
 
             try
             {
@@ -3347,6 +3412,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ViewApiKeys: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -3410,8 +3476,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var templateId = "templateId_example";  // string | 
-            var appId = "appId_example";  // string | 
+            var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
 
             try
             {
@@ -3423,6 +3489,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ViewTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -3488,8 +3555,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "appId_example";  // string | Your OneSignal App ID in UUID v4 format.
-            var limit = 50;  // int? | Maximum number of templates. Default and max is 50. (optional)  (default to 50)
+            var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
+            var limit = 10;  // int? | Maximum number of templates. Default and max is 50. (optional)  (default to 50)
             var offset = 0;  // int? | Pagination offset. (optional)  (default to 0)
             var channel = "push";  // string | Filter by delivery channel. (optional) 
 
@@ -3503,6 +3570,7 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ViewTemplates: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
         }
