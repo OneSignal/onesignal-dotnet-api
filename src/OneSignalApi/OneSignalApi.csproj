@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>OneSignalApi</AssemblyName>
+    <PackageId>OneSignalApi</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>OneSignal</Authors>
+    <Company>OneSignal</Company>
+    <AssemblyTitle>OneSignal API Library</AssemblyTitle>
+    <Description>OneSignal is a free push notification service for mobile apps. Integrate OneSignal with your backend events, data, and more.</Description>
+    <Copyright>Copyrite 2022 OneSignal</Copyright>
+    <RootNamespace>OneSignalApi</RootNamespace>
+    <Version>5.7.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\OneSignalApi.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/OneSignal/onesignal-dotnet-api.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>C#, OneSignal, push</PackageTags>
+    <Title>OneSignal API Library</Title>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>nuget_icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/OneSignal/onesignal-dotnet-api</PackageProjectUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="[2.0.1, 3.0.0)"/>
+    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="[114.0.0,115.0.0)"/>
+    <PackageReference Include="RestSharp" Version="[114.0.0,115.0.0)"/>
+    <PackageReference Include="Polly" Version="[8.6.6, 9.0.0)"/>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="[5.0.0, 6.0.0)"/>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../../nuget_icon.png" Pack="true" PackagePath=""/>
+    <None Include="../../LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>
+</Project>
