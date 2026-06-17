@@ -64,7 +64,7 @@ Every operation requires either a **REST API Key** (App-scoped, used by ~77% of 
 
 ### Error handling
 
-When a request fails, the SDK throws `ApiException`. The HTTP status code is `e.ErrorCode` (int); the parsed error body is `e.ErrorContent` (object — typically a string holding the raw JSON envelope). Most envelopes match `{ "errors": ["..."] }` (an array of strings) but a few endpoints return `{ "errors": [{"code": ..., "title": ..., "meta": {...}}] }` (an array of structured error objects — used by `POST /apps/{app_id}/users` 409 conflict, see `CreateUserConflictResponse`), `{ "errors": "..." }` (string), or `{ "success": false }` (no `errors` field at all). Robust error-handling code should tolerate all four shapes.
+When a request fails, the SDK throws `ApiException`. The HTTP status code is `e.ErrorCode` (int); the parsed error body is `e.ErrorContent` (object — typically a string holding the raw JSON envelope). Most envelopes match `{ "errors": ["..."] }` (an array of strings) but a few endpoints return `{ "errors": [{"code": ..., "title": ..., "meta": {...}}] }` (an array of structured error objects — used by `POST /apps/{app_id}/users` 409 conflict, see `CreateUserConflictResponse`), `{ "errors": "..." }` (string), or `{ "success": false }` (no `errors` field at all). Robust error-handling code should tolerate all four shapes. The `e.ErrorMessages` property does this for you, normalizing every shape to a flat `IReadOnlyList<string>` (empty when the body carries no `errors`).
 
 ### Polymorphic 200 from POST /notifications
 
@@ -119,6 +119,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CancelNotification: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -200,6 +203,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CopyTemplateToApp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -280,6 +286,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateAlias: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -363,6 +372,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateAliasBySubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -445,6 +457,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateApiKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -522,6 +537,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateApp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -600,6 +618,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateCustomEvents: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -789,6 +810,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateSegment: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -870,6 +894,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateSubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -953,6 +980,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1030,6 +1060,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.CreateUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1113,6 +1146,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteAlias: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1196,6 +1232,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteApiKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1274,6 +1313,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteSegment: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1352,6 +1394,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteSubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1433,6 +1478,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1511,6 +1559,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.DeleteUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1592,6 +1643,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ExportEvents: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1672,6 +1726,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ExportSubscriptions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1751,6 +1808,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetAliases: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1831,6 +1891,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetAliasesBySubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1909,6 +1972,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetApp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -1985,6 +2051,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetApps: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2060,6 +2129,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetNotification: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2140,6 +2212,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetNotificationHistory: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2222,6 +2297,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetNotifications: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2307,6 +2385,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetOutcomes: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2391,6 +2472,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetSegments: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2471,6 +2555,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.GetUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2552,6 +2639,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.RotateApiKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2631,6 +2721,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.StartLiveActivity: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2711,6 +2804,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.TransferSubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2794,6 +2890,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UnsubscribeEmailWithToken: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2875,6 +2974,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateApiKey: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -2954,6 +3056,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateApp: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -3034,6 +3139,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateLiveActivity: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -3113,6 +3221,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateSubscription: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -3197,6 +3308,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateSubscriptionByToken: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -3279,6 +3393,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -3359,6 +3476,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.UpdateUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -3440,6 +3560,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ViewApiKeys: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -3517,6 +3640,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ViewTemplate: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
@@ -3598,6 +3724,9 @@ namespace Example
             {
                 Debug.Print("Exception when calling DefaultApi.ViewTemplates: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
                 Debug.Print("Response Body: " + e.ErrorContent);
                 Debug.Print(e.StackTrace);
             }
