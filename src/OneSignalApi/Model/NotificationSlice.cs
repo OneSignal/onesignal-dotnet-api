@@ -38,12 +38,16 @@ namespace OneSignalApi.Model
         /// <param name="totalCount">totalCount.</param>
         /// <param name="offset">offset.</param>
         /// <param name="limit">limit.</param>
+        /// <param name="timeOffset">The time_offset cursor specified in the request, if any..</param>
+        /// <param name="nextTimeOffset">An opaque Base64 cursor token representing the next page of messages to fetch.  Present when time_offset was provided in the request.  Pass this value as time_offset on the next request to continue paginating..</param>
         /// <param name="notifications">notifications.</param>
-        public NotificationSlice(int totalCount = default(int), int offset = default(int), int limit = default(int), List<NotificationWithMeta> notifications = default(List<NotificationWithMeta>))
+        public NotificationSlice(int totalCount = default(int), int offset = default(int), int limit = default(int), string timeOffset = default(string), string nextTimeOffset = default(string), List<NotificationWithMeta> notifications = default(List<NotificationWithMeta>))
         {
             this.TotalCount = totalCount;
             this.Offset = offset;
             this.Limit = limit;
+            this.TimeOffset = timeOffset;
+            this.NextTimeOffset = nextTimeOffset;
             this.Notifications = notifications;
         }
 
@@ -66,6 +70,20 @@ namespace OneSignalApi.Model
         public int Limit { get; set; }
 
         /// <summary>
+        /// The time_offset cursor specified in the request, if any.
+        /// </summary>
+        /// <value>The time_offset cursor specified in the request, if any.</value>
+        [DataMember(Name = "time_offset", EmitDefaultValue = false)]
+        public string TimeOffset { get; set; }
+
+        /// <summary>
+        /// An opaque Base64 cursor token representing the next page of messages to fetch.  Present when time_offset was provided in the request.  Pass this value as time_offset on the next request to continue paginating.
+        /// </summary>
+        /// <value>An opaque Base64 cursor token representing the next page of messages to fetch.  Present when time_offset was provided in the request.  Pass this value as time_offset on the next request to continue paginating.</value>
+        [DataMember(Name = "next_time_offset", EmitDefaultValue = false)]
+        public string NextTimeOffset { get; set; }
+
+        /// <summary>
         /// Gets or Sets Notifications
         /// </summary>
         [DataMember(Name = "notifications", EmitDefaultValue = false)]
@@ -82,6 +100,8 @@ namespace OneSignalApi.Model
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
             sb.Append("  Offset: ").Append(Offset).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
+            sb.Append("  TimeOffset: ").Append(TimeOffset).Append("\n");
+            sb.Append("  NextTimeOffset: ").Append(NextTimeOffset).Append("\n");
             sb.Append("  Notifications: ").Append(Notifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -131,6 +151,16 @@ namespace OneSignalApi.Model
                     this.Limit.Equals(input.Limit)
                 ) && 
                 (
+                    this.TimeOffset == input.TimeOffset ||
+                    (this.TimeOffset != null &&
+                    this.TimeOffset.Equals(input.TimeOffset))
+                ) && 
+                (
+                    this.NextTimeOffset == input.NextTimeOffset ||
+                    (this.NextTimeOffset != null &&
+                    this.NextTimeOffset.Equals(input.NextTimeOffset))
+                ) && 
+                (
                     this.Notifications == input.Notifications ||
                     this.Notifications != null &&
                     input.Notifications != null &&
@@ -150,6 +180,14 @@ namespace OneSignalApi.Model
                 hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
                 hashCode = (hashCode * 59) + this.Offset.GetHashCode();
                 hashCode = (hashCode * 59) + this.Limit.GetHashCode();
+                if (this.TimeOffset != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeOffset.GetHashCode();
+                }
+                if (this.NextTimeOffset != null)
+                {
+                    hashCode = (hashCode * 59) + this.NextTimeOffset.GetHashCode();
+                }
                 if (this.Notifications != null)
                 {
                     hashCode = (hashCode * 59) + this.Notifications.GetHashCode();
