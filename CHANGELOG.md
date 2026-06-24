@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.9.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.8.0...v5.9.0) (2026-06-24)
+
+### Features
+
+* add v5.9.0 package updates ([ca55efe](https://github.com/OneSignal/onesignal-dotnet-api/commit/ca55efe3a7bf236d51962621b70a60ae7f50773e))
+* add v5.9.0 package updates ([#117](https://github.com/OneSignal/onesignal-dotnet-api/issues/117)) ([2687c15](https://github.com/OneSignal/onesignal-dotnet-api/commit/2687c1579b7a605c78189c3ac56bf5d893e57c0c)), closes [OneSignal/api-client-libraries#402](https://github.com/OneSignal/api-client-libraries/issues/402) [OneSignal/api-client-libraries#401](https://github.com/OneSignal/api-client-libraries/issues/401) [OneSignal/api-client-libraries#400](https://github.com/OneSignal/api-client-libraries/issues/400)
+
 ## [5.8.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.7.0...v5.8.0) (2026-06-18)
 
 ### Features
