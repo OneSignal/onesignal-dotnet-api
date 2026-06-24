@@ -116,6 +116,33 @@ namespace OneSignalApi.Client
             }
         }
 
+        /// <summary>
+        /// Whether a POST /notifications 200 response is the "message sent"
+        /// branch. POST /notifications returns 200 in two cases that share the
+        /// <see cref="CreateNotificationSuccessResponse"/> shape: a notification
+        /// was created (non-empty <c>Id</c>), or none was (empty <c>Id</c>, with
+        /// <c>Errors</c> carrying the reason). Prefer this guard over inspecting
+        /// <c>Id</c> directly.
+        /// </summary>
+        /// <param name="response">A create-notification success response.</param>
+        /// <returns>True when a notification was created.</returns>
+        public static bool IsMessageSent(CreateNotificationSuccessResponse response)
+        {
+            return response != null && !string.IsNullOrEmpty(response.Id);
+        }
+
+        /// <summary>
+        /// Whether a POST /notifications 200 response is the "message not sent"
+        /// branch -- no notification was created (<c>Id</c> absent or empty);
+        /// inspect <c>Errors</c> for why.
+        /// </summary>
+        /// <param name="response">A create-notification success response.</param>
+        /// <returns>True when no notification was created.</returns>
+        public static bool IsMessageNotSent(CreateNotificationSuccessResponse response)
+        {
+            return !IsMessageSent(response);
+        }
+
         private static string HeaderValue(Multimap<string, string> headers, string name)
         {
             if (headers == null)

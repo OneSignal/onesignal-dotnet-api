@@ -165,6 +165,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -248,6 +249,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -335,6 +337,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -420,6 +423,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -501,6 +505,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -581,6 +586,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -664,6 +670,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -832,6 +839,7 @@ Name | Type | Description  | Notes
 | **200** | OK, invalid_aliases, or No Subscribed Players If a message was successfully created, you will get a 200 response with a non-empty &#x60;id&#x60; for the notification. If the 200 response contains &#x60;invalid_aliases&#x60;, that marks devices that exist in the provided app_id but are no longer subscribed. If &#x60;id&#x60; is an empty string, no notification was created: check the &#x60;errors&#x60; array (for example messages such as \&quot;All included players are not subscribed\&quot;) even though HTTP status is still 200. This can happen when alias keys are wrong, External IDs do not resolve to subscribed users, or other validation issues. If no id is returned, then a message was not created and the targeted User IDs do not exist under the provided app_id. Any User IDs sent in the request that do not exist under the specified app_id will be ignored.  |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -915,6 +923,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1003,6 +1012,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **409** | Operation is not permitted due to user having the maximum number of subscriptions assigned |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1083,6 +1093,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **422** | Unprocessable Entity |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1180,6 +1191,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **409** | Multiple User Identity Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1267,6 +1279,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1348,6 +1361,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1431,6 +1445,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1513,6 +1528,7 @@ void (empty response body)
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1595,6 +1611,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1678,6 +1695,7 @@ void (empty response body)
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1761,6 +1779,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1843,6 +1862,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -1927,6 +1947,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2008,6 +2029,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2088,6 +2110,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2164,6 +2187,7 @@ This endpoint does not need any parameter.
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2247,6 +2271,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2330,12 +2355,13 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
 <a name="getnotifications"></a>
 # **GetNotifications**
-> NotificationSlice GetNotifications (string appId, int? limit = null, int? offset = null, int? kind = null)
+> NotificationSlice GetNotifications (string appId, int? limit = null, int? offset = null, int? kind = null, string timeOffset = null)
 
 View notifications
 
@@ -2365,11 +2391,12 @@ namespace Example
             var limit = 10;  // int? | How many notifications to return.  Max is 50.  Default is 50. (optional) 
             var offset = 0;  // int? | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional) 
             var kind = 0;  // int? | Kind of notifications returned:   * unset - All notification types (default)   * `0` - Dashboard only   * `1` - API only   * `3` - Automated only  (optional) 
+            var timeOffset = "2025-01-01T00:00:00.000Z";  // string | Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. `2025-01-01T00:00:00.000Z`) or the opaque Base64 cursor token returned as `next_time_offset` in a prior response.  When set, results are sorted ascending by send_after and the standard `offset` parameter cannot be used.  Repeat the request with each `next_time_offset` until an empty notifications array is returned. (optional) 
 
             try
             {
                 // View notifications
-                NotificationSlice result = apiInstance.GetNotifications(appId, limit, offset, kind);
+                NotificationSlice result = apiInstance.GetNotifications(appId, limit, offset, kind, timeOffset);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2395,6 +2422,7 @@ Name | Type | Description  | Notes
  **limit** | **int?**| How many notifications to return.  Max is 50.  Default is 50. | [optional] 
  **offset** | **int?**| Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. | [optional] 
  **kind** | **int?**| Kind of notifications returned:   * unset - All notification types (default)   * &#x60;0&#x60; - Dashboard only   * &#x60;1&#x60; - API only   * &#x60;3&#x60; - Automated only  | [optional] 
+ **timeOffset** | **string**| Time-offset pagination cursor for sequential pulls of all messages.  Accepts either an ISO 8601 formatted timestamp (e.g. &#x60;2025-01-01T00:00:00.000Z&#x60;) or the opaque Base64 cursor token returned as &#x60;next_time_offset&#x60; in a prior response.  When set, results are sorted ascending by send_after and the standard &#x60;offset&#x60; parameter cannot be used.  Repeat the request with each &#x60;next_time_offset&#x60; until an empty notifications array is returned. | [optional] 
 
 ### Return type
 
@@ -2416,6 +2444,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2506,6 +2535,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2590,6 +2620,7 @@ Name | Type | Description  | Notes
 | **201** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2674,6 +2705,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2755,6 +2787,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2839,6 +2872,7 @@ Name | Type | Description  | Notes
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -2924,6 +2958,7 @@ Name | Type | Description  | Notes
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3008,6 +3043,7 @@ Name | Type | Description  | Notes
 | **202** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3091,6 +3127,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3173,6 +3210,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3257,6 +3295,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3341,6 +3380,7 @@ void (empty response body)
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3427,6 +3467,7 @@ Name | Type | Description  | Notes
 | **202** | ACCEPTED |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3510,6 +3551,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3596,6 +3638,7 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3675,6 +3718,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3757,6 +3801,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
@@ -3843,6 +3888,7 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
