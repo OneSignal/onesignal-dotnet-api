@@ -95,6 +95,7 @@ Used to stop a scheduled or currently outgoing notification
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -179,6 +180,7 @@ Copy a template to a destination app.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -263,6 +265,7 @@ Upserts one or more Aliases to an existing User identified by (:alias_label, :al
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -351,6 +354,7 @@ Upserts one or more Aliases for the User identified by :subscription_id.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -437,6 +441,7 @@ Use this API to create a new App API Key (also called a Rich Authentication Toke
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -519,6 +524,7 @@ Creates a new OneSignal app
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -600,6 +606,7 @@ The Custom Events API allows you to record user events. Custom events can repres
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -853,6 +860,7 @@ Create a segment visible and usable in the dashboard and API - Required: OneSign
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -937,6 +945,7 @@ Creates a new Subscription under the User provided. Useful to add email addresse
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1026,6 +1035,7 @@ Create reusable message templates for push, email, and SMS channels.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1107,6 +1117,7 @@ Creates a User, optionally Subscriptions owned by the User as well as Aliases. A
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1205,6 +1216,7 @@ Deletes an alias by alias label
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1293,6 +1305,7 @@ Delete a specific Rich Authentication Token (App API Key) for a OneSignal app. R
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1375,6 +1388,7 @@ Delete a segment (not user devices) - Required: OneSignal Paid Plan You can dele
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1459,6 +1473,7 @@ Deletes the Subscription.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1542,6 +1557,7 @@ Delete a template by id.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1625,6 +1641,7 @@ Removes the User identified by (:alias_label, :alias_id), and all Subscriptions 
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1709,6 +1726,7 @@ Generate a compressed CSV report of all of the events data for a notification. T
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1793,6 +1811,7 @@ Generate a compressed CSV export of all of your current user data This method ca
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1876,6 +1895,7 @@ Lists all Aliases for the User identified by (:alias_label, :alias_id).
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -1961,6 +1981,7 @@ Lists all Aliases for the User identified by :subscription_id.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2043,6 +2064,7 @@ View the details of a single OneSignal app
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2124,6 +2146,7 @@ View the details of all of your current OneSignal apps
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2201,6 +2224,7 @@ View the details of a single notification and outcomes associated with it
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2285,6 +2309,7 @@ Notification History
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2369,6 +2394,7 @@ View the details of multiple notifications
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2458,6 +2484,7 @@ View the details of all the outcomes associated with your app  &#x1F6A7; Require
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2549,6 +2576,7 @@ Returns an array of segments from an app.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2634,6 +2662,7 @@ Returns the User’s properties, Aliases, and Subscriptions.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2719,6 +2748,7 @@ Rotate a Rich Authentication Token (App API Key) for a OneSignal app. Rotating a
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2801,6 +2831,7 @@ Remotely start a Live Activity on iOS devices via OneSignal’s REST API.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2886,6 +2917,7 @@ Transfers this Subscription to the User identified by the identity in the payloa
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -2972,6 +3004,7 @@ Unsubscribe an email with a token when using your own custom email unsubscribe l
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3057,6 +3090,7 @@ Update a Rich Authentication Token (App API Key) for a OneSignal app.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3141,6 +3175,7 @@ Updates the name or configuration settings of an existing OneSignal app
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3224,6 +3259,7 @@ Updates a specified live activity.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3309,6 +3345,7 @@ Updates an existing Subscription’s properties.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3394,6 +3431,7 @@ Update properties on an existing OneSignal subscription using its token.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3481,6 +3519,7 @@ Update an existing template.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3565,6 +3604,7 @@ Updates an existing User’s properties.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3652,6 +3692,7 @@ View the details of all of your current app API keys (Rich Authentication Token)
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3732,6 +3773,7 @@ Fetch a single template by id.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
@@ -3815,6 +3857,7 @@ List templates for an app.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using OneSignalApi.Api;
