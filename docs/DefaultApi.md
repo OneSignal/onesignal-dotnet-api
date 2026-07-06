@@ -111,7 +111,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -196,7 +196,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
@@ -281,7 +281,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -370,7 +370,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -457,7 +457,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -540,7 +540,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var app = new App(); // App | 
@@ -622,7 +622,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
@@ -706,7 +706,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
 
@@ -780,7 +780,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var notification = new Notification
@@ -876,7 +876,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -961,7 +961,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -1051,7 +1051,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var createTemplateRequest = new CreateTemplateRequest(); // CreateTemplateRequest | 
@@ -1133,7 +1133,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -1232,7 +1232,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -1321,7 +1321,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -1404,7 +1404,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -1489,7 +1489,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -1573,7 +1573,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
@@ -1657,7 +1657,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -1742,7 +1742,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | The ID of the notification to export events from.
@@ -1827,7 +1827,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | The app ID that you want to export devices from
@@ -1911,7 +1911,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -1997,7 +1997,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -2080,7 +2080,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | An app id
@@ -2162,7 +2162,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
 
@@ -2240,7 +2240,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -2325,7 +2325,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | The \"id\" of the message found in the Notification object
@@ -2410,7 +2410,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | The app ID that you want to view notifications from
@@ -2500,7 +2500,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -2592,7 +2592,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -2678,7 +2678,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -2764,7 +2764,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -2847,7 +2847,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
@@ -2933,7 +2933,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -3020,7 +3020,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -3106,7 +3106,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -3191,7 +3191,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | An app id
@@ -3275,7 +3275,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
@@ -3361,7 +3361,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -3447,7 +3447,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
@@ -3535,7 +3535,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
@@ -3620,7 +3620,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -3708,7 +3708,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: organization_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | 
@@ -3789,7 +3789,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
@@ -3873,7 +3873,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.onesignal.com";
             // Configure Bearer token for authorization: rest_api_key
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
             var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
