@@ -114,7 +114,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | 
 
             try
@@ -200,7 +200,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
 
             try
@@ -284,7 +284,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var aliasLabel = "external_id";  // string | 
             var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
             var userIdentityBody = new UserIdentityBody(); // UserIdentityBody | 
@@ -373,7 +373,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
             var userIdentityBody = new UserIdentityBody(); // UserIdentityBody | 
 
@@ -460,7 +460,7 @@ namespace Example
             config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest | 
 
             try
@@ -625,7 +625,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
             var customEventsRequest = new CustomEventsRequest(); // CustomEventsRequest | 
 
             try
@@ -714,6 +714,7 @@ namespace Example
             {
                 AppId = "YOUR_APP_ID",
                 Contents = new LanguageStringMap(en: "Hello from OneSignal!"),
+                Headings = new LanguageStringMap(en: "Push Notification"),
                 IncludeAliases = new Dictionary<string, List<string>>
                 {
                     { "external_id", new List<string> { "YOUR_USER_EXTERNAL_ID" } }
@@ -787,6 +788,7 @@ namespace Example
             {
                 AppId = "YOUR_APP_ID",
                 Contents = new LanguageStringMap(en: "Hello from OneSignal!"),
+                Headings = new LanguageStringMap(en: "Push Notification"),
                 IncludeAliases = new Dictionary<string, List<string>>
                 {
                     { "external_id", new List<string> { "YOUR_USER_EXTERNAL_ID" } }
@@ -879,7 +881,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var segment = new Segment(); // Segment |  (optional) 
 
             try
@@ -964,7 +966,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var aliasLabel = "external_id";  // string | 
             var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
             var subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
@@ -1136,7 +1138,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var user = new User(); // User | 
 
             try
@@ -1235,7 +1237,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var aliasLabel = "external_id";  // string | 
             var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
             var aliasLabelToDelete = "external_id";  // string | 
@@ -1324,7 +1326,7 @@ namespace Example
             config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff";  // string | 
 
             try
@@ -1407,7 +1409,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment_id can be found in the URL of the segment when viewing it in the dashboard.
 
             try
@@ -1492,7 +1494,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
 
             try
@@ -1577,7 +1579,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
 
             try
             {
@@ -1660,7 +1662,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var aliasLabel = "external_id";  // string | 
             var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
 
@@ -1746,7 +1748,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | The ID of the notification to export events from.
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The ID of the app that the notification belongs to.
+            var appId = "YOUR_APP_ID";  // string | The ID of the app that the notification belongs to.
 
             try
             {
@@ -1830,7 +1832,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The app ID that you want to export devices from
+            var appId = "YOUR_APP_ID";  // string | The app ID that you want to export devices from
             var exportSubscriptionsRequestBody = new ExportSubscriptionsRequestBody(); // ExportSubscriptionsRequestBody |  (optional) 
 
             try
@@ -1914,7 +1916,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var aliasLabel = "external_id";  // string | 
             var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
 
@@ -2000,7 +2002,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
 
             try
@@ -2083,7 +2085,7 @@ namespace Example
             config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | An app id
+            var appId = "YOUR_APP_ID";  // string | An app id
 
             try
             {
@@ -2243,7 +2245,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | 
 
             try
@@ -2413,7 +2415,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The app ID that you want to view notifications from
+            var appId = "YOUR_APP_ID";  // string | The app ID that you want to view notifications from
             var limit = 10;  // int? | How many notifications to return.  Max is 50.  Default is 50. (optional) 
             var offset = 0;  // int? | Page offset.  Default is 0.  Results are sorted by queued_at in descending order.  queued_at is a representation of the time that the notification was queued at. (optional) 
             var kind = 0;  // int? | Kind of notifications returned:   * unset - All notification types (default)   * `0` - Dashboard only   * `1` - API only   * `3` - Automated only  (optional) 
@@ -2503,7 +2505,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var outcomeNames = "os__session_duration.count,os__click.count";  // string | Required Comma-separated list of names and the value (sum/count) for the returned outcome data. Note: Clicks only support count aggregation. For out-of-the-box OneSignal outcomes such as click and session duration, please use the \"os\" prefix with two underscores. For other outcomes, please use the name specified by the user. Example:os__session_duration.count,os__click.count,CustomOutcomeName.sum 
             var outcomeNames2 = "os__session_duration.count";  // string | Optional If outcome names contain any commas, then please specify only one value at a time. Example: outcome_names[]=os__click.count&outcome_names[]=Sales, Purchase.count where \"Sales, Purchase\" is the custom outcomes with a comma in the name.  (optional) 
             var outcomeTimeRange = "1d";  // string | Optional Time range for the returned data. The values can be 1h (for the last 1 hour data), 1d (for the last 1 day data), or 1mo (for the last 1 month data). Default is 1h if the parameter is omitted.  (optional) 
@@ -2595,7 +2597,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var offset = 0;  // int? | Segments are listed in ascending order of created_at date. offset will omit that number of segments from the beginning of the list. Eg offset 5, will remove the 5 earliest created Segments. (optional) 
             var limit = 10;  // int? | The amount of Segments in the response. Maximum 300. (optional) 
 
@@ -2681,7 +2683,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var aliasLabel = "external_id";  // string | 
             var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
 
@@ -2767,7 +2769,7 @@ namespace Example
             config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff";  // string | 
 
             try
@@ -2850,7 +2852,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
             var activityType = "order_status";  // string | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
             var startLiveActivityRequest = new StartLiveActivityRequest(); // StartLiveActivityRequest | 
 
@@ -2936,7 +2938,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
             var transferSubscriptionRequestBody = new TransferSubscriptionRequestBody(); // TransferSubscriptionRequestBody | 
 
@@ -3023,7 +3025,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var notificationId = "b3a0c8bd-3a4c-4b22-9a73-3f1a8c2d1b88";  // string | The id of the message found in the creation notification POST response, View Notifications GET response, or URL within the Message Report.
             var token = "YOUR_TOKEN_ID";  // string | The unsubscribe token that is generated via liquid syntax in {{subscription.unsubscribe_token}} when personalizing an email.
 
@@ -3109,7 +3111,7 @@ namespace Example
             config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var tokenId = "0aa1b2c3-d4e5-46f7-8899-aabbccddeeff";  // string | 
             var updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | 
 
@@ -3194,7 +3196,7 @@ namespace Example
             config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | An app id
+            var appId = "YOUR_APP_ID";  // string | An app id
             var app = new App(); // App | 
 
             try
@@ -3278,7 +3280,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var activityId = "12345";  // string | Live Activity record ID
             var updateLiveActivityRequest = new UpdateLiveActivityRequest(); // UpdateLiveActivityRequest | 
 
@@ -3364,7 +3366,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var subscriptionId = "7e4c5b9a-1f60-4d07-9b1a-2e8c8d2cae51";  // string | 
             var subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
 
@@ -3450,7 +3452,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
             var tokenType = "Email";  // string | The type of token to use when looking up the subscription. See Subscription Types.
             var token = "user@example.com";  // string | The value of the token to lookup by (e.g., email address, phone number).
             var subscriptionBody = new SubscriptionBody(); // SubscriptionBody | 
@@ -3539,7 +3541,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var updateTemplateRequest = new UpdateTemplateRequest(); // UpdateTemplateRequest | 
 
             try
@@ -3623,7 +3625,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
             var aliasLabel = "external_id";  // string | 
             var aliasId = "YOUR_USER_EXTERNAL_ID";  // string | 
             var updateUserRequest = new UpdateUserRequest(); // UpdateUserRequest | 
@@ -3711,7 +3713,7 @@ namespace Example
             config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
 
             try
             {
@@ -3793,7 +3795,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | 
+            var appId = "YOUR_APP_ID";  // string | 
 
             try
             {
@@ -3876,7 +3878,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var appId = "00000000-0000-0000-0000-000000000000";  // string | Your OneSignal App ID in UUID v4 format.
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
             var limit = 10;  // int? | Maximum number of templates. Default and max is 50. (optional)  (default to 50)
             var offset = 0;  // int? | Pagination offset. (optional)  (default to 0)
             var channel = "push";  // string | Filter by delivery channel. (optional) 
