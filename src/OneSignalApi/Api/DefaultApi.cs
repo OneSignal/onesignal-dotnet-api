@@ -750,6 +750,33 @@ namespace OneSignalApi.Api
         /// <returns>ApiResponse of OutcomesData</returns>
         ApiResponse<OutcomesData> GetOutcomesWithHttpInfo(string appId, string outcomeNames, string outcomeNames2 = default(string), string outcomeTimeRange = default(string), string outcomePlatforms = default(string), string outcomeAttribution = default(string), int operationIndex = 0);
         /// <summary>
+        /// View Segment
+        /// </summary>
+        /// <remarks>
+        /// Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetSegmentSuccessResponse</returns>
+        GetSegmentSuccessResponse GetSegment(string appId, string segmentId, bool? includeSegmentDetail = default(bool?), int operationIndex = 0);
+
+        /// <summary>
+        /// View Segment
+        /// </summary>
+        /// <remarks>
+        /// Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetSegmentSuccessResponse</returns>
+        ApiResponse<GetSegmentSuccessResponse> GetSegmentWithHttpInfo(string appId, string segmentId, bool? includeSegmentDetail = default(bool?), int operationIndex = 0);
+        /// <summary>
         /// Get Segments
         /// </summary>
         /// <remarks>
@@ -1964,6 +1991,35 @@ namespace OneSignalApi.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OutcomesData)</returns>
         System.Threading.Tasks.Task<ApiResponse<OutcomesData>> GetOutcomesWithHttpInfoAsync(string appId, string outcomeNames, string outcomeNames2 = default(string), string outcomeTimeRange = default(string), string outcomePlatforms = default(string), string outcomeAttribution = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// View Segment
+        /// </summary>
+        /// <remarks>
+        /// Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetSegmentSuccessResponse</returns>
+        System.Threading.Tasks.Task<GetSegmentSuccessResponse> GetSegmentAsync(string appId, string segmentId, bool? includeSegmentDetail = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// View Segment
+        /// </summary>
+        /// <remarks>
+        /// Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetSegmentSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetSegmentSuccessResponse>> GetSegmentWithHttpInfoAsync(string appId, string segmentId, bool? includeSegmentDetail = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Segments
         /// </summary>
@@ -7555,6 +7611,192 @@ namespace OneSignalApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOutcomes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// View Segment Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetSegmentSuccessResponse</returns>
+        public GetSegmentSuccessResponse GetSegment(string appId, string segmentId, bool? includeSegmentDetail = default(bool?), int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<GetSegmentSuccessResponse> localVarResponse = GetSegmentWithHttpInfo(appId, segmentId, includeSegmentDetail);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// View Segment Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetSegmentSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<GetSegmentSuccessResponse> GetSegmentWithHttpInfo(string appId, string segmentId, bool? includeSegmentDetail = default(bool?), int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->GetSegment");
+            }
+
+            // verify the required parameter 'segmentId' is set
+            if (segmentId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'segmentId' when calling DefaultApi->GetSegment");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("segment_id", OneSignalApi.Client.ClientUtils.ParameterToString(segmentId)); // path parameter
+            if (includeSegmentDetail != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "include-segment-detail", includeSegmentDetail));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetSegment";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetSegmentSuccessResponse>("/apps/{app_id}/segments/{segment_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSegment", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// View Segment Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetSegmentSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<GetSegmentSuccessResponse> GetSegmentAsync(string appId, string segmentId, bool? includeSegmentDetail = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<GetSegmentSuccessResponse> localVarResponse = await GetSegmentWithHttpInfoAsync(appId, segmentId, includeSegmentDetail, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// View Segment Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetSegmentSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<GetSegmentSuccessResponse>> GetSegmentWithHttpInfoAsync(string appId, string segmentId, bool? includeSegmentDetail = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->GetSegment");
+            }
+
+            // verify the required parameter 'segmentId' is set
+            if (segmentId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'segmentId' when calling DefaultApi->GetSegment");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("segment_id", OneSignalApi.Client.ClientUtils.ParameterToString(segmentId)); // path parameter
+            if (includeSegmentDetail != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "include-segment-detail", includeSegmentDetail));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetSegment";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetSegmentSuccessResponse>("/apps/{app_id}/segments/{segment_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSegment", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

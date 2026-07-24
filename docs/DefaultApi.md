@@ -32,6 +32,7 @@ Method | HTTP request | Description
 [**GetNotificationHistory**](DefaultApi.md#getnotificationhistory) | **POST** /notifications/{notification_id}/history | Notification History
 [**GetNotifications**](DefaultApi.md#getnotifications) | **GET** /notifications | View notifications
 [**GetOutcomes**](DefaultApi.md#getoutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes
+[**GetSegment**](DefaultApi.md#getsegment) | **GET** /apps/{app_id}/segments/{segment_id} | View Segment
 [**GetSegments**](DefaultApi.md#getsegments) | **GET** /apps/{app_id}/segments | Get Segments
 [**GetUser**](DefaultApi.md#getuser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 [**RotateApiKey**](DefaultApi.md#rotateapikey) | **POST** /apps/{app_id}/auth/tokens/{token_id}/rotate | Rotate API key
@@ -2563,6 +2564,93 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="getsegment"></a>
+# **GetSegment**
+> GetSegmentSuccessResponse GetSegment (string appId, string segmentId, bool? includeSegmentDetail = null)
+
+View Segment
+
+Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class GetSegmentExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.
+            var includeSegmentDetail = true;  // bool? | Set to true to include segment metadata and filters in the response. (optional) 
+
+            try
+            {
+                // View Segment
+                GetSegmentSuccessResponse result = apiInstance.GetSegment(appId, segmentId, includeSegmentDetail);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetSegment: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
+ **segmentId** | **string**| The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. | 
+ **includeSegmentDetail** | **bool?**| Set to true to include segment metadata and filters in the response. | [optional] 
+
+### Return type
+
+[**GetSegmentSuccessResponse**](GetSegmentSuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
