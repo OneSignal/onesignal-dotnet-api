@@ -32,8 +32,10 @@ Method | HTTP request | Description
 [**GetNotificationHistory**](DefaultApi.md#getnotificationhistory) | **POST** /notifications/{notification_id}/history | Notification History
 [**GetNotifications**](DefaultApi.md#getnotifications) | **GET** /notifications | View notifications
 [**GetOutcomes**](DefaultApi.md#getoutcomes) | **GET** /apps/{app_id}/outcomes | View Outcomes
+[**GetSegment**](DefaultApi.md#getsegment) | **GET** /apps/{app_id}/segments/{segment_id} | View Segment
 [**GetSegments**](DefaultApi.md#getsegments) | **GET** /apps/{app_id}/segments | Get Segments
 [**GetUser**](DefaultApi.md#getuser) | **GET** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
+[**ListAuditLogs**](DefaultApi.md#listauditlogs) | **GET** /organizations/{organization_id}/audit_logs | List audit logs
 [**RotateApiKey**](DefaultApi.md#rotateapikey) | **POST** /apps/{app_id}/auth/tokens/{token_id}/rotate | Rotate API key
 [**StartLiveActivity**](DefaultApi.md#startliveactivity) | **POST** /apps/{app_id}/activities/activity/{activity_type} | Start Live Activity
 [**TransferSubscription**](DefaultApi.md#transfersubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id}/owner | 
@@ -41,6 +43,7 @@ Method | HTTP request | Description
 [**UpdateApiKey**](DefaultApi.md#updateapikey) | **PATCH** /apps/{app_id}/auth/tokens/{token_id} | Update API key
 [**UpdateApp**](DefaultApi.md#updateapp) | **PUT** /apps/{app_id} | Update an app
 [**UpdateLiveActivity**](DefaultApi.md#updateliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
+[**UpdateSegment**](DefaultApi.md#updatesegment) | **PATCH** /apps/{app_id}/segments/{segment_id} | Update Segment
 [**UpdateSubscription**](DefaultApi.md#updatesubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} | 
 [**UpdateSubscriptionByToken**](DefaultApi.md#updatesubscriptionbytoken) | **PATCH** /apps/{app_id}/subscriptions_by_token/{token_type}/{token} | Update subscription by token
 [**UpdateTemplate**](DefaultApi.md#updatetemplate) | **PATCH** /templates/{template_id} | Update template
@@ -2568,6 +2571,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
+<a name="getsegment"></a>
+# **GetSegment**
+> GetSegmentSuccessResponse GetSegment (string appId, string segmentId, bool? includeSegmentDetail = null)
+
+View Segment
+
+Retrieve details for a single segment by its ID, including subscriber count and optionally segment metadata and filters.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class GetSegmentExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.
+            var includeSegmentDetail = true;  // bool? | Set to true to include segment metadata and filters in the response. (optional) 
+
+            try
+            {
+                // View Segment
+                GetSegmentSuccessResponse result = apiInstance.GetSegment(appId, segmentId, includeSegmentDetail);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetSegment: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
+ **segmentId** | **string**| The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. | 
+ **includeSegmentDetail** | **bool?**| Set to true to include segment metadata and filters in the response. | [optional] 
+
+### Return type
+
+[**GetSegmentSuccessResponse**](GetSegmentSuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
 <a name="getsegments"></a>
 # **GetSegments**
 > GetSegmentsSuccessResponse GetSegments (string appId, int? offset = null, int? limit = null)
@@ -2734,6 +2824,112 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="listauditlogs"></a>
+# **ListAuditLogs**
+> ListAuditLogsSuccessResponse ListAuditLogs (string organizationId, string startTime = null, string endTime = null, string cursor = null, int? limit = null, List<string> appIds = null, List<string> actions = null, List<string> actorIds = null, List<string> actorEmails = null, List<string> targetTypes = null, List<string> targetIds = null, List<string> ipAddresses = null)
+
+List audit logs
+
+Retrieve a paginated, time-scoped list of audit log events for an organization. Requires an Enterprise plan with the audit logs entitlement enabled.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class ListAuditLogsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: organization_api_key
+            config.AccessToken = "YOUR_ORGANIZATION_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var organizationId = "YOUR_ORG_ID";  // string | The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key.
+            var startTime = "startTime_example";  // string | Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. (optional) 
+            var endTime = "endTime_example";  // string | End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. (optional) 
+            var cursor = "cursor_example";  // string | Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. (optional) 
+            var limit = 56;  // int? | Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. (optional) 
+            var appIds = new List<string>(); // List<string> | Filter events by app UUID. Accepts up to 10 values. Org-level events are always included. (optional) 
+            var actions = new List<string>(); // List<string> | Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values. (optional) 
+            var actorIds = new List<string>(); // List<string> | Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values. (optional) 
+            var actorEmails = new List<string>(); // List<string> | Filter by actor email address. Accepts up to 10 values. (optional) 
+            var targetTypes = new List<string>(); // List<string> | Filter by the type of resource the action was performed on (e.g. notification, segment, journey). Accepts up to 10 values. (optional) 
+            var targetIds = new List<string>(); // List<string> | Filter by the UUID of the resource the action was performed on. Accepts up to 10 values. (optional) 
+            var ipAddresses = new List<string>(); // List<string> | Filter by the IP address the action originated from. Accepts up to 10 values. (optional) 
+
+            try
+            {
+                // List audit logs
+                ListAuditLogsSuccessResponse result = apiInstance.ListAuditLogs(organizationId, startTime, endTime, cursor, limit, appIds, actions, actorIds, actorEmails, targetTypes, targetIds, ipAddresses);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ListAuditLogs: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key. | 
+ **startTime** | **string**| Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. | [optional] 
+ **endTime** | **string**| End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. | [optional] 
+ **cursor** | **string**| Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. | [optional] 
+ **limit** | **int?**| Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. | [optional] 
+ **appIds** | [**List&lt;string&gt;**](string.md)| Filter events by app UUID. Accepts up to 10 values. Org-level events are always included. | [optional] 
+ **actions** | [**List&lt;string&gt;**](string.md)| Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values. | [optional] 
+ **actorIds** | [**List&lt;string&gt;**](string.md)| Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values. | [optional] 
+ **actorEmails** | [**List&lt;string&gt;**](string.md)| Filter by actor email address. Accepts up to 10 values. | [optional] 
+ **targetTypes** | [**List&lt;string&gt;**](string.md)| Filter by the type of resource the action was performed on (e.g. notification, segment, journey). Accepts up to 10 values. | [optional] 
+ **targetIds** | [**List&lt;string&gt;**](string.md)| Filter by the UUID of the resource the action was performed on. Accepts up to 10 values. | [optional] 
+ **ipAddresses** | [**List&lt;string&gt;**](string.md)| Filter by the IP address the action originated from. Accepts up to 10 values. | [optional] 
+
+### Return type
+
+[**ListAuditLogsSuccessResponse**](ListAuditLogsSuccessResponse.md)
+
+### Authorization
+
+[organization_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
@@ -3332,6 +3528,94 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="updatesegment"></a>
+# **UpdateSegment**
+> UpdateSegmentSuccessResponse UpdateSegment (string appId, string segmentId, UpdateSegmentRequest updateSegmentRequest = null)
+
+Update Segment
+
+Update an existing segment's name and/or filters. The name parameter is always required. When filters are provided, all existing filters are replaced with the new ones.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateSegmentExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
+            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.
+            var updateSegmentRequest = new UpdateSegmentRequest(); // UpdateSegmentRequest |  (optional) 
+
+            try
+            {
+                // Update Segment
+                UpdateSegmentSuccessResponse result = apiInstance.UpdateSegment(appId, segmentId, updateSegmentRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateSegment: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
+ **segmentId** | **string**| The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. | 
+ **updateSegmentRequest** | [**UpdateSegmentRequest**](UpdateSegmentRequest.md)|  | [optional] 
+
+### Return type
+
+[**UpdateSegmentSuccessResponse**](UpdateSegmentSuccessResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
