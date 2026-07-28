@@ -1,5 +1,7 @@
 # Changelog
 
+## [5.12.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.11.0...v5.12.0) (2026-07-28)
+
 ## [5.11.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.10.0...v5.11.0) (2026-07-20)
 
 ## [5.10.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.9.0...v5.10.0) (2026-07-09)
