@@ -208,6 +208,31 @@ namespace OneSignalApi.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> CreateCustomEventsWithHttpInfo(string appId, CustomEventsRequest customEventsRequest, int operationIndex = 0);
         /// <summary>
+        /// Create journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="createJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        Journey CreateJourney(string appId, CreateJourneyRequest createJourneyRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Create journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="createJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        ApiResponse<Journey> CreateJourneyWithHttpInfo(string appId, CreateJourneyRequest createJourneyRequest, int operationIndex = 0);
+        /// <summary>
         /// Create notification
         /// </summary>
         /// <remarks>
@@ -386,6 +411,31 @@ namespace OneSignalApi.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> DeleteApiKeyWithHttpInfo(string appId, string tokenId, int operationIndex = 0);
+        /// <summary>
+        /// Delete journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GenericSuccessBoolResponse</returns>
+        GenericSuccessBoolResponse DeleteJourney(string appId, string journeyId, int operationIndex = 0);
+
+        /// <summary>
+        /// Delete journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GenericSuccessBoolResponse</returns>
+        ApiResponse<GenericSuccessBoolResponse> DeleteJourneyWithHttpInfo(string appId, string journeyId, int operationIndex = 0);
         /// <summary>
         /// Delete Segment
         /// </summary>
@@ -1033,6 +1083,62 @@ namespace OneSignalApi.Api
         /// <returns>ApiResponse of App</returns>
         ApiResponse<App> UpdateAppWithHttpInfo(string appId, App app, int operationIndex = 0);
         /// <summary>
+        /// Update journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to update.</param>
+        /// <param name="updateJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        Journey UpdateJourney(string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Update journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to update.</param>
+        /// <param name="updateJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        ApiResponse<Journey> UpdateJourneyWithHttpInfo(string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest, int operationIndex = 0);
+        /// <summary>
+        /// Update journey node
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey that owns the node.</param>
+        /// <param name="nodeId">Server-assigned UUID of the node to update, from a prior View journey fetch.</param>
+        /// <param name="updateJourneyNodeRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        Journey UpdateJourneyNode(string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Update journey node
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey that owns the node.</param>
+        /// <param name="nodeId">Server-assigned UUID of the node to update, from a prior View journey fetch.</param>
+        /// <param name="updateJourneyNodeRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        ApiResponse<Journey> UpdateJourneyNodeWithHttpInfo(string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, int operationIndex = 0);
+        /// <summary>
         /// Update a Live Activity via Push
         /// </summary>
         /// <remarks>
@@ -1221,6 +1327,83 @@ namespace OneSignalApi.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ApiKeyTokensListResponse</returns>
         ApiResponse<ApiKeyTokensListResponse> ViewApiKeysWithHttpInfo(string appId, int operationIndex = 0);
+        /// <summary>
+        /// View journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        Journey ViewJourney(string appId, string journeyId, int operationIndex = 0);
+
+        /// <summary>
+        /// View journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        ApiResponse<Journey> ViewJourneyWithHttpInfo(string appId, string journeyId, int operationIndex = 0);
+        /// <summary>
+        /// View journey stats
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve stats for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>JourneyStats</returns>
+        JourneyStats ViewJourneyStats(string appId, string journeyId, int operationIndex = 0);
+
+        /// <summary>
+        /// View journey stats
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve stats for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of JourneyStats</returns>
+        ApiResponse<JourneyStats> ViewJourneyStatsWithHttpInfo(string appId, string journeyId, int operationIndex = 0);
+        /// <summary>
+        /// View journeys
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="cursor">Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)</param>
+        /// <param name="limit">Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>JourneyListResponse</returns>
+        JourneyListResponse ViewJourneys(string appId, string cursor = default(string), int? limit = default(int?), int operationIndex = 0);
+
+        /// <summary>
+        /// View journeys
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="cursor">Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)</param>
+        /// <param name="limit">Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of JourneyListResponse</returns>
+        ApiResponse<JourneyListResponse> ViewJourneysWithHttpInfo(string appId, string cursor = default(string), int? limit = default(int?), int operationIndex = 0);
         /// <summary>
         /// View template
         /// </summary>
@@ -1480,6 +1663,33 @@ namespace OneSignalApi.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CreateCustomEventsWithHttpInfoAsync(string appId, CustomEventsRequest customEventsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Create journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="createJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        System.Threading.Tasks.Task<Journey> CreateJourneyAsync(string appId, CreateJourneyRequest createJourneyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="createJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Journey>> CreateJourneyWithHttpInfoAsync(string appId, CreateJourneyRequest createJourneyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Create notification
         /// </summary>
         /// <remarks>
@@ -1672,6 +1882,33 @@ namespace OneSignalApi.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApiKeyWithHttpInfoAsync(string appId, string tokenId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Delete journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GenericSuccessBoolResponse</returns>
+        System.Threading.Tasks.Task<GenericSuccessBoolResponse> DeleteJourneyAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Delete journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GenericSuccessBoolResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GenericSuccessBoolResponse>> DeleteJourneyWithHttpInfoAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete Segment
         /// </summary>
@@ -2367,6 +2604,66 @@ namespace OneSignalApi.Api
         /// <returns>Task of ApiResponse (App)</returns>
         System.Threading.Tasks.Task<ApiResponse<App>> UpdateAppWithHttpInfoAsync(string appId, App app, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Update journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to update.</param>
+        /// <param name="updateJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        System.Threading.Tasks.Task<Journey> UpdateJourneyAsync(string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Update journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to update.</param>
+        /// <param name="updateJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Journey>> UpdateJourneyWithHttpInfoAsync(string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Update journey node
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey that owns the node.</param>
+        /// <param name="nodeId">Server-assigned UUID of the node to update, from a prior View journey fetch.</param>
+        /// <param name="updateJourneyNodeRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        System.Threading.Tasks.Task<Journey> UpdateJourneyNodeAsync(string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Update journey node
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey that owns the node.</param>
+        /// <param name="nodeId">Server-assigned UUID of the node to update, from a prior View journey fetch.</param>
+        /// <param name="updateJourneyNodeRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Journey>> UpdateJourneyNodeWithHttpInfoAsync(string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Update a Live Activity via Push
         /// </summary>
         /// <remarks>
@@ -2569,6 +2866,89 @@ namespace OneSignalApi.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ApiKeyTokensListResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiKeyTokensListResponse>> ViewApiKeysWithHttpInfoAsync(string appId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// View journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        System.Threading.Tasks.Task<Journey> ViewJourneyAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// View journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Journey>> ViewJourneyWithHttpInfoAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// View journey stats
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve stats for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of JourneyStats</returns>
+        System.Threading.Tasks.Task<JourneyStats> ViewJourneyStatsAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// View journey stats
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve stats for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (JourneyStats)</returns>
+        System.Threading.Tasks.Task<ApiResponse<JourneyStats>> ViewJourneyStatsWithHttpInfoAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// View journeys
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="cursor">Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)</param>
+        /// <param name="limit">Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of JourneyListResponse</returns>
+        System.Threading.Tasks.Task<JourneyListResponse> ViewJourneysAsync(string appId, string cursor = default(string), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// View journeys
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="cursor">Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)</param>
+        /// <param name="limit">Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (JourneyListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<JourneyListResponse>> ViewJourneysWithHttpInfoAsync(string appId, string cursor = default(string), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// View template
         /// </summary>
@@ -4032,6 +4412,182 @@ namespace OneSignalApi.Api
         }
 
         /// <summary>
+        /// Create journey The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="createJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        public Journey CreateJourney(string appId, CreateJourneyRequest createJourneyRequest, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = CreateJourneyWithHttpInfo(appId, createJourneyRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create journey The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="createJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        public OneSignalApi.Client.ApiResponse<Journey> CreateJourneyWithHttpInfo(string appId, CreateJourneyRequest createJourneyRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->CreateJourney");
+            }
+
+            // verify the required parameter 'createJourneyRequest' is set
+            if (createJourneyRequest == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'createJourneyRequest' when calling DefaultApi->CreateJourney");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.Data = createJourneyRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.CreateJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Journey>("/apps/{app_id}/journeys", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateJourney", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create journey The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="createJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        public async System.Threading.Tasks.Task<Journey> CreateJourneyAsync(string appId, CreateJourneyRequest createJourneyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = await CreateJourneyWithHttpInfoAsync(appId, createJourneyRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create journey The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="createJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<Journey>> CreateJourneyWithHttpInfoAsync(string appId, CreateJourneyRequest createJourneyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->CreateJourney");
+            }
+
+            // verify the required parameter 'createJourneyRequest' is set
+            if (createJourneyRequest == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'createJourneyRequest' when calling DefaultApi->CreateJourney");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.Data = createJourneyRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.CreateJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Journey>("/apps/{app_id}/journeys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateJourney", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Create notification Sends notifications to your users.  **Target by External ID (push example):** set &#x60;include_aliases&#x60; to &#x60;{ \&quot;external_id\&quot;: [\&quot;your-user-id\&quot;] }&#x60; and set &#x60;target_channel&#x60; to &#x60;push&#x60; (or &#x60;email&#x60; / &#x60;sms&#x60; for those channels). Alias object keys must match API labels exactly (for example &#x60;external_id&#x60;, not camelCase).  **Do not confuse** the notification-level &#x60;external_id&#x60; field with External ID targeting: top-level &#x60;external_id&#x60; / &#x60;idempotency_key&#x60; are for idempotent notification requests only, not for selecting recipients.  **Targeting compatibility:** &#x60;include_aliases&#x60; must not be combined with other targeting modes (segments, filters, subscription IDs, legacy player IDs, etc.). Clients should send only one targeting strategy per request. 
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5274,6 +5830,180 @@ namespace OneSignalApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteApiKey", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete journey The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GenericSuccessBoolResponse</returns>
+        public GenericSuccessBoolResponse DeleteJourney(string appId, string journeyId, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<GenericSuccessBoolResponse> localVarResponse = DeleteJourneyWithHttpInfo(appId, journeyId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete journey The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GenericSuccessBoolResponse</returns>
+        public OneSignalApi.Client.ApiResponse<GenericSuccessBoolResponse> DeleteJourneyWithHttpInfo(string appId, string journeyId, int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->DeleteJourney");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->DeleteJourney");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+
+            localVarRequestOptions.Operation = "DefaultApi.DeleteJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<GenericSuccessBoolResponse>("/apps/{app_id}/journeys/{journey_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteJourney", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete journey The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GenericSuccessBoolResponse</returns>
+        public async System.Threading.Tasks.Task<GenericSuccessBoolResponse> DeleteJourneyAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<GenericSuccessBoolResponse> localVarResponse = await DeleteJourneyWithHttpInfoAsync(appId, journeyId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete journey The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \&quot;success\&quot;: true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to delete.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GenericSuccessBoolResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<GenericSuccessBoolResponse>> DeleteJourneyWithHttpInfoAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->DeleteJourney");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->DeleteJourney");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+
+            localVarRequestOptions.Operation = "DefaultApi.DeleteJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<GenericSuccessBoolResponse>("/apps/{app_id}/journeys/{journey_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteJourney", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -9738,6 +10468,412 @@ namespace OneSignalApi.Api
         }
 
         /// <summary>
+        /// Update journey The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to update.</param>
+        /// <param name="updateJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        public Journey UpdateJourney(string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = UpdateJourneyWithHttpInfo(appId, journeyId, updateJourneyRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update journey The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to update.</param>
+        /// <param name="updateJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        public OneSignalApi.Client.ApiResponse<Journey> UpdateJourneyWithHttpInfo(string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->UpdateJourney");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->UpdateJourney");
+            }
+
+            // verify the required parameter 'updateJourneyRequest' is set
+            if (updateJourneyRequest == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'updateJourneyRequest' when calling DefaultApi->UpdateJourney");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+            localVarRequestOptions.Data = updateJourneyRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.UpdateJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<Journey>("/apps/{app_id}/journeys/{journey_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateJourney", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update journey The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to update.</param>
+        /// <param name="updateJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        public async System.Threading.Tasks.Task<Journey> UpdateJourneyAsync(string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = await UpdateJourneyWithHttpInfoAsync(appId, journeyId, updateJourneyRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update journey The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to update.</param>
+        /// <param name="updateJourneyRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<Journey>> UpdateJourneyWithHttpInfoAsync(string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->UpdateJourney");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->UpdateJourney");
+            }
+
+            // verify the required parameter 'updateJourneyRequest' is set
+            if (updateJourneyRequest == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'updateJourneyRequest' when calling DefaultApi->UpdateJourney");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+            localVarRequestOptions.Data = updateJourneyRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.UpdateJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<Journey>("/apps/{app_id}/journeys/{journey_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateJourney", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update journey node The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey that owns the node.</param>
+        /// <param name="nodeId">Server-assigned UUID of the node to update, from a prior View journey fetch.</param>
+        /// <param name="updateJourneyNodeRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        public Journey UpdateJourneyNode(string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = UpdateJourneyNodeWithHttpInfo(appId, journeyId, nodeId, updateJourneyNodeRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update journey node The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey that owns the node.</param>
+        /// <param name="nodeId">Server-assigned UUID of the node to update, from a prior View journey fetch.</param>
+        /// <param name="updateJourneyNodeRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        public OneSignalApi.Client.ApiResponse<Journey> UpdateJourneyNodeWithHttpInfo(string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->UpdateJourneyNode");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->UpdateJourneyNode");
+            }
+
+            // verify the required parameter 'nodeId' is set
+            if (nodeId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'nodeId' when calling DefaultApi->UpdateJourneyNode");
+            }
+
+            // verify the required parameter 'updateJourneyNodeRequest' is set
+            if (updateJourneyNodeRequest == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'updateJourneyNodeRequest' when calling DefaultApi->UpdateJourneyNode");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("node_id", OneSignalApi.Client.ClientUtils.ParameterToString(nodeId)); // path parameter
+            localVarRequestOptions.Data = updateJourneyNodeRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.UpdateJourneyNode";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<Journey>("/apps/{app_id}/journeys/{journey_id}/nodes/{node_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateJourneyNode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update journey node The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey that owns the node.</param>
+        /// <param name="nodeId">Server-assigned UUID of the node to update, from a prior View journey fetch.</param>
+        /// <param name="updateJourneyNodeRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        public async System.Threading.Tasks.Task<Journey> UpdateJourneyNodeAsync(string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = await UpdateJourneyNodeWithHttpInfoAsync(appId, journeyId, nodeId, updateJourneyNodeRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update journey node The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey that owns the node.</param>
+        /// <param name="nodeId">Server-assigned UUID of the node to update, from a prior View journey fetch.</param>
+        /// <param name="updateJourneyNodeRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<Journey>> UpdateJourneyNodeWithHttpInfoAsync(string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->UpdateJourneyNode");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->UpdateJourneyNode");
+            }
+
+            // verify the required parameter 'nodeId' is set
+            if (nodeId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'nodeId' when calling DefaultApi->UpdateJourneyNode");
+            }
+
+            // verify the required parameter 'updateJourneyNodeRequest' is set
+            if (updateJourneyNodeRequest == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'updateJourneyNodeRequest' when calling DefaultApi->UpdateJourneyNode");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("node_id", OneSignalApi.Client.ClientUtils.ParameterToString(nodeId)); // path parameter
+            localVarRequestOptions.Data = updateJourneyNodeRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.UpdateJourneyNode";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<Journey>("/apps/{app_id}/journeys/{journey_id}/nodes/{node_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateJourneyNode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Update a Live Activity via Push Updates a specified live activity.
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -11070,6 +12206,534 @@ namespace OneSignalApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ViewApiKeys", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// View journey The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        public Journey ViewJourney(string appId, string journeyId, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = ViewJourneyWithHttpInfo(appId, journeyId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// View journey The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        public OneSignalApi.Client.ApiResponse<Journey> ViewJourneyWithHttpInfo(string appId, string journeyId, int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->ViewJourney");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->ViewJourney");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+
+            localVarRequestOptions.Operation = "DefaultApi.ViewJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Journey>("/apps/{app_id}/journeys/{journey_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ViewJourney", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// View journey The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        public async System.Threading.Tasks.Task<Journey> ViewJourneyAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = await ViewJourneyWithHttpInfoAsync(appId, journeyId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// View journey The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<Journey>> ViewJourneyWithHttpInfoAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->ViewJourney");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->ViewJourney");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+
+            localVarRequestOptions.Operation = "DefaultApi.ViewJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Journey>("/apps/{app_id}/journeys/{journey_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ViewJourney", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// View journey stats The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve stats for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>JourneyStats</returns>
+        public JourneyStats ViewJourneyStats(string appId, string journeyId, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<JourneyStats> localVarResponse = ViewJourneyStatsWithHttpInfo(appId, journeyId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// View journey stats The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve stats for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of JourneyStats</returns>
+        public OneSignalApi.Client.ApiResponse<JourneyStats> ViewJourneyStatsWithHttpInfo(string appId, string journeyId, int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->ViewJourneyStats");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->ViewJourneyStats");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+
+            localVarRequestOptions.Operation = "DefaultApi.ViewJourneyStats";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<JourneyStats>("/apps/{app_id}/journeys/{journey_id}/stats", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ViewJourneyStats", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// View journey stats The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve stats for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of JourneyStats</returns>
+        public async System.Threading.Tasks.Task<JourneyStats> ViewJourneyStatsAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<JourneyStats> localVarResponse = await ViewJourneyStatsWithHttpInfoAsync(appId, journeyId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// View journey stats The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to retrieve stats for.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (JourneyStats)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<JourneyStats>> ViewJourneyStatsWithHttpInfoAsync(string appId, string journeyId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->ViewJourneyStats");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->ViewJourneyStats");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+
+            localVarRequestOptions.Operation = "DefaultApi.ViewJourneyStats";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<JourneyStats>("/apps/{app_id}/journeys/{journey_id}/stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ViewJourneyStats", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// View journeys The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="cursor">Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)</param>
+        /// <param name="limit">Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>JourneyListResponse</returns>
+        public JourneyListResponse ViewJourneys(string appId, string cursor = default(string), int? limit = default(int?), int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<JourneyListResponse> localVarResponse = ViewJourneysWithHttpInfo(appId, cursor, limit);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// View journeys The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="cursor">Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)</param>
+        /// <param name="limit">Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of JourneyListResponse</returns>
+        public OneSignalApi.Client.ApiResponse<JourneyListResponse> ViewJourneysWithHttpInfo(string appId, string cursor = default(string), int? limit = default(int?), int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->ViewJourneys");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.ViewJourneys";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<JourneyListResponse>("/apps/{app_id}/journeys", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ViewJourneys", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// View journeys The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="cursor">Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)</param>
+        /// <param name="limit">Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of JourneyListResponse</returns>
+        public async System.Threading.Tasks.Task<JourneyListResponse> ViewJourneysAsync(string appId, string cursor = default(string), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<JourneyListResponse> localVarResponse = await ViewJourneysWithHttpInfoAsync(appId, cursor, limit, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// View journeys The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="cursor">Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. (optional)</param>
+        /// <param name="limit">Maximum journeys to return per page. Minimum 1, maximum 50. (optional, default to 50)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (JourneyListResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<JourneyListResponse>> ViewJourneysWithHttpInfoAsync(string appId, string cursor = default(string), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->ViewJourneys");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.ViewJourneys";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<JourneyListResponse>("/apps/{app_id}/journeys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ViewJourneys", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

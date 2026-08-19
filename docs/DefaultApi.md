@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**CreateApiKey**](DefaultApi.md#createapikey) | **POST** /apps/{app_id}/auth/tokens | Create API key
 [**CreateApp**](DefaultApi.md#createapp) | **POST** /apps | Create an app
 [**CreateCustomEvents**](DefaultApi.md#createcustomevents) | **POST** /apps/{app_id}/custom_events | Create custom events
+[**CreateJourney**](DefaultApi.md#createjourney) | **POST** /apps/{app_id}/journeys | Create journey
 [**CreateNotification**](DefaultApi.md#createnotification) | **POST** /notifications | Create notification
 [**CreateSegment**](DefaultApi.md#createsegment) | **POST** /apps/{app_id}/segments | Create Segment
 [**CreateSubscription**](DefaultApi.md#createsubscription) | **POST** /apps/{app_id}/users/by/{alias_label}/{alias_id}/subscriptions | 
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**CreateUser**](DefaultApi.md#createuser) | **POST** /apps/{app_id}/users | 
 [**DeleteAlias**](DefaultApi.md#deletealias) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id}/identity/{alias_label_to_delete} | 
 [**DeleteApiKey**](DefaultApi.md#deleteapikey) | **DELETE** /apps/{app_id}/auth/tokens/{token_id} | Delete API key
+[**DeleteJourney**](DefaultApi.md#deletejourney) | **DELETE** /apps/{app_id}/journeys/{journey_id} | Delete journey
 [**DeleteSegment**](DefaultApi.md#deletesegment) | **DELETE** /apps/{app_id}/segments/{segment_id} | Delete Segment
 [**DeleteSubscription**](DefaultApi.md#deletesubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} | 
 [**DeleteTemplate**](DefaultApi.md#deletetemplate) | **DELETE** /templates/{template_id} | Delete template
@@ -42,6 +44,8 @@ Method | HTTP request | Description
 [**UnsubscribeEmailWithToken**](DefaultApi.md#unsubscribeemailwithtoken) | **POST** /apps/{app_id}/notifications/{notification_id}/unsubscribe | Unsubscribe with token
 [**UpdateApiKey**](DefaultApi.md#updateapikey) | **PATCH** /apps/{app_id}/auth/tokens/{token_id} | Update API key
 [**UpdateApp**](DefaultApi.md#updateapp) | **PUT** /apps/{app_id} | Update an app
+[**UpdateJourney**](DefaultApi.md#updatejourney) | **PATCH** /apps/{app_id}/journeys/{journey_id} | Update journey
+[**UpdateJourneyNode**](DefaultApi.md#updatejourneynode) | **PATCH** /apps/{app_id}/journeys/{journey_id}/nodes/{node_id} | Update journey node
 [**UpdateLiveActivity**](DefaultApi.md#updateliveactivity) | **POST** /apps/{app_id}/live_activities/{activity_id}/notifications | Update a Live Activity via Push
 [**UpdateSegment**](DefaultApi.md#updatesegment) | **PATCH** /apps/{app_id}/segments/{segment_id} | Update Segment
 [**UpdateSubscription**](DefaultApi.md#updatesubscription) | **PATCH** /apps/{app_id}/subscriptions/{subscription_id} | 
@@ -49,6 +53,9 @@ Method | HTTP request | Description
 [**UpdateTemplate**](DefaultApi.md#updatetemplate) | **PATCH** /templates/{template_id} | Update template
 [**UpdateUser**](DefaultApi.md#updateuser) | **PATCH** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
 [**ViewApiKeys**](DefaultApi.md#viewapikeys) | **GET** /apps/{app_id}/auth/tokens | View API keys
+[**ViewJourney**](DefaultApi.md#viewjourney) | **GET** /apps/{app_id}/journeys/{journey_id} | View journey
+[**ViewJourneyStats**](DefaultApi.md#viewjourneystats) | **GET** /apps/{app_id}/journeys/{journey_id}/stats | View journey stats
+[**ViewJourneys**](DefaultApi.md#viewjourneys) | **GET** /apps/{app_id}/journeys | View journeys
 [**ViewTemplate**](DefaultApi.md#viewtemplate) | **GET** /templates/{template_id} | View template
 [**ViewTemplates**](DefaultApi.md#viewtemplates) | **GET** /templates | View templates
 
@@ -679,6 +686,91 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="createjourney"></a>
+# **CreateJourney**
+> Journey CreateJourney (string appId, CreateJourneyRequest createJourneyRequest)
+
+Create journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Create a new journey with an audience and a node graph. Journeys are always created in the draft state. The authenticated App API key must have permission to create journeys.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class CreateJourneyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+            var createJourneyRequest = new CreateJourneyRequest(); // CreateJourneyRequest | 
+
+            try
+            {
+                // Create journey
+                Journey result = apiInstance.CreateJourney(appId, createJourneyRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.CreateJourney: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **createJourneyRequest** | [**CreateJourneyRequest**](CreateJourneyRequest.md)|  | 
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
@@ -1379,6 +1471,91 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="deletejourney"></a>
+# **DeleteJourney**
+> GenericSuccessBoolResponse DeleteJourney (string appId, string journeyId)
+
+Delete journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Permanently delete a journey by its UUID. Returns { \"success\": true } on success. The authenticated App API key must have permission to delete journeys. Deleting a journey stops any in-flight users and cannot be undone. Archive a running journey instead if you need to keep its data.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class DeleteJourneyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+            var journeyId = "YOUR_JOURNEY_ID";  // string | UUID of the journey to delete.
+
+            try
+            {
+                // Delete journey
+                GenericSuccessBoolResponse result = apiInstance.DeleteJourney(appId, journeyId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DeleteJourney: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **journeyId** | **string**| UUID of the journey to delete. | 
+
+### Return type
+
+[**GenericSuccessBoolResponse**](GenericSuccessBoolResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
@@ -3447,6 +3624,188 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
+<a name="updatejourney"></a>
+# **UpdateJourney**
+> Journey UpdateJourney (string appId, string journeyId, UpdateJourneyRequest updateJourneyRequest)
+
+Update journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a journey using JSON Merge Patch (RFC 7396). Send only the fields you want to change; omitted fields are left unchanged. A null value clears a nullable field, and arrays such as nodes are replaced wholesale. Set state to active to activate a draft journey.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateJourneyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+            var journeyId = "YOUR_JOURNEY_ID";  // string | UUID of the journey to update.
+            var updateJourneyRequest = new UpdateJourneyRequest(); // UpdateJourneyRequest | 
+
+            try
+            {
+                // Update journey
+                Journey result = apiInstance.UpdateJourney(appId, journeyId, updateJourneyRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateJourney: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **journeyId** | **string**| UUID of the journey to update. | 
+ **updateJourneyRequest** | [**UpdateJourneyRequest**](UpdateJourneyRequest.md)|  | 
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="updatejourneynode"></a>
+# **UpdateJourneyNode**
+> Journey UpdateJourneyNode (string appId, string journeyId, string nodeId, UpdateJourneyNodeRequest updateJourneyNodeRequest)
+
+Update journey node
+
+The Journeys API is in beta. Endpoints and response fields can still change. Apply a partial update to a single node, located by its server-assigned id, using JSON Merge Patch (RFC 7396). Send only the node fields you want to change; the rest of the node and the rest of the journey graph are left untouched. Returns the full updated journey.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class UpdateJourneyNodeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+            var journeyId = "YOUR_JOURNEY_ID";  // string | UUID of the journey that owns the node.
+            var nodeId = "YOUR_NODE_ID";  // string | Server-assigned UUID of the node to update, from a prior View journey fetch.
+            var updateJourneyNodeRequest = new UpdateJourneyNodeRequest(); // UpdateJourneyNodeRequest | 
+
+            try
+            {
+                // Update journey node
+                Journey result = apiInstance.UpdateJourneyNode(appId, journeyId, nodeId, updateJourneyNodeRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.UpdateJourneyNode: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **journeyId** | **string**| UUID of the journey that owns the node. | 
+ **nodeId** | **string**| Server-assigned UUID of the node to update, from a prior View journey fetch. | 
+ **updateJourneyNodeRequest** | [**UpdateJourneyNodeRequest**](UpdateJourneyNodeRequest.md)|  | 
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
 <a name="updateliveactivity"></a>
 # **UpdateLiveActivity**
 > UpdateLiveActivitySuccessResponse UpdateLiveActivity (string appId, string activityId, UpdateLiveActivityRequest updateLiveActivityRequest)
@@ -4045,6 +4404,261 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="viewjourney"></a>
+# **ViewJourney**
+> Journey ViewJourney (string appId, string journeyId)
+
+View journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Retrieve the full configuration of a single journey by its UUID, including its audience and node graph.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class ViewJourneyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+            var journeyId = "YOUR_JOURNEY_ID";  // string | UUID of the journey to retrieve.
+
+            try
+            {
+                // View journey
+                Journey result = apiInstance.ViewJourney(appId, journeyId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ViewJourney: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **journeyId** | **string**| UUID of the journey to retrieve. | 
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="viewjourneystats"></a>
+# **ViewJourneyStats**
+> JourneyStats ViewJourneyStats (string appId, string journeyId)
+
+View journey stats
+
+The Journeys API is in beta. Endpoints and response fields can still change. Retrieve performance stats for a single journey: journey-level entry and exit counts, per-node counts keyed by node id, per-branch counts keyed by branch id, and channel delivery stats for message-sending nodes. The response carries no definition detail, so join it by id against the journey from View journey.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class ViewJourneyStatsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+            var journeyId = "YOUR_JOURNEY_ID";  // string | UUID of the journey to retrieve stats for.
+
+            try
+            {
+                // View journey stats
+                JourneyStats result = apiInstance.ViewJourneyStats(appId, journeyId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ViewJourneyStats: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **journeyId** | **string**| UUID of the journey to retrieve stats for. | 
+
+### Return type
+
+[**JourneyStats**](JourneyStats.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="viewjourneys"></a>
+# **ViewJourneys**
+> JourneyListResponse ViewJourneys (string appId, string cursor = null, int? limit = null)
+
+View journeys
+
+The Journeys API is in beta. Endpoints and response fields can still change. Retrieve a paginated list of journeys for an app. Returns a summary representation of each journey; use View journey for the full configuration. Uses forward-only cursor-based pagination.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class ViewJourneysExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+            var cursor = "cursor_example";  // string | Opaque pagination token from a previous response's next_cursor. Omit for the first page. (optional) 
+            var limit = 50;  // int? | Maximum journeys to return per page. Minimum 1, maximum 50. (optional)  (default to 50)
+
+            try
+            {
+                // View journeys
+                JourneyListResponse result = apiInstance.ViewJourneys(appId, cursor, limit);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.ViewJourneys: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **cursor** | **string**| Opaque pagination token from a previous response&#39;s next_cursor. Omit for the first page. | [optional] 
+ **limit** | **int?**| Maximum journeys to return per page. Minimum 1, maximum 50. | [optional] [default to 50]
+
+### Return type
+
+[**JourneyListResponse**](JourneyListResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
