@@ -70,11 +70,13 @@ namespace OneSignalApi.Model
         /// <param name="eventUpdates">This must match the ContentState interface you have defined within your Live Activity in your app. (required).</param>
         /// <param name="contents">contents.</param>
         /// <param name="headings">headings.</param>
-        /// <param name="sound">Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification..</param>
+        /// <param name="sound">Deprecated. The API ignores this field. Use &#x60;ios_sound&#x60;..</param>
+        /// <param name="iosSound">Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification. Requires &#x60;headings&#x60; on the same request: ActivityKit ignores an update whose alert has no title, which silently drops the sound. Supersedes the deprecated &#x60;sound&#x60; field. .</param>
         /// <param name="staleDate">Accepts Unix timestamp in seconds. When time reaches the configured stale date, the system considers the Live Activity out of date, and the ActivityState of the Live Activity changes to ActivityState.stale..</param>
         /// <param name="dismissalDate">Accepts Unix timestamp in seconds; only allowed if event is \&quot;end\&quot;.</param>
-        /// <param name="priority">Delivery priority through the the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user&#39;s device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery..</param>
-        public UpdateLiveActivityRequest(string name = default(string), EventEnum _event = default(EventEnum), Object eventUpdates = default(Object), LanguageStringMap contents = default(LanguageStringMap), LanguageStringMap headings = default(LanguageStringMap), string sound = default(string), int staleDate = default(int), int dismissalDate = default(int), int priority = default(int))
+        /// <param name="priority">Delivery priority through the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user&#39;s device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery..</param>
+        /// <param name="iosRelevanceScore">A value between 0 and 1. When more than one Live Activity is active for your app, the one with the highest relevance score shows in the Dynamic Island. If the scores are equal, the system shows the Live Activity that started first. The score also sets the order of Live Activities on the Lock Screen. Only available on iOS 16.2 and later..</param>
+        public UpdateLiveActivityRequest(string name = default(string), EventEnum _event = default(EventEnum), Object eventUpdates = default(Object), LanguageStringMap contents = default(LanguageStringMap), LanguageStringMap headings = default(LanguageStringMap), string sound = default(string), string iosSound = default(string), int staleDate = default(int), int dismissalDate = default(int), int priority = default(int), decimal? iosRelevanceScore = default(decimal?))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -92,9 +94,11 @@ namespace OneSignalApi.Model
             this.Contents = contents;
             this.Headings = headings;
             this.Sound = sound;
+            this.IosSound = iosSound;
             this.StaleDate = staleDate;
             this.DismissalDate = dismissalDate;
             this.Priority = priority;
+            this.IosRelevanceScore = iosRelevanceScore;
         }
 
         /// <summary>
@@ -124,11 +128,19 @@ namespace OneSignalApi.Model
         public LanguageStringMap Headings { get; set; }
 
         /// <summary>
-        /// Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification.
+        /// Deprecated. The API ignores this field. Use &#x60;ios_sound&#x60;.
         /// </summary>
-        /// <value>Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification.</value>
+        /// <value>Deprecated. The API ignores this field. Use &#x60;ios_sound&#x60;.</value>
         [DataMember(Name = "sound", EmitDefaultValue = false)]
+        [Obsolete]
         public string Sound { get; set; }
+
+        /// <summary>
+        /// Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification. Requires &#x60;headings&#x60; on the same request: ActivityKit ignores an update whose alert has no title, which silently drops the sound. Supersedes the deprecated &#x60;sound&#x60; field. 
+        /// </summary>
+        /// <value>Sound file that is included in your app to play instead of the default device notification sound. Omit to disable vibration and sound for the notification. Requires &#x60;headings&#x60; on the same request: ActivityKit ignores an update whose alert has no title, which silently drops the sound. Supersedes the deprecated &#x60;sound&#x60; field. </value>
+        [DataMember(Name = "ios_sound", EmitDefaultValue = false)]
+        public string IosSound { get; set; }
 
         /// <summary>
         /// Accepts Unix timestamp in seconds. When time reaches the configured stale date, the system considers the Live Activity out of date, and the ActivityState of the Live Activity changes to ActivityState.stale.
@@ -145,11 +157,18 @@ namespace OneSignalApi.Model
         public int DismissalDate { get; set; }
 
         /// <summary>
-        /// Delivery priority through the the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user&#39;s device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery.
+        /// Delivery priority through the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user&#39;s device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery.
         /// </summary>
-        /// <value>Delivery priority through the the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user&#39;s device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery.</value>
+        /// <value>Delivery priority through the push provider (APNs). Pass 10 for higher priority notifications, or 5 for lower priority notifications. Lower priority notifications are sent based on the power considerations of the end user&#39;s device. If not set, defaults to 10. Some providers (APNs) allow for a limited budget of high priority notifications per hour, and if that budget is exceeded, the provider may throttle notification delivery.</value>
         [DataMember(Name = "priority", EmitDefaultValue = false)]
         public int Priority { get; set; }
+
+        /// <summary>
+        /// A value between 0 and 1. When more than one Live Activity is active for your app, the one with the highest relevance score shows in the Dynamic Island. If the scores are equal, the system shows the Live Activity that started first. The score also sets the order of Live Activities on the Lock Screen. Only available on iOS 16.2 and later.
+        /// </summary>
+        /// <value>A value between 0 and 1. When more than one Live Activity is active for your app, the one with the highest relevance score shows in the Dynamic Island. If the scores are equal, the system shows the Live Activity that started first. The score also sets the order of Live Activities on the Lock Screen. Only available on iOS 16.2 and later.</value>
+        [DataMember(Name = "ios_relevance_score", EmitDefaultValue = true)]
+        public decimal? IosRelevanceScore { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -165,9 +184,11 @@ namespace OneSignalApi.Model
             sb.Append("  Contents: ").Append(Contents).Append("\n");
             sb.Append("  Headings: ").Append(Headings).Append("\n");
             sb.Append("  Sound: ").Append(Sound).Append("\n");
+            sb.Append("  IosSound: ").Append(IosSound).Append("\n");
             sb.Append("  StaleDate: ").Append(StaleDate).Append("\n");
             sb.Append("  DismissalDate: ").Append(DismissalDate).Append("\n");
             sb.Append("  Priority: ").Append(Priority).Append("\n");
+            sb.Append("  IosRelevanceScore: ").Append(IosRelevanceScore).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -233,6 +254,11 @@ namespace OneSignalApi.Model
                     this.Sound.Equals(input.Sound))
                 ) && 
                 (
+                    this.IosSound == input.IosSound ||
+                    (this.IosSound != null &&
+                    this.IosSound.Equals(input.IosSound))
+                ) && 
+                (
                     this.StaleDate == input.StaleDate ||
                     this.StaleDate.Equals(input.StaleDate)
                 ) && 
@@ -243,6 +269,11 @@ namespace OneSignalApi.Model
                 (
                     this.Priority == input.Priority ||
                     this.Priority.Equals(input.Priority)
+                ) && 
+                (
+                    this.IosRelevanceScore == input.IosRelevanceScore ||
+                    (this.IosRelevanceScore != null &&
+                    this.IosRelevanceScore.Equals(input.IosRelevanceScore))
                 );
         }
 
@@ -276,9 +307,17 @@ namespace OneSignalApi.Model
                 {
                     hashCode = (hashCode * 59) + this.Sound.GetHashCode();
                 }
+                if (this.IosSound != null)
+                {
+                    hashCode = (hashCode * 59) + this.IosSound.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.StaleDate.GetHashCode();
                 hashCode = (hashCode * 59) + this.DismissalDate.GetHashCode();
                 hashCode = (hashCode * 59) + this.Priority.GetHashCode();
+                if (this.IosRelevanceScore != null)
+                {
+                    hashCode = (hashCode * 59) + this.IosRelevanceScore.GetHashCode();
+                }
                 return hashCode;
             }
         }
