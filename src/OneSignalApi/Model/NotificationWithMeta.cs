@@ -99,6 +99,28 @@ namespace OneSignalApi.Model
             return false;
         }
         /// <summary>
+        /// Channel: Email Set to \&quot;warmup\&quot; to send this as an Auto Warm Up campaign: a single campaign delivered gradually to your audience over several days, so you don&#39;t have to pace sends manually. OneSignal generates a sending schedule based on your past delivery volumes, scheduled Auto Warm Up emails, and the size of your current audience. When set, &#x60;email_warm_up&#x60; is required and describes the campaign&#39;s stages and (optionally) its scheduling strategy. &#x60;send_after&#x60; cannot be combined with &#x60;kind: \&quot;warmup\&quot;&#x60;. The campaign will be scheduled to begin at its first stage&#39;s &#x60;start&#x60; time. Only supported for Email notifications. 
+        /// </summary>
+        /// <value>Channel: Email Set to \&quot;warmup\&quot; to send this as an Auto Warm Up campaign: a single campaign delivered gradually to your audience over several days, so you don&#39;t have to pace sends manually. OneSignal generates a sending schedule based on your past delivery volumes, scheduled Auto Warm Up emails, and the size of your current audience. When set, &#x60;email_warm_up&#x60; is required and describes the campaign&#39;s stages and (optionally) its scheduling strategy. &#x60;send_after&#x60; cannot be combined with &#x60;kind: \&quot;warmup\&quot;&#x60;. The campaign will be scheduled to begin at its first stage&#39;s &#x60;start&#x60; time. Only supported for Email notifications. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum KindEnum
+        {
+            /// <summary>
+            /// Enum Warmup for value: warmup
+            /// </summary>
+            [EnumMember(Value = "warmup")]
+            Warmup = 1
+
+        }
+
+
+        /// <summary>
+        /// Channel: Email Set to \&quot;warmup\&quot; to send this as an Auto Warm Up campaign: a single campaign delivered gradually to your audience over several days, so you don&#39;t have to pace sends manually. OneSignal generates a sending schedule based on your past delivery volumes, scheduled Auto Warm Up emails, and the size of your current audience. When set, &#x60;email_warm_up&#x60; is required and describes the campaign&#39;s stages and (optionally) its scheduling strategy. &#x60;send_after&#x60; cannot be combined with &#x60;kind: \&quot;warmup\&quot;&#x60;. The campaign will be scheduled to begin at its first stage&#39;s &#x60;start&#x60; time. Only supported for Email notifications. 
+        /// </summary>
+        /// <value>Channel: Email Set to \&quot;warmup\&quot; to send this as an Auto Warm Up campaign: a single campaign delivered gradually to your audience over several days, so you don&#39;t have to pace sends manually. OneSignal generates a sending schedule based on your past delivery volumes, scheduled Auto Warm Up emails, and the size of your current audience. When set, &#x60;email_warm_up&#x60; is required and describes the campaign&#39;s stages and (optionally) its scheduling strategy. &#x60;send_after&#x60; cannot be combined with &#x60;kind: \&quot;warmup\&quot;&#x60;. The campaign will be scheduled to begin at its first stage&#39;s &#x60;start&#x60; time. Only supported for Email notifications. </value>
+        [DataMember(Name = "kind", EmitDefaultValue = true)]
+        public KindEnum? Kind { get; set; }
+        /// <summary>
         /// Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.
         /// </summary>
         /// <value>Channel: Push Notifications Platform: Huawei Category of the push notification for HMS classification.</value>
@@ -291,7 +313,7 @@ namespace OneSignalApi.Model
         /// <param name="summaryArgCount">Channel: Push Notifications Platform: iOS 12+ When using thread_id, you can also control the count of the number of notifications in the group. For example, if the group already has 12 notifications, and you send a new notification with summary_arg_count &#x3D; 2, the new total will be 14 and the summary will be \&quot;14 more notifications from summary_arg\&quot; .</param>
         /// <param name="iosRelevanceScore">Channel: Push Notifications Platform: iOS 15+ A score to be set per notification to indicate how it should be displayed when grouped. Use a float between 0-1. .</param>
         /// <param name="iosInterruptionLevel">Channel: Push Notifications Platform: iOS 15+ Focus Modes and Interruption Levels indicate the priority and delivery timing of a notification, to \&quot;interrupt\&quot; the user. Can choose from options: [&#39;active&#39;, &#39;passive&#39;, &#39;time_sensitive&#39;, &#39;critical&#39;]. Default is active. .</param>
-        /// <param name="emailSubject">Channel: Email Required.  The subject of the email. .</param>
+        /// <param name="emailSubject">Channel: Email Required. The subject of the email. .</param>
         /// <param name="emailBody">Channel: Email Required unless template_id is set. HTML suported The body of the email you wish to send. Typically, customers include their own HTML templates here. Must include [unsubscribe_url] in an &lt;a&gt; tag somewhere in the email. Note: any malformed HTML content will be sent to users. Please double-check your HTML is valid. .</param>
         /// <param name="emailFromName">Channel: Email The name the email is from. If not specified, will default to \&quot;from name\&quot; set in the OneSignal Dashboard Email Settings. .</param>
         /// <param name="emailFromAddress">Channel: Email The email address the email is from. If not specified, will default to \&quot;from email\&quot; set in the OneSignal Dashboard Email Settings. .</param>
@@ -301,6 +323,8 @@ namespace OneSignalApi.Model
         /// <param name="includeUnsubscribed">Channel: Email Default is &#x60;false&#x60;. This field is used to send transactional notifications. If set to &#x60;true&#x60;, this notification will also be sent to unsubscribed emails. If a &#x60;template_id&#x60; is provided, the &#x60;include_unsubscribed&#x60; value from the template will be inherited. If you are using a third-party ESP, this field requires the ESP&#39;s list of unsubscribed emails to be cleared..</param>
         /// <param name="emailBcc">BCC recipients that were set on this email notification..</param>
         /// <param name="emailSenderDomain">Channel: Email Sender domain to use for the email message. Overrides the default sender domain configured for the app. Only supported when the email service provider is OneSignal Email. .</param>
+        /// <param name="kind">Channel: Email Set to \&quot;warmup\&quot; to send this as an Auto Warm Up campaign: a single campaign delivered gradually to your audience over several days, so you don&#39;t have to pace sends manually. OneSignal generates a sending schedule based on your past delivery volumes, scheduled Auto Warm Up emails, and the size of your current audience. When set, &#x60;email_warm_up&#x60; is required and describes the campaign&#39;s stages and (optionally) its scheduling strategy. &#x60;send_after&#x60; cannot be combined with &#x60;kind: \&quot;warmup\&quot;&#x60;. The campaign will be scheduled to begin at its first stage&#39;s &#x60;start&#x60; time. Only supported for Email notifications. .</param>
+        /// <param name="emailWarmUp">emailWarmUp.</param>
         /// <param name="smsFrom">Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format. .</param>
         /// <param name="smsMediaUrls">Channel: SMS URLs for the media files to be attached to the SMS content. Limit: 10 media urls with a total max. size of 5MBs. .</param>
         /// <param name="filters">filters.</param>
@@ -323,7 +347,7 @@ namespace OneSignalApi.Model
         /// <param name="platformDeliveryStats">platformDeliveryStats.</param>
         /// <param name="canceled">Indicates whether the notification was canceled before it could be sent..</param>
         /// <param name="bccSent">Number of BCC copies successfully sent for this notification..</param>
-        public NotificationWithMeta(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), List<string> includeSubscriptionIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> emailTo = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), Dictionary<string, List<string>> includeAliases = default(Dictionary<string, List<string>>), TargetChannelEnum? targetChannel = default(TargetChannelEnum?), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string appId = default(string), string externalId = default(string), string idempotencyKey = default(string), LanguageStringMap contents = default(LanguageStringMap), LanguageStringMap headings = default(LanguageStringMap), LanguageStringMap subtitle = default(LanguageStringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string globalImage = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<WebButton> webButtons = default(List<WebButton>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), int? throttleRatePerMinute = default(int?), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), decimal? iosRelevanceScore = default(decimal?), string iosInterruptionLevel = default(string), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string emailReplyToAddress = default(string), string emailPreheader = default(string), bool? disableEmailClickTracking = default(bool?), bool? includeUnsubscribed = default(bool?), List<string> emailBcc = default(List<string>), string emailSenderDomain = default(string), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), List<FilterExpression> filters = default(List<FilterExpression>), Object customData = default(Object), string huaweiBadgeClass = default(string), int? huaweiBadgeAddNum = default(int?), int? huaweiBadgeSetNum = default(int?), HuaweiCategoryEnum? huaweiCategory = default(HuaweiCategoryEnum?), string huaweiBiTag = default(string), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), int? received = default(int?), List<OutcomeData> outcomes = default(List<OutcomeData>), int remaining = default(int), long queuedAt = default(long), long? sendAfter = default(long?), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData), bool canceled = default(bool), int? bccSent = default(int?))
+        public NotificationWithMeta(List<string> includedSegments = default(List<string>), List<string> excludedSegments = default(List<string>), List<string> includeSubscriptionIds = default(List<string>), List<string> includeEmailTokens = default(List<string>), List<string> emailTo = default(List<string>), List<string> includePhoneNumbers = default(List<string>), List<string> includeIosTokens = default(List<string>), List<string> includeWpWnsUris = default(List<string>), List<string> includeAmazonRegIds = default(List<string>), List<string> includeChromeRegIds = default(List<string>), List<string> includeChromeWebRegIds = default(List<string>), List<string> includeAndroidRegIds = default(List<string>), Dictionary<string, List<string>> includeAliases = default(Dictionary<string, List<string>>), TargetChannelEnum? targetChannel = default(TargetChannelEnum?), string id = default(string), string name = default(string), bool? isIos = default(bool?), bool? isAndroid = default(bool?), bool? isHuawei = default(bool?), bool? isAnyWeb = default(bool?), bool? isChromeWeb = default(bool?), bool? isFirefox = default(bool?), bool? isSafari = default(bool?), bool? isWPWNS = default(bool?), bool? isAdm = default(bool?), bool? isChrome = default(bool?), string appId = default(string), string externalId = default(string), string idempotencyKey = default(string), LanguageStringMap contents = default(LanguageStringMap), LanguageStringMap headings = default(LanguageStringMap), LanguageStringMap subtitle = default(LanguageStringMap), Object data = default(Object), string huaweiMsgType = default(string), string url = default(string), string webUrl = default(string), string appUrl = default(string), Object iosAttachments = default(Object), string templateId = default(string), bool? contentAvailable = default(bool?), bool mutableContent = default(bool), string targetContentIdentifier = default(string), string bigPicture = default(string), string globalImage = default(string), string huaweiBigPicture = default(string), string admBigPicture = default(string), string chromeBigPicture = default(string), string chromeWebImage = default(string), List<Button> buttons = default(List<Button>), List<WebButton> webButtons = default(List<WebButton>), string iosCategory = default(string), string androidChannelId = default(string), string huaweiChannelId = default(string), string existingAndroidChannelId = default(string), string huaweiExistingChannelId = default(string), BasicNotificationAllOfAndroidBackgroundLayout androidBackgroundLayout = default(BasicNotificationAllOfAndroidBackgroundLayout), string smallIcon = default(string), string huaweiSmallIcon = default(string), string largeIcon = default(string), string huaweiLargeIcon = default(string), string admSmallIcon = default(string), string admLargeIcon = default(string), string chromeWebIcon = default(string), string chromeWebBadge = default(string), string firefoxIcon = default(string), string chromeIcon = default(string), string iosSound = default(string), string androidSound = default(string), string huaweiSound = default(string), string admSound = default(string), string wpWnsSound = default(string), string androidLedColor = default(string), string huaweiLedColor = default(string), string androidAccentColor = default(string), string huaweiAccentColor = default(string), int? androidVisibility = default(int?), int? huaweiVisibility = default(int?), string iosBadgeType = default(string), int? iosBadgeCount = default(int?), string collapseId = default(string), string webPushTopic = default(string), Object apnsAlert = default(Object), string delayedOption = default(string), string deliveryTimeOfDay = default(string), int? ttl = default(int?), int? priority = default(int?), string apnsPushTypeOverride = default(string), int? throttleRatePerMinute = default(int?), string androidGroup = default(string), string androidGroupMessage = default(string), string admGroup = default(string), Object admGroupMessage = default(Object), string threadId = default(string), string summaryArg = default(string), int summaryArgCount = default(int), decimal? iosRelevanceScore = default(decimal?), string iosInterruptionLevel = default(string), string emailSubject = default(string), string emailBody = default(string), string emailFromName = default(string), string emailFromAddress = default(string), string emailReplyToAddress = default(string), string emailPreheader = default(string), bool? disableEmailClickTracking = default(bool?), bool? includeUnsubscribed = default(bool?), List<string> emailBcc = default(List<string>), string emailSenderDomain = default(string), KindEnum? kind = default(KindEnum?), EmailWarmUp emailWarmUp = default(EmailWarmUp), string smsFrom = default(string), List<string> smsMediaUrls = default(List<string>), List<FilterExpression> filters = default(List<FilterExpression>), Object customData = default(Object), string huaweiBadgeClass = default(string), int? huaweiBadgeAddNum = default(int?), int? huaweiBadgeSetNum = default(int?), HuaweiCategoryEnum? huaweiCategory = default(HuaweiCategoryEnum?), string huaweiBiTag = default(string), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), int? received = default(int?), List<OutcomeData> outcomes = default(List<OutcomeData>), int remaining = default(int), long queuedAt = default(long), long? sendAfter = default(long?), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData), bool canceled = default(bool), int? bccSent = default(int?))
         {
             // to ensure "appId" is required (not null)
             if (appId == null)
@@ -437,6 +461,8 @@ namespace OneSignalApi.Model
             this.IncludeUnsubscribed = includeUnsubscribed;
             this.EmailBcc = emailBcc;
             this.EmailSenderDomain = emailSenderDomain;
+            this.Kind = kind;
+            this.EmailWarmUp = emailWarmUp;
             this.SmsFrom = smsFrom;
             this.SmsMediaUrls = smsMediaUrls;
             this.Filters = filters;
@@ -1145,9 +1171,9 @@ namespace OneSignalApi.Model
         public string IosInterruptionLevel { get; set; }
 
         /// <summary>
-        /// Channel: Email Required.  The subject of the email. 
+        /// Channel: Email Required. The subject of the email. 
         /// </summary>
-        /// <value>Channel: Email Required.  The subject of the email. </value>
+        /// <value>Channel: Email Required. The subject of the email. </value>
         [DataMember(Name = "email_subject", EmitDefaultValue = true)]
         public string EmailSubject { get; set; }
 
@@ -1213,6 +1239,12 @@ namespace OneSignalApi.Model
         /// <value>Channel: Email Sender domain to use for the email message. Overrides the default sender domain configured for the app. Only supported when the email service provider is OneSignal Email. </value>
         [DataMember(Name = "email_sender_domain", EmitDefaultValue = true)]
         public string EmailSenderDomain { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmailWarmUp
+        /// </summary>
+        [DataMember(Name = "email_warm_up", EmitDefaultValue = false)]
+        public EmailWarmUp EmailWarmUp { get; set; }
 
         /// <summary>
         /// Channel: SMS Phone Number used to send SMS. Should be a registered Twilio phone number in E.164 format. 
@@ -1475,6 +1507,8 @@ namespace OneSignalApi.Model
             sb.Append("  IncludeUnsubscribed: ").Append(IncludeUnsubscribed).Append("\n");
             sb.Append("  EmailBcc: ").Append(EmailBcc).Append("\n");
             sb.Append("  EmailSenderDomain: ").Append(EmailSenderDomain).Append("\n");
+            sb.Append("  Kind: ").Append(Kind).Append("\n");
+            sb.Append("  EmailWarmUp: ").Append(EmailWarmUp).Append("\n");
             sb.Append("  SmsFrom: ").Append(SmsFrom).Append("\n");
             sb.Append("  SmsMediaUrls: ").Append(SmsMediaUrls).Append("\n");
             sb.Append("  Filters: ").Append(Filters).Append("\n");
@@ -2089,6 +2123,15 @@ namespace OneSignalApi.Model
                     this.EmailSenderDomain.Equals(input.EmailSenderDomain))
                 ) && 
                 (
+                    this.Kind == input.Kind ||
+                    this.Kind.Equals(input.Kind)
+                ) && 
+                (
+                    this.EmailWarmUp == input.EmailWarmUp ||
+                    (this.EmailWarmUp != null &&
+                    this.EmailWarmUp.Equals(input.EmailWarmUp))
+                ) && 
+                (
                     this.SmsFrom == input.SmsFrom ||
                     (this.SmsFrom != null &&
                     this.SmsFrom.Equals(input.SmsFrom))
@@ -2624,6 +2667,11 @@ namespace OneSignalApi.Model
                 if (this.EmailSenderDomain != null)
                 {
                     hashCode = (hashCode * 59) + this.EmailSenderDomain.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Kind.GetHashCode();
+                if (this.EmailWarmUp != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmailWarmUp.GetHashCode();
                 }
                 if (this.SmsFrom != null)
                 {
