@@ -48,7 +48,8 @@ namespace OneSignalApi.Model
         /// <param name="canceled">Indicates whether the notification was canceled before it could be sent..</param>
         /// <param name="emailBcc">BCC recipients that were set on this email notification..</param>
         /// <param name="bccSent">Number of BCC copies successfully sent for this notification..</param>
-        public NotificationWithMetaAllOf(int remaining = default(int), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), long queuedAt = default(long), long? sendAfter = default(long?), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData), int? received = default(int?), int? throttleRatePerMinute = default(int?), bool canceled = default(bool), List<string> emailBcc = default(List<string>), int? bccSent = default(int?))
+        /// <param name="emailWarmUp">emailWarmUp.</param>
+        public NotificationWithMetaAllOf(int remaining = default(int), int successful = default(int), int failed = default(int), int errored = default(int), int converted = default(int), long queuedAt = default(long), long? sendAfter = default(long?), long? completedAt = default(long?), PlatformDeliveryData platformDeliveryStats = default(PlatformDeliveryData), int? received = default(int?), int? throttleRatePerMinute = default(int?), bool canceled = default(bool), List<string> emailBcc = default(List<string>), int? bccSent = default(int?), EmailWarmUp emailWarmUp = default(EmailWarmUp))
         {
             this.Remaining = remaining;
             this.Successful = successful;
@@ -64,6 +65,7 @@ namespace OneSignalApi.Model
             this.Canceled = canceled;
             this.EmailBcc = emailBcc;
             this.BccSent = bccSent;
+            this.EmailWarmUp = emailWarmUp;
         }
 
         /// <summary>
@@ -164,6 +166,12 @@ namespace OneSignalApi.Model
         public int? BccSent { get; set; }
 
         /// <summary>
+        /// Gets or Sets EmailWarmUp
+        /// </summary>
+        [DataMember(Name = "email_warm_up", EmitDefaultValue = false)]
+        public EmailWarmUp EmailWarmUp { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -185,6 +193,7 @@ namespace OneSignalApi.Model
             sb.Append("  Canceled: ").Append(Canceled).Append("\n");
             sb.Append("  EmailBcc: ").Append(EmailBcc).Append("\n");
             sb.Append("  BccSent: ").Append(BccSent).Append("\n");
+            sb.Append("  EmailWarmUp: ").Append(EmailWarmUp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -283,6 +292,11 @@ namespace OneSignalApi.Model
                     this.BccSent == input.BccSent ||
                     (this.BccSent != null &&
                     this.BccSent.Equals(input.BccSent))
+                ) && 
+                (
+                    this.EmailWarmUp == input.EmailWarmUp ||
+                    (this.EmailWarmUp != null &&
+                    this.EmailWarmUp.Equals(input.EmailWarmUp))
                 );
         }
 
@@ -329,6 +343,10 @@ namespace OneSignalApi.Model
                 if (this.BccSent != null)
                 {
                     hashCode = (hashCode * 59) + this.BccSent.GetHashCode();
+                }
+                if (this.EmailWarmUp != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmailWarmUp.GetHashCode();
                 }
                 return hashCode;
             }
