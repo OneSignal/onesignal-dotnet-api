@@ -539,6 +539,29 @@ namespace OneSignalApi.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteUserWithHttpInfo(string appId, string aliasLabel, string aliasId, int operationIndex = 0);
         /// <summary>
+        /// Estimate notification recipients
+        /// </summary>
+        /// <remarks>
+        /// Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="estimateNotificationRecipientsRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EstimateNotificationRecipientsSuccessResponse</returns>
+        EstimateNotificationRecipientsSuccessResponse EstimateNotificationRecipients(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Estimate notification recipients
+        /// </summary>
+        /// <remarks>
+        /// Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="estimateNotificationRecipientsRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EstimateNotificationRecipientsSuccessResponse</returns>
+        ApiResponse<EstimateNotificationRecipientsSuccessResponse> EstimateNotificationRecipientsWithHttpInfo(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, int operationIndex = 0);
+        /// <summary>
         /// Export CSV of Events
         /// </summary>
         /// <remarks>
@@ -2019,6 +2042,31 @@ namespace OneSignalApi.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserWithHttpInfoAsync(string appId, string aliasLabel, string aliasId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Estimate notification recipients
+        /// </summary>
+        /// <remarks>
+        /// Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="estimateNotificationRecipientsRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EstimateNotificationRecipientsSuccessResponse</returns>
+        System.Threading.Tasks.Task<EstimateNotificationRecipientsSuccessResponse> EstimateNotificationRecipientsAsync(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Estimate notification recipients
+        /// </summary>
+        /// <remarks>
+        /// Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="estimateNotificationRecipientsRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EstimateNotificationRecipientsSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EstimateNotificationRecipientsSuccessResponse>> EstimateNotificationRecipientsWithHttpInfoAsync(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Export CSV of Events
         /// </summary>
@@ -6714,6 +6762,164 @@ namespace OneSignalApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Estimate notification recipients Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="estimateNotificationRecipientsRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EstimateNotificationRecipientsSuccessResponse</returns>
+        public EstimateNotificationRecipientsSuccessResponse EstimateNotificationRecipients(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<EstimateNotificationRecipientsSuccessResponse> localVarResponse = EstimateNotificationRecipientsWithHttpInfo(estimateNotificationRecipientsRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Estimate notification recipients Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="estimateNotificationRecipientsRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EstimateNotificationRecipientsSuccessResponse</returns>
+        public OneSignalApi.Client.ApiResponse<EstimateNotificationRecipientsSuccessResponse> EstimateNotificationRecipientsWithHttpInfo(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'estimateNotificationRecipientsRequest' is set
+            if (estimateNotificationRecipientsRequest == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'estimateNotificationRecipientsRequest' when calling DefaultApi->EstimateNotificationRecipients");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = estimateNotificationRecipientsRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.EstimateNotificationRecipients";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<EstimateNotificationRecipientsSuccessResponse>("/notifications/count-unsaved", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EstimateNotificationRecipients", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Estimate notification recipients Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="estimateNotificationRecipientsRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EstimateNotificationRecipientsSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<EstimateNotificationRecipientsSuccessResponse> EstimateNotificationRecipientsAsync(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<EstimateNotificationRecipientsSuccessResponse> localVarResponse = await EstimateNotificationRecipientsWithHttpInfoAsync(estimateNotificationRecipientsRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Estimate notification recipients Returns the estimated number of recipients for a notification&#39;s targeting, without creating or sending anything. The returned &#x60;count&#x60; reflects the same audience-size estimate you would see under \&quot;Choose your target audience\&quot; when composing a message. It is based on the user targeting method you&#39;ve set and the specific platforms the message is targeted to send to. This endpoint only supports a subset of targeting parameters: &#x60;included_segments&#x60; is required (its &#x60;\&quot;All\&quot;&#x60; shorthand targets every subscriber), and &#x60;excluded_segments&#x60;, &#x60;filters&#x60;, &#x60;include_aliases&#x60;, and &#x60;target_channel&#x60; narrow that audience further. Use &#x60;target_channel&#x60; to select platforms. &#x60;include_subscription_ids&#x60; and the other raw subscription id/token fields, and the individual &#x60;isIos&#x60; / &#x60;isAndroid&#x60; / etc. platform flags, are not supported. All other notification fields (content, delivery options, and so on) are accepted, but ignored. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="estimateNotificationRecipientsRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EstimateNotificationRecipientsSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<EstimateNotificationRecipientsSuccessResponse>> EstimateNotificationRecipientsWithHttpInfoAsync(EstimateNotificationRecipientsRequest estimateNotificationRecipientsRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'estimateNotificationRecipientsRequest' is set
+            if (estimateNotificationRecipientsRequest == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'estimateNotificationRecipientsRequest' when calling DefaultApi->EstimateNotificationRecipients");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = estimateNotificationRecipientsRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.EstimateNotificationRecipients";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<EstimateNotificationRecipientsSuccessResponse>("/notifications/count-unsaved", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EstimateNotificationRecipients", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

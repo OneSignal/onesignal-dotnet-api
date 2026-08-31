@@ -216,7 +216,7 @@ namespace OneSignalApi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BasicNotification" /> class.
         /// </summary>
-        /// <param name="includedSegments">The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] .</param>
+        /// <param name="includedSegments">The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] &#x60;\&quot;All\&quot;&#x60; is a shorthand for every subscribed user: if the array includes the string &#x60;\&quot;All\&quot;&#x60; and the app has no segment actually named &#x60;All&#x60;, it targets all subscribers instead of a literal segment lookup. .</param>
         /// <param name="excludedSegments">Segment that will be excluded when sending. Users in these segments will not receive a notification, even if they were included in included_segments. This targeting parameter is only compatible with included_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] .</param>
         /// <param name="includeSubscriptionIds">Specific subscription ids to send your notification to. _Does not require API Auth Key._ Not compatible with any other targeting parameters. Example: [\&quot;1dd608f2-c6a1-11e3-851d-000c2940e62c\&quot;] Limit of 2,000 entries per REST API call .</param>
         /// <param name="includeEmailTokens">Deprecated alias for &#x60;email_to&#x60;. Target specific email addresses. If an email does not correspond to an existing user, a new user will be created. Example: nick@catfac.ts. Limit of 2,000 entries per REST API call. Prefer &#x60;email_to&#x60; in new integrations. .</param>
@@ -462,9 +462,9 @@ namespace OneSignalApi.Model
         }
 
         /// <summary>
-        /// The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] 
+        /// The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] &#x60;\&quot;All\&quot;&#x60; is a shorthand for every subscribed user: if the array includes the string &#x60;\&quot;All\&quot;&#x60; and the app has no segment actually named &#x60;All&#x60;, it targets all subscribers instead of a literal segment lookup. 
         /// </summary>
-        /// <value>The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] </value>
+        /// <value>The segment names you want to target. Users in these segments will receive a notification. This targeting parameter is only compatible with excluded_segments. Example: [\&quot;Active Users\&quot;, \&quot;Inactive Users\&quot;] &#x60;\&quot;All\&quot;&#x60; is a shorthand for every subscribed user: if the array includes the string &#x60;\&quot;All\&quot;&#x60; and the app has no segment actually named &#x60;All&#x60;, it targets all subscribers instead of a literal segment lookup. </value>
         [DataMember(Name = "included_segments", EmitDefaultValue = false)]
         public List<string> IncludedSegments { get; set; }
 
