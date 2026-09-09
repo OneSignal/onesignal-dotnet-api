@@ -31,6 +31,7 @@ Method | HTTP request | Description
 [**GetAliasesBySubscription**](DefaultApi.md#getaliasesbysubscription) | **GET** /apps/{app_id}/subscriptions/{subscription_id}/user/identity | 
 [**GetApp**](DefaultApi.md#getapp) | **GET** /apps/{app_id} | View an app
 [**GetApps**](DefaultApi.md#getapps) | **GET** /apps | View apps
+[**GetEmailReputation**](DefaultApi.md#getemailreputation) | **GET** /apps/{app_id}/email_analytics/delivery_metrics | Get email reputation statistics
 [**GetNotification**](DefaultApi.md#getnotification) | **GET** /notifications/{notification_id} | View notification
 [**GetNotificationHistory**](DefaultApi.md#getnotificationhistory) | **POST** /notifications/{notification_id}/history | Notification History
 [**GetNotifications**](DefaultApi.md#getnotifications) | **GET** /notifications | View notifications
@@ -2474,6 +2475,89 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="getemailreputation"></a>
+# **GetEmailReputation**
+> EmailReputationResponse GetEmailReputation (string appId)
+
+Get email reputation statistics
+
+The email bounce and spam complaint rates received for the app over the last 24 hours, 7 days, and 30 days. Rates are expressed as fractions of successfully delivered emails (for example, `0.02` means 2%). A window reports `0` for both rates when the app has not successfully delivered any email in that period. 
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class GetEmailReputationExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+
+            try
+            {
+                // Get email reputation statistics
+                EmailReputationResponse result = apiInstance.GetEmailReputation(appId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetEmailReputation: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+
+### Return type
+
+[**EmailReputationResponse**](EmailReputationResponse.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
