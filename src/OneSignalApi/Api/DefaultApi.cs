@@ -444,7 +444,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GenericSuccessBoolResponse</returns>
         GenericSuccessBoolResponse DeleteSegment(string appId, string segmentId, int operationIndex = 0);
@@ -457,7 +457,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GenericSuccessBoolResponse</returns>
         ApiResponse<GenericSuccessBoolResponse> DeleteSegmentWithHttpInfo(string appId, string segmentId, int operationIndex = 0);
@@ -538,6 +538,33 @@ namespace OneSignalApi.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteUserWithHttpInfo(string appId, string aliasLabel, string aliasId, int operationIndex = 0);
+        /// <summary>
+        /// Duplicate journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to copy.</param>
+        /// <param name="duplicateJourneyRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        Journey DuplicateJourney(string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = default(DuplicateJourneyRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Duplicate journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to copy.</param>
+        /// <param name="duplicateJourneyRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        ApiResponse<Journey> DuplicateJourneyWithHttpInfo(string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = default(DuplicateJourneyRequest), int operationIndex = 0);
         /// <summary>
         /// Estimate notification recipients
         /// </summary>
@@ -852,7 +879,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetSegmentSuccessResponse</returns>
@@ -866,7 +893,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetSegmentSuccessResponse</returns>
@@ -1219,7 +1246,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="updateSegmentRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpdateSegmentSuccessResponse</returns>
@@ -1233,7 +1260,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="updateSegmentRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpdateSegmentSuccessResponse</returns>
@@ -1963,7 +1990,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GenericSuccessBoolResponse</returns>
@@ -1977,7 +2004,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GenericSuccessBoolResponse)</returns>
@@ -2065,6 +2092,35 @@ namespace OneSignalApi.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserWithHttpInfoAsync(string appId, string aliasLabel, string aliasId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Duplicate journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to copy.</param>
+        /// <param name="duplicateJourneyRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        System.Threading.Tasks.Task<Journey> DuplicateJourneyAsync(string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = default(DuplicateJourneyRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Duplicate journey
+        /// </summary>
+        /// <remarks>
+        /// The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to copy.</param>
+        /// <param name="duplicateJourneyRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Journey>> DuplicateJourneyWithHttpInfoAsync(string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = default(DuplicateJourneyRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Estimate notification recipients
         /// </summary>
@@ -2403,7 +2459,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2418,7 +2474,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2796,7 +2852,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="updateSegmentRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2811,7 +2867,7 @@ namespace OneSignalApi.Api
         /// </remarks>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="updateSegmentRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6114,7 +6170,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GenericSuccessBoolResponse</returns>
         public GenericSuccessBoolResponse DeleteSegment(string appId, string segmentId, int operationIndex = 0)
@@ -6128,7 +6184,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GenericSuccessBoolResponse</returns>
         public OneSignalApi.Client.ApiResponse<GenericSuccessBoolResponse> DeleteSegmentWithHttpInfo(string appId, string segmentId, int operationIndex = 0)
@@ -6199,7 +6255,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GenericSuccessBoolResponse</returns>
@@ -6214,7 +6270,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment_id can be found in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GenericSuccessBoolResponse)</returns>
@@ -6810,6 +6866,188 @@ namespace OneSignalApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Duplicate journey The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to copy.</param>
+        /// <param name="duplicateJourneyRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Journey</returns>
+        public Journey DuplicateJourney(string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = default(DuplicateJourneyRequest), int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = DuplicateJourneyWithHttpInfo(appId, journeyId, duplicateJourneyRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Duplicate journey The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to copy.</param>
+        /// <param name="duplicateJourneyRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Journey</returns>
+        public OneSignalApi.Client.ApiResponse<Journey> DuplicateJourneyWithHttpInfo(string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = default(DuplicateJourneyRequest), int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->DuplicateJourney");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->DuplicateJourney");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+            localVarRequestOptions.Data = duplicateJourneyRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.DuplicateJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Journey>("/apps/{app_id}/journeys/{journey_id}/duplicate", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DuplicateJourney", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Duplicate journey The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to copy.</param>
+        /// <param name="duplicateJourneyRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Journey</returns>
+        public async System.Threading.Tasks.Task<Journey> DuplicateJourneyAsync(string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = default(DuplicateJourneyRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<Journey> localVarResponse = await DuplicateJourneyWithHttpInfoAsync(appId, journeyId, duplicateJourneyRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Duplicate journey The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \&quot; (Copy)\&quot;. The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="journeyId">UUID of the journey to copy.</param>
+        /// <param name="duplicateJourneyRequest"> (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Journey)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<Journey>> DuplicateJourneyWithHttpInfoAsync(string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = default(DuplicateJourneyRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->DuplicateJourney");
+            }
+
+            // verify the required parameter 'journeyId' is set
+            if (journeyId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'journeyId' when calling DefaultApi->DuplicateJourney");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("journey_id", OneSignalApi.Client.ClientUtils.ParameterToString(journeyId)); // path parameter
+            localVarRequestOptions.Data = duplicateJourneyRequest;
+
+            localVarRequestOptions.Operation = "DefaultApi.DuplicateJourney";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Journey>("/apps/{app_id}/journeys/{journey_id}/duplicate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DuplicateJourney", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -8912,7 +9150,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetSegmentSuccessResponse</returns>
@@ -8927,7 +9165,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetSegmentSuccessResponse</returns>
@@ -9003,7 +9241,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -9019,7 +9257,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="includeSegmentDetail">Set to true to include segment metadata and filters in the response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -11482,7 +11720,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="updateSegmentRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UpdateSegmentSuccessResponse</returns>
@@ -11497,7 +11735,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="updateSegmentRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UpdateSegmentSuccessResponse</returns>
@@ -11571,7 +11809,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="updateSegmentRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -11587,7 +11825,7 @@ namespace OneSignalApi.Api
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">The OneSignal App ID for your app.  Available in Keys &amp; IDs.</param>
-        /// <param name="segmentId">The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.</param>
+        /// <param name="segmentId">The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard.</param>
         /// <param name="updateSegmentRequest"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
