@@ -1,5 +1,5 @@
 # OneSignalApi.Model.Journey
-Full journey representation returned by the detail, create, and update endpoints.
+Full journey representation returned by the detail, create, update, and duplicate endpoints.
 
 ## Properties
 
