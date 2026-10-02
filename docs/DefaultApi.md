@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**DeleteSubscription**](DefaultApi.md#deletesubscription) | **DELETE** /apps/{app_id}/subscriptions/{subscription_id} | 
 [**DeleteTemplate**](DefaultApi.md#deletetemplate) | **DELETE** /templates/{template_id} | Delete template
 [**DeleteUser**](DefaultApi.md#deleteuser) | **DELETE** /apps/{app_id}/users/by/{alias_label}/{alias_id} | 
+[**DuplicateJourney**](DefaultApi.md#duplicatejourney) | **POST** /apps/{app_id}/journeys/{journey_id}/duplicate | Duplicate journey
 [**EstimateNotificationRecipients**](DefaultApi.md#estimatenotificationrecipients) | **POST** /notifications/count-unsaved | Estimate notification recipients
 [**ExportEvents**](DefaultApi.md#exportevents) | **POST** /notifications/{notification_id}/export_events | Export CSV of Events
 [**ExportSubscriptions**](DefaultApi.md#exportsubscriptions) | **POST** /players/csv_export?app_id&#x3D;{app_id} | Export CSV of Subscriptions
@@ -1592,7 +1593,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment_id can be found in the URL of the segment when viewing it in the dashboard.
+            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. In the dashboard, go to Audience > Segments, open the segment's options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment's URL in the dashboard.
 
             try
             {
@@ -1620,7 +1621,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
- **segmentId** | **string**| The segment_id can be found in the URL of the segment when viewing it in the dashboard. | 
+ **segmentId** | **string**| The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. | 
 
 ### Return type
 
@@ -1895,6 +1896,94 @@ void (empty response body)
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
+<a name="duplicatejourney"></a>
+# **DuplicateJourney**
+> Journey DuplicateJourney (string appId, string journeyId, DuplicateJourneyRequest duplicateJourneyRequest = null)
+
+Duplicate journey
+
+The Journeys API is in beta. Endpoints and response fields can still change. Copy an existing journey into a new draft. The source does not change. The copy is always a draft, and started_at and archived_at are null. If you omit the body, or omit overrides, the copy keeps the source description, audience, nodes, early_exit, and reentry_rules. The copy takes the source name plus \" (Copy)\". The copy does not keep schedule. Send schedule under overrides to set it. Server-controlled fields are rejected with 400. The authenticated App API key must have permission to create journeys.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class DuplicateJourneyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            // Configure Bearer token for authorization: rest_api_key
+            config.AccessToken = "YOUR_REST_API_KEY";
+
+            var apiInstance = new DefaultApi(config);
+            var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
+            var journeyId = "YOUR_JOURNEY_ID";  // string | UUID of the journey to copy.
+            var duplicateJourneyRequest = new DuplicateJourneyRequest(); // DuplicateJourneyRequest |  (optional) 
+
+            try
+            {
+                // Duplicate journey
+                Journey result = apiInstance.DuplicateJourney(appId, journeyId, duplicateJourneyRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.DuplicateJourney: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **string**| Your OneSignal App ID in UUID v4 format. | 
+ **journeyId** | **string**| UUID of the journey to copy. | 
+ **duplicateJourneyRequest** | [**DuplicateJourneyRequest**](DuplicateJourneyRequest.md)|  | [optional] 
+
+### Return type
+
+[**Journey**](Journey.md)
+
+### Authorization
+
+[rest_api_key](https://github.com/OneSignal/onesignal-dotnet-api#configuration)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **429** | Rate Limit Exceeded |  -  |
 | **0** | Unexpected error |  -  |
 
@@ -2945,7 +3034,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.
+            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. In the dashboard, go to Audience > Segments, open the segment's options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment's URL in the dashboard.
             var includeSegmentDetail = true;  // bool? | Set to true to include segment metadata and filters in the response. (optional) 
 
             try
@@ -2974,7 +3063,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
- **segmentId** | **string**| The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. | 
+ **segmentId** | **string**| The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. | 
  **includeSegmentDetail** | **bool?**| Set to true to include segment metadata and filters in the response. | [optional] 
 
 ### Return type
@@ -4089,7 +4178,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard.
+            var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. In the dashboard, go to Audience > Segments, open the segment's options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment's URL in the dashboard.
             var updateSegmentRequest = new UpdateSegmentRequest(); // UpdateSegmentRequest |  (optional) 
 
             try
@@ -4118,7 +4207,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **string**| The OneSignal App ID for your app.  Available in Keys &amp; IDs. | 
- **segmentId** | **string**| The segment&#39;s unique identifier. Can be found using the View Segments API or in the URL of the segment when viewing it in the dashboard. | 
+ **segmentId** | **string**| The segment&#39;s unique identifier. In the dashboard, go to Audience &gt; Segments, open the segment&#39;s options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment&#39;s URL in the dashboard. | 
  **updateSegmentRequest** | [**UpdateSegmentRequest**](UpdateSegmentRequest.md)|  | [optional] 
 
 ### Return type
