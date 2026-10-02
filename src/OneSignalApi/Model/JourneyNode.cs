@@ -152,7 +152,7 @@ namespace OneSignalApi.Model
         /// <param name="id">Server-assigned node UUID. Returned on reads. Required on update to keep an existing node. Rejected on create with a 400 validation error..</param>
         /// <param name="kind">Node kind. Selects which other fields apply. (required).</param>
         /// <param name="clientNodeId">Optional client-assigned identifier, unique within the journey. Use it to reference this node from elsewhere in the same request. Persisted and returned on reads..</param>
-        /// <param name="annotation">Optional free-text label, up to 255 characters. Stored and returned as-is with no effect on journey behavior..</param>
+        /// <param name="annotation">Optional free-text label, up to 1024 characters. Stored and returned as-is with no effect on journey behavior..</param>
         /// <param name="durationSeconds">wait nodes: seconds to hold the user. Minimum 60, maximum 31556952 (1 year)..</param>
         /// <param name="relativeTo">time_window nodes: schedule_in_timezone uses the configured windows; last_active_time holds relative to the user&#39;s last active time..</param>
         /// <param name="windows">time_window nodes: one or more time windows. A window with no day_of_week applies to every day. Required when relative_to is schedule_in_timezone; omit when it is last_active_time..</param>
@@ -164,7 +164,7 @@ namespace OneSignalApi.Model
         /// <param name="webhookId">send_webhook nodes: UUID of the webhook to send..</param>
         /// <param name="assignments">tag nodes: tag key-value pairs to assign. An empty string value removes the tag. Keys are limited to 255 characters and values to 1024..</param>
         /// <param name="randomizeOnEntry">split_range nodes: when true, assigns each user to a branch at random on entry. Defaults to false..</param>
-        /// <param name="branches">Branching nodes: nested branches. split_range requires 2-20 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-10 condition branches..</param>
+        /// <param name="branches">Branching nodes: nested branches. split_range requires 2-25 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-25 condition branches..</param>
         /// <param name="expiration">expiration.</param>
         public JourneyNode(string id = default(string), KindEnum kind = default(KindEnum), string clientNodeId = default(string), string annotation = default(string), int? durationSeconds = default(int?), RelativeToEnum? relativeTo = default(RelativeToEnum?), List<JourneyTimeWindow> windows = default(List<JourneyTimeWindow>), string timeZone = default(string), bool? useUserTimeZone = default(bool?), string templateId = default(string), string iamId = default(string), int? userTtlSeconds = default(int?), string webhookId = default(string), Dictionary<string, string> assignments = default(Dictionary<string, string>), bool? randomizeOnEntry = default(bool?), List<JourneyBranch> branches = default(List<JourneyBranch>), JourneyWaitUntilExpiration expiration = default(JourneyWaitUntilExpiration))
         {
@@ -202,9 +202,9 @@ namespace OneSignalApi.Model
         public string ClientNodeId { get; set; }
 
         /// <summary>
-        /// Optional free-text label, up to 255 characters. Stored and returned as-is with no effect on journey behavior.
+        /// Optional free-text label, up to 1024 characters. Stored and returned as-is with no effect on journey behavior.
         /// </summary>
-        /// <value>Optional free-text label, up to 255 characters. Stored and returned as-is with no effect on journey behavior.</value>
+        /// <value>Optional free-text label, up to 1024 characters. Stored and returned as-is with no effect on journey behavior.</value>
         [DataMember(Name = "annotation", EmitDefaultValue = false)]
         public string Annotation { get; set; }
 
@@ -279,9 +279,9 @@ namespace OneSignalApi.Model
         public bool? RandomizeOnEntry { get; set; }
 
         /// <summary>
-        /// Branching nodes: nested branches. split_range requires 2-20 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-10 condition branches.
+        /// Branching nodes: nested branches. split_range requires 2-25 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-25 condition branches.
         /// </summary>
-        /// <value>Branching nodes: nested branches. split_range requires 2-20 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-10 condition branches.</value>
+        /// <value>Branching nodes: nested branches. split_range requires 2-25 weighted branches that sum to 100. yes_no requires exactly 2 branches. wait_until requires 1-25 condition branches.</value>
         [DataMember(Name = "branches", EmitDefaultValue = false)]
         public List<JourneyBranch> Branches { get; set; }
 

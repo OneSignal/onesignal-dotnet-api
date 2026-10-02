@@ -26,7 +26,7 @@ using OpenAPIDateConverter = OneSignalApi.Client.OpenAPIDateConverter;
 namespace OneSignalApi.Model
 {
     /// <summary>
-    /// Full journey representation returned by the detail, create, and update endpoints.
+    /// Full journey representation returned by the detail, create, update, and duplicate endpoints.
     /// </summary>
     [DataContract(Name = "Journey")]
     public partial class Journey : IEquatable<Journey>, IValidatableObject
