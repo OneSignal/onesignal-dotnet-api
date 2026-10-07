@@ -47,6 +47,9 @@ jobs:
     needs: release
     if: needs.release.outputs.new_release_published == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v5
       - name: Setup dotnet
@@ -58,5 +61,10 @@ jobs:
           dotnet restore
           dotnet build --configuration Release --no-restore
           dotnet pack src/OneSignalApi/OneSignalApi.csproj --configuration Release --no-build --output nupkgs
+      - name: NuGet login
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: OneSignal_SDK
       - name: Publish to NuGet
-        run: dotnet nuget push nupkgs/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push nupkgs/*.nupkg --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
