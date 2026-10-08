@@ -65,6 +65,8 @@ var notification = new Notification
 CreateNotificationSuccessResponse response = client.CreateNotification(notification);
 ```
 
+> **Dictionary key case:** by default the SDK converts dictionary keys (`Data`, `Tags`, `Identity`, custom event payloads) to camelCase before it sends them, so `Data["OrderId"]` reaches the API as `orderId`. Set `Configuration.PreserveDictionaryKeyCase = true` to send keys exactly as written — this matches the REST API and the other server SDKs, and it will become the default in the next major version.
+
 ## Idempotent sends & retries
 
 Set `idempotency_key` (a UUID) so a create-notification request can be safely retried — the server returns the original result instead of sending twice. The `CreateNotificationWithRetry` helper handles this for you: it generates an `idempotency_key` when absent, retries `429` / `503` / transport errors with the **same** key (honoring `Retry-After`), and reports via `WasReplayed` whether the server answered from a previously completed request.

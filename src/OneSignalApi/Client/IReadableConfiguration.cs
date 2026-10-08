@@ -125,5 +125,12 @@ namespace OneSignalApi.Client
         /// </summary>
         /// <value>X509 Certificate collection.</value>
         X509CertificateCollection ClientCertificates { get; }
+
+        /// <summary>
+        /// Gets whether dictionary keys in request bodies are sent exactly as written
+        /// instead of converted to camelCase.
+        /// </summary>
+        /// <value>True to keep dictionary keys as written.</value>
+        bool PreserveDictionaryKeyCase { get; }
     }
 }
