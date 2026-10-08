@@ -5,7 +5,7 @@
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
 - API version: 5.17.0
-- SDK version: 5.18.0
+- SDK version: 5.19.0
 
 ## Installation
 
@@ -32,6 +32,20 @@ config.AccessToken = "YOUR_REST_API_KEY";
 
 var client = new DefaultApi(config);
 ```
+
+### Dictionary key case
+
+Since 5.4.0 the SDK converts dictionary keys in request bodies to camelCase: `Data["OrderId"]` reaches the API as `orderId`, and a tag named `FavoriteColor` is stored as `favoriteColor`. Set `PreserveDictionaryKeyCase` to `true` to send the keys exactly as written. This matches the REST API, the other OneSignal server SDKs, and versions 2.x of this package. Use it when you upgrade from 2.x so installed apps that read `additionalData` by key keep working.
+
+```csharp
+var config = new Configuration();
+config.AccessToken = "YOUR_REST_API_KEY";
+config.PreserveDictionaryKeyCase = true;
+```
+
+The setting applies to `Dictionary<string, T>` values. Anonymous objects assigned to `Object` fields, such as `Data = new { OrderId = 1 }`, are serialized by property-name rules and stay camelCase in both modes. Set the flag on `GlobalConfiguration.Instance` to apply it to every client; a per-client `Configuration` cannot turn it off again.
+
+Unchanged keys will become the default in the next major version.
 
 ## Send a push notification
 

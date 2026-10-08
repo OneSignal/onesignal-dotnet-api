@@ -31,7 +31,7 @@ namespace OneSignalApi.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "5.18.0";
+        public const string Version = "5.19.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -108,7 +108,7 @@ namespace OneSignalApi.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator-5.18.0-csharp";
+            UserAgent = "OpenAPI-Generator-5.19.0-csharp";
             BasePath = "https://api.onesignal.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -252,6 +252,29 @@ namespace OneSignalApi.Client
         /// </summary>
         /// <value>X509 Certificate collection.</value>
         public X509CertificateCollection ClientCertificates { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether dictionary keys in request bodies are sent exactly as written.
+        ///
+        /// By default the SDK converts dictionary keys to camelCase before it sends them,
+        /// so <c>Data["OrderId"]</c> reaches the API as <c>orderId</c> and a tag named
+        /// <c>FavoriteColor</c> is stored as <c>favoriteColor</c>. Set this to <c>true</c>
+        /// to send notification <c>data</c>, <c>custom_data</c>, <c>tags</c>, alias labels,
+        /// custom event payloads and other dictionary keys unchanged. This matches the REST API,
+        /// the other OneSignal server SDKs and versions 2.x of this package.
+        ///
+        /// This setting applies to <c>Dictionary&lt;string, T&gt;</c> values. Model property names
+        /// (for example <c>app_id</c>) are not affected. Anonymous objects or POCOs assigned to
+        /// <c>Object</c> fields such as <c>Notification.Data</c> are serialized by property-name
+        /// rules and stay camelCase in both modes.
+        ///
+        /// When set on <c>GlobalConfiguration.Instance</c>, the flag applies to every client and
+        /// cannot be turned off by a per-client <c>Configuration</c>.
+        ///
+        /// Unchanged keys will become the default in the next major version.
+        /// </summary>
+        /// <value>True to keep dictionary keys as written; false (default) to camelCase them.</value>
+        public virtual bool PreserveDictionaryKeyCase { get; set; }
 
         /// <summary>
         /// Gets or sets the access token for OAuth2 authentication.
@@ -516,7 +539,7 @@ namespace OneSignalApi.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 5.17.0\n";
-            report += "    SDK Package Version: 5.18.0\n";
+            report += "    SDK Package Version: 5.19.0\n";
 
             return report;
         }
@@ -578,6 +601,7 @@ namespace OneSignalApi.Client
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
+                PreserveDictionaryKeyCase = second.PreserveDictionaryKeyCase || first.PreserveDictionaryKeyCase,
             };
             return config;
         }

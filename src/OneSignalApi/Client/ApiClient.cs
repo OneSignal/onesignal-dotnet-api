@@ -39,6 +39,34 @@ namespace OneSignalApi.Client
     {
         private readonly string _baseUrl;
 
+        private static readonly Newtonsoft.Json.JsonSerializerSettings _preserveDictionaryKeyCaseSettings = new Newtonsoft.Json.JsonSerializerSettings
+        {
+            ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver
+            {
+                NamingStrategy = new Newtonsoft.Json.Serialization.CamelCaseNamingStrategy
+                {
+                    ProcessDictionaryKeys = false,
+                    OverrideSpecifiedNames = false
+                }
+            },
+            DefaultValueHandling = Newtonsoft.Json.DefaultValueHandling.Include,
+            TypeNameHandling = Newtonsoft.Json.TypeNameHandling.None,
+            NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
+            Formatting = Newtonsoft.Json.Formatting.None,
+            ConstructorHandling = Newtonsoft.Json.ConstructorHandling.AllowNonPublicDefaultConstructor
+        };
+
+        private static void ConfigureSerialization(RestSharp.Serializers.SerializerConfig serializerConfig, IReadableConfiguration configuration)
+        {
+            if (configuration.PreserveDictionaryKeyCase)
+            {
+                serializerConfig.UseNewtonsoftJson(_preserveDictionaryKeyCaseSettings);
+                return;
+            }
+
+            serializerConfig.UseNewtonsoftJson();
+        }
+
         /// <summary>
         /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
         /// </summary>
@@ -156,7 +184,7 @@ namespace OneSignalApi.Client
             }
 
             // Always add the One Signal telemetry to the request.
-            request.AddHeader("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-dotnet, version=5.18.0");
+            request.AddHeader("OS-Usage-Data", "kind=sdk, sdk-name=onesignal-dotnet, version=5.19.0");
 
             if (configuration.DefaultHeaders != null)
             {    
@@ -279,7 +307,7 @@ namespace OneSignalApi.Client
                 ClientCertificates = configuration.ClientCertificates
             };
 
-            var client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
+            var client = new RestClient(clientOptions, configureSerialization: s => ConfigureSerialization(s, configuration));
 
             InterceptRequest(req);
 
@@ -335,7 +363,7 @@ namespace OneSignalApi.Client
                 ClientCertificates = configuration.ClientCertificates
             };
 
-            var client = new RestClient(clientOptions, configureSerialization: s => s.UseNewtonsoftJson());
+            var client = new RestClient(clientOptions, configureSerialization: s => ConfigureSerialization(s, configuration));
 
             InterceptRequest(req);
 
