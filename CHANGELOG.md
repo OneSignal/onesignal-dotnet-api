@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.19.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.18.0...v5.19.0) (2026-10-08)
+
+### Features
+
+* add v5.19.0 package updates ([93f0189](https://github.com/OneSignal/onesignal-dotnet-api/commit/93f01899d9e5d574d3770695746ca7d8c606c20b))
+* add v5.19.0 package updates ([#154](https://github.com/OneSignal/onesignal-dotnet-api/issues/154)) ([b8cb58d](https://github.com/OneSignal/onesignal-dotnet-api/commit/b8cb58df6d8f9f36e86a423c65bd7a68e12ddfc4))
+
 ## [5.18.0](https://github.com/OneSignal/onesignal-dotnet-api/compare/v5.17.0...v5.18.0) (2026-10-02)
 
 ### Features
