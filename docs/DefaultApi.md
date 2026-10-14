@@ -214,7 +214,7 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var templateId = "e4d3c2b1-a09f-4f1e-8d7c-6b5a4f3e2d1c";  // string | 
             var appId = "YOUR_APP_ID";  // string | 
-            var copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
+            var copyTemplateRequest = new CopyTemplateRequest(targetAppId: "YOUR_TARGET_APP_ID"); // CopyTemplateRequest | 
 
             try
             {
@@ -639,7 +639,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
-            var customEventsRequest = new CustomEventsRequest(); // CustomEventsRequest | 
+            var customEventsRequest = new CustomEventsRequest(events: new List<CustomEvent> { new CustomEvent(name: "YOUR_NAME") }); // CustomEventsRequest | 
 
             try
             {
@@ -724,7 +724,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
-            var createJourneyRequest = new CreateJourneyRequest(); // CreateJourneyRequest | 
+            var createJourneyRequest = new CreateJourneyRequest(name: "YOUR_NAME"); // CreateJourneyRequest | 
 
             try
             {
@@ -980,7 +980,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
-            var segment = new Segment(); // Segment |  (optional) 
+            var segment = new Segment(name: "Inactive 30 days", filters: new List<FilterExpression> { new FilterExpression(new Filter()) }); // Segment |  (optional) 
 
             try
             {
@@ -1154,7 +1154,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var createTemplateRequest = new CreateTemplateRequest(); // CreateTemplateRequest | 
+            var createTemplateRequest = new CreateTemplateRequest(appId: "YOUR_APP_ID", name: "YOUR_NAME", contents: new LanguageStringMap()); // CreateTemplateRequest | 
 
             try
             {
@@ -2018,7 +2018,7 @@ namespace Example
             config.AccessToken = "YOUR_REST_API_KEY";
 
             var apiInstance = new DefaultApi(config);
-            var estimateNotificationRecipientsRequest = new EstimateNotificationRecipientsRequest(); // EstimateNotificationRecipientsRequest | 
+            var estimateNotificationRecipientsRequest = new EstimateNotificationRecipientsRequest(appId: "YOUR_APP_ID"); // EstimateNotificationRecipientsRequest | 
 
             try
             {
@@ -3293,10 +3293,10 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var organizationId = "YOUR_ORG_ID";  // string | The UUID of the organization to retrieve audit logs for. Must match the authenticated Organization API Key.
-            var startTime = "startTime_example";  // string | Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. (optional) 
-            var endTime = "endTime_example";  // string | End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. (optional) 
-            var limit = 56;  // int? | Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. (optional) 
+            var startTime = "2026-02-01T00:00:00Z";  // string | Start of the time range in ISO 8601 format (e.g. 2026-02-01T00:00:00Z). Required unless cursor is provided. Must be within the last 90 days. (optional) 
+            var endTime = "2026-02-02T00:00:00Z";  // string | End of the time range in ISO 8601 format. Defaults to the current time. Must be after start_time. (optional) 
+            var cursor = "YOUR_NEXT_CURSOR";  // string | Pagination cursor returned in a previous response as next_cursor. When provided, start_time and end_time are ignored. (optional) 
+            var limit = 50;  // int? | Maximum number of events to return per page. Minimum 1, maximum 100. Values outside this range are clamped automatically by the server. (optional) 
             var appIds = new List<string>(); // List<string> | Filter events by app UUID. Accepts up to 10 values. Org-level events are always included. (optional) 
             var actions = new List<string>(); // List<string> | Filter by action type (e.g. notification.sent, segment.created). Accepts up to 20 values. (optional) 
             var actorIds = new List<string>(); // List<string> | Filter by actor UUID (the user or service that performed the action). Accepts up to 10 values. (optional) 
@@ -3483,7 +3483,7 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
             var activityType = "order_status";  // string | The name of the Live Activity defined in your app. This should match the attributes struct used in your app's Live Activity implementation.
-            var startLiveActivityRequest = new StartLiveActivityRequest(); // StartLiveActivityRequest | 
+            var startLiveActivityRequest = new StartLiveActivityRequest(name: "YOUR_NAME", _event: StartLiveActivityRequest.EventEnum.Start, activityId: "YOUR_ACTIVITY_ID", eventAttributes: new Object(), eventUpdates: new Object(), contents: new LanguageStringMap(), headings: new LanguageStringMap()); // StartLiveActivityRequest | 
 
             try
             {
@@ -4093,7 +4093,7 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var activityId = "12345";  // string | Live Activity record ID
-            var updateLiveActivityRequest = new UpdateLiveActivityRequest(); // UpdateLiveActivityRequest | 
+            var updateLiveActivityRequest = new UpdateLiveActivityRequest(name: "YOUR_NAME", _event: UpdateLiveActivityRequest.EventEnum.Update, eventUpdates: new Object()); // UpdateLiveActivityRequest | 
 
             try
             {
@@ -4179,7 +4179,7 @@ namespace Example
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | The OneSignal App ID for your app.  Available in Keys & IDs.
             var segmentId = "d6c5a3e1-9f17-44a1-9d10-7c0e4a2b1c8e";  // string | The segment's unique identifier. In the dashboard, go to Audience > Segments, open the segment's options menu, and select Copy segment ID. You can also get it from the View Segments API or the segment's URL in the dashboard.
-            var updateSegmentRequest = new UpdateSegmentRequest(); // UpdateSegmentRequest |  (optional) 
+            var updateSegmentRequest = new UpdateSegmentRequest(name: "YOUR_NAME"); // UpdateSegmentRequest |  (optional) 
 
             try
             {
@@ -4862,7 +4862,7 @@ namespace Example
 
             var apiInstance = new DefaultApi(config);
             var appId = "YOUR_APP_ID";  // string | Your OneSignal App ID in UUID v4 format.
-            var cursor = "cursor_example";  // string | Opaque pagination token from a previous response's next_cursor. Omit for the first page. (optional) 
+            var cursor = "YOUR_NEXT_CURSOR";  // string | Opaque pagination token from a previous response's next_cursor. Omit for the first page. (optional) 
             var limit = 50;  // int? | Maximum journeys to return per page. Minimum 1, maximum 50. (optional)  (default to 50)
 
             try
