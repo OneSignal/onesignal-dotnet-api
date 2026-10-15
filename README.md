@@ -4,8 +4,8 @@
 
 A powerful way to send personalized messages at scale and build effective customer engagement strategies. Learn more at onesignal.com
 
-- API version: 5.17.0
-- SDK version: 5.19.0
+- API version: 5.18.0
+- SDK version: 5.20.0
 
 ## Installation
 
