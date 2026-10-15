@@ -735,6 +735,68 @@ namespace OneSignalApi.Api
         /// <returns>ApiResponse of List&lt;App&gt;</returns>
         ApiResponse<List<App>> GetAppsWithHttpInfo(int operationIndex = 0);
         /// <summary>
+        /// Get email inbox provider metrics
+        /// </summary>
+        /// <remarks>
+        /// Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EmailProviderMetricsResponse</returns>
+        EmailProviderMetricsResponse GetEmailProviderMetrics(string appId, string domain, DateTime start, DateTime end, int operationIndex = 0);
+
+        /// <summary>
+        /// Get email inbox provider metrics
+        /// </summary>
+        /// <remarks>
+        /// Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EmailProviderMetricsResponse</returns>
+        ApiResponse<EmailProviderMetricsResponse> GetEmailProviderMetricsWithHttpInfo(string appId, string domain, DateTime start, DateTime end, int operationIndex = 0);
+        /// <summary>
+        /// Get email inbox provider metrics over time
+        /// </summary>
+        /// <remarks>
+        /// Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="granularity">The size of each time bucket. Hourly data is only available for the last 60 days.</param>
+        /// <param name="providers">Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EmailProviderMetricsTimeseriesResponse</returns>
+        EmailProviderMetricsTimeseriesResponse GetEmailProviderMetricsTimeseries(string appId, string domain, DateTime start, DateTime end, string granularity, List<string> providers = default(List<string>), int operationIndex = 0);
+
+        /// <summary>
+        /// Get email inbox provider metrics over time
+        /// </summary>
+        /// <remarks>
+        /// Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="granularity">The size of each time bucket. Hourly data is only available for the last 60 days.</param>
+        /// <param name="providers">Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EmailProviderMetricsTimeseriesResponse</returns>
+        ApiResponse<EmailProviderMetricsTimeseriesResponse> GetEmailProviderMetricsTimeseriesWithHttpInfo(string appId, string domain, DateTime start, DateTime end, string granularity, List<string> providers = default(List<string>), int operationIndex = 0);
+        /// <summary>
         /// Get email reputation statistics
         /// </summary>
         /// <remarks>
@@ -2304,6 +2366,72 @@ namespace OneSignalApi.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;App&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<App>>> GetAppsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get email inbox provider metrics
+        /// </summary>
+        /// <remarks>
+        /// Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmailProviderMetricsResponse</returns>
+        System.Threading.Tasks.Task<EmailProviderMetricsResponse> GetEmailProviderMetricsAsync(string appId, string domain, DateTime start, DateTime end, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get email inbox provider metrics
+        /// </summary>
+        /// <remarks>
+        /// Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmailProviderMetricsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailProviderMetricsResponse>> GetEmailProviderMetricsWithHttpInfoAsync(string appId, string domain, DateTime start, DateTime end, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get email inbox provider metrics over time
+        /// </summary>
+        /// <remarks>
+        /// Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="granularity">The size of each time bucket. Hourly data is only available for the last 60 days.</param>
+        /// <param name="providers">Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmailProviderMetricsTimeseriesResponse</returns>
+        System.Threading.Tasks.Task<EmailProviderMetricsTimeseriesResponse> GetEmailProviderMetricsTimeseriesAsync(string appId, string domain, DateTime start, DateTime end, string granularity, List<string> providers = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get email inbox provider metrics over time
+        /// </summary>
+        /// <remarks>
+        /// Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="granularity">The size of each time bucket. Hourly data is only available for the last 60 days.</param>
+        /// <param name="providers">Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmailProviderMetricsTimeseriesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailProviderMetricsTimeseriesResponse>> GetEmailProviderMetricsTimeseriesWithHttpInfoAsync(string appId, string domain, DateTime start, DateTime end, string granularity, List<string> providers = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get email reputation statistics
         /// </summary>
@@ -8204,6 +8332,408 @@ namespace OneSignalApi.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetApps", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get email inbox provider metrics Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EmailProviderMetricsResponse</returns>
+        public EmailProviderMetricsResponse GetEmailProviderMetrics(string appId, string domain, DateTime start, DateTime end, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<EmailProviderMetricsResponse> localVarResponse = GetEmailProviderMetricsWithHttpInfo(appId, domain, start, end);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email inbox provider metrics Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EmailProviderMetricsResponse</returns>
+        public OneSignalApi.Client.ApiResponse<EmailProviderMetricsResponse> GetEmailProviderMetricsWithHttpInfo(string appId, string domain, DateTime start, DateTime end, int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->GetEmailProviderMetrics");
+            }
+
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'domain' when calling DefaultApi->GetEmailProviderMetrics");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "domain", domain));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "end", end));
+
+            localVarRequestOptions.Operation = "DefaultApi.GetEmailProviderMetrics";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<EmailProviderMetricsResponse>("/apps/{app_id}/email_analytics/provider_metrics", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEmailProviderMetrics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get email inbox provider metrics Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmailProviderMetricsResponse</returns>
+        public async System.Threading.Tasks.Task<EmailProviderMetricsResponse> GetEmailProviderMetricsAsync(string appId, string domain, DateTime start, DateTime end, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<EmailProviderMetricsResponse> localVarResponse = await GetEmailProviderMetricsWithHttpInfoAsync(appId, domain, start, end, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email inbox provider metrics Email delivery, opens, clicks, bounces, failures, and spam complaints broken down by inbox provider (Gmail, Outlook, Yahoo, Apple, and more) to pinpoint where deliverability problems are coming from. Metrics are reported for a single sending domain over the requested time range. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago. &#x60;providers&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmailProviderMetricsResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<EmailProviderMetricsResponse>> GetEmailProviderMetricsWithHttpInfoAsync(string appId, string domain, DateTime start, DateTime end, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->GetEmailProviderMetrics");
+            }
+
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'domain' when calling DefaultApi->GetEmailProviderMetrics");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "domain", domain));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "end", end));
+
+            localVarRequestOptions.Operation = "DefaultApi.GetEmailProviderMetrics";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<EmailProviderMetricsResponse>("/apps/{app_id}/email_analytics/provider_metrics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEmailProviderMetrics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get email inbox provider metrics over time Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="granularity">The size of each time bucket. Hourly data is only available for the last 60 days.</param>
+        /// <param name="providers">Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EmailProviderMetricsTimeseriesResponse</returns>
+        public EmailProviderMetricsTimeseriesResponse GetEmailProviderMetricsTimeseries(string appId, string domain, DateTime start, DateTime end, string granularity, List<string> providers = default(List<string>), int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<EmailProviderMetricsTimeseriesResponse> localVarResponse = GetEmailProviderMetricsTimeseriesWithHttpInfo(appId, domain, start, end, granularity, providers);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email inbox provider metrics over time Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="granularity">The size of each time bucket. Hourly data is only available for the last 60 days.</param>
+        /// <param name="providers">Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EmailProviderMetricsTimeseriesResponse</returns>
+        public OneSignalApi.Client.ApiResponse<EmailProviderMetricsTimeseriesResponse> GetEmailProviderMetricsTimeseriesWithHttpInfo(string appId, string domain, DateTime start, DateTime end, string granularity, List<string> providers = default(List<string>), int operationIndex = 0)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->GetEmailProviderMetricsTimeseries");
+            }
+
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'domain' when calling DefaultApi->GetEmailProviderMetricsTimeseries");
+            }
+
+            // verify the required parameter 'granularity' is set
+            if (granularity == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'granularity' when calling DefaultApi->GetEmailProviderMetricsTimeseries");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "domain", domain));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "end", end));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "granularity", granularity));
+            if (providers != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("multi", "providers[]", providers));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetEmailProviderMetricsTimeseries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<EmailProviderMetricsTimeseriesResponse>("/apps/{app_id}/email_analytics/provider_metrics_timeseries", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEmailProviderMetricsTimeseries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get email inbox provider metrics over time Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="granularity">The size of each time bucket. Hourly data is only available for the last 60 days.</param>
+        /// <param name="providers">Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EmailProviderMetricsTimeseriesResponse</returns>
+        public async System.Threading.Tasks.Task<EmailProviderMetricsTimeseriesResponse> GetEmailProviderMetricsTimeseriesAsync(string appId, string domain, DateTime start, DateTime end, string granularity, List<string> providers = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<EmailProviderMetricsTimeseriesResponse> localVarResponse = await GetEmailProviderMetricsTimeseriesWithHttpInfoAsync(appId, domain, start, end, granularity, providers, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email inbox provider metrics over time Email delivery, opens, clicks, bounces, failures, and spam complaints for a sending domain over time, bucketed by hour, day, or month. Use &#x60;providers[]&#x60; to narrow the totals to specific inbox providers (Gmail, Outlook, Yahoo, Apple, and more) and track how deliverability to them changes. Each event&#39;s metrics are totaled across the requested providers, or across all providers when none are given. &#x60;start&#x60; must be before &#x60;end&#x60; and no more than 365 days ago, or 60 days ago for &#x60;hourly&#x60; granularity. &#x60;events&#x60; is empty when the domain is not found for the app or is not currently active for sending. 
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">Your OneSignal App ID in UUID v4 format.</param>
+        /// <param name="domain">The sending domain to report on. Must be an email domain configured for this app.</param>
+        /// <param name="start">Start of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-01T00:00:00Z&#x60;).</param>
+        /// <param name="end">End of the reporting window, as an ISO 8601 timestamp (for example, &#x60;2026-08-08T00:00:00Z&#x60;).</param>
+        /// <param name="granularity">The size of each time bucket. Hourly data is only available for the last 60 days.</param>
+        /// <param name="providers">Inbox providers to include in the totals. Omit to include all providers. Accepted values: &#x60;apple&#x60;, &#x60;att&#x60;, &#x60;canadian&#x60;, &#x60;chinese&#x60;, &#x60;comcast&#x60;, &#x60;free_fr&#x60;, &#x60;french&#x60;, &#x60;german&#x60;, &#x60;gmail&#x60;, &#x60;google_workspace&#x60;, &#x60;googlers&#x60;, &#x60;inbox_lv&#x60;, &#x60;italian&#x60;, &#x60;japanese&#x60;, &#x60;outlook_365&#x60;, &#x60;outlook_eu&#x60;, &#x60;outlook_us&#x60;, &#x60;proton&#x60;, &#x60;rackspace&#x60;, &#x60;russian&#x60;, &#x60;uk&#x60;, &#x60;united_online&#x60;, &#x60;yahoo_eu&#x60;, &#x60;yahoo_us&#x60;, &#x60;other_eu&#x60;, &#x60;other_us&#x60;, and &#x60;other&#x60;. Example: providers[]&#x3D;gmail&amp;providers[]&#x3D;yahoo_us  (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EmailProviderMetricsTimeseriesResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<EmailProviderMetricsTimeseriesResponse>> GetEmailProviderMetricsTimeseriesWithHttpInfoAsync(string appId, string domain, DateTime start, DateTime end, string granularity, List<string> providers = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'appId' when calling DefaultApi->GetEmailProviderMetricsTimeseries");
+            }
+
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'domain' when calling DefaultApi->GetEmailProviderMetricsTimeseries");
+            }
+
+            // verify the required parameter 'granularity' is set
+            if (granularity == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'granularity' when calling DefaultApi->GetEmailProviderMetricsTimeseries");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("app_id", OneSignalApi.Client.ClientUtils.ParameterToString(appId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "domain", domain));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "end", end));
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "granularity", granularity));
+            if (providers != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("multi", "providers[]", providers));
+            }
+
+            localVarRequestOptions.Operation = "DefaultApi.GetEmailProviderMetricsTimeseries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (rest_api_key) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Key " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<EmailProviderMetricsTimeseriesResponse>("/apps/{app_id}/email_analytics/provider_metrics_timeseries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEmailProviderMetricsTimeseries", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
