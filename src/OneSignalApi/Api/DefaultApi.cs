@@ -820,6 +820,29 @@ namespace OneSignalApi.Api
         /// <returns>ApiResponse of EmailReputationResponse</returns>
         ApiResponse<EmailReputationResponse> GetEmailReputationWithHttpInfo(string appId, int operationIndex = 0);
         /// <summary>
+        /// Get Journey schema
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation">The authoring operation whose schema you need.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>JourneySchemaResponse</returns>
+        JourneySchemaResponse GetJourneySchema(string operation, int operationIndex = 0);
+
+        /// <summary>
+        /// Get Journey schema
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation">The authoring operation whose schema you need.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of JourneySchemaResponse</returns>
+        ApiResponse<JourneySchemaResponse> GetJourneySchemaWithHttpInfo(string operation, int operationIndex = 0);
+        /// <summary>
         /// View notification
         /// </summary>
         /// <remarks>
@@ -1575,9 +1598,10 @@ namespace OneSignalApi.Api
         /// <param name="limit">Maximum number of templates. Default and max is 50. (optional, default to 50)</param>
         /// <param name="offset">Pagination offset. (optional, default to 0)</param>
         /// <param name="channel">Filter by delivery channel. (optional)</param>
+        /// <param name="name">Return only templates whose name contains this text, ignoring case. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesListResponse</returns>
-        TemplatesListResponse ViewTemplates(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), int operationIndex = 0);
+        TemplatesListResponse ViewTemplates(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), string name = default(string), int operationIndex = 0);
 
         /// <summary>
         /// View templates
@@ -1590,9 +1614,10 @@ namespace OneSignalApi.Api
         /// <param name="limit">Maximum number of templates. Default and max is 50. (optional, default to 50)</param>
         /// <param name="offset">Pagination offset. (optional, default to 0)</param>
         /// <param name="channel">Filter by delivery channel. (optional)</param>
+        /// <param name="name">Return only templates whose name contains this text, ignoring case. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesListResponse</returns>
-        ApiResponse<TemplatesListResponse> ViewTemplatesWithHttpInfo(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), int operationIndex = 0);
+        ApiResponse<TemplatesListResponse> ViewTemplatesWithHttpInfo(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), string name = default(string), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -2458,6 +2483,31 @@ namespace OneSignalApi.Api
         /// <returns>Task of ApiResponse (EmailReputationResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailReputationResponse>> GetEmailReputationWithHttpInfoAsync(string appId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Get Journey schema
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation">The authoring operation whose schema you need.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of JourneySchemaResponse</returns>
+        System.Threading.Tasks.Task<JourneySchemaResponse> GetJourneySchemaAsync(string operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Journey schema
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+        /// </remarks>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation">The authoring operation whose schema you need.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (JourneySchemaResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<JourneySchemaResponse>> GetJourneySchemaWithHttpInfoAsync(string operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// View notification
         /// </summary>
         /// <remarks>
@@ -3267,10 +3317,11 @@ namespace OneSignalApi.Api
         /// <param name="limit">Maximum number of templates. Default and max is 50. (optional, default to 50)</param>
         /// <param name="offset">Pagination offset. (optional, default to 0)</param>
         /// <param name="channel">Filter by delivery channel. (optional)</param>
+        /// <param name="name">Return only templates whose name contains this text, ignoring case. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesListResponse</returns>
-        System.Threading.Tasks.Task<TemplatesListResponse> ViewTemplatesAsync(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplatesListResponse> ViewTemplatesAsync(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), string name = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// View templates
@@ -3283,10 +3334,11 @@ namespace OneSignalApi.Api
         /// <param name="limit">Maximum number of templates. Default and max is 50. (optional, default to 50)</param>
         /// <param name="offset">Pagination offset. (optional, default to 0)</param>
         /// <param name="channel">Filter by delivery channel. (optional)</param>
+        /// <param name="name">Return only templates whose name contains this text, ignoring case. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatesListResponse>> ViewTemplatesWithHttpInfoAsync(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplatesListResponse>> ViewTemplatesWithHttpInfoAsync(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), string name = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -8900,6 +8952,150 @@ namespace OneSignalApi.Api
         }
 
         /// <summary>
+        /// Get Journey schema Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation">The authoring operation whose schema you need.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>JourneySchemaResponse</returns>
+        public JourneySchemaResponse GetJourneySchema(string operation, int operationIndex = 0)
+        {
+            OneSignalApi.Client.ApiResponse<JourneySchemaResponse> localVarResponse = GetJourneySchemaWithHttpInfo(operation);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Journey schema Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation">The authoring operation whose schema you need.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of JourneySchemaResponse</returns>
+        public OneSignalApi.Client.ApiResponse<JourneySchemaResponse> GetJourneySchemaWithHttpInfo(string operation, int operationIndex = 0)
+        {
+            // verify the required parameter 'operation' is set
+            if (operation == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'operation' when calling DefaultApi->GetJourneySchema");
+            }
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "operation", operation));
+
+            localVarRequestOptions.Operation = "DefaultApi.GetJourneySchema";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<JourneySchemaResponse>("/journeys/schema", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJourneySchema", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Journey schema Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation">The authoring operation whose schema you need.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of JourneySchemaResponse</returns>
+        public async System.Threading.Tasks.Task<JourneySchemaResponse> GetJourneySchemaAsync(string operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            OneSignalApi.Client.ApiResponse<JourneySchemaResponse> localVarResponse = await GetJourneySchemaWithHttpInfoAsync(operation, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Journey schema Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+        /// </summary>
+        /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation">The authoring operation whose schema you need.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (JourneySchemaResponse)</returns>
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<JourneySchemaResponse>> GetJourneySchemaWithHttpInfoAsync(string operation, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'operation' is set
+            if (operation == null)
+            {
+                throw new OneSignalApi.Client.ApiException(400, "Missing required parameter 'operation' when calling DefaultApi->GetJourneySchema");
+            }
+
+
+            OneSignalApi.Client.RequestOptions localVarRequestOptions = new OneSignalApi.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = OneSignalApi.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = OneSignalApi.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "operation", operation));
+
+            localVarRequestOptions.Operation = "DefaultApi.GetJourneySchema";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<JourneySchemaResponse>("/journeys/schema", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJourneySchema", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// View notification View the details of a single notification and outcomes associated with it
         /// </summary>
         /// <exception cref="OneSignalApi.Client.ApiException">Thrown when fails to make API call</exception>
@@ -14103,11 +14299,12 @@ namespace OneSignalApi.Api
         /// <param name="limit">Maximum number of templates. Default and max is 50. (optional, default to 50)</param>
         /// <param name="offset">Pagination offset. (optional, default to 0)</param>
         /// <param name="channel">Filter by delivery channel. (optional)</param>
+        /// <param name="name">Return only templates whose name contains this text, ignoring case. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesListResponse</returns>
-        public TemplatesListResponse ViewTemplates(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), int operationIndex = 0)
+        public TemplatesListResponse ViewTemplates(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), string name = default(string), int operationIndex = 0)
         {
-            OneSignalApi.Client.ApiResponse<TemplatesListResponse> localVarResponse = ViewTemplatesWithHttpInfo(appId, limit, offset, channel);
+            OneSignalApi.Client.ApiResponse<TemplatesListResponse> localVarResponse = ViewTemplatesWithHttpInfo(appId, limit, offset, channel, name);
             return localVarResponse.Data;
         }
 
@@ -14119,9 +14316,10 @@ namespace OneSignalApi.Api
         /// <param name="limit">Maximum number of templates. Default and max is 50. (optional, default to 50)</param>
         /// <param name="offset">Pagination offset. (optional, default to 0)</param>
         /// <param name="channel">Filter by delivery channel. (optional)</param>
+        /// <param name="name">Return only templates whose name contains this text, ignoring case. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesListResponse</returns>
-        public OneSignalApi.Client.ApiResponse<TemplatesListResponse> ViewTemplatesWithHttpInfo(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), int operationIndex = 0)
+        public OneSignalApi.Client.ApiResponse<TemplatesListResponse> ViewTemplatesWithHttpInfo(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), string name = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -14163,6 +14361,10 @@ namespace OneSignalApi.Api
             if (channel != null)
             {
                 localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "channel", channel));
+            }
+            if (name != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
 
             localVarRequestOptions.Operation = "DefaultApi.ViewTemplates";
@@ -14197,12 +14399,13 @@ namespace OneSignalApi.Api
         /// <param name="limit">Maximum number of templates. Default and max is 50. (optional, default to 50)</param>
         /// <param name="offset">Pagination offset. (optional, default to 0)</param>
         /// <param name="channel">Filter by delivery channel. (optional)</param>
+        /// <param name="name">Return only templates whose name contains this text, ignoring case. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesListResponse</returns>
-        public async System.Threading.Tasks.Task<TemplatesListResponse> ViewTemplatesAsync(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplatesListResponse> ViewTemplatesAsync(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), string name = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            OneSignalApi.Client.ApiResponse<TemplatesListResponse> localVarResponse = await ViewTemplatesWithHttpInfoAsync(appId, limit, offset, channel, operationIndex, cancellationToken).ConfigureAwait(false);
+            OneSignalApi.Client.ApiResponse<TemplatesListResponse> localVarResponse = await ViewTemplatesWithHttpInfoAsync(appId, limit, offset, channel, name, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -14214,10 +14417,11 @@ namespace OneSignalApi.Api
         /// <param name="limit">Maximum number of templates. Default and max is 50. (optional, default to 50)</param>
         /// <param name="offset">Pagination offset. (optional, default to 0)</param>
         /// <param name="channel">Filter by delivery channel. (optional)</param>
+        /// <param name="name">Return only templates whose name contains this text, ignoring case. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesListResponse)</returns>
-        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<TemplatesListResponse>> ViewTemplatesWithHttpInfoAsync(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OneSignalApi.Client.ApiResponse<TemplatesListResponse>> ViewTemplatesWithHttpInfoAsync(string appId, int? limit = default(int?), int? offset = default(int?), string channel = default(string), string name = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -14260,6 +14464,10 @@ namespace OneSignalApi.Api
             if (channel != null)
             {
                 localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "channel", channel));
+            }
+            if (name != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(OneSignalApi.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
 
             localVarRequestOptions.Operation = "DefaultApi.ViewTemplates";
