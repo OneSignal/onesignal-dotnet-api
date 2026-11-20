@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**GetEmailProviderMetrics**](DefaultApi.md#getemailprovidermetrics) | **GET** /apps/{app_id}/email_analytics/provider_metrics | Get email inbox provider metrics
 [**GetEmailProviderMetricsTimeseries**](DefaultApi.md#getemailprovidermetricstimeseries) | **GET** /apps/{app_id}/email_analytics/provider_metrics_timeseries | Get email inbox provider metrics over time
 [**GetEmailReputation**](DefaultApi.md#getemailreputation) | **GET** /apps/{app_id}/email_analytics/delivery_metrics | Get email reputation statistics
+[**GetJourneySchema**](DefaultApi.md#getjourneyschema) | **GET** /journeys/schema | Get Journey schema
 [**GetNotification**](DefaultApi.md#getnotification) | **GET** /notifications/{notification_id} | View notification
 [**GetNotificationHistory**](DefaultApi.md#getnotificationhistory) | **POST** /notifications/{notification_id}/history | Notification History
 [**GetNotifications**](DefaultApi.md#getnotifications) | **GET** /notifications | View notifications
@@ -2836,6 +2837,85 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
 
+<a name="getjourneyschema"></a>
+# **GetJourneySchema**
+> JourneySchemaResponse GetJourneySchema (string operation)
+
+Get Journey schema
+
+Retrieve the JSON Schema for a Journey authoring operation without authentication or app context. The response identifies the document to validate. Schema retrieval does not validate permissions or business rules for a later write.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using OneSignalApi.Api;
+using OneSignalApi.Client;
+using OneSignalApi.Model;
+
+namespace Example
+{
+    public class GetJourneySchemaExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.onesignal.com";
+            var apiInstance = new DefaultApi(config);
+            var operation = "create";  // string | The authoring operation whose schema you need.
+
+            try
+            {
+                // Get Journey schema
+                JourneySchemaResponse result = apiInstance.GetJourneySchema(operation);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling DefaultApi.GetJourneySchema: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                // e.ErrorMessages flattens any error-envelope shape to an IReadOnlyList<string>;
+                // the raw body remains on e.ErrorContent.
+                Debug.Print("Error Messages: " + string.Join(", ", e.ErrorMessages));
+                Debug.Print("Response Body: " + e.ErrorContent);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **operation** | **string**| The authoring operation whose schema you need. | 
+
+### Return type
+
+[**JourneySchemaResponse**](JourneySchemaResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The schema and its applicability. |  -  |
+| **400** | Missing or unsupported operation. |  -  |
+| **429** | Rate Limit Exceeded |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](https://github.com/OneSignal/onesignal-dotnet-api#full-api-reference) [[Back to README]](https://github.com/OneSignal/onesignal-dotnet-api)
+
 <a name="getnotification"></a>
 # **GetNotification**
 > NotificationWithMeta GetNotification (string appId, string notificationId)
@@ -5189,7 +5269,7 @@ Name | Type | Description  | Notes
 
 <a name="viewtemplates"></a>
 # **ViewTemplates**
-> TemplatesListResponse ViewTemplates (string appId, int? limit = null, int? offset = null, string channel = null)
+> TemplatesListResponse ViewTemplates (string appId, int? limit = null, int? offset = null, string channel = null, string name = null)
 
 View templates
 
@@ -5220,11 +5300,12 @@ namespace Example
             var limit = 10;  // int? | Maximum number of templates. Default and max is 50. (optional)  (default to 50)
             var offset = 0;  // int? | Pagination offset. (optional)  (default to 0)
             var channel = "push";  // string | Filter by delivery channel. (optional) 
+            var name = "Welcome";  // string | Return only templates whose name contains this text, ignoring case. (optional) 
 
             try
             {
                 // View templates
-                TemplatesListResponse result = apiInstance.ViewTemplates(appId, limit, offset, channel);
+                TemplatesListResponse result = apiInstance.ViewTemplates(appId, limit, offset, channel, name);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -5250,6 +5331,7 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Maximum number of templates. Default and max is 50. | [optional] [default to 50]
  **offset** | **int?**| Pagination offset. | [optional] [default to 0]
  **channel** | **string**| Filter by delivery channel. | [optional] 
+ **name** | **string**| Return only templates whose name contains this text, ignoring case. | [optional] 
 
 ### Return type
 
